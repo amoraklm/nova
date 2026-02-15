@@ -1,1 +1,1 @@
-{\n  "name": "nova",\n  "version": "1.0.0",\n  "main": "main.js",\n  "dependencies": {\n    "electron": "^25.0.0"\n  }\n}
+{\n  "name": "nova",\n  "version": "1.0.0",\n  "description": "A brief description of the project",\n  "main": "index.js",\n  "scripts": {\n    "test": "echo 'Error: no test specified' && exit 1"\n  },\n  "repository": {\n    "type": "git",\n    "url": "git+https://github.com/amoraklm/nova.git"\n  },\n  "keywords": [],\n  "author": "amoraklm",\n  "license": "ISC"\n}
