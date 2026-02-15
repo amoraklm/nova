@@ -1,1 +1,1 @@
-{"name": "nova", "version": "1.0.0", "description": "Telegram-like messaging application", "main": "main.js", "scripts": {"start": "electron .", "dev": "electron . --dev"}, "dependencies": {"sqlite3": "^5.0.0", "express": "^4.17.1"}, "devDependencies": {"electron": "^latest"}}
+{\n  "name": "nova",\n  "version": "1.0.0",\n  "main": "main.js",\n  "dependencies": {\n    "electron": "^25.0.0"\n  }\n}
