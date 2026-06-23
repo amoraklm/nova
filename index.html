@@ -1,19 +1,21 @@
-
-
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>NOVA | جایی که پیام‌ها به نور تبدیل می‌شوند</title>
-    <meta name="description" content="NOVA: ارتباطی فراتر از یک پیام، امن‌تر از همیشه، و همراستا با آینده.">
+    <title>NOVA | ارتباطی به وسعت فردا</title>
+    <meta name="description" content="نووا؛ جایی که پیام‌ها به نور تبدیل می‌شوند. پیام‌رسان امن نسل آینده.">
     <meta name="theme-color" content="#0A0A0F">
+
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%237C3AED'/%3E%3Cstop offset='50%25' stop-color='%23EC4899'/%3E%3Cstop offset='100%25' stop-color='%236366F1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='30' fill='%230A0A0F'/%3E%3Cpath d='M32 8L37 24L52 20L42 32L52 44L37 40L32 56L27 40L12 44L22 32L12 20L27 24Z' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='32' r='5' fill='white' opacity='.85'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%237C3AED'/%3E%3Cstop offset='100%25' stop-color='%23EC4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='30' fill='%230A0A0F'/%3E%3Cpath d='M32 8L37 24L52 20L42 32L52 44L37 40L32 56L27 40L12 44L22 32L12 20L27 24Z' fill='url(%23g)'/%3E%3C/svg%3E">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
     <style>
-        /* ========== فونت فارسی ========== */
         @font-face {
             font-family: 'IRANSansXFaNum';
             src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx-font@latest/dist/IRANSansXFaNum.woff2') format('woff2');
@@ -21,1246 +23,1067 @@
             font-display: swap;
         }
 
-        /* ========== سیستم طراحی NOVA Brand Book ========== */
         :root {
-            /* Primary Colors */
-            --nova-purple: #7C3AED;
-            --nova-purple-rgb: 124, 58, 237;
-            --secondary-purple: #A855F7;
-            --secondary-purple-rgb: 168, 85, 247;
-            --tertiary-blue: #6366F1;
-            --tertiary-blue-rgb: 99, 102, 241;
-
-            /* Accent Colors */
-            --warm-pink: #EC4899;
-            --warm-pink-rgb: 236, 72, 153;
-            --premium-gold: #F59E0B;
-            --premium-gold-rgb: 245, 158, 11;
-            --success-green: #10B981;
-            --success-green-rgb: 16, 185, 129;
-            --error-red: #EF4444;
-
-            /* Neutral Colors */
-            --deep-black: #0A0A0F;
-            --surface-dark: #1E1B2E;
-            --text-muted: #94A3B8;
+            --nova: #7C3AED;
+            --nova-rgb: 124, 58, 237;
+            --secondary: #A855F7;
+            --secondary-rgb: 168, 85, 247;
+            --tertiary: #6366F1;
+            --tertiary-rgb: 99, 102, 241;
+            --pink: #EC4899;
+            --pink-rgb: 236, 72, 153;
+            --gold: #F59E0B;
+            --gold-rgb: 245, 158, 11;
+            --green: #10B981;
+            --green-rgb: 16, 185, 129;
+            --red: #EF4444;
+            --bg: #0A0A0F;
+            --surface: #1E1B2E;
+            --muted: #94A3B8;
             --white: #FFFFFF;
-
-            /* Claymorphism & Glass */
-            --clay-bg: rgba(255, 255, 255, 0.08);
-            --clay-bg-strong: rgba(255, 255, 255, 0.12);
-            --clay-border: rgba(255, 255, 255, 0.15);
-            --clay-border-active: rgba(124, 58, 237, 0.6);
-            --clay-highlight: rgba(255, 255, 255, 0.18);
+            --shimmer: linear-gradient(135deg, var(--nova), var(--pink), var(--tertiary));
+            --shimmer-anim: linear-gradient(-45deg, var(--nova), var(--pink), var(--tertiary), var(--secondary), var(--nova));
+            --shimmer-size: 300% 300%;
+            --clay-bg: rgba(255,255,255,0.06);
+            --clay-border: rgba(255,255,255,0.1);
+            --clay-active: rgba(var(--nova-rgb),0.5);
             --clay-blur: blur(20px) saturate(150%);
-
-            /* Claymorphism Shadows (Inner + Outer) */
-            --clay-shadow: 
-                8px 8px 16px rgba(0, 0, 0, 0.4),
-                -4px -4px 12px rgba(255, 255, 255, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.12),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-            --clay-shadow-hover:
-                12px 12px 24px rgba(0, 0, 0, 0.5),
-                -6px -6px 16px rgba(255, 255, 255, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.25);
-            --clay-shadow-pressed:
-                inset 6px 6px 12px rgba(0, 0, 0, 0.4),
-                inset -4px -4px 10px rgba(255, 255, 255, 0.05);
-
-            /* Gradient Shimmer */
-            --gradient-shimmer: linear-gradient(135deg, #7C3AED, #EC4899, #6366F1);
-            --gradient-shimmer-animated: linear-gradient(-45deg, #7C3AED, #EC4899, #6366F1, #A855F7, #7C3AED);
-            --gradient-size: 300% 300%;
-
-            /* Button Shadows (4 layers as per brand book) */
-            --btn-primary-shadow:
-                0 4px 6px rgba(124, 58, 237, 0.25),
-                0 8px 15px rgba(124, 58, 237, 0.2),
-                0 16px 30px rgba(124, 58, 237, 0.15),
-                0 24px 45px rgba(124, 58, 237, 0.1);
-
-            /* Animation Easing (Brand Book) */
-            --ease-brand: cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-fast: 250ms var(--ease-brand);
-            --transition-normal: 350ms var(--ease-brand);
-            --transition-slow: 500ms var(--ease-brand);
-
-            /* Spacing & Radius */
-            --radius-sm: 12px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --radius-xl: 32px;
-            --radius-full: 9999px;
-            --space-sm: 16px;
-            --space-md: 24px;
-            --space-lg: 40px;
-            --space-xl: 64px;
-            --max-width: 1400px;
-            --container-padding: clamp(1rem, 5vw, 3rem);
+            --clay-shadow: 8px 8px 20px rgba(0,0,0,0.45), -4px -4px 14px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.1), inset 0 -1px 0 rgba(0,0,0,0.15);
+            --clay-shadow-hover: 14px 14px 30px rgba(0,0,0,0.55), -6px -6px 18px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.14);
+            --btn-shadow: 0 4px 6px rgba(var(--nova-rgb),0.25), 0 8px 15px rgba(var(--nova-rgb),0.2), 0 16px 30px rgba(var(--nova-rgb),0.15), 0 24px 45px rgba(var(--nova-rgb),0.1);
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --fast: 250ms var(--ease);
+            --normal: 350ms var(--ease);
+            --slow: 500ms var(--ease);
+            --r-sm: 12px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px; --r-full: 9999px;
+            --max-w: 1400px;
+            --pad: clamp(1rem, 5vw, 3rem);
         }
 
-        /* ========== ریست و پایه ========== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
 
         html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 90px; }
-
         body {
-            font-family: 'IRANSansXFaNum', 'Inter', system-ui, -apple-system, sans-serif;
-            background: var(--deep-black);
-            color: var(--white);
-            line-height: 1.75;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-tap-highlight-color: transparent;
+            font-family: 'IRANSansXFaNum', 'Inter', system-ui, sans-serif;
+            background: var(--bg); color: var(--white); line-height: 1.75; overflow-x: hidden;
+            -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent;
         }
 
-        /* ========== Aurora Background ========== */
-        .aurora-bg {
+        /* ===== Keyframes ===== */
+        @keyframes shimmer { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+        @keyframes up { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeScale { from{opacity:0;transform:scale(0.94)} to{opacity:1;transform:scale(1)} }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+        @keyframes float2 { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-12px) rotate(3deg)} }
+        @keyframes pulse { 0%,100%{opacity:.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+        @keyframes orbit { from{transform:rotate(0deg) translateX(140px) rotate(0deg)} to{transform:rotate(360deg) translateX(140px) rotate(-360deg)} }
+        @keyframes orbit2 { from{transform:rotate(120deg) translateX(110px) rotate(-120deg)} to{transform:rotate(480deg) translateX(110px) rotate(-480deg)} }
+        @keyframes orbit3 { from{transform:rotate(240deg) translateX(170px) rotate(-240deg)} to{transform:rotate(600deg) translateX(170px) rotate(-600deg)} }
+        @keyframes spin-slow { to{transform:rotate(360deg)} }
+        @keyframes morph { 0%,100%{border-radius:42% 58% 62% 38% / 45% 55% 45% 55%} 25%{border-radius:55% 45% 38% 62% / 52% 48% 52% 48%} 50%{border-radius:38% 62% 55% 45% / 58% 42% 58% 42%} 75%{border-radius:62% 38% 45% 55% / 42% 58% 42% 58%} }
+        @keyframes dash { to{stroke-dashoffset:0} }
+        @keyframes wave { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+        @keyframes breathe { 0%,100%{box-shadow:0 0 0 0 rgba(var(--nova-rgb),0.4)} 50%{box-shadow:0 0 0 10px transparent} }
+        @keyframes counter-glow { 0%,100%{text-shadow:0 0 8px rgba(var(--nova-rgb),0.5)} 50%{text-shadow:0 0 20px rgba(var(--pink-rgb),0.4)} }
+        @keyframes typing { from{width:0} to{width:100%} }
+        @keyframes blink { 50%{border-color:transparent} }
+        @keyframes progress { from{width:0} to{width:100%} }
+        @keyframes particle-float {
+            0%{transform:translate(0,0) scale(1);opacity:0.6}
+            25%{transform:translate(30px,-40px) scale(1.2);opacity:0.8}
+            50%{transform:translate(-20px,-80px) scale(0.8);opacity:0.4}
+            75%{transform:translate(40px,-120px) scale(1.1);opacity:0.2}
+            100%{transform:translate(0,-160px) scale(0.6);opacity:0}
+        }
+
+        /* ===== Aurora BG ===== */
+        .aurora {
             position: fixed; inset: 0; pointer-events: none; z-index: 0;
             background:
-                radial-gradient(ellipse at 20% 20%, rgba(var(--nova-purple-rgb), 0.12) 0%, transparent 55%),
-                radial-gradient(ellipse at 80% 80%, rgba(var(--warm-pink-rgb), 0.08) 0%, transparent 55%),
-                radial-gradient(ellipse at 50% 50%, rgba(var(--tertiary-blue-rgb), 0.06) 0%, transparent 65%);
-            filter: blur(60px);
-            animation: aurora-drift 20s ease-in-out infinite alternate;
-        }
-        @keyframes aurora-drift {
-            0% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(15px, -10px) scale(1.02); }
-            66% { transform: translate(-10px, 15px) scale(0.98); }
-            100% { transform: translate(5px, -5px) scale(1.01); }
+                radial-gradient(ellipse at 15% 15%, rgba(var(--nova-rgb),0.14) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 80%, rgba(var(--pink-rgb),0.09) 0%, transparent 55%),
+                radial-gradient(ellipse at 45% 50%, rgba(var(--tertiary-rgb),0.07) 0%, transparent 60%);
+            filter: blur(55px);
         }
 
-        /* ========== Keyframes ========== */
-        @keyframes shimmer-shift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-        @keyframes slide-up { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-        @keyframes fade-scale { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:scale(1)} }
-        @keyframes glow-breathe { 0%,100%{box-shadow:0 0 0 0 rgba(var(--nova-purple-rgb),0.4)} 50%{box-shadow:0 0 0 8px transparent} }
-        @keyframes float-gentle { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
-        @keyframes pop-out { 0%{transform:scale(0.7);opacity:0} 60%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
-        @keyframes progress-bar { from{width:0} to{width:100%} }
-        @keyframes spinner-rotate { to{transform:rotate(360deg)} }
-        @keyframes counter-glow { 0%,100%{text-shadow:0 0 8px rgba(var(--nova-purple-rgb),0.5)} 50%{text-shadow:0 0 18px rgba(var(--warm-pink-rgb),0.4)} }
-
-        /* ========== Accessibility ========== */
-        :focus-visible { outline: 3px solid var(--nova-purple); outline-offset: 4px; border-radius: var(--radius-sm); }
-        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-
-        /* ========== Scroll Progress (shimmer gradient) ========== */
-        .scroll-progress {
+        /* ===== Scroll Progress ===== */
+        .scroll-bar {
             position: fixed; top: 0; left: 0; height: 4px; z-index: 1000;
-            background: var(--gradient-shimmer);
-            box-shadow: 0 0 12px rgba(var(--nova-purple-rgb), 0.5);
-            transition: width 0.1s linear;
+            background: var(--shimmer); box-shadow: 0 0 14px rgba(var(--nova-rgb),0.5);
         }
 
-        /* ========== Floating Nav ========== */
-        .floating-nav {
+        /* ===== Accessibility ===== */
+        :focus-visible { outline: 3px solid var(--nova); outline-offset: 4px; border-radius: var(--r-sm); }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+        /* ===== Floating Nav ===== */
+        .side-nav {
             position: fixed; left: clamp(1rem, 3vw, 2rem); top: 50%; transform: translateY(-50%);
-            z-index: 500; display: flex; flex-direction: column; gap: 0.75rem; padding: 0.75rem;
-            background: var(--clay-bg); backdrop-filter: var(--clay-blur); -webkit-backdrop-filter: var(--clay-blur);
-            border: 1px solid var(--clay-border); border-radius: var(--radius-lg);
+            z-index: 500; display: flex; flex-direction: column; gap: 0.7rem; padding: 0.7rem;
+            background: var(--clay-bg); backdrop-filter: var(--clay-blur);
+            border: 1px solid var(--clay-border); border-radius: var(--r-lg);
             box-shadow: var(--clay-shadow);
-            transition: all var(--transition-normal);
         }
-        .floating-nav:hover { border-color: var(--clay-border-active); }
+        .side-dot {
+            width: 10px; height: 10px; border-radius: 50%; background: var(--muted); border: 2px solid transparent;
+            cursor: pointer; transition: all var(--fast); position: relative;
+        }
+        .side-dot::after {
+            content: attr(data-tip); position: absolute; right: 22px; top: 50%; transform: translateY(-50%) translateX(6px);
+            background: var(--surface); color: var(--white); padding: 0.25rem 0.7rem; border-radius: var(--r-sm);
+            font-size: 0.75rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: all var(--fast);
+            pointer-events: none; border: 1px solid var(--clay-border);
+        }
+        .side-dot:hover::after { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0); }
+        .side-dot.active { background: var(--shimmer); border-color: var(--nova); box-shadow: 0 0 12px rgba(var(--nova-rgb),0.5); transform: scale(1.4); }
+        .side-dot:hover:not(.active) { background: var(--secondary); transform: scale(1.2); }
 
-        .nav-dot {
-            width: 11px; height: 11px; border-radius: 50%; background: var(--text-muted); border: 2px solid transparent;
-            cursor: pointer; transition: all var(--transition-fast); position: relative;
-        }
-        .nav-dot::after {
-            content: attr(data-label); position: absolute; right: 24px; top: 50%; transform: translateY(-50%) translateX(8px);
-            background: var(--surface-dark); color: var(--white); padding: 0.3rem 0.8rem; border-radius: var(--radius-sm);
-            font-size: 0.78rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: all var(--transition-fast);
-            pointer-events: none; border: 1px solid var(--clay-border); backdrop-filter: blur(12px);
-        }
-        .nav-dot:hover::after { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0); }
-        .nav-dot.active {
-            background: var(--gradient-shimmer); border-color: var(--nova-purple);
-            box-shadow: 0 0 12px rgba(var(--nova-purple-rgb), 0.5); transform: scale(1.35);
-        }
-        .nav-dot:hover:not(.active) { background: var(--secondary-purple); transform: scale(1.2); }
-
-        /* ========== Header (Claymorphism) ========== */
+        /* ===== Header ===== */
         .header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 600;
-            background: rgba(10, 10, 15, 0.7); backdrop-filter: var(--clay-blur); -webkit-backdrop-filter: var(--clay-blur);
-            border-bottom: 1px solid var(--clay-border); padding: 0 var(--container-padding);
-            transition: all var(--transition-normal);
+            background: rgba(10,10,15,0.7); backdrop-filter: var(--clay-blur);
+            border-bottom: 1px solid var(--clay-border); padding: 0 var(--pad);
+            transition: all var(--normal);
         }
-        .header.scrolled {
-            background: rgba(10, 10, 15, 0.85); border-bottom-color: var(--clay-border-active);
-            box-shadow: var(--clay-shadow);
+        .header.stuck { background: rgba(10,10,15,0.88); border-bottom-color: var(--clay-active); box-shadow: var(--clay-shadow); }
+        .header-in {
+            max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center;
+            justify-content: space-between; height: 80px; transition: height var(--normal);
         }
-        .header-inner {
-            max-width: var(--max-width); margin: 0 auto; display: flex; align-items: center; justify-content: space-between;
-            height: 82px; gap: 1rem; transition: height var(--transition-normal);
-        }
-        .header.scrolled .header-inner { height: 72px; }
+        .header.stuck .header-in { height: 68px; }
 
-        /* Logo: Nova star icon concept + text */
-        .logo {
-            font-size: 2rem; font-weight: 800; letter-spacing: 0.03em; cursor: pointer; position: relative;
-            display: flex; align-items: center; gap: 0.6rem;
-            color: var(--white); text-decoration: none;
-            transition: transform var(--transition-fast);
-        }
-        .logo-icon {
-            width: 36px; height: 36px; position: relative; display: flex; align-items: center; justify-content: center;
-        }
-        .logo-icon svg { width: 100%; height: 100%; filter: drop-shadow(0 2px 8px rgba(var(--nova-purple-rgb), 0.5)); }
-        .logo-text {
-            background: linear-gradient(135deg, var(--white) 30%, var(--secondary-purple));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .logo-glow {
-            position: absolute; inset: -12px; background: var(--gradient-shimmer); border-radius: var(--radius-lg);
-            filter: blur(28px); opacity: 0; transition: opacity var(--transition-normal); z-index: -1;
-        }
+        .logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; cursor: pointer; transition: transform var(--fast); position: relative; }
         .logo:hover { transform: scale(1.03); }
-        .logo:hover .logo-glow { opacity: 0.35; }
+        .logo-star { width: 34px; height: 34px; }
+        .logo-star svg { width: 100%; height: 100%; filter: drop-shadow(0 2px 8px rgba(var(--nova-rgb),0.5)); }
+        .logo-txt { font-size: 1.8rem; font-weight: 800; letter-spacing: 0.03em; background: linear-gradient(135deg, var(--white) 30%, var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo-glow { position: absolute; inset: -12px; background: var(--shimmer); border-radius: var(--r-lg); filter: blur(28px); opacity: 0; transition: opacity var(--normal); z-index: -1; }
+        .logo:hover .logo-glow { opacity: 0.3; }
 
-        /* Navigation */
-        .nav { display: flex; align-items: center; gap: 0.35rem; }
-        .nav-link {
-            color: var(--text-muted); text-decoration: none; padding: 0.65rem 1.1rem; border-radius: var(--radius-sm);
-            font-size: 0.94rem; font-weight: 500; position: relative; transition: all var(--transition-fast);
-            border: 1.5px solid transparent;
-        }
-        .nav-link:hover, .nav-link:focus-visible { color: var(--white); border-color: rgba(var(--nova-purple-rgb), 0.4); background: rgba(var(--nova-purple-rgb), 0.1); }
-        .nav-link.active { color: var(--white); border-color: var(--nova-purple); background: rgba(var(--nova-purple-rgb), 0.12); }
+        .nav { display: flex; align-items: center; gap: 0.3rem; }
+        .nav-link { color: var(--muted); text-decoration: none; padding: 0.6rem 1rem; border-radius: var(--r-sm); font-size: 0.92rem; font-weight: 500; border: 1.5px solid transparent; transition: all var(--fast); }
+        .nav-link:hover { color: var(--white); border-color: rgba(var(--nova-rgb),0.35); background: rgba(var(--nova-rgb),0.08); }
+        .nav-link.active { color: var(--white); border-color: var(--nova); background: rgba(var(--nova-rgb),0.12); }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
+        .mob-btn {
             display: none; background: var(--clay-bg); border: 1.5px solid var(--clay-border); color: var(--white);
-            font-size: 1.5rem; cursor: pointer; padding: 0.5rem; border-radius: var(--radius-md); transition: all var(--transition-fast);
-            position: relative; z-index: 601; backdrop-filter: blur(12px);
+            font-size: 1.4rem; cursor: pointer; padding: 0.45rem; border-radius: var(--r-md); transition: all var(--fast); z-index: 601; backdrop-filter: blur(12px);
         }
-        .mobile-menu-btn:hover { background: rgba(var(--nova-purple-rgb), 0.2); border-color: var(--nova-purple); }
-        #menu-toggle { display: none; }
+        .mob-btn:hover { background: rgba(var(--nova-rgb),0.2); border-color: var(--nova); }
+        #mob-toggle { display: none; }
 
-        /* ========== Buttons (Brand Book Spec) ========== */
+        /* ===== Buttons ===== */
         .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-            padding: 0.85rem 2rem; border-radius: var(--radius-md); font-weight: 700; font-size: 0.95rem;
-            text-decoration: none; transition: all var(--transition-normal); border: none; cursor: pointer;
-            font-family: inherit; white-space: nowrap; position: relative; overflow: hidden;
-            user-select: none; will-change: transform;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            padding: 0.8rem 1.9rem; border-radius: var(--r-md); font-weight: 700; font-size: 0.95rem;
+            text-decoration: none; transition: all var(--normal); border: none; cursor: pointer;
+            font-family: inherit; white-space: nowrap; position: relative; overflow: hidden; user-select: none;
         }
-
-        /* Primary Button: Gradient purple-pink, 4-layer shadow, 16px radius, 1px white matte border */
         .btn-primary {
-            background: var(--gradient-shimmer); color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: var(--radius-md);
-            box-shadow: var(--btn-primary-shadow);
+            background: var(--shimmer); color: var(--white); border: 1px solid rgba(255,255,255,0.22);
+            box-shadow: var(--btn-shadow);
         }
-        .btn-primary::before {
-            content: ''; position: absolute; inset: 0; border-radius: inherit;
-            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow:
-                0 6px 10px rgba(var(--nova-purple-rgb), 0.3),
-                0 12px 20px rgba(var(--nova-purple-rgb), 0.25),
-                0 20px 40px rgba(var(--nova-purple-rgb), 0.2),
-                0 30px 60px rgba(var(--nova-purple-rgb), 0.15);
-        }
-        .btn-primary:active { transform: translateY(-1px) scale(0.98); transition-duration: 100ms; }
+        .btn-primary::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 50%); pointer-events: none; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 10px rgba(var(--nova-rgb),0.3), 0 12px 22px rgba(var(--nova-rgb),0.25), 0 22px 44px rgba(var(--nova-rgb),0.2), 0 32px 65px rgba(var(--nova-rgb),0.15); }
+        .btn-primary:active { transform: translateY(-1px) scale(0.98); }
 
-        /* Secondary Button: Glass, blur 12px, white 0.5 border */
         .btn-glass {
-            background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.12); color: var(--white);
-            border-radius: var(--radius-md);
-            box-shadow: var(--clay-shadow);
+            background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1);
+            color: var(--white); box-shadow: var(--clay-shadow);
         }
-        .btn-glass:hover {
-            transform: translateY(-3px);
-            background: rgba(var(--nova-purple-rgb), 0.15); border-color: rgba(var(--nova-purple-rgb), 0.5);
-            box-shadow: var(--clay-shadow-hover);
-        }
-        .btn-glass:active { transform: translateY(-1px) scale(0.98); transition-duration: 100ms; }
+        .btn-glass:hover { transform: translateY(-3px); background: rgba(var(--nova-rgb),0.12); border-color: rgba(var(--nova-rgb),0.4); }
 
-        /* Ripple Effect */
         .ripple {
             position: absolute; border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.1) 50%, transparent 80%);
-            transform: scale(0); animation: ripple-effect 0.6s var(--ease-brand) forwards;
-            pointer-events: none; z-index: 1;
+            background: radial-gradient(circle, rgba(255,255,255,0.5), transparent 70%);
+            transform: scale(0); animation: ripple-fx 0.6s var(--ease) forwards; pointer-events: none; z-index: 1;
         }
-        @keyframes ripple-effect { to { transform: scale(3.5); opacity: 0; } }
+        @keyframes ripple-fx { to { transform: scale(3.5); opacity: 0; } }
 
-        /* ========== Main Content ========== */
-        .main { max-width: var(--max-width); margin: 0 auto; padding: 2.5rem var(--container-padding) 4.5rem; position: relative; z-index: 10; }
+        /* ===== Main ===== */
+        .main { max-width: var(--max-w); margin: 0 auto; padding: 2rem var(--pad) 4rem; position: relative; z-index: 10; }
 
-        /* ========== Sections ========== */
-        .section { margin-bottom: var(--space-xl); }
-        .section-header { text-align: center; margin-bottom: var(--space-lg); position: relative; }
+        /* ===== Section Helpers ===== */
+        .sec { margin-bottom: 6rem; }
+        .sec-head { text-align: center; margin-bottom: 3.5rem; }
+        .sec-tag { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(var(--nova-rgb),0.1); border: 1px solid rgba(var(--nova-rgb),0.25); color: var(--secondary); padding: 0.3rem 0.9rem; border-radius: var(--r-full); font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.03em; }
+        .sec-title { font-size: clamp(1.7rem, 5vw, 2.8rem); font-weight: 800; line-height: 1.2; letter-spacing: 0.03em; margin-bottom: 0.8rem; }
+        .grad { background: var(--shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .sec-sub { color: var(--muted); font-size: 1.02rem; max-width: 600px; margin: 0 auto; line-height: 1.85; font-weight: 400; }
 
-        .section-tag {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            background: rgba(var(--nova-purple-rgb), 0.12); border: 1px solid rgba(var(--nova-purple-rgb), 0.3);
-            color: var(--secondary-purple); padding: 0.35rem 1rem; border-radius: var(--radius-full);
-            font-size: 0.82rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.03em;
-        }
-
-        .section-title {
-            font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; margin-bottom: 1rem;
-            line-height: 1.2; letter-spacing: 0.03em; color: var(--white);
-        }
-        .section-title .gradient-text {
-            background: var(--gradient-shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-
-        .section-subtitle {
-            color: var(--text-muted); font-size: 1.05rem; max-width: 640px; margin: 0 auto; line-height: 1.8;
-            font-weight: 400;
-        }
-
-        /* ========== Hero Section ========== */
-        .hero {
-            min-height: 92vh; display: flex; align-items: center; justify-content: center; text-align: center;
-            position: relative; padding: clamp(4rem, 12vw, 8rem) clamp(1.5rem, 6vw, 3.5rem);
-            margin-bottom: var(--space-lg);
-            overflow: hidden;
-        }
+        /* ===== HERO ===== */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 6rem var(--pad); }
         .hero-aurora {
-            position: absolute; inset: 0; pointer-events: none; z-index: 0;
+            position: absolute; inset: 0; pointer-events: none;
             background:
-                radial-gradient(ellipse 600px 400px at 30% 30%, rgba(var(--nova-purple-rgb), 0.22) 0%, transparent 70%),
-                radial-gradient(ellipse 500px 350px at 70% 70%, rgba(var(--warm-pink-rgb), 0.15) 0%, transparent 70%),
-                radial-gradient(ellipse 400px 300px at 50% 50%, rgba(var(--tertiary-blue-rgb), 0.1) 0%, transparent 70%);
+                radial-gradient(ellipse 650px 450px at 25% 30%, rgba(var(--nova-rgb),0.25) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 350px at 75% 70%, rgba(var(--pink-rgb),0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 400px 300px at 50% 50%, rgba(var(--tertiary-rgb),0.12) 0%, transparent 70%);
             filter: blur(50px);
-            animation: aurora-drift 15s ease-in-out infinite alternate;
         }
 
-        /* Nova Star Decoration */
-        .hero-star {
-            position: absolute; z-index: 1; opacity: 0.06; pointer-events: none;
+        /* Orbital Visual */
+        .hero-visual { position: absolute; left: 50%; top: 50%; width: 500px; height: 500px; transform: translate(-50%, -50%); pointer-events: none; z-index: 1; }
+        .orbit-ring {
+            position: absolute; inset: 0; border: 1px solid rgba(var(--nova-rgb),0.1); border-radius: 50%;
+            animation: spin-slow 40s linear infinite;
         }
-        .hero-star-1 { top: 15%; right: 10%; width: 200px; height: 200px; animation: float-gentle 8s ease-in-out infinite; }
-        .hero-star-2 { bottom: 20%; left: 8%; width: 150px; height: 150px; animation: float-gentle 10s ease-in-out infinite reverse; }
-
-        .hero-content { position: relative; z-index: 2; max-width: 860px; }
-
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: rgba(var(--nova-purple-rgb), 0.15); border: 1px solid rgba(var(--nova-purple-rgb), 0.35);
-            color: var(--secondary-purple); padding: 0.45rem 1.4rem; border-radius: var(--radius-full);
-            font-size: 0.88rem; font-weight: 600; margin-bottom: 2rem;
-            box-shadow: var(--clay-shadow); transition: all var(--transition-fast);
-            backdrop-filter: blur(12px);
+        .orbit-ring:nth-child(2) { inset: 40px; border-color: rgba(var(--pink-rgb),0.08); animation-duration: 55s; animation-direction: reverse; }
+        .orbit-ring:nth-child(3) { inset: 80px; border-color: rgba(var(--tertiary-rgb),0.06); animation-duration: 70s; }
+        .orbit-particle {
+            position: absolute; left: 50%; top: 50%; width: 12px; height: 12px; margin: -6px; border-radius: 50%;
         }
-        .hero-badge:hover { transform: translateY(-2px); border-color: var(--nova-purple); }
-        .hero-badge-dot {
-            width: 8px; height: 8px; border-radius: 50%; background: var(--success-green);
-            box-shadow: 0 0 8px rgba(var(--success-green-rgb), 0.6);
-            animation: glow-breathe 2s ease-in-out infinite;
+        .orbit-particle:nth-child(4) { background: var(--nova); box-shadow: 0 0 15px rgba(var(--nova-rgb),0.6); animation: orbit 12s linear infinite; }
+        .orbit-particle:nth-child(5) { background: var(--pink); box-shadow: 0 0 12px rgba(var(--pink-rgb),0.5); width: 8px; height: 8px; margin: -4px; animation: orbit2 18s linear infinite; }
+        .orbit-particle:nth-child(6) { background: var(--tertiary); box-shadow: 0 0 10px rgba(var(--tertiary-rgb),0.5); width: 6px; height: 6px; margin: -3px; animation: orbit3 25s linear infinite; }
+
+        /* Morphing blob */
+        .hero-blob {
+            position: absolute; left: 50%; top: 50%; width: 220px; height: 220px; transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(var(--nova-rgb),0.15), rgba(var(--pink-rgb),0.08), transparent 70%);
+            animation: morph 15s ease-in-out infinite; filter: blur(30px); pointer-events: none; z-index: 0;
         }
 
-        .hero h1 {
-            font-size: clamp(2.6rem, 8vw, 4.8rem); font-weight: 800; margin-bottom: 1.5rem;
-            line-height: 1.15; letter-spacing: 0.03em; color: var(--white);
+        .hero-content { position: relative; z-index: 3; text-align: center; max-width: 800px; margin: 0 auto; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(var(--nova-rgb),0.12); border: 1px solid rgba(var(--nova-rgb),0.3); color: var(--secondary); padding: 0.4rem 1.3rem; border-radius: var(--r-full); font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem; backdrop-filter: blur(10px); }
+        .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px rgba(var(--green-rgb),0.6); animation: breathe 2s ease-in-out infinite; }
+
+        .hero h1 { font-size: clamp(2.5rem, 7.5vw, 4.5rem); font-weight: 800; line-height: 1.12; letter-spacing: 0.03em; margin-bottom: 1.5rem; }
+        .hero h1 .hl { position: relative; display: inline; }
+        .hero h1 .hl::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 4px; background: var(--shimmer); border-radius: var(--r-full); opacity: 0.7; }
+        .hero p { font-size: clamp(1rem, 2.3vw, 1.2rem); color: var(--muted); max-width: 650px; margin: 0 auto 2.5rem; line-height: 2; }
+        .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.5rem; }
+        .hero-stats { display: flex; justify-content: center; gap: clamp(2rem, 5vw, 3.5rem); flex-wrap: wrap; padding-top: 2.2rem; border-top: 1px solid rgba(255,255,255,0.07); }
+        .h-stat { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; cursor: default; transition: all var(--fast); }
+        .h-stat:hover { transform: translateY(-3px); }
+        .h-stat-val { font-size: 1.9rem; font-weight: 800; background: var(--shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: counter-glow 4s ease-in-out infinite; }
+        .h-stat-lbl { color: var(--muted); font-size: 0.85rem; }
+
+        /* ===== INTERACTIVE DEMO PHONE ===== */
+        .demo-sec { position: relative; padding: 4rem 0; }
+        .demo-wrap { display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap; }
+        .demo-phone {
+            width: 280px; height: 560px; border-radius: 40px; background: var(--surface);
+            border: 3px solid rgba(255,255,255,0.1); position: relative; overflow: hidden;
+            box-shadow: var(--clay-shadow-hover), 0 0 60px rgba(var(--nova-rgb),0.15);
+            flex-shrink: 0;
         }
-        .hero h1 .highlight {
-            background: var(--gradient-shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text; position: relative;
+        .phone-notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 100px; height: 28px; background: var(--bg); border-radius: 0 0 18px 18px; z-index: 5; }
+        .phone-notch::after { content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; border-radius: 50%; background: rgba(var(--nova-rgb),0.5); }
+        .phone-screen { position: absolute; inset: 3px; border-radius: 37px; overflow: hidden; background: var(--bg); }
+
+        /* Chat UI inside phone */
+        .chat-ui { padding: 50px 14px 14px; height: 100%; display: flex; flex-direction: column; gap: 8px; }
+        .chat-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .chat-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--shimmer); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+        .chat-name { font-size: 0.8rem; font-weight: 600; color: var(--white); }
+        .chat-online { font-size: 0.65rem; color: var(--green); }
+
+        .chat-bubble {
+            max-width: 85%; padding: 8px 12px; border-radius: 14px; font-size: 0.72rem; line-height: 1.6;
+            animation: up 0.5s var(--ease) both;
         }
-        .hero h1 .highlight::after {
-            content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 4px;
-            background: var(--gradient-shimmer); border-radius: var(--radius-full); opacity: 0.6;
+        .chat-bubble.received { background: rgba(var(--nova-rgb),0.15); border: 1px solid rgba(var(--nova-rgb),0.2); align-self: flex-start; color: var(--white); }
+        .chat-bubble.sent { background: var(--nova); color: var(--white); align-self: flex-end; }
+        .chat-bubble:nth-child(2) { animation-delay: 0.3s; }
+        .chat-bubble:nth-child(3) { animation-delay: 0.8s; }
+        .chat-bubble:nth-child(4) { animation-delay: 1.4s; }
+        .chat-bubble:nth-child(5) { animation-delay: 2s; }
+
+        .chat-typing { display: flex; gap: 4px; align-self: flex-start; padding: 8px 14px; animation: up 0.5s var(--ease) both; animation-delay: 2.6s; opacity: 0; }
+        .typing-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); animation: pulse 1.2s ease-in-out infinite; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        .demo-info { max-width: 420px; }
+        .demo-info h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; }
+        .demo-features { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+        .demo-feat { display: flex; align-items: flex-start; gap: 0.8rem; }
+        .demo-feat-icon { width: 40px; height: 40px; border-radius: var(--r-md); background: rgba(var(--nova-rgb),0.12); border: 1px solid rgba(var(--nova-rgb),0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .demo-feat-text h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; }
+        .demo-feat-text p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+        /* ===== CONNECTION VISUALIZATION ===== */
+        .connect-sec { position: relative; padding: 4rem 0; overflow: hidden; }
+        .connect-canvas {
+            width: 100%; max-width: 700px; height: 400px; margin: 0 auto; position: relative;
+        }
+        .connect-node {
+            position: absolute; width: 60px; height: 60px; border-radius: 50%;
+            background: var(--clay-bg); backdrop-filter: blur(12px); border: 2px solid var(--clay-border);
+            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+            box-shadow: var(--clay-shadow); transition: all var(--normal); cursor: pointer; z-index: 2;
+        }
+        .connect-node:hover { transform: scale(1.15); border-color: var(--nova); box-shadow: 0 0 25px rgba(var(--nova-rgb),0.4); }
+        .connect-node:nth-child(1) { top: 10%; left: 50%; transform: translateX(-50%); }
+        .connect-node:nth-child(2) { top: 40%; left: 15%; }
+        .connect-node:nth-child(3) { top: 40%; right: 15%; }
+        .connect-node:nth-child(4) { bottom: 15%; left: 30%; }
+        .connect-node:nth-child(5) { bottom: 15%; right: 30%; }
+        .connect-node:nth-child(6) { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; font-size: 1.8rem; background: rgba(var(--nova-rgb),0.2); border-color: var(--nova); box-shadow: 0 0 30px rgba(var(--nova-rgb),0.3); }
+
+        .connect-lines { position: absolute; inset: 0; z-index: 1; }
+        .connect-line {
+            stroke: url(#lineGrad); stroke-width: 1.5; fill: none; opacity: 0.3;
+            stroke-dasharray: 8 4; animation: dash 2s linear infinite;
         }
 
-        .hero p {
-            font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--text-muted); max-width: 700px;
-            margin: 0 auto 2.5rem; line-height: 2; font-weight: 400;
+        /* ===== SERVICES BENTO GRID ===== */
+        .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto; gap: 1.5rem; margin-bottom: 5rem; }
+        .bento-item {
+            background: var(--clay-bg); backdrop-filter: var(--clay-blur); border: 1px solid var(--clay-border);
+            border-radius: var(--r-lg); padding: 2rem; position: relative; overflow: hidden;
+            box-shadow: var(--clay-shadow); transition: all var(--normal); cursor: pointer;
         }
+        .bento-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 45%; background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent); border-radius: var(--r-lg) var(--r-lg) 0 0; pointer-events: none; }
+        .bento-item:hover { transform: translateY(-6px); box-shadow: var(--clay-shadow-hover); border-color: rgba(var(--nova-rgb),0.3); }
+        .bento-item:hover::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); animation: shimmer-sweep 0.8s var(--ease) forwards; }
+        @keyframes shimmer-sweep { to { left: 100%; } }
 
-        .hero-actions { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.5rem; }
+        .b-big { grid-column: span 2; grid-row: span 2; }
+        .b-wide { grid-column: span 2; }
+        .b-tall { grid-row: span 2; }
 
-        .hero-stats {
-            display: flex; justify-content: center; gap: clamp(2.5rem, 6vw, 4rem); flex-wrap: wrap;
-            padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.08);
-        }
-        .hero-stat { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; cursor: default; transition: all var(--transition-fast); }
-        .hero-stat:hover { transform: translateY(-3px); }
-        .hero-stat-value {
-            font-size: 2rem; font-weight: 800;
-            background: var(--gradient-shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-            animation: counter-glow 4s ease-in-out infinite;
-        }
-        .hero-stat-label { color: var(--text-muted); font-size: 0.88rem; font-weight: 400; }
+        .bento-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; animation: float 5s ease-in-out infinite; }
+        .bento-item:nth-child(2) .bento-icon { animation-delay: -1s; }
+        .bento-item:nth-child(3) .bento-icon { animation-delay: -2s; }
+        .bento-item:nth-child(4) .bento-icon { animation-delay: -3s; }
+        .bento-item:nth-child(5) .bento-icon { animation-delay: -4s; }
+        .bento-item h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; }
+        .bento-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
 
-        /* ========== Service Cards (Claymorphism) ========== */
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-md); margin-bottom: var(--space-xl);
-        }
+        /* Mini-visual inside bento */
+        .bento-visual { margin-top: 1.2rem; }
 
-        .service-card {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: var(--clay-blur); -webkit-backdrop-filter: var(--clay-blur);
-            border-radius: var(--radius-lg); padding: 2.5rem 2rem; text-align: center;
-            box-shadow: var(--clay-shadow);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all var(--transition-normal);
-            cursor: pointer; position: relative; overflow: hidden;
-            will-change: transform;
-        }
-        /* Glass refraction effect */
-        .service-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 100%);
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0; pointer-events: none; z-index: 0;
-        }
-        /* Shimmer sweep */
-        .service-card::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-            transition: left 0.6s var(--ease-brand); z-index: 1;
-        }
-        .service-card:hover::after { left: 100%; }
-        .service-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: var(--clay-shadow-hover), 0 0 0 1px rgba(var(--nova-purple-rgb), 0.4);
-            border-color: rgba(var(--nova-purple-rgb), 0.35);
-        }
-        .service-card:active { transform: translateY(-4px) scale(1.01); transition-duration: 100ms; }
+        /* E2E encryption visual */
+        .e2e-visual { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 0; }
+        .e2e-lock { width: 36px; height: 36px; border-radius: 50%; background: rgba(var(--green-rgb),0.15); border: 2px solid rgba(var(--green-rgb),0.3); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+        .e2e-line { width: 60px; height: 2px; background: linear-gradient(90deg, var(--green), var(--nova)); border-radius: var(--r-full); position: relative; overflow: hidden; }
+        .e2e-line::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent); animation: wave 1.5s linear infinite; background-size: 200% 100%; }
+        .e2e-shield { width: 36px; height: 36px; border-radius: var(--r-sm); background: rgba(var(--nova-rgb),0.15); border: 2px solid rgba(var(--nova-rgb),0.3); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
 
-        .service-icon {
-            width: 72px; height: 72px; border-radius: var(--radius-md); margin: 0 auto 1.5rem;
-            display: flex; align-items: center; justify-content: center; font-size: 2rem;
-            position: relative; z-index: 2;
-            transition: transform var(--transition-normal);
-            animation: float-gentle 6s ease-in-out infinite;
-        }
-        .service-icon-bg {
-            background: linear-gradient(135deg, rgba(var(--nova-purple-rgb), 0.2), rgba(var(--warm-pink-rgb), 0.15));
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,0.15),
-                0 8px 20px rgba(var(--nova-purple-rgb), 0.2);
-        }
-        .service-card:nth-child(2) .service-icon { animation-delay: -1.5s; }
-        .service-card:nth-child(2) .service-icon-bg { background: linear-gradient(135deg, rgba(var(--success-green-rgb), 0.2), rgba(var(--tertiary-blue-rgb), 0.15)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 8px 20px rgba(var(--success-green-rgb), 0.2); }
-        .service-card:nth-child(3) .service-icon { animation-delay: -3s; }
-        .service-card:nth-child(3) .service-icon-bg { background: linear-gradient(135deg, rgba(var(--tertiary-blue-rgb), 0.2), rgba(var(--secondary-purple-rgb), 0.15)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 8px 20px rgba(var(--tertiary-blue-rgb), 0.2); }
-        .service-card:nth-child(4) .service-icon { animation-delay: -4.5s; }
-        .service-card:nth-child(4) .service-icon-bg { background: linear-gradient(135deg, rgba(var(--premium-gold-rgb), 0.2), rgba(var(--warm-pink-rgb), 0.15)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 8px 20px rgba(var(--premium-gold-rgb), 0.2); }
-        .service-card:hover .service-icon { transform: scale(1.12) translateY(-5px); }
+        /* Speed meter */
+        .speed-meter { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1rem; }
+        .speed-bar { height: 6px; border-radius: var(--r-full); background: rgba(255,255,255,0.06); overflow: hidden; }
+        .speed-fill { height: 100%; border-radius: var(--r-full); background: var(--shimmer); position: relative; }
+        .speed-fill::after { content: ''; position: absolute; right: -3px; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border-radius: 50%; background: var(--secondary); box-shadow: 0 0 8px rgba(var(--secondary-rgb),0.5); }
+        .speed-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); }
 
-        .service-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; color: var(--white); font-weight: 700; position: relative; z-index: 2; }
-        .service-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.9; position: relative; z-index: 2; font-weight: 400; }
+        /* AI brain visual */
+        .ai-brain { position: relative; width: 120px; height: 120px; margin: 1rem auto 0; }
+        .brain-circle { position: absolute; border-radius: 50%; border: 1.5px solid rgba(var(--nova-rgb),0.2); }
+        .brain-circle:nth-child(1) { inset: 0; animation: spin-slow 8s linear infinite; }
+        .brain-circle:nth-child(2) { inset: 15px; border-color: rgba(var(--pink-rgb),0.2); animation: spin-slow 12s linear infinite reverse; }
+        .brain-circle:nth-child(3) { inset: 30px; border-color: rgba(var(--tertiary-rgb),0.2); animation: spin-slow 6s linear infinite; }
+        .brain-core { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 2rem; }
+        .brain-dot { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--nova); box-shadow: 0 0 8px rgba(var(--nova-rgb),0.5); }
+        .brain-dot:nth-child(5) { top: 0; left: 50%; animation: pulse 2s ease-in-out infinite; }
+        .brain-dot:nth-child(6) { bottom: 10px; right: 10px; background: var(--pink); box-shadow: 0 0 8px rgba(var(--pink-rgb),0.5); animation: pulse 2s ease-in-out infinite 0.5s; }
+        .brain-dot:nth-child(7) { bottom: 10px; left: 10px; background: var(--tertiary); box-shadow: 0 0 8px rgba(var(--tertiary-rgb),0.5); animation: pulse 2s ease-in-out infinite 1s; }
 
-        /* ========== Features Section (Claymorphism container) ========== */
-        .features-section {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: var(--clay-blur); -webkit-backdrop-filter: var(--clay-blur);
-            border: 1px solid var(--clay-border); border-radius: var(--radius-lg);
-            padding: clamp(3rem, 8vw, 5rem) clamp(1.5rem, 5vw, 3rem);
-            margin-bottom: var(--space-xl);
-            box-shadow: var(--clay-shadow);
-            position: relative; overflow: hidden;
-        }
-        .features-section::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: var(--gradient-shimmer); opacity: 0.5;
-        }
+        /* ===== TIMELINE SECTION ===== */
+        .timeline-sec { position: relative; padding: 2rem 0; }
+        .timeline { position: relative; max-width: 700px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; right: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--nova), var(--pink), var(--tertiary), transparent); border-radius: var(--r-full); transform: translateX(50%); }
 
-        .features-tabs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
-        .feature-tab {
-            padding: 0.65rem 1.4rem; border-radius: var(--radius-full); background: transparent;
-            border: 1.5px solid rgba(255, 255, 255, 0.1); color: var(--text-muted);
-            font-size: 0.92rem; font-weight: 500; cursor: pointer; transition: all var(--transition-fast);
-            font-family: inherit;
-        }
-        .feature-tab:hover { color: var(--white); border-color: rgba(var(--nova-purple-rgb), 0.4); background: rgba(var(--nova-purple-rgb), 0.08); }
-        .feature-tab.active {
-            color: var(--white); border-color: var(--nova-purple); background: rgba(var(--nova-purple-rgb), 0.15);
-            box-shadow: 0 0 0 3px rgba(var(--nova-purple-rgb), 0.15);
-        }
+        .timeline-item { display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 3rem; position: relative; }
+        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+        .timeline-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--nova); border: 3px solid var(--bg); box-shadow: 0 0 12px rgba(var(--nova-rgb),0.5); position: absolute; right: calc(50% - 8px); z-index: 2; flex-shrink: 0; }
+        .timeline-item:nth-child(2) .timeline-dot { background: var(--pink); box-shadow: 0 0 12px rgba(var(--pink-rgb),0.5); }
+        .timeline-item:nth-child(3) .timeline-dot { background: var(--tertiary); box-shadow: 0 0 12px rgba(var(--tertiary-rgb),0.5); }
+        .timeline-item:nth-child(4) .timeline-dot { background: var(--green); box-shadow: 0 0 12px rgba(var(--green-rgb),0.5); }
 
-        .feature-content { display: none; animation: fade-scale 0.45s var(--ease-brand) forwards; }
-        .feature-content.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-sm); }
+        .timeline-card {
+            width: calc(50% - 2.5rem); background: var(--clay-bg); backdrop-filter: blur(12px);
+            border: 1px solid var(--clay-border); border-radius: var(--r-lg); padding: 1.5rem;
+            box-shadow: var(--clay-shadow); transition: all var(--normal);
+        }
+        .timeline-card:hover { transform: translateY(-4px); border-color: rgba(var(--nova-rgb),0.3); }
+        .timeline-year { font-size: 0.8rem; color: var(--secondary); font-weight: 700; margin-bottom: 0.5rem; }
+        .timeline-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .timeline-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
 
-        .feature-item {
-            text-align: center; padding: 1.5rem 1rem; border-radius: var(--radius-md);
-            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all var(--transition-fast); backdrop-filter: blur(12px);
+        /* ===== STATS COUNTERS ===== */
+        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 4rem 0; }
+        .stat-box {
+            text-align: center; padding: 2rem 1.2rem; border-radius: var(--r-lg);
+            background: var(--clay-bg); backdrop-filter: blur(12px);
+            box-shadow: var(--clay-shadow); border: 1px solid var(--clay-border);
+            transition: all var(--normal); position: relative; overflow: hidden;
         }
-        .feature-item:hover {
-            transform: translateY(-4px); border-color: rgba(var(--nova-purple-rgb), 0.4);
-            background: rgba(var(--nova-purple-rgb), 0.08);
-            box-shadow: 0 10px 24px rgba(var(--nova-purple-rgb), 0.15);
-        }
-        .feature-item-icon { font-size: 2.2rem; margin-bottom: 0.7rem; display: block; }
-        .feature-item h4 { font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--white); font-weight: 700; }
-        .feature-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; font-weight: 400; }
+        .stat-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--shimmer); opacity: 0; transition: opacity var(--fast); }
+        .stat-box:hover { transform: translateY(-5px); box-shadow: var(--clay-shadow-hover); }
+        .stat-box:hover::before { opacity: 1; }
+        .stat-num { font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 800; background: var(--shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.4rem; animation: counter-glow 4s ease-in-out infinite; }
+        .stat-lbl { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
 
-        /* ========== Stats Section ========== */
-        .stats-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md); margin: var(--space-xl) 0; }
-        .stat-card {
-            text-align: center; padding: 2.2rem 1.5rem; border-radius: var(--radius-lg);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: var(--clay-shadow); border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all var(--transition-normal); position: relative; overflow: hidden;
-            backdrop-filter: blur(16px);
+        /* ===== SECURITY SHIELD VISUAL ===== */
+        .shield-sec { position: relative; }
+        .shield-wrap { display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap; }
+        .shield-visual { position: relative; width: 260px; height: 300px; flex-shrink: 0; }
+        .shield-shape {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
         }
-        .stat-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: var(--gradient-shimmer); opacity: 0; transition: opacity var(--transition-fast);
-        }
-        .stat-card:hover { transform: translateY(-6px); box-shadow: var(--clay-shadow-hover); border-color: rgba(var(--nova-purple-rgb), 0.3); }
-        .stat-card:hover::before { opacity: 1; }
-        .stat-value {
-            font-size: clamp(2.4rem, 6vw, 3.2rem); font-weight: 800;
-            background: var(--gradient-shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-            margin-bottom: 0.5rem; animation: counter-glow 4s ease-in-out infinite;
-        }
-        .stat-label { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; }
+        .shield-shape svg { width: 200px; height: 240px; filter: drop-shadow(0 10px 30px rgba(var(--nova-rgb),0.3)); }
+        .shield-ring { position: absolute; inset: -10px; border: 2px solid rgba(var(--nova-rgb),0.15); border-radius: 50%; animation: spin-slow 20s linear infinite; }
+        .shield-ring:nth-child(3) { inset: -25px; border-color: rgba(var(--pink-rgb),0.1); animation-duration: 30s; animation-direction: reverse; }
+        .shield-particles { position: absolute; inset: 0; }
+        .s-particle { position: absolute; width: 4px; height: 4px; border-radius: 50%; animation: particle-float 4s ease-in-out infinite; }
+        .s-particle:nth-child(1) { left: 20%; top: 60%; background: var(--nova); animation-delay: 0s; }
+        .s-particle:nth-child(2) { left: 70%; top: 50%; background: var(--pink); animation-delay: 1s; }
+        .s-particle:nth-child(3) { left: 45%; top: 80%; background: var(--tertiary); animation-delay: 2s; }
+        .s-particle:nth-child(4) { left: 80%; top: 70%; background: var(--green); animation-delay: 0.5s; }
+        .s-particle:nth-child(5) { left: 10%; top: 40%; background: var(--secondary); animation-delay: 1.5s; }
 
-        /* ========== Trust Section ========== */
-        .trust-section {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: var(--clay-blur); -webkit-backdrop-filter: var(--clay-blur);
-            border: 1px solid var(--clay-border); border-radius: var(--radius-lg);
-            padding: clamp(3rem, 8vw, 5rem) clamp(1.5rem, 5vw, 3rem);
-            margin-bottom: var(--space-xl); text-align: center;
-            box-shadow: var(--clay-shadow); position: relative; overflow: hidden;
-        }
-        .trust-section::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(circle at 50% 0%, rgba(var(--nova-purple-rgb), 0.08) 0%, transparent 50%);
-            pointer-events: none;
-        }
+        .shield-info { max-width: 400px; }
+        .shield-info h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .shield-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.2rem; }
+        .shield-list li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.92rem; color: var(--muted); padding: 0.6rem 1rem; border-radius: var(--r-md); background: rgba(var(--nova-rgb),0.06); border: 1px solid rgba(var(--nova-rgb),0.1); transition: all var(--fast); }
+        .shield-list li:hover { background: rgba(var(--nova-rgb),0.12); border-color: rgba(var(--nova-rgb),0.25); color: var(--white); transform: translateX(-4px); }
+        .shield-list-icon { font-size: 1.1rem; flex-shrink: 0; }
 
-        .trust-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
-        .trust-badge {
-            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-full);
-            padding: 0.7rem 1.5rem; color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            transition: all var(--transition-fast); cursor: default;
+        /* ===== TESTIMONIALS ===== */
+        .test-carousel { display: flex; gap: 1.5rem; overflow-x: auto; padding: 1rem 0 2rem; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-behavior: smooth; }
+        .test-carousel::-webkit-scrollbar { display: none; }
+        .test-card {
+            flex: 0 0 clamp(270px, 85%, 360px); scroll-snap-align: start;
+            background: var(--clay-bg); backdrop-filter: blur(16px); border: 1px solid var(--clay-border);
+            border-radius: var(--r-lg); padding: 2rem; box-shadow: var(--clay-shadow); transition: all var(--normal);
         }
-        .trust-badge:hover {
-            transform: translateY(-3px) scale(1.02); background: rgba(var(--nova-purple-rgb), 0.12);
-            border-color: rgba(var(--nova-purple-rgb), 0.4); color: var(--white);
-            box-shadow: 0 8px 20px rgba(var(--nova-purple-rgb), 0.15);
-        }
-        .trust-badge-icon { font-size: 1.1rem; }
+        .test-card:hover { transform: translateY(-5px); border-color: rgba(var(--nova-rgb),0.3); }
+        .test-head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+        .test-av { width: 48px; height: 48px; border-radius: 50%; background: var(--shimmer); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+        .test-name { font-weight: 700; font-size: 0.92rem; }
+        .test-role { font-size: 0.78rem; color: var(--muted); }
+        .test-txt { color: var(--muted); line-height: 1.85; font-size: 0.88rem; margin-bottom: 0.8rem; }
+        .test-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; }
 
-        /* Lock icon for security awareness (UX Principle) */
-        .security-indicator {
-            display: inline-flex; align-items: center; gap: 0.4rem; color: var(--success-green);
-            font-size: 0.82rem; font-weight: 500; margin-top: 1.5rem;
-        }
-        .security-indicator svg { width: 14px; height: 14px; }
+        /* ===== WAVE DIVIDER ===== */
+        .wave-div { width: 100%; overflow: hidden; height: 60px; position: relative; margin: 2rem 0; }
+        .wave-svg { position: absolute; bottom: 0; width: 200%; height: 100%; animation: wave 8s linear infinite; }
+        .wave-svg path { fill: none; stroke: url(#waveGrad); stroke-width: 1.5; opacity: 0.3; }
 
-        /* ========== Testimonials ========== */
-        .testimonials-section { margin-bottom: var(--space-xl); }
-        .testimonials-carousel {
-            display: flex; gap: 1.5rem; overflow-x: auto; padding: 1rem 0.5rem 2rem;
-            scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth;
-        }
-        .testimonials-carousel::-webkit-scrollbar { display: none; }
+        /* ===== PARTICLE FIELD ===== */
+        .particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+        .p-dot { position: absolute; border-radius: 50%; opacity: 0.4; }
+        .p-dot:nth-child(1) { width: 3px; height: 3px; background: var(--nova); top: 20%; left: 10%; animation: float 7s ease-in-out infinite; }
+        .p-dot:nth-child(2) { width: 2px; height: 2px; background: var(--pink); top: 60%; left: 80%; animation: float2 9s ease-in-out infinite; }
+        .p-dot:nth-child(3) { width: 4px; height: 4px; background: var(--tertiary); top: 80%; left: 30%; animation: float 11s ease-in-out infinite reverse; }
+        .p-dot:nth-child(4) { width: 2px; height: 2px; background: var(--secondary); top: 30%; left: 60%; animation: float2 8s ease-in-out infinite; }
+        .p-dot:nth-child(5) { width: 3px; height: 3px; background: var(--green); top: 50%; left: 45%; animation: float 10s ease-in-out infinite; }
 
-        .testimonial-card {
-            flex: 0 0 clamp(280px, 88%, 380px); scroll-snap-align: start;
-            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-lg);
-            padding: 2rem; transition: all var(--transition-normal); position: relative;
-            box-shadow: var(--clay-shadow);
+        /* ===== CTA ===== */
+        .cta-sec {
+            background: rgba(var(--nova-rgb),0.06); border: 1.5px solid rgba(var(--nova-rgb),0.2);
+            border-radius: var(--r-lg); padding: clamp(3rem, 8vw, 5rem) clamp(1.5rem, 5vw, 3rem);
+            text-align: center; margin-bottom: 4rem; position: relative; overflow: hidden;
+            box-shadow: var(--clay-shadow), 0 0 50px rgba(var(--nova-rgb),0.08);
         }
-        .testimonial-card:hover { transform: translateY(-6px) scale(1.01); border-color: rgba(var(--nova-purple-rgb), 0.35); box-shadow: var(--clay-shadow-hover); }
-        .testimonial-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-        .testimonial-avatar {
-            width: 52px; height: 52px; border-radius: var(--radius-full);
-            background: var(--gradient-shimmer); display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem; flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(var(--nova-purple-rgb), 0.3);
-        }
-        .testimonial-info { text-align: right; }
-        .testimonial-name { font-weight: 700; color: var(--white); font-size: 0.95rem; }
-        .testimonial-role { font-size: 0.8rem; color: var(--text-muted); font-weight: 400; }
-        .testimonial-text { color: var(--text-muted); line-height: 1.9; font-size: 0.92rem; font-weight: 400; margin-bottom: 1rem; }
-        .testimonial-rating { color: var(--premium-gold); font-size: 0.95rem; letter-spacing: 2px; }
+        .cta-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(var(--nova-rgb),0.12), transparent 55%), radial-gradient(circle at 70% 70%, rgba(var(--pink-rgb),0.08), transparent 55%); pointer-events: none; }
+        .cta-glow { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--gold); font-size: 0.82rem; font-weight: 600; background: rgba(var(--gold-rgb),0.08); border: 1px solid rgba(var(--gold-rgb),0.2); padding: 0.3rem 0.9rem; border-radius: var(--r-full); margin-bottom: 1.2rem; position: relative; z-index: 1; }
+        .cta-sec h2 { font-size: clamp(1.7rem, 5vw, 2.5rem); font-weight: 800; margin-bottom: 0.8rem; position: relative; z-index: 1; }
+        .cta-sec p { color: var(--muted); margin-bottom: 2rem; font-size: 1rem; max-width: 550px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; line-height: 1.8; }
 
-        /* ========== CTA Section ========== */
-        .cta-section {
-            background: rgba(var(--nova-purple-rgb), 0.08);
-            border: 1.5px solid rgba(var(--nova-purple-rgb), 0.25); border-radius: var(--radius-lg);
-            padding: clamp(3.5rem, 8vw, 5rem) clamp(1.5rem, 5vw, 3rem); text-align: center;
-            margin-bottom: var(--space-xl); position: relative; overflow: hidden;
-            box-shadow: var(--clay-shadow), 0 0 50px rgba(var(--nova-purple-rgb), 0.1);
-        }
-        .cta-section::before {
-            content: ''; position: absolute; inset: 0;
-            background:
-                radial-gradient(circle at 30% 30%, rgba(var(--nova-purple-rgb), 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 70% 70%, rgba(var(--warm-pink-rgb), 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        .cta-section h2 { font-size: clamp(1.8rem, 5vw, 2.6rem); margin-bottom: 1rem; position: relative; z-index: 1; color: var(--white); font-weight: 800; }
-        .cta-section p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem; max-width: 580px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; line-height: 1.8; }
+        /* ===== FOOTER ===== */
+        .footer { background: var(--bg); border-top: 1px solid rgba(255,255,255,0.05); padding: 4rem var(--pad) 2rem; position: relative; }
+        .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--shimmer); opacity: 0.3; }
+        .footer-grid { max-width: var(--max-w); margin: 0 auto 3rem; display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 2.5rem; }
+        .footer-brand p { color: var(--muted); font-size: 0.88rem; line-height: 1.8; margin-top: 0.8rem; max-width: 300px; }
+        .footer-social { display: flex; gap: 0.6rem; margin-top: 1rem; }
+        .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: var(--clay-bg); border: 1px solid var(--clay-border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: all var(--fast); }
+        .footer-social a:hover { background: rgba(var(--nova-rgb),0.15); border-color: var(--nova); color: var(--white); transform: translateY(-2px); }
 
-        .cta-badge {
-            display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 1.5rem;
-            color: var(--premium-gold); font-size: 0.85rem; font-weight: 600;
-            background: rgba(var(--premium-gold-rgb), 0.1); border: 1px solid rgba(var(--premium-gold-rgb), 0.25);
-            padding: 0.35rem 1rem; border-radius: var(--radius-full); position: relative; z-index: 1;
-        }
+        .footer-col h4 { font-size: 0.95rem; margin-bottom: 1rem; color: var(--white); font-weight: 700; position: relative; padding-bottom: 0.5rem; }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; right: 0; width: 24px; height: 2px; background: var(--shimmer); border-radius: var(--r-full); }
+        .footer-col a { display: block; color: var(--muted); text-decoration: none; padding: 0.3rem 0; font-size: 0.85rem; transition: all var(--fast); }
+        .footer-col a:hover { color: var(--secondary); transform: translateX(-3px); }
 
-        /* ========== Footer ========== */
-        .footer {
-            background: var(--deep-black); border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding: var(--space-xl) var(--container-padding) var(--space-md); position: relative;
-        }
-        .footer::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: var(--gradient-shimmer); opacity: 0.3;
-        }
-
-        .footer-grid {
-            max-width: var(--max-width); margin: 0 auto var(--space-lg);
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--space-md);
-            position: relative; z-index: 1;
-        }
-        .footer-col h4 {
-            font-size: 1rem; margin-bottom: 1rem; color: var(--white); font-weight: 700;
-            position: relative; padding-bottom: 0.6rem;
-        }
-        .footer-col h4::after {
-            content: ''; position: absolute; bottom: 0; right: 0; width: 28px; height: 2px;
-            background: var(--gradient-shimmer); border-radius: var(--radius-full);
-        }
-        .footer-col a {
-            display: block; color: var(--text-muted); text-decoration: none; padding: 0.35rem 0;
-            font-size: 0.88rem; font-weight: 400; transition: all var(--transition-fast); position: relative;
-        }
-        .footer-col a:hover { color: var(--secondary-purple); transform: translateX(-3px); }
-
-        .footer-bottom {
-            max-width: var(--max-width); margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.06);
-            padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between;
-            align-items: center; gap: 1.5rem; font-size: 0.85rem; color: var(--text-muted); position: relative; z-index: 1;
-        }
-        .footer-brand-message { font-size: 0.82rem; color: var(--text-muted); font-style: italic; opacity: 0.7; }
-        .enamad img {
-            max-width: 100px; height: auto; filter: brightness(0.9) contrast(1.1); transition: all var(--transition-fast);
-            border-radius: var(--radius-sm); cursor: pointer;
-        }
+        .footer-bottom { max-width: var(--max-w); margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.2rem; font-size: 0.82rem; color: var(--muted); }
+        .footer-slogan { font-style: italic; opacity: 0.6; font-size: 0.8rem; }
+        .enamad img { max-width: 90px; height: auto; filter: brightness(0.9); transition: all var(--fast); border-radius: var(--r-sm); cursor: pointer; }
         .enamad img:hover { transform: scale(1.05); filter: brightness(1); }
 
-        /* ========== Scroll to Top ========== */
-        .scroll-top {
-            position: fixed; bottom: 2rem; left: 2rem; width: 50px; height: 50px; border-radius: var(--radius-full);
-            background: rgba(var(--nova-purple-rgb), 0.2); backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(var(--nova-purple-rgb), 0.3); color: var(--white);
-            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-            cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(20px);
-            transition: all var(--transition-normal); z-index: 500;
-        }
-        .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
-        .scroll-top:hover {
-            transform: translateY(-4px); background: rgba(var(--nova-purple-rgb), 0.35);
-            border-color: var(--nova-purple); box-shadow: 0 8px 20px rgba(var(--nova-purple-rgb), 0.3);
-        }
+        /* ===== SCROLL TOP ===== */
+        .scroll-top { position: fixed; bottom: 2rem; left: 2rem; width: 48px; height: 48px; border-radius: var(--r-full); background: rgba(var(--nova-rgb),0.2); backdrop-filter: blur(12px); border: 1.5px solid rgba(var(--nova-rgb),0.3); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all var(--normal); z-index: 500; }
+        .scroll-top.vis { opacity: 1; visibility: visible; transform: translateY(0); }
+        .scroll-top:hover { transform: translateY(-4px); background: rgba(var(--nova-rgb),0.35); border-color: var(--nova); }
 
-        /* ========== Loader (Shimmer Spinner) ========== */
-        .loader {
-            position: fixed; inset: 0; background: var(--deep-black); display: flex; align-items: center;
-            justify-content: center; z-index: 10000; transition: opacity 0.5s var(--ease-brand), visibility 0.5s;
-        }
-        .loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .loader-content { text-align: center; }
-        .loader-logo {
-            font-size: 2.8rem; font-weight: 800; margin-bottom: 2rem; color: var(--white); letter-spacing: 0.03em;
-            display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-        }
-        .loader-logo-star {
-            width: 40px; height: 40px; display: inline-flex;
-        }
-        .loader-logo-star svg { width: 100%; height: 100%; animation: float-gentle 2s ease-in-out infinite; }
-        .loader-logo-text {
-            background: var(--gradient-shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .loader-bar {
-            width: 180px; height: 4px; background: var(--surface-dark); border-radius: var(--radius-full);
-            overflow: hidden; margin: 0 auto; position: relative;
-        }
-        .loader-progress {
-            height: 100%; background: var(--gradient-shimmer); border-radius: var(--radius-full);
-            animation: progress-bar 1.6s ease forwards;
-        }
-        .loader-message { margin-top: 1.2rem; color: var(--text-muted); font-size: 0.85rem; font-weight: 400; }
+        /* ===== LOADER ===== */
+        .loader { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 10000; transition: opacity 0.5s var(--ease), visibility 0.5s; }
+        .loader.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+        .loader-inner { text-align: center; }
+        .loader-mark { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1.8rem; }
+        .loader-mark svg { width: 40px; height: 40px; animation: float 2s ease-in-out infinite; filter: drop-shadow(0 4px 12px rgba(var(--nova-rgb),0.5)); }
+        .loader-mark span { font-size: 2.5rem; font-weight: 800; background: var(--shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .loader-track { width: 160px; height: 4px; background: var(--surface); border-radius: var(--r-full); overflow: hidden; margin: 0 auto; }
+        .loader-fill { height: 100%; background: var(--shimmer); border-radius: var(--r-full); animation: progress 1.5s ease forwards; }
+        .loader-msg { margin-top: 1rem; color: var(--muted); font-size: 0.82rem; }
 
-        /* ========== Responsive ========== */
-        @media (max-width: 1024px) { .floating-nav { display: none; } }
+        /* ===== REVEAL ===== */
+        .rv { opacity: 0; transform: translateY(28px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
+        .rv.vis { opacity: 1; transform: translateY(0); }
+        .d1 { transition-delay: 0.1s !important; } .d2 { transition-delay: 0.2s !important; } .d3 { transition-delay: 0.3s !important; } .d4 { transition-delay: 0.4s !important; } .d5 { transition-delay: 0.5s !important; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .side-nav { display: none; }
+            .bento { grid-template-columns: repeat(2, 1fr); }
+            .b-big { grid-column: span 2; grid-row: span 1; }
+            .b-tall { grid-row: span 1; }
+            .hero-visual { width: 350px; height: 350px; }
+            .timeline-item { flex-direction: column !important; align-items: center; }
+            .timeline::before { right: 20px; transform: none; }
+            .timeline-dot { right: 12px !important; }
+            .timeline-card { width: calc(100% - 3rem); margin-right: 2rem; }
+        }
         @media (max-width: 768px) {
-            .nav {
-                display: none; position: fixed; top: 82px; left: 0; right: 0;
-                background: rgba(10, 10, 15, 0.95); backdrop-filter: var(--clay-blur);
-                flex-direction: column; padding: 1.5rem var(--container-padding); gap: 0.5rem;
-                border-bottom: 1px solid var(--clay-border); z-index: 599;
-                animation: slide-up 0.3s var(--ease-brand) forwards;
-            }
-            .mobile-menu-btn { display: flex; }
-            #menu-toggle:checked ~ .header .nav { display: flex; }
-            .hero-actions { flex-direction: column; align-items: center; }
-            .btn { width: 100%; max-width: 320px; justify-content: center; }
-            .services-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; }
+            .nav { display: none; position: fixed; top: 80px; left: 0; right: 0; background: rgba(10,10,15,0.95); backdrop-filter: var(--clay-blur); flex-direction: column; padding: 1.5rem var(--pad); gap: 0.4rem; border-bottom: 1px solid var(--clay-border); z-index: 599; animation: up 0.3s var(--ease); }
+            .mob-btn { display: flex; }
+            #mob-toggle:checked ~ .header .nav { display: flex; }
+            .hero-btns { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; justify-content: center; }
+            .bento { grid-template-columns: 1fr; }
+            .b-big, .b-wide { grid-column: span 1; }
+            .demo-wrap { flex-direction: column; text-align: center; }
+            .shield-wrap { flex-direction: column; text-align: center; }
+            .shield-info { text-align: right; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
             .scroll-top { left: 50%; transform: translateX(-50%) translateY(20px); }
-            .scroll-top.visible { transform: translateX(-50%) translateY(0); }
+            .scroll-top.vis { transform: translateX(-50%) translateY(0); }
+            .connect-canvas { height: 300px; }
+            .connect-node { width: 45px; height: 45px; font-size: 1.1rem; }
+            .connect-node:nth-child(6) { width: 60px; height: 60px; font-size: 1.4rem; }
         }
         @media (max-width: 480px) {
-            .header-inner { height: 72px; }
-            .header.scrolled .header-inner { height: 66px; }
-            .logo { font-size: 1.7rem; }
-            .logo-icon { width: 28px; height: 28px; }
-            .hero { padding: 3rem 1.2rem; }
-            .service-card { padding: 2rem 1.5rem; }
+            .header-in { height: 70px; }
+            .logo-txt { font-size: 1.5rem; }
+            .logo-star { width: 26px; height: 26px; }
+            .hero-visual { width: 280px; height: 280px; opacity: 0.5; }
+            .demo-phone { width: 240px; height: 480px; border-radius: 32px; }
+            .phone-notch { width: 80px; height: 24px; border-radius: 0 0 14px 14px; }
+            .phone-screen { border-radius: 29px; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
 
-        /* ========== Reveal Animation ========== */
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.5s var(--ease-brand), transform 0.5s var(--ease-brand); }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .delay-1 { transition-delay: 0.1s !important; }
-        .delay-2 { transition-delay: 0.2s !important; }
-        .delay-3 { transition-delay: 0.3s !important; }
-        .delay-4 { transition-delay: 0.4s !important; }
-        .delay-5 { transition-delay: 0.5s !important; }
-
-        /* ========== Magnetic ========== */
-        .magnetic { transition: transform 0.35s var(--ease-brand); will-change: transform; }
-
-        /* ========== Progress Bars (shimmer gradient, 4px height) ========== */
-        .progress-bar-container { width: 100%; height: 4px; background: var(--surface-dark); border-radius: var(--radius-full); overflow: hidden; }
-        .progress-bar-fill {
-            height: 100%; background: var(--gradient-shimmer); border-radius: var(--radius-full); position: relative;
-        }
-        .progress-bar-fill::after {
-            content: ''; position: absolute; right: -4px; top: 50%; transform: translateY(-50%);
-            width: 10px; height: 10px; background: var(--secondary-purple); border-radius: 50%;
-            box-shadow: 0 0 8px rgba(var(--secondary-purple-rgb), 0.5);
-        }
+        /* Hidden SVG defs */
+        .svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
     </style>
 </head>
 <body>
-    <!-- Loader with brand identity -->
+
+    <!-- SVG Definitions -->
+    <svg class="svg-defs" aria-hidden="true">
+        <defs>
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7C3AED"/>
+                <stop offset="50%" stop-color="#EC4899"/>
+                <stop offset="100%" stop-color="#6366F1"/>
+            </linearGradient>
+            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#7C3AED"/>
+                <stop offset="50%" stop-color="#EC4899"/>
+                <stop offset="100%" stop-color="#6366F1"/>
+            </linearGradient>
+            <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7C3AED"/>
+                <stop offset="50%" stop-color="#A855F7" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#6366F1"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Loader -->
     <div class="loader" id="loader" aria-hidden="true">
-        <div class="loader-content">
-            <div class="loader-logo">
-                <span class="loader-logo-star">
-                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#7C3AED"/>
-                                <stop offset="50%" stop-color="#EC4899"/>
-                                <stop offset="100%" stop-color="#6366F1"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18L24 4Z" fill="url(#starGrad)" opacity="0.9"/>
-                        <circle cx="24" cy="24" r="6" fill="white" opacity="0.8"/>
-                        <path d="M24 4C24 4 38 20 44 24C38 28 24 44 24 44" stroke="url(#starGrad)" stroke-width="1.5" fill="none" opacity="0.4"/>
-                    </svg>
-                </span>
-                <span class="loader-logo-text">NOVA</span>
+        <div class="loader-inner">
+            <div class="loader-mark">
+                <svg viewBox="0 0 48 48" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#starGradL)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/><defs><linearGradient id="starGradL" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#EC4899"/><stop offset="100%" stop-color="#6366F1"/></linearGradient></defs></svg>
+                <span>NOVA</span>
             </div>
-            <div class="loader-bar"><div class="loader-progress"></div></div>
-            <p class="loader-message">جایی که پیام‌ها به نور تبدیل می‌شوند...</p>
+            <div class="loader-track"><div class="loader-fill"></div></div>
+            <p class="loader-msg">در حال آماده‌سازی تجربه‌ای نوین...</p>
         </div>
     </div>
 
-    <!-- Aurora Background -->
-    <div class="aurora-bg" aria-hidden="true"></div>
+    <!-- Aurora -->
+    <div class="aurora" aria-hidden="true"></div>
 
     <!-- Scroll Progress -->
-    <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="scroll-bar" id="scrollBar"></div>
 
-    <!-- Floating Navigation -->
-    <nav class="floating-nav" aria-label="ناوبری سریع">
-        <button class="nav-dot active" data-target="hero" data-label="خانه" aria-label="رفتن به بخش خانه"></button>
-        <button class="nav-dot" data-target="services" data-label="سرویس‌ها" aria-label="رفتن به بخش سرویس‌ها"></button>
-        <button class="nav-dot" data-target="features" data-label="ویژگی‌ها" aria-label="رفتن به بخش ویژگی‌ها"></button>
-        <button class="nav-dot" data-target="trust" data-label="امنیت" aria-label="رفتن به بخش امنیت"></button>
-        <button class="nav-dot" data-target="cta" data-label="شروع" aria-label="رفتن به بخش شروع"></button>
+    <!-- Side Nav -->
+    <nav class="side-nav" aria-label="ناوبری سریع">
+        <button class="side-dot active" data-target="hero" data-tip="خانه" aria-label="خانه"></button>
+        <button class="side-dot" data-target="demo" data-tip="دمو" aria-label="دمو"></button>
+        <button class="side-dot" data-target="services" data-tip="سرویس‌ها" aria-label="سرویس‌ها"></button>
+        <button class="side-dot" data-target="connect" data-tip="ارتباطات" aria-label="ارتباطات"></button>
+        <button class="side-dot" data-target="security" data-tip="امنیت" aria-label="امنیت"></button>
+        <button class="side-dot" data-target="cta" data-tip="شروع" aria-label="شروع"></button>
     </nav>
 
     <!-- Menu Toggle -->
-    <input type="checkbox" id="menu-toggle" class="sr-only">
+    <input type="checkbox" id="mob-toggle" class="sr-only">
 
     <!-- Header -->
-    <header class="header" role="banner">
-        <div class="header-inner">
-            <a href="#" class="logo" aria-label="صفحه اصلی NOVA">
-                <span class="logo-icon">
-                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#7C3AED"/>
-                                <stop offset="50%" stop-color="#EC4899"/>
-                                <stop offset="100%" stop-color="#6366F1"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18L24 4Z" fill="url(#logoGrad)" opacity="0.9"/>
-                        <circle cx="24" cy="24" r="5" fill="white" opacity="0.85"/>
-                    </svg>
-                </span>
-                <span class="logo-text">NOVA</span>
+    <header class="header">
+        <div class="header-in">
+            <a href="#" class="logo" aria-label="NOVA">
+                <span class="logo-star"><svg viewBox="0 0 48 48" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#logoG)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/><defs><linearGradient id="logoG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#EC4899"/><stop offset="100%" stop-color="#6366F1"/></linearGradient></defs></svg></span>
+                <span class="logo-txt">NOVA</span>
                 <span class="logo-glow"></span>
             </a>
-            <nav class="nav" id="mainNav" role="navigation" aria-label="منوی اصلی">
-                <a href="#services" class="nav-link">سرویس‌ها</a>
-                <a href="#features" class="nav-link">ویژگی‌ها</a>
-                <a href="#trust" class="nav-link">امنیت</a>
-                <a href="#testimonials" class="nav-link">نظرات</a>
-                <a href="#cta" class="nav-link">شروع</a>
-                <a href="#" class="btn btn-primary magnetic" data-strength="16">✨ دانلود رایگان</a>
+            <nav class="nav" id="mainNav">
+                <a href="#demo" class="nav-link">تجربه زنده</a>
+                <a href="#services" class="nav-link">امکانات</a>
+                <a href="#connect" class="nav-link">ارتباطات</a>
+                <a href="#security" class="nav-link">امنیت</a>
+                <a href="#reviews" class="nav-link">نظرات</a>
+                <a href="#cta" class="btn btn-primary magnetic" data-s="14">✨ همین حالا شروع کن</a>
             </nav>
-            <label for="menu-toggle" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="باز کردن منو" role="button" tabindex="0">☰</label>
+            <label for="mob-toggle" class="mob-btn" role="button" tabindex="0" aria-label="منو" id="mobBtn">☰</label>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main" id="mainContent">
+    <main class="main">
 
-        <!-- Hero Section -->
-        <section class="hero" id="hero" aria-labelledby="heroTitle">
+        <!-- ===== HERO ===== -->
+        <section class="hero" id="hero">
             <div class="hero-aurora" aria-hidden="true"></div>
-
-            <!-- Decorative Nova Stars -->
-            <div class="hero-star hero-star-1" aria-hidden="true">
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M100 20L115 80L175 65L135 100L175 135L115 120L100 180L85 120L25 135L65 100L25 65L85 80L100 20Z" fill="white" opacity="0.5"/>
-                    <circle cx="100" cy="100" r="20" fill="white" opacity="0.3"/>
-                </svg>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="orbit-ring"></div><div class="orbit-ring"></div><div class="orbit-ring"></div>
+                <div class="orbit-particle"></div><div class="orbit-particle"></div><div class="orbit-particle"></div>
+                <div class="hero-blob"></div>
             </div>
-            <div class="hero-star hero-star-2" aria-hidden="true">
-                <svg viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M75 15L86 60L131 49L101 75L131 101L86 90L75 135L64 90L19 101L49 75L19 49L64 60L75 15Z" fill="white" opacity="0.5"/>
-                </svg>
+            <div class="particles" aria-hidden="true">
+                <div class="p-dot"></div><div class="p-dot"></div><div class="p-dot"></div><div class="p-dot"></div><div class="p-dot"></div>
             </div>
-
             <div class="hero-content">
-                <div class="hero-badge reveal">
-                    <span class="hero-badge-dot"></span>
-                    نسل جدید ارتباطات دیجیتال
+                <div class="hero-badge rv"><span class="badge-dot"></span>ارتباطی به وسعت فردا</div>
+                <h1 class="rv d1">جایی که <span class="hl grad">پیام‌ها به نور</span> تبدیل می‌شوند</h1>
+                <p class="rv d2">نووا فقط یک اپلیکیشن نیست؛ یک جنبش برای بازتعریف ارتباطات انسانی در عصر دیجیتال. امن، سریع و همراه شما در هر لحظه.</p>
+                <div class="hero-btns rv d3">
+                    <a href="#" class="btn btn-primary magnetic" data-s="18">✨ شروع سفر با نووا</a>
+                    <a href="#demo" class="btn btn-glass magnetic" data-s="10">مشاهده دمو زنده →</a>
                 </div>
-                <h1 class="reveal delay-1" id="heroTitle">
-                    ارتباطی <span class="highlight">فراتر از یک پیام</span>
-                </h1>
-                <p class="reveal delay-2">
-                    نووا ترکیبی از پیام‌رسان امن، کیف پول دیجیتال، دستیار هوش مصنوعی و خدمات یکپارچه. امن‌تر از همیشه و همراستا با آینده.
-                </p>
-                <div class="hero-actions reveal delay-3">
-                    <a href="#" class="btn btn-primary magnetic" data-strength="20">✨ شروع رایگان</a>
-                    <a href="#services" class="btn btn-glass magnetic" data-strength="12">کشف سرویس‌ها →</a>
-                </div>
-                <div class="hero-stats reveal delay-4">
-                    <div class="hero-stat">
-                        <span class="hero-stat-value" data-count="500000">0</span>
-                        <span class="hero-stat-label">کاربر فعال</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-value" data-count="99.9">0</span>
-                        <span class="hero-stat-label">٪ آپ‌تایم</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-value" data-count="24">0</span>
-                        <span class="hero-stat-label">ساعت پشتیبانی</span>
-                    </div>
+                <div class="hero-stats rv d4">
+                    <div class="h-stat"><span class="h-stat-val" data-c="500000">0</span><span class="h-stat-lbl">ستاره در کهکشان نووا</span></div>
+                    <div class="h-stat"><span class="h-stat-val" data-c="99.9">0</span><span class="h-stat-lbl">٪ دسترس‌پذیری</span></div>
+                    <div class="h-stat"><span class="h-stat-val" data-c="50">0</span><span class="h-stat-lbl">زبان پشتیبانی</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="section" aria-labelledby="servicesTitle">
-            <div class="section-header">
-                <span class="section-tag reveal">🌟 خدمات ما</span>
-                <h2 class="section-title reveal delay-1" id="servicesTitle">
-                    همه چیز در <span class="gradient-text">یک پلتفرم</span>
-                </h2>
-                <p class="section-subtitle reveal delay-2">
-                    بدون نیاز به نصب چندین برنامه، نووا تمام نیازهای دیجیتال شما را با یک تجربه یکپارچه پوشش می‌دهد.
-                </p>
+        <!-- ===== WAVE DIVIDER ===== -->
+        <div class="wave-div" aria-hidden="true">
+            <svg class="wave-svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                <path d="M0 30 Q150 0 300 30 T600 30 T900 30 T1200 30 T1500 30 T1800 30 T2100 30 T2400 30" stroke="url(#waveGrad)" stroke-width="1.5" fill="none"/>
+            </svg>
+        </div>
+
+        <!-- ===== INTERACTIVE DEMO ===== -->
+        <section class="sec demo-sec" id="demo">
+            <div class="sec-head">
+                <span class="sec-tag rv">📱 تجربه زنده</span>
+                <h2 class="sec-title rv d1">نووا را <span class="grad">لمس کنید</span></h2>
+                <p class="sec-sub rv d2">یک نگاه به فضای پیام‌رسان نووا. ساده، زیبا و امن.</p>
             </div>
-            <div class="services-grid">
-                <article class="service-card reveal" tabindex="0">
-                    <div class="service-icon service-icon-bg" aria-hidden="true">💬</div>
-                    <h3>پیام‌رسان پیشرفته</h3>
-                    <p>چت، تماس تصویری، استوری، گروه و کانال با رمزنگاری سرتاسری و سرعت فوق‌العاده.</p>
-                </article>
-                <article class="service-card reveal delay-1" tabindex="0">
-                    <div class="service-icon service-icon-bg" aria-hidden="true">💰</div>
+            <div class="demo-wrap">
+                <div class="demo-phone rv d3">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="chat-ui">
+                            <div class="chat-header">
+                                <div class="chat-avatar">⭐</div>
+                                <div><div class="chat-name">تیم نووا</div><div class="chat-online">آنلاین</div></div>
+                            </div>
+                            <div class="chat-bubble received">سلام! به نووا خوش اومدی 🌟</div>
+                            <div class="chat-bubble received">اینجا پیام‌هات امن‌تر از همیشه‌ست.</div>
+                            <div class="chat-bubble sent">عالیه! چطور شروع کنم؟</div>
+                            <div class="chat-bubble received">خیلی ساده! فقط کافیه یه حساب بسازی و دوستاتو دعوت کنی ✨</div>
+                            <div class="chat-bubble sent">مرسی، خیلی سریع بود! 🚀</div>
+                            <div class="chat-typing"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-info rv d4">
+                    <h3>ارتباط <span class="grad">هوشمند و امن</span></h3>
+                    <p style="color:var(--muted);line-height:1.8;margin-bottom:1rem;font-size:0.95rem;">هر پیامی که ارسال می‌کنید، با رمزنگاری سرتاسری محافظت می‌شود. ما به حریم خصوصی شما احترام می‌گذاریم.</p>
+                    <ul class="demo-features">
+                        <li class="demo-feat"><div class="demo-feat-icon">🔐</div><div class="demo-feat-text"><h4>رمزنگاری سرتاسری</h4><p>هیچ‌کس جز شما و مخاطبتان پیام‌ها را نمی‌بیند</p></div></li>
+                        <li class="demo-feat"><div class="demo-feat-icon">⚡</div><div class="demo-feat-text"><h4>ارسال آنی</h4><p>پیام‌ها در کسری از ثانیه تحویل داده می‌شوند</p></div></li>
+                        <li class="demo-feat"><div class="demo-feat-icon">🎨</div><div class="demo-feat-text"><h4>تجربه زیبا</h4><p>رابط کاربری مینیمال و دوستانه</p></div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICES BENTO GRID ===== -->
+        <section class="sec" id="services">
+            <div class="sec-head">
+                <span class="sec-tag rv">🌟 امکانات</span>
+                <h2 class="sec-title rv d1">یک اکوسیستم <span class="grad">کامل دیجیتال</span></h2>
+                <p class="sec-sub rv d2">نووا فراتر از یک پیام‌رسان است. ما تمام نیازهای دیجیتال شما را در یک تجربه یکپارچه گرد هم آورده‌ایم.</p>
+            </div>
+            <div class="bento">
+                <div class="bento-item b-big rv">
+                    <span class="bento-icon">💬</span>
+                    <h3>پیام‌رسان نسل آینده</h3>
+                    <p>چت خصوصی و گروهی، تماس صوتی و تصویری، استوری، کانال‌های موضوعی و لایو. همه با رمزنگاری سرتاسری و سرعتی که باور نمی‌کنید.</p>
+                    <div class="bento-visual e2e-visual">
+                        <div class="e2e-lock">🔒</div>
+                        <div class="e2e-line"></div>
+                        <div class="e2e-lock">👤</div>
+                        <div class="e2e-line"></div>
+                        <div class="e2e-shield">🛡️</div>
+                    </div>
+                </div>
+                <div class="bento-item rv d1">
+                    <span class="bento-icon">💰</span>
                     <h3>کیف پول هوشمند</h3>
-                    <p>انتقال وجه آنی، خرید شارژ، پرداخت قبوض و مدیریت مالی با امنیت بانکی.</p>
-                </article>
-                <article class="service-card reveal delay-2" tabindex="0">
-                    <div class="service-icon service-icon-bg" aria-hidden="true">🤖</div>
+                    <p>انتقال وجه آنی، پرداخت قبوض، خرید شارژ و مدیریت مالی با امنیت سطح بانکی.</p>
+                </div>
+                <div class="bento-item rv d2">
+                    <span class="bento-icon">🤖</span>
                     <h3>دستیار هوش مصنوعی</h3>
-                    <p>پاسخگویی هوشمند، تحلیل متن، ترجمه فوری و خودکارسازی کارهای روزمره.</p>
-                </article>
-                <article class="service-card reveal delay-3" tabindex="0">
-                    <div class="service-icon service-icon-bg" aria-hidden="true">🛒</div>
-                    <h3>فروشگاه و خدمات</h3>
-                    <p>خرید آنلاین، سفارش غذا، رزرو سرویس‌های محلی بدون خروج از برنامه.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="features-section section" aria-labelledby="featuresTitle">
-            <div class="section-header">
-                <span class="section-tag reveal">⚡ ویژگی‌ها</span>
-                <h2 class="section-title reveal delay-1" id="featuresTitle">
-                    طراحی شده برای <span class="gradient-text">آینده</span>
-                </h2>
-                <p class="section-subtitle reveal delay-2">هر ویژگی نووا با دقت و مهندسی پیشرفته ساخته شده تا تجربه‌ای بی‌نظیر به شما ارائه دهد.</p>
-            </div>
-            <div class="features-tabs reveal delay-3">
-                <button class="feature-tab active" data-feature="security">🔐 امنیت</button>
-                <button class="feature-tab" data-feature="performance">⚡ عملکرد</button>
-                <button class="feature-tab" data-feature="ai">🤖 هوش مصنوعی</button>
-                <button class="feature-tab" data-feature="integration">🔗 یکپارچگی</button>
-            </div>
-            <div class="feature-content active" id="featureSecurity">
-                <div class="feature-item"><span class="feature-item-icon">🔒</span><h4>رمزنگاری E2E</h4><p>تمام ارتباطات شما از ابتدا تا انتها رمزنگاری می‌شود</p></div>
-                <div class="feature-item"><span class="feature-item-icon">🛡️</span><h4>احراز هویت دو مرحله‌ای</h4><p>تایید هویت بیومتریک و رمز یک‌بار مصرف</p></div>
-                <div class="feature-item"><span class="feature-item-icon">📊</span><h4>گزارش‌دهی شفاف</h4><p>گزارش‌های امنیتی لحظه‌ای برای آرامش خاطر شما</p></div>
-                <div class="feature-item"><span class="feature-item-icon">🏛️</span><h4>تطابق با GDPR</h4><p>داده‌های شما طبق استانداردهای بین‌المللی محافظت می‌شوند</p></div>
-            </div>
-            <div class="feature-content" id="featurePerformance">
-                <div class="feature-item"><span class="feature-item-icon">🚀</span><h4>بارگذاری سریع</h4><p>زمان لود کمتر از ۲ ثانیه با بهینه‌سازی هوشمند</p></div>
-                <div class="feature-item"><span class="feature-item-icon">📱</span><h4>بهینه‌سازی باتری</h4><p>مصرف بهینه باتری و داده برای استفاده راحت</p></div>
-                <div class="feature-item"><span class="feature-item-icon">🔄</span><h4>همگام‌سازی آنی</h4><p>همگام‌سازی لحظه‌ای بین تمام دستگاه‌ها</p></div>
-                <div class="feature-item"><span class="feature-item-icon">📶</span><h4>دسترسی آفلاین</h4><p>دسترسی به قابلیت‌های کلیدی بدون اینترنت</p></div>
-            </div>
-            <div class="feature-content" id="featureAi">
-                <div class="feature-item"><span class="feature-item-icon">🧠</span><h4>یادگیری تطبیقی</h4><p>هوش مصنوعی که با شما رشد می‌کند</p></div>
-                <div class="feature-item"><span class="feature-item-icon">✍️</span><h4>تولید محتوا</h4><p>کمک در نوشتن، ترجمه و خلاصه‌سازی</p></div>
-                <div class="feature-item"><span class="feature-item-icon">🎯</span><h4>پیشنهاد هوشمند</h4><p>پیشنهادات بر اساس رفتار و نیازهای شما</p></div>
-                <div class="feature-item"><span class="feature-item-icon">🗣️</span><h4>تبدیل صدا</h4><p>تبدیل متن به صدای طبیعی با کیفیت بالا</p></div>
-            </div>
-            <div class="feature-content" id="featureIntegration">
-                <div class="feature-item"><span class="feature-item-icon">🔗</span><h4>API باز</h4><p>اتصال آسان به سرویس‌های شخص ثالث</p></div>
-                <div class="feature-item"><span class="feature-item-icon">📦</span><h4>معماری ماژولار</h4><p>فعال‌سازی فقط قابلیت‌های مورد نیاز شما</p></div>
-                <div class="feature-item"><span class="feature-item-icon">🎨</span><h4>شخصی‌سازی</h4><p>تم‌ها، ویجت‌ها و چیدمان دلخواه</p></div>
-                <div class="feature-item"><span class="feature-item-icon">🌐</span><h4>پشتیبانی چندزبانه</h4><p>پشتیبانی از ۵۰ زبان شامل فارسی و عربی</p></div>
-            </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section class="section" aria-labelledby="statsTitle">
-            <div class="section-header">
-                <span class="section-tag reveal">📊 آمار</span>
-                <h2 class="section-title reveal delay-1" id="statsTitle">اعتماد شما، <span class="gradient-text">انگیزه ما</span></h2>
-                <p class="section-subtitle reveal delay-2">اعداد و ارقامی که نشان‌دهنده تعهد ما به ارائه بهترین تجربه است</p>
-            </div>
-            <div class="stats-section">
-                <div class="stat-card reveal"><div class="stat-value" data-count="2.5">0</div><div class="stat-label">میلیون دانلود</div></div>
-                <div class="stat-card reveal delay-1"><div class="stat-value" data-count="4.9">0</div><div class="stat-label">امتیاز کاربران</div></div>
-                <div class="stat-card reveal delay-2"><div class="stat-value" data-count="150">0</div><div class="stat-label">کشور فعال</div></div>
-                <div class="stat-card reveal delay-3"><div class="stat-value" data-count="99.99">0</div><div class="stat-label">٪ رضایت</div></div>
-            </div>
-        </section>
-
-        <!-- Trust Section -->
-        <section id="trust" class="trust-section section" aria-labelledby="trustTitle">
-            <div class="section-header">
-                <span class="section-tag reveal">🛡️ امنیت</span>
-                <h2 class="section-title reveal delay-1" id="trustTitle">
-                    امنیت و <span class="gradient-text">اعتماد</span>
-                </h2>
-                <p class="section-subtitle reveal delay-2">
-                    زیرساخت‌های نووا با بالاترین استانداردهای امنیتی جهانی طراحی شده‌اند تا خیال شما از بابت حفظ داده‌ها راحت باشد.
-                </p>
-            </div>
-            <div class="trust-grid">
-                <span class="trust-badge reveal"><span class="trust-badge-icon">🔐</span> رمزنگاری End-to-End</span>
-                <span class="trust-badge reveal delay-1"><span class="trust-badge-icon">🛡️</span> تایید هویت دو مرحله‌ای</span>
-                <span class="trust-badge reveal delay-2"><span class="trust-badge-icon">📊</span> گزارش‌های امنیتی شفاف</span>
-                <span class="trust-badge reveal delay-3"><span class="trust-badge-icon">⏱️</span> پشتیبانی ۲۴/۷</span>
-                <span class="trust-badge reveal delay-4"><span class="trust-badge-icon">🏆</span> گواهی‌نامه‌های بین‌المللی</span>
-                <span class="trust-badge reveal delay-5"><span class="trust-badge-icon">🌍</span> تطابق با GDPR</span>
-            </div>
-            <!-- Security awareness indicator (UX Principle) -->
-            <div class="security-indicator reveal delay-5">
-                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a4 4 0 0 0-4 4v3H3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-1V5a4 4 0 0 0-4-4zm0 1.5A2.5 2.5 0 0 1 10.5 5v3h-5V5A2.5 2.5 0 0 1 8 2.5z"/></svg>
-                داده‌های شما با رمزنگاری پیشرفته محافظت می‌شوند
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="testimonials-section section" aria-labelledby="testimonialsTitle">
-            <div class="section-header">
-                <span class="section-tag reveal">💬 نظرات</span>
-                <h2 class="section-title reveal delay-1" id="testimonialsTitle">
-                    تجربه <span class="gradient-text">کاربران ما</span>
-                </h2>
-                <p class="section-subtitle reveal delay-2">تجربه واقعی کسانی که نووا را انتخاب کرده‌اند</p>
-            </div>
-            <div class="testimonials-carousel reveal delay-3">
-                <article class="testimonial-card">
-                    <div class="testimonial-card-header">
-                        <div class="testimonial-avatar">👨‍💻</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">علی محمدی</div>
-                            <div class="testimonial-role">توسعه‌دهنده نرم‌افزار</div>
+                    <p>ترجمه فوری، تولید محتوا، خلاصه‌سازی و پیشنهادات هوشمند. دستیاری که با شما رشد می‌کند.</p>
+                    <div class="bento-visual">
+                        <div class="ai-brain">
+                            <div class="brain-circle"></div><div class="brain-circle"></div><div class="brain-circle"></div>
+                            <span class="brain-core">🧠</span>
+                            <span class="brain-dot"></span><span class="brain-dot"></span><span class="brain-dot"></span>
                         </div>
                     </div>
-                    <p class="testimonial-text">نووا واقعاً بازی رو عوض کرد! همه چیز تو یک برنامه و با سرعت عالی. دیگه نیازی به ۵ تا اپ مختلف ندارم.</p>
-                    <div class="testimonial-rating">★★★★★</div>
-                </article>
-                <article class="testimonial-card">
-                    <div class="testimonial-card-header">
-                        <div class="testimonial-avatar">👩‍🎨</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">سارا احمدی</div>
-                            <div class="testimonial-role">طراح گرافیک</div>
-                        </div>
+                </div>
+                <div class="bento-item b-wide rv d3">
+                    <span class="bento-icon">⚡</span>
+                    <h3>عملکرد فوق‌العاده</h3>
+                    <p>بارگذاری کمتر از ۲ ثانیه، مصرف بهینه باتری و داده، همگام‌سازی آنی بین تمام دستگاه‌ها.</p>
+                    <div class="bento-visual speed-meter">
+                        <div class="speed-label"><span>سرعت پاسخ‌دهی</span><span style="color:var(--green)">۱۲ms</span></div>
+                        <div class="speed-bar"><div class="speed-fill" style="width:95%"></div></div>
+                        <div class="speed-label"><span>بهینه‌سازی باتری</span><span style="color:var(--green)">۹۸٪</span></div>
+                        <div class="speed-bar"><div class="speed-fill" style="width:98%"></div></div>
                     </div>
-                    <p class="testimonial-text">رابط کاربری فوق‌العاده زیبا و روان. هوش مصنوعیش هم واقعاً کمکم می‌کنه کارهام رو سریع‌تر انجام بدم.</p>
-                    <div class="testimonial-rating">★★★★★</div>
-                </article>
-                <article class="testimonial-card">
-                    <div class="testimonial-card-header">
-                        <div class="testimonial-avatar">👨‍💼</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">محمد رضایی</div>
-                            <div class="testimonial-role">کارآفرین</div>
-                        </div>
+                </div>
+                <div class="bento-item rv d4">
+                    <span class="bento-icon">🛒</span>
+                    <h3>فروشگاه یکپارچه</h3>
+                    <p>خرید آنلاین، سفارش غذا و رزرو سرویس‌ها بدون خروج از نووا.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONNECTION VISUALIZATION ===== -->
+        <section class="sec connect-sec" id="connect">
+            <div class="sec-head">
+                <span class="sec-tag rv">🌐 ارتباطات</span>
+                <h2 class="sec-title rv d1">پل ارتباطی بین <span class="grad">انسان‌ها</span></h2>
+                <p class="sec-sub rv d2">نووا شما را به دوستان، خانواده، همکاران و جوامع سراسر جهان متصل می‌کند.</p>
+            </div>
+            <div class="connect-canvas rv d3">
+                <svg class="connect-lines" viewBox="0 0 700 400" preserveAspectRatio="xMidYMid meet">
+                    <line class="connect-line" x1="350" y1="65" x2="130" y2="185"/>
+                    <line class="connect-line" x1="350" y1="65" x2="570" y2="185"/>
+                    <line class="connect-line" x1="130" y1="185" x2="350" y2="200"/>
+                    <line class="connect-line" x1="570" y1="185" x2="350" y2="200"/>
+                    <line class="connect-line" x1="350" y1="200" x2="230" y2="330"/>
+                    <line class="connect-line" x1="350" y1="200" x2="470" y2="330"/>
+                    <line class="connect-line" x1="130" y1="185" x2="230" y2="330"/>
+                    <line class="connect-line" x1="570" y1="185" x2="470" y2="330"/>
+                </svg>
+                <div class="connect-node">👨‍💻</div>
+                <div class="connect-node">👩‍🎨</div>
+                <div class="connect-node">👨‍💼</div>
+                <div class="connect-node">👩‍🎓</div>
+                <div class="connect-node">👨‍🏫</div>
+                <div class="connect-node">⭐</div>
+            </div>
+        </section>
+
+        <!-- ===== STATS ===== -->
+        <div class="stats-row">
+            <div class="stat-box rv"><div class="stat-num" data-c="2500000">0</div><div class="stat-lbl">دانلود فعال</div></div>
+            <div class="stat-box rv d1"><div class="stat-num" data-c="4.9">0</div><div class="stat-lbl">امتیاز کاربران</div></div>
+            <div class="stat-box rv d2"><div class="stat-num" data-c="150">0</div><div class="stat-lbl">کشور حاضر</div></div>
+            <div class="stat-box rv d3"><div class="stat-num" data-c="99.99">0</div><div class="stat-lbl">٪ رضایت‌مندی</div></div>
+        </div>
+
+        <!-- ===== WAVE DIVIDER ===== -->
+        <div class="wave-div" aria-hidden="true">
+            <svg class="wave-svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                <path d="M0 30 Q150 55 300 30 T600 30 T900 30 T1200 30 T1500 30 T1800 30 T2100 30 T2400 30" stroke="url(#waveGrad)" stroke-width="1.5" fill="none"/>
+            </svg>
+        </div>
+
+        <!-- ===== SECURITY SHIELD ===== -->
+        <section class="sec shield-sec" id="security">
+            <div class="sec-head">
+                <span class="sec-tag rv">🛡️ امنیت</span>
+                <h2 class="sec-title rv d1">داده‌های شما، <span class="grad">حریم شماست</span></h2>
+                <p class="sec-sub rv d2">ما باور داریم حریم خصوصی حق شماست، نه امتیاز. تمام زیرساخت‌های نووا با بالاترین استانداردهای جهانی ساخته شده‌اند.</p>
+            </div>
+            <div class="shield-wrap">
+                <div class="shield-visual rv d3">
+                    <div class="shield-shape">
+                        <svg viewBox="0 0 200 240" fill="none">
+                            <path d="M100 10L185 50V130C185 180 140 220 100 235C60 220 15 180 15 130V50L100 10Z" fill="url(#shieldGrad)" opacity="0.15" stroke="url(#shieldGrad)" stroke-width="2"/>
+                            <path d="M100 60L140 78V120C140 150 120 170 100 178C80 170 60 150 60 120V78L100 60Z" fill="url(#shieldGrad)" opacity="0.25"/>
+                            <text x="100" y="130" text-anchor="middle" font-size="40" fill="white" opacity="0.9">🔐</text>
+                        </svg>
                     </div>
-                    <p class="testimonial-text">برای کسب‌وکارم عالیه. پرداخت‌ها، ارتباط با مشتری و مدیریت کارها همه تو یک جا. امنیتش هم خیالم رو راحت کرده.</p>
-                    <div class="testimonial-rating">★★★★★</div>
-                </article>
-                <article class="testimonial-card">
-                    <div class="testimonial-card-header">
-                        <div class="testimonial-avatar">👩‍🎓</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">نیکا حسینی</div>
-                            <div class="testimonial-role">دانشجو</div>
-                        </div>
+                    <div class="shield-ring"></div>
+                    <div class="shield-ring"></div>
+                    <div class="shield-particles">
+                        <div class="s-particle"></div><div class="s-particle"></div><div class="s-particle"></div>
+                        <div class="s-particle"></div><div class="s-particle"></div>
                     </div>
-                    <p class="testimonial-text">به عنوان دانشجو که همیشه عجله دارم، نووا همه نیازهام رو برطرف کرده. از چت تا پرداخت تا هوش مصنوعی!</p>
-                    <div class="testimonial-rating">★★★★★</div>
+                </div>
+                <div class="shield-info rv d4">
+                    <h3>محافظت <span class="grad">چندلایه</span></h3>
+                    <p style="color:var(--muted);line-height:1.8;font-size:0.95rem;">در هر لحظه بدانید که داده‌هایتان محافظت می‌شود. نووا با رویکرد «حریم خصوصی از ابتدا» طراحی شده.</p>
+                    <ul class="shield-list">
+                        <li><span class="shield-list-icon">🔒</span>رمزنگاری سرتاسری تمام پیام‌ها و تماس‌ها</li>
+                        <li><span class="shield-list-icon">🛡️</span>احراز هویت بیومتریک و دو مرحله‌ای</li>
+                        <li><span class="shield-list-icon">🌍</span>تطابق کامل با GDPR و قوانین ۱۸۰ کشور</li>
+                        <li><span class="shield-list-icon">📊</span>گزارش‌های امنیتی شفاف و لحظه‌ای</li>
+                        <li><span class="shield-list-icon">🔗</span>احراز هویت مبتنی بر بلاک‌چین</li>
+                        <li><span class="shield-list-icon">⏱️</span>پشتیبانی ۲۴ ساعته، ۷ روز هفته</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TIMELINE (Roadmap) ===== -->
+        <section class="sec timeline-sec" id="roadmap">
+            <div class="sec-head">
+                <span class="sec-tag rv">🚀 مسیر آینده</span>
+                <h2 class="sec-title rv d1">نقشه راه <span class="grad">نووا</span></h2>
+                <p class="sec-sub rv d2">با ما همراه باشید در سفری که تازه آغاز شده. هر قدم ما با نیاز شما شکل می‌گیرد.</p>
+            </div>
+            <div class="timeline rv d3">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card"><div class="timeline-year">۲۰۲۴</div><h4>آغاز سفر</h4><p>راه‌اندازی پیام‌رسان امن با رمزنگاری E2E، چت، تماس و استوری. پشتیبانی از ۲۰ زبان اول.</p></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card"><div class="timeline-year">۲۰۲۵</div><h4>اکوسیستم هوشمند</h4><p>اضافه شدن کیف پول دیجیتال، دستیار هوش مصنوعی و فروشگاه یکپارچه. گسترش به ۵۰ زبان.</p></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card"><div class="timeline-year">۲۰۲۷</div><h4>جهانی شدن</h4><p>رسیدن به ۱۰۰ میلیون کاربر، رابط‌های صوتی و تصویری AI، و ورود به بازارهای جدید.</p></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card"><div class="timeline-year">۲۰۳۰</div><h4>آینده‌ای بدون مرز</h4><p>واقعیت افزوده (AR)، متاورس، و تجربه‌های ارتباطی نسل بعدی. نووا به خانه دوم شما تبدیل می‌شود.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIALS ===== -->
+        <section class="sec" id="reviews">
+            <div class="sec-head">
+                <span class="sec-tag rv">💬 صداهای واقعی</span>
+                <h2 class="sec-title rv d1">هر کاربر، <span class="grad">یک ستاره</span></h2>
+                <p class="sec-sub rv d2">تجربه واقعی کسانی که نووا را به عنوان همراه دیجیتال خود انتخاب کرده‌اند.</p>
+            </div>
+            <div class="test-carousel rv d3">
+                <article class="test-card">
+                    <div class="test-head"><div class="test-av">👨‍💻</div><div><div class="test-name">علی محمدی</div><div class="test-role">توسعه‌دهنده</div></div></div>
+                    <p class="test-txt">نووا برای من یک پناهگاه دیجیتاله. تمام ارتباطاتم رو با خیال راحت اینجا انجام میدم. امنیتش واقعاً بی‌نظیره.</p>
+                    <div class="test-stars">★★★★★</div>
+                </article>
+                <article class="test-card">
+                    <div class="test-head"><div class="test-av">👩‍🎨</div><div><div class="test-name">سارا احمدی</div><div class="test-role">طراح</div></div></div>
+                    <p class="test-txt">رابط کاربری نووا حرف نداره! مینیمال و زیبا. هوش مصنوعیش هم بهم کمک می‌کنه سریع‌تر کار کنم. عاشقشم!</p>
+                    <div class="test-stars">★★★★★</div>
+                </article>
+                <article class="test-card">
+                    <div class="test-head"><div class="test-av">👨‍💼</div><div><div class="test-name">محمد رضایی</div><div class="test-role">کارآفرین</div></div></div>
+                    <p class="test-txt">از وقتی تیممون رو به نووا آوردم، ارتباطات کاری‌مون متحول شده. کانال‌های موضوعی و کیف پول یکپارچه عالیه.</p>
+                    <div class="test-stars">★★★★★</div>
+                </article>
+                <article class="test-card">
+                    <div class="test-head"><div class="test-av">👩‍🎓</div><div><div class="test-name">نیکا حسینی</div><div class="test-role">دانشجو</div></div></div>
+                    <p class="test-txt">همه چیز تو یه جا! چت، پرداخت، هوش مصنوعی. دیگه نیازی به ده تا اپلیکیشن مختلف ندارم. واقعاً آینده‌ای!</p>
+                    <div class="test-stars">★★★★★</div>
+                </article>
+                <article class="test-card">
+                    <div class="test-head"><div class="test-av">👨‍🏫</div><div><div class="test-name">دکتر کریمی</div><div class="test-role">استاد دانشگاه</div></div></div>
+                    <p class="test-txt">سادگی و قابلیت اعتمادش منو جذب کرد. فونت‌ها خوانا هستند و رابط کاربری برای همه سنین مناسبه. ممنونم از تیم نووا.</p>
+                    <div class="test-stars">★★★★★</div>
                 </article>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section id="cta" class="cta-section section" aria-labelledby="ctaTitle">
-            <div class="cta-badge reveal">⭐ ارتباطی به وسعت فردا</div>
-            <h2 class="reveal delay-1" id="ctaTitle">آماده‌اید آینده ارتباطات را تجربه کنید؟</h2>
-            <p class="reveal delay-2">همین حالا نووا را نصب کنید و به جمع کاربران پیشرو بپیوندید. <br>ارتباطی فراتر از یک پیام، امن‌تر از همیشه.</p>
-            <a href="#" class="btn btn-primary magnetic reveal delay-3" data-strength="25" style="font-size:1.1rem; padding:1rem 2.8rem;">🚀 دانلود رایگان</a>
+        <!-- ===== CTA ===== -->
+        <section class="cta-sec sec" id="cta">
+            <div class="particles" aria-hidden="true">
+                <div class="p-dot"></div><div class="p-dot"></div><div class="p-dot"></div>
+            </div>
+            <span class="cta-glow rv">⭐ نووا: ارتباطی به وسعت فردا</span>
+            <h2 class="rv d1">آماده‌اید <span class="grad">ستاره‌ای در کهکشان نووا</span> باشید؟</h2>
+            <p class="rv d2">همین حالا بپیوندید و تجربه ارتباطی را متحول کنید. ارتباطی فراتر از یک پیام، امن‌تر از همیشه.</p>
+            <a href="#" class="btn btn-primary magnetic rv d3" data-s="22" style="font-size:1.08rem;padding:1rem 2.5rem;">🚀 دانلود رایگان نووا</a>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="footer-grid reveal">
-            <div class="footer-col">
-                <h4>NOVA</h4>
-                <a href="#">درباره ما</a>
-                <a href="#">تماس با ما</a>
-                <a href="#">فرصت‌های شغلی</a>
-                <a href="#">وبلاگ</a>
-                <a href="#">خبرنامه</a>
+    <footer class="footer">
+        <div class="footer-grid rv">
+            <div class="footer-brand">
+                <div class="logo" style="margin-bottom:0.5rem;">
+                    <span class="logo-star" style="width:28px;height:28px;"><svg viewBox="0 0 48 48" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#logoG)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/></svg></span>
+                    <span class="logo-txt" style="font-size:1.3rem;">NOVA</span>
+                </div>
+                <p>ارتباطی فراتر از یک پیام، امن‌تر از همیشه، و همراستا با آینده.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="توییتر">𝕏</a>
+                    <a href="#" aria-label="اینستاگرام">📷</a>
+                    <a href="#" aria-label="لینکدین">in</a>
+                    <a href="#" aria-label="گیت‌هاب">⌨</a>
+                </div>
             </div>
             <div class="footer-col">
-                <h4>خدمات</h4>
+                <h4>محصول</h4>
                 <a href="#">پیام‌رسان</a>
-                <a href="#">کیف پول دیجیتال</a>
-                <a href="#">دستیار هوش مصنوعی</a>
-                <a href="#">فروشگاه آنلاین</a>
-                <a href="#">API توسعه‌دهندگان</a>
+                <a href="#">کیف پول</a>
+                <a href="#">دستیار AI</a>
+                <a href="#">فروشگاه</a>
+                <a href="#">API</a>
+            </div>
+            <div class="footer-col">
+                <h4>شرکت</h4>
+                <a href="#">درباره ما</a>
+                <a href="#">وبلاگ</a>
+                <a href="#">فرصت‌های شغلی</a>
+                <a href="#">تماس</a>
+                <a href="#">خبرنامه</a>
             </div>
             <div class="footer-col">
                 <h4>پشتیبانی</h4>
                 <a href="#">مرکز راهنمایی</a>
                 <a href="#">مستندات فنی</a>
                 <a href="#">وضعیت سرویس</a>
-                <a href="#">گزارش مشکل</a>
-                <a href="#">درخواست ویژگی</a>
-            </div>
-            <div class="footer-col">
-                <h4>قوانین</h4>
                 <a href="#">حریم خصوصی</a>
                 <a href="#">شرایط استفاده</a>
-                <a href="#">سیاست کوکی</a>
-                <a href="#">قوانین محتوا</a>
             </div>
         </div>
-        <div class="footer-bottom reveal">
+        <div class="footer-bottom rv">
             <div>
                 <p>© ۲۰۲۵ NOVA. تمامی حقوق محفوظ است.</p>
-                <p class="footer-brand-message">«نووا؛ جایی که پیام‌ها به نور تبدیل می‌شوند.»</p>
+                <p class="footer-slogan">«نووا؛ جایی که پیام‌ها به نور تبدیل می‌شوند.»</p>
             </div>
             <div class="enamad" aria-label="نماد اعتماد الکترونیکی">
-                <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq" aria-label="بررسی نماد اعتماد الکترونیکی">
-                    <img referrerpolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq" alt="نماد اعتماد الکترونیکی" width="100" height="auto" loading="lazy">
+                <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq">
+                    <img referrerpolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq" alt="نماد اعتماد الکترونیکی" width="90" loading="lazy">
                 </a>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll to Top -->
     <button class="scroll-top" id="scrollTop" aria-label="بازگشت به بالا">↑</button>
 
     <script>
-        // ========== Loader ==========
-        window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('hidden'), 1600));
+        // Loader
+        window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('gone'), 1500));
 
-        // ========== Mobile Menu ==========
-        const mobileBtn = document.getElementById('mobileMenuBtn');
-        const menuToggle = document.getElementById('menu-toggle');
-        let menuOpen = false;
-        mobileBtn?.addEventListener('click', () => {
-            menuOpen = !menuOpen;
-            menuToggle.checked = menuOpen;
-            mobileBtn.innerHTML = menuOpen ? '✕' : '☰';
-            mobileBtn.setAttribute('aria-expanded', menuOpen);
-        });
-        document.querySelectorAll('#mainNav .nav-link').forEach(l => l.addEventListener('click', () => {
-            menuToggle.checked = false; menuOpen = false;
-            mobileBtn.innerHTML = '☰'; mobileBtn.setAttribute('aria-expanded', 'false');
-        }));
+        // Mobile Menu
+        const mobBtn = document.getElementById('mobBtn');
+        const mobTog = document.getElementById('mob-toggle');
+        let mOpen = false;
+        mobBtn?.addEventListener('click', () => { mOpen = !mOpen; mobTog.checked = mOpen; mobBtn.innerHTML = mOpen ? '✕' : '☰'; });
+        document.querySelectorAll('#mainNav .nav-link').forEach(l => l.addEventListener('click', () => { mobTog.checked = false; mOpen = false; mobBtn.innerHTML = '☰'; }));
 
-        // ========== Ripple Effect ==========
-        document.querySelectorAll('.btn, .service-card, .feature-tab, .trust-badge').forEach(el => {
+        // Ripple
+        document.querySelectorAll('.btn, .bento-item, .connect-node, .trust-badge').forEach(el => {
             el.addEventListener('click', function(e) {
                 const r = document.createElement('span'); r.classList.add('ripple');
-                const rect = this.getBoundingClientRect(), size = Math.max(rect.width, rect.height) * 1.6;
-                r.style.width = r.style.height = `${size}px`;
-                r.style.left = `${e.clientX - rect.left - size/2}px`;
-                r.style.top = `${e.clientY - rect.top - size/2}px`;
+                const rect = this.getBoundingClientRect(), sz = Math.max(rect.width, rect.height) * 1.6;
+                r.style.width = r.style.height = sz + 'px';
+                r.style.left = (e.clientX - rect.left - sz/2) + 'px';
+                r.style.top = (e.clientY - rect.top - sz/2) + 'px';
                 this.appendChild(r); setTimeout(() => r.remove(), 600);
             });
         });
 
-        // ========== Reveal on Scroll ==========
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        // Reveal
+        const rObs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) { e.target.classList.add('vis'); rObs.unobserve(e.target); } }), { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.rv').forEach(el => rObs.observe(el));
 
-        // ========== Hero Mouse Parallax ==========
+        // Parallax Hero
         const hero = document.querySelector('.hero');
-        const heroAurora = document.querySelector('.hero-aurora');
-        if(hero && heroAurora && window.matchMedia('(hover: hover)').matches) {
+        const hAur = document.querySelector('.hero-aurora');
+        if(hero && hAur && matchMedia('(hover:hover)').matches) {
             hero.addEventListener('mousemove', e => {
-                const rect = hero.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                heroAurora.style.transform = `translate(${x * 25}px, ${y * 25}px)`;
+                const r = hero.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width - 0.5;
+                const y = (e.clientY - r.top) / r.height - 0.5;
+                hAur.style.transform = `translate(${x*25}px,${y*25}px)`;
             });
-            hero.addEventListener('mouseleave', () => heroAurora.style.transform = '');
+            hero.addEventListener('mouseleave', () => hAur.style.transform = '');
         }
 
-        // ========== Magnetic Buttons ==========
-        document.querySelectorAll('.magnetic').forEach(btn => {
-            const s = parseFloat(btn.dataset.strength) || 18;
-            btn.addEventListener('mousemove', e => {
-                const r = btn.getBoundingClientRect();
-                const x = (e.clientX - r.left - r.width/2) / s;
-                const y = (e.clientY - r.top - r.height/2) / s;
-                btn.style.transform = `translate(${x}px, ${y}px)`;
+        // Magnetic
+        document.querySelectorAll('.magnetic').forEach(b => {
+            const s = parseFloat(b.dataset.s) || 16;
+            b.addEventListener('mousemove', e => {
+                const r = b.getBoundingClientRect();
+                b.style.transform = `translate(${(e.clientX-r.left-r.width/2)/s}px,${(e.clientY-r.top-r.height/2)/s}px)`;
             });
-            btn.addEventListener('mouseleave', () => btn.style.transform = '');
+            b.addEventListener('mouseleave', () => b.style.transform = '');
         });
 
-        // ========== Feature Tabs ==========
-        document.querySelectorAll('.feature-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.feature-tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.feature-content').forEach(c => c.classList.remove('active'));
-                tab.classList.add('active');
-                const id = `feature${tab.dataset.feature.charAt(0).toUpperCase() + tab.dataset.feature.slice(1)}`;
-                document.getElementById(id)?.classList.add('active');
-            });
-        });
-
-        // ========== Counter Animation ==========
-        document.querySelectorAll('.stat-value, .hero-stat-value').forEach(counter => {
-            const target = parseFloat(counter.dataset.count);
-            const dur = 2000, inc = target / (dur / 16);
+        // Counters
+        document.querySelectorAll('[data-c]').forEach(c => {
+            const t = parseFloat(c.dataset.c), dur = 2200, inc = t / (dur/16);
             let cur = 0;
-            const obs = new IntersectionObserver(([e]) => {
+            const o = new IntersectionObserver(([e]) => {
                 if(e.isIntersecting) {
-                    const upd = () => {
-                        cur += inc;
-                        if(cur < target) {
-                            counter.textContent = target % 1 === 0 ? Math.floor(cur) : cur.toFixed(1);
-                            requestAnimationFrame(upd);
-                        } else {
-                            counter.textContent = target % 1 === 0 ? target : target.toFixed(1);
-                        }
-                    };
-                    upd(); obs.disconnect();
+                    const u = () => { cur += inc; if(cur < t) { c.textContent = t >= 1000 ? Math.floor(cur).toLocaleString('fa-IR') : t % 1 === 0 ? Math.floor(cur) : cur.toFixed(1); requestAnimationFrame(u); } else { c.textContent = t >= 1000 ? Math.floor(t).toLocaleString('fa-IR') : t % 1 === 0 ? t : t.toFixed(1); } };
+                    u(); o.disconnect();
                 }
-            }, { threshold: 0.5 });
-            obs.observe(counter);
+            }, { threshold: 0.4 });
+            o.observe(c);
         });
 
-        // ========== Scroll Progress & Header ==========
+        // Scroll Events
         window.addEventListener('scroll', () => {
-            const s = window.pageYOffset;
-            const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const pct = Math.round((s / h) * 100);
-            document.getElementById('scrollProgress').style.width = `${pct}%`;
-            document.getElementById('scrollProgress').setAttribute('aria-valuenow', pct);
-            document.querySelector('.header').classList.toggle('scrolled', s > 60);
-            document.getElementById('scrollTop').classList.toggle('visible', s > 400);
+            const s = pageYOffset, h = document.documentElement.scrollHeight - innerHeight;
+            document.getElementById('scrollBar').style.width = (s/h*100) + '%';
+            document.querySelector('.header').classList.toggle('stuck', s > 50);
+            document.getElementById('scrollTop').classList.toggle('vis', s > 400);
         }, { passive: true });
 
-        // ========== Scroll to Top ==========
-        document.getElementById('scrollTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        // Scroll Top
+        document.getElementById('scrollTop').addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 
-        // ========== Floating Nav ==========
-        const dots = document.querySelectorAll('.nav-dot');
-        const sections = document.querySelectorAll('section[id]');
-        const updateNav = () => {
-            let cur = '';
-            sections.forEach(s => { if(pageYOffset >= s.offsetTop - 160) cur = s.id; });
-            dots.forEach(d => d.classList.toggle('active', d.dataset.target === cur));
-        };
+        // Side Nav
+        const dots = document.querySelectorAll('.side-dot');
+        const secs = document.querySelectorAll('section[id]');
+        const updNav = () => { let cur = ''; secs.forEach(s => { if(pageYOffset >= s.offsetTop - 150) cur = s.id; }); dots.forEach(d => d.classList.toggle('active', d.dataset.target === cur)); };
         dots.forEach(d => d.addEventListener('click', () => document.getElementById(d.dataset.target)?.scrollIntoView({ behavior: 'smooth' })));
-        window.addEventListener('scroll', updateNav, { passive: true });
+        window.addEventListener('scroll', updNav, { passive: true });
 
-        // ========== Testimonials Carousel Drag ==========
-        const carousel = document.querySelector('.testimonials-carousel');
-        if(carousel) {
-            let isDown = false, startX, scrollLeft;
-            carousel.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - carousel.offsetLeft; scrollLeft = carousel.scrollLeft; carousel.style.cursor = 'grabbing'; });
-            carousel.addEventListener('mouseleave', () => { isDown = false; carousel.style.cursor = 'grab'; });
-            carousel.addEventListener('mouseup', () => { isDown = false; carousel.style.cursor = 'grab'; });
-            carousel.addEventListener('mousemove', e => { if(!isDown) return; e.preventDefault(); const x = e.pageX - carousel.offsetLeft; carousel.scrollLeft = scrollLeft - (x - startX) * 2; });
-            carousel.style.cursor = 'grab';
+        // Carousel Drag
+        const car = document.querySelector('.test-carousel');
+        if(car) {
+            let down = false, sx, sl;
+            car.addEventListener('mousedown', e => { down = true; sx = e.pageX - car.offsetLeft; sl = car.scrollLeft; car.style.cursor = 'grabbing'; });
+            car.addEventListener('mouseleave', () => { down = false; car.style.cursor = 'grab'; });
+            car.addEventListener('mouseup', () => { down = false; car.style.cursor = 'grab'; });
+            car.addEventListener('mousemove', e => { if(!down) return; e.preventDefault(); car.scrollLeft = sl - (e.pageX - car.offsetLeft - sx) * 2; });
+            car.style.cursor = 'grab';
         }
 
-        // ========== Keyboard Accessibility ==========
-        document.addEventListener('keydown', e => {
-            if(e.key === 'Escape') {
-                menuToggle.checked = false; menuOpen = false;
-                mobileBtn.setAttribute('aria-expanded', 'false'); mobileBtn.innerHTML = '☰';
-            }
-        });
+        // Keyboard
+        document.addEventListener('keydown', e => { if(e.key === 'Escape') { mobTog.checked = false; mOpen = false; mobBtn.innerHTML = '☰'; } });
 
-        // ========== Reduced Motion ==========
-        if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            document.querySelectorAll('.reveal').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
-        }
+        // Reduced Motion
+        if(matchMedia('(prefers-reduced-motion:reduce)').matches) document.querySelectorAll('.rv').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
 
         console.log('%c✨ NOVA — The Future of Connection', 'font-size:18px;color:#7C3AED;font-weight:bold;text-shadow:0 0 10px rgba(124,58,237,0.6);');
     </script>
 </body>
 </html>
-```
