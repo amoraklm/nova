@@ -3,1321 +3,808 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>NOVA | ارتباطی به وسعت فردا</title>
-    <meta name="description" content="نووا؛ جایی که پیام‌ها به نور تبدیل می‌شوند. پیام‌رسان امن نسل آینده.">
+    <title>NOVA | جایی که پیام‌ها به نور تبدیل می‌شوند</title>
+    <meta name="description" content="نووا؛ ارتباطی فراتر از یک پیام، امن‌تر از همیشه.">
     <meta name="theme-color" content="#0A0A0F">
-
-    <!-- Favicon SVG -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%237C3AED'/%3E%3Cstop offset='50%25' stop-color='%23EC4899'/%3E%3Cstop offset='100%25' stop-color='%236366F1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='30' fill='%230A0A0F'/%3E%3Cpath d='M32 8L37 24L52 20L42 32L52 44L37 40L32 56L27 40L12 44L22 32L12 20L27 24Z' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='32' r='5' fill='white' opacity='.85'/%3E%3C/svg%3E">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-
     <style>
-        @font-face {
-            font-family: 'IRANSansXFaNum';
-            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx-font@latest/dist/IRANSansXFaNum.woff2') format('woff2');
-            font-weight: 300 900;
-            font-display: swap;
+        @font-face{font-family:'IRANSansXFaNum';src:url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx-font@latest/dist/IRANSansXFaNum.woff2') format('woff2');font-weight:300 900;font-display:swap}
+
+        :root{
+            --nova:#7C3AED;--nova-r:124,58,237;
+            --sec:#A855F7;--sec-r:168,85,247;
+            --tri:#6366F1;--tri-r:99,102,241;
+            --pink:#EC4899;--pink-r:236,72,153;
+            --gold:#F59E0B;--gold-r:245,158,11;
+            --green:#10B981;--green-r:16,185,129;
+            --red:#EF4444;
+            --bg:#0A0A0F;--surf:#1E1B2E;--muted:#94A3B8;--w:#FFFFFF;
+            --shim:linear-gradient(135deg,var(--nova),var(--pink),var(--tri));
+
+            /* Claymorphism Core */
+            --clay:rgba(255,255,255,0.07);
+            --clay2:rgba(255,255,255,0.10);
+            --clay-b:rgba(255,255,255,0.12);
+            --clay-glow:rgba(var(--nova-r),0.08);
+            --clay-sh:
+                12px 12px 24px rgba(0,0,0,0.55),
+                -8px -8px 20px rgba(255,255,255,0.04),
+                inset 0 2px 1px rgba(255,255,255,0.12),
+                inset 0 -2px 1px rgba(0,0,0,0.25);
+            --clay-sh-h:
+                16px 16px 32px rgba(0,0,0,0.65),
+                -10px -10px 24px rgba(255,255,255,0.06),
+                inset 0 2px 1px rgba(255,255,255,0.16),
+                inset 0 -2px 1px rgba(0,0,0,0.3);
+            --clay-sh-in:
+                inset 8px 8px 16px rgba(0,0,0,0.5),
+                inset -6px -6px 14px rgba(255,255,255,0.04);
+            --clay-blur:blur(20px) saturate(150%);
+
+            --btn-sh:0 4px 6px rgba(var(--nova-r),0.25),0 8px 15px rgba(var(--nova-r),0.2),0 16px 30px rgba(var(--nova-r),0.15),0 24px 45px rgba(var(--nova-r),0.1);
+            --ease:cubic-bezier(0.4,0,0.2,1);
+            --fast:250ms var(--ease);--norm:350ms var(--ease);--slow:500ms var(--ease);
+            --r:24px;--r-sm:16px;--r-xs:12px;--r-full:9999px;
+            --max:1200px;--pad:clamp(1rem,5vw,2.5rem)
         }
 
-        :root {
-            --nova: #7C3AED;
-            --nova-rgb: 124, 58, 237;
-            --secondary: #A855F7;
-            --secondary-rgb: 168, 85, 247;
-            --tertiary: #6366F1;
-            --tertiary-rgb: 99, 102, 241;
-            --pink: #EC4899;
-            --pink-rgb: 236, 72, 153;
-            --gold: #F59E0B;
-            --gold-rgb: 245, 158, 11;
-            --green: #10B981;
-            --green-rgb: 16, 185, 129;
-            --red: #EF4444;
-            --ice: #06B6D4;
-            --ice-rgb: 6, 182, 212;
-            --bg: #0A0A0F;
-            --surface: #1E1B2E;
-            --muted: #94A3B8;
-            --white: #FFFFFF;
-            --shimmer: linear-gradient(135deg, var(--nova), var(--pink), var(--tertiary));
-            --shimmer-anim: linear-gradient(-45deg, var(--nova), var(--pink), var(--tertiary), var(--secondary), var(--nova));
-            
-            /* Enhanced Claymorphism Variables */
-            --clay-bg: rgba(255,255,255,0.08);
-            --clay-bg-strong: rgba(255,255,255,0.12);
-            --clay-border: rgba(255,255,255,0.15);
-            --clay-active: rgba(var(--nova-rgb),0.5);
-            --clay-blur: blur(25px) saturate(180%);
-            --clay-shadow: 
-                12px 12px 24px rgba(0,0,0,0.6),
-                -8px -8px 20px rgba(255,255,255,0.05),
-                inset 0 2px 4px rgba(255,255,255,0.15),
-                inset 0 -2px 4px rgba(0,0,0,0.2);
-            --clay-shadow-hover: 
-                16px 16px 32px rgba(0,0,0,0.7),
-                -10px -10px 24px rgba(255,255,255,0.08),
-                inset 0 3px 6px rgba(255,255,255,0.2),
-                inset 0 -3px 6px rgba(0,0,0,0.25);
-            --clay-shadow-inset:
-                inset 8px 8px 16px rgba(0,0,0,0.4),
-                inset -6px -6px 12px rgba(255,255,255,0.08);
-            --btn-shadow: 
-                0 6px 12px rgba(var(--nova-rgb),0.3),
-                0 12px 24px rgba(var(--nova-rgb),0.25),
-                0 20px 40px rgba(var(--nova-rgb),0.2),
-                inset 0 2px 4px rgba(255,255,255,0.2);
-            --ease: cubic-bezier(0.4, 0, 0.2, 1);
-            --fast: 250ms var(--ease);
-            --normal: 350ms var(--ease);
-            --slow: 500ms var(--ease);
-            --r-sm: 16px; 
-            --r-md: 20px; 
-            --r-lg: 28px; 
-            --r-xl: 36px; 
-            --r-full: 9999px;
-            --max-w: 1400px;
-            --pad: clamp(1rem, 5vw, 3rem);
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+        html{scroll-behavior:smooth;font-size:16px;scroll-padding-top:80px}
+        body{font-family:'IRANSansXFaNum','Inter',system-ui,sans-serif;background:var(--bg);color:var(--w);line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
 
-        html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 90px; }
-        body {
-            font-family: 'IRANSansXFaNum', 'Inter', system-ui, sans-serif;
-            background: var(--bg); color: var(--white); line-height: 1.75; overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent;
-        }
+        /* Keyframes */
+        @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+        @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+        @keyframes float2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-10px) rotate(2deg)}}
+        @keyframes morph{0%,100%{border-radius:42% 58% 62% 38%/45% 55% 45% 55%}33%{border-radius:55% 45% 38% 62%/52% 48% 52% 48%}66%{border-radius:38% 62% 55% 45%/58% 42% 58% 42%}}
+        @keyframes orbit{from{transform:rotate(0deg) translateX(100px) rotate(0deg)}to{transform:rotate(360deg) translateX(100px) rotate(-360deg)}}
+        @keyframes orbit2{from{transform:rotate(120deg) translateX(75px) rotate(-120deg)}to{transform:rotate(480deg) translateX(75px) rotate(-480deg)}}
+        @keyframes orbit3{from{transform:rotate(240deg) translateX(120px) rotate(-240deg)}to{transform:rotate(600deg) translateX(120px) rotate(-600deg)}}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        @keyframes breathe{0%,100%{box-shadow:0 0 0 0 rgba(var(--nova-r),0.4)}50%{box-shadow:0 0 0 8px transparent}}
+        @keyframes pulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+        @keyframes wave{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        @keyframes dash{to{stroke-dashoffset:0}}
+        @keyframes counter-glow{0%,100%{text-shadow:0 0 8px rgba(var(--nova-r),0.5)}50%{text-shadow:0 0 20px rgba(var(--pink-r),0.4)}}
+        @keyframes progress{from{width:0}to{width:100%}}
+        @keyframes particle{0%{transform:translate(0,0) scale(1);opacity:.6}50%{transform:translate(20px,-60px) scale(.8);opacity:.3}100%{transform:translate(0,-120px) scale(.5);opacity:0}}
+        @keyframes ripple-fx{to{transform:scale(3.5);opacity:0}}
+        @keyframes countdown-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+        @keyframes ice-sparkle{0%,100%{opacity:0.3;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
 
-        /* ===== Keyframes ===== */
-        @keyframes shimmer { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-        @keyframes up { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-        @keyframes fadeScale { from{opacity:0;transform:scale(0.94)} to{opacity:1;transform:scale(1)} }
-        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-        @keyframes float2 { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-16px) rotate(3deg)} }
-        @keyframes pulse { 0%,100%{opacity:.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.08)} }
-        @keyframes orbit { from{transform:rotate(0deg) translateX(140px) rotate(0deg)} to{transform:rotate(360deg) translateX(140px) rotate(-360deg)} }
-        @keyframes orbit2 { from{transform:rotate(120deg) translateX(110px) rotate(-120deg)} to{transform:rotate(480deg) translateX(110px) rotate(-480deg)} }
-        @keyframes orbit3 { from{transform:rotate(240deg) translateX(170px) rotate(-240deg)} to{transform:rotate(600deg) translateX(170px) rotate(-600deg)} }
-        @keyframes spin-slow { to{transform:rotate(360deg)} }
-        @keyframes morph { 0%,100%{border-radius:42% 58% 62% 38% / 45% 55% 45% 55%} 25%{border-radius:55% 45% 38% 62% / 52% 48% 52% 48%} 50%{border-radius:38% 62% 55% 45% / 58% 42% 58% 42%} 75%{border-radius:62% 38% 45% 55% / 42% 58% 42% 58%} }
-        @keyframes dash { to{stroke-dashoffset:0} }
-        @keyframes wave { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-        @keyframes breathe { 0%,100%{box-shadow:0 0 0 0 rgba(var(--nova-rgb),0.4)} 50%{box-shadow:0 0 0 12px transparent} }
-        @keyframes counter-glow { 0%,100%{text-shadow:0 0 10px rgba(var(--nova-rgb),0.6)} 50%{text-shadow:0 0 24px rgba(var(--pink-rgb),0.5)} }
-        @keyframes typing { from{width:0} to{width:100%} }
-        @keyframes blink { 50%{border-color:transparent} }
-        @keyframes progress { from{width:0} to{width:100%} }
-        @keyframes particle-float {
-            0%{transform:translate(0,0) scale(1);opacity:0.6}
-            25%{transform:translate(30px,-40px) scale(1.2);opacity:0.8}
-            50%{transform:translate(-20px,-80px) scale(0.8);opacity:0.4}
-            75%{transform:translate(40px,-120px) scale(1.1);opacity:0.2}
-            100%{transform:translate(0,-160px) scale(0.6);opacity:0}
-        }
-        @keyframes countdown-pulse {
-            0%,100%{transform:scale(1);box-shadow:var(--clay-shadow)}
-            50%{transform:scale(1.02);box-shadow:var(--clay-shadow-hover)}
-        }
-        @keyframes ice-crystal {
-            0%,100%{opacity:0.3;transform:scale(0.8) rotate(0deg)}
-            50%{opacity:0.8;transform:scale(1.1) rotate(180deg)}
-        }
-        @keyframes countdown-glow {
-            0%,100%{box-shadow:0 0 20px rgba(var(--ice-rgb),0.3),var(--clay-shadow)}
-            50%{box-shadow:0 0 40px rgba(var(--ice-rgb),0.5),var(--clay-shadow-hover)}
-        }
+        /* Aurora */
+        .aurora{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 15% 15%,rgba(var(--nova-r),0.12) 0%,transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(var(--pink-r),0.08) 0%,transparent 55%),radial-gradient(ellipse at 45% 50%,rgba(var(--tri-r),0.06) 0%,transparent 60%);filter:blur(55px)}
 
-        /* ===== Aurora BG ===== */
-        .aurora {
-            position: fixed; inset: 0; pointer-events: none; z-index: 0;
-            background:
-                radial-gradient(ellipse at 15% 15%, rgba(var(--nova-rgb),0.18) 0%, transparent 55%),
-                radial-gradient(ellipse at 85% 80%, rgba(var(--pink-rgb),0.12) 0%, transparent 55%),
-                radial-gradient(ellipse at 45% 50%, rgba(var(--tertiary-rgb),0.1) 0%, transparent 60%);
-            filter: blur(60px);
-        }
+        /* Scroll Bar */
+        .scroll-bar{position:fixed;top:0;left:0;height:4px;z-index:1000;background:var(--shim);box-shadow:0 0 12px rgba(var(--nova-r),0.5)}
 
-        /* ===== Scroll Progress ===== */
-        .scroll-bar {
-            position: fixed; top: 0; left: 0; height: 4px; z-index: 1000;
-            background: var(--shimmer); box-shadow: 0 0 16px rgba(var(--nova-rgb),0.6);
-        }
+        /* Focus */
+        :focus-visible{outline:3px solid var(--nova);outline-offset:3px;border-radius:var(--r-xs)}
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 
-        /* ===== Accessibility ===== */
-        :focus-visible { outline: 3px solid var(--nova); outline-offset: 4px; border-radius: var(--r-sm); }
-        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+        /* ===== HEADER ===== */
+        .header{position:fixed;top:0;left:0;right:0;z-index:600;background:rgba(10,10,15,0.65);backdrop-filter:var(--clay-blur);-webkit-backdrop-filter:var(--clay-blur);border-bottom:1px solid var(--clay-b);padding:0 var(--pad);transition:all var(--norm)}
+        .header.stuck{background:rgba(10,10,15,0.88);box-shadow:var(--clay-sh)}
+        .hdr{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+        .logo{display:flex;align-items:center;gap:.4rem;text-decoration:none;position:relative}
+        .logo:hover{transform:scale(1.02)}
+        .logo svg{width:30px;height:30px;filter:drop-shadow(0 2px 8px rgba(var(--nova-r),0.5))}
+        .logo span{font-size:1.6rem;font-weight:800;letter-spacing:.03em;background:linear-gradient(135deg,var(--w) 30%,var(--sec));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
-        /* ===== Floating Nav ===== */
-        .side-nav {
-            position: fixed; left: clamp(1rem, 3vw, 2rem); top: 50%; transform: translateY(-50%);
-            z-index: 500; display: flex; flex-direction: column; gap: 0.8rem; padding: 0.9rem;
-            background: var(--clay-bg); backdrop-filter: var(--clay-blur);
-            border: 1.5px solid var(--clay-border); border-radius: var(--r-xl);
-            box-shadow: var(--clay-shadow);
-        }
-        .side-dot {
-            width: 12px; height: 12px; border-radius: 50%; background: var(--muted); border: 2px solid transparent;
-            cursor: pointer; transition: all var(--fast); position: relative;
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-        }
-        .side-dot::after {
-            content: attr(data-tip); position: absolute; right: 26px; top: 50%; transform: translateY(-50%) translateX(6px);
-            background: var(--surface); color: var(--white); padding: 0.3rem 0.8rem; border-radius: var(--r-sm);
-            font-size: 0.75rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: all var(--fast);
-            pointer-events: none; border: 1px solid var(--clay-border);
-            box-shadow: var(--clay-shadow);
-        }
-        .side-dot:hover::after { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0); }
-        .side-dot.active { background: var(--shimmer); border-color: var(--nova); box-shadow: 0 0 14px rgba(var(--nova-rgb),0.6), inset 0 1px 2px rgba(255,255,255,0.3); transform: scale(1.5); }
-        .side-dot:hover:not(.active) { background: var(--secondary); transform: scale(1.3); }
+        .nav{display:flex;align-items:center;gap:.25rem}
+        .nav a{color:var(--muted);text-decoration:none;padding:.5rem .8rem;border-radius:var(--r-xs);font-size:.85rem;font-weight:500;border:1.5px solid transparent;transition:all var(--fast)}
+        .nav a:hover{color:var(--w);border-color:rgba(var(--nova-r),0.3);background:rgba(var(--nova-r),0.08)}
+        .mob-btn{display:none;background:var(--clay);border:1.5px solid var(--clay-b);color:var(--w);font-size:1.3rem;cursor:pointer;padding:.4rem;border-radius:var(--r-sm);backdrop-filter:blur(12px);z-index:601}
+        #mt{display:none}
 
-        /* ===== Header ===== */
-        .header {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 600;
-            background: rgba(10,10,15,0.75); backdrop-filter: var(--clay-blur);
-            border-bottom: 1.5px solid var(--clay-border); padding: 0 var(--pad);
-            transition: all var(--normal);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        /* ===== BUTTONS ===== */
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.8rem;border-radius:var(--r-sm);font-weight:700;font-size:.9rem;text-decoration:none;transition:all var(--norm);border:none;cursor:pointer;font-family:inherit;white-space:nowrap;position:relative;overflow:hidden;user-select:none}
+        .btn-p{background:var(--shim);color:var(--w);border:1px solid rgba(255,255,255,0.22);box-shadow:var(--btn-sh)}
+        .btn-p::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.14),transparent 50%);pointer-events:none}
+        .btn-p:hover{transform:translateY(-3px);box-shadow:0 6px 10px rgba(var(--nova-r),0.3),0 12px 22px rgba(var(--nova-r),0.25),0 22px 44px rgba(var(--nova-r),0.2),0 32px 65px rgba(var(--nova-r),0.15)}
+        .btn-p:active{transform:translateY(-1px) scale(0.97)}
+        .btn-g{background:var(--clay);backdrop-filter:blur(12px);border:1px solid var(--clay-b);color:var(--w);box-shadow:var(--clay-sh)}
+        .btn-g:hover{transform:translateY(-3px);background:rgba(var(--nova-r),0.12);border-color:rgba(var(--nova-r),0.4)}
+        .ripple{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.5),transparent 70%);transform:scale(0);animation:ripple-fx .6s var(--ease) forwards;pointer-events:none;z-index:1}
+
+        /* ===== MAIN ===== */
+        .main{max-width:var(--max);margin:0 auto;padding:1.5rem var(--pad) 3rem;position:relative;z-index:10}
+
+        /* Section */
+        .sec{margin-bottom:5rem}
+        .sh{text-align:center;margin-bottom:2.5rem}
+        .stag{display:inline-flex;align-items:center;gap:.3rem;background:rgba(var(--nova-r),0.1);border:1px solid rgba(var(--nova-r),0.25);color:var(--sec);padding:.25rem .8rem;border-radius:var(--r-full);font-size:.75rem;font-weight:600;margin-bottom:.8rem}
+        .stit{font-size:clamp(1.5rem,5vw,2.4rem);font-weight:800;line-height:1.2;letter-spacing:.03em;margin-bottom:.6rem}
+        .grad{background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .ssub{color:var(--muted);font-size:.92rem;max-width:520px;margin:0 auto;line-height:1.8}
+
+        /* ===== CLAY CARD ===== */
+        .clay{
+            background:var(--clay);
+            backdrop-filter:var(--clay-blur);-webkit-backdrop-filter:var(--clay-blur);
+            border:1px solid var(--clay-b);
+            border-radius:var(--r);
+            box-shadow:var(--clay-sh);
+            position:relative;overflow:hidden;
+            transition:all var(--norm);
         }
-        .header.stuck { background: rgba(10,10,15,0.92); border-bottom-color: var(--clay-active); box-shadow: var(--clay-shadow); }
-        .header-in {
-            max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center;
-            justify-content: space-between; height: 80px; transition: height var(--normal);
-        }
-        .header.stuck .header-in { height: 68px; }
-
-        .logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; cursor: pointer; transition: transform var(--fast); position: relative; }
-        .logo:hover { transform: scale(1.05); }
-        .logo-star { width: 36px; height: 36px; }
-        .logo-star svg { width: 100%; height: 100%; filter: drop-shadow(0 3px 10px rgba(var(--nova-rgb),0.6)); }
-        .logo-txt { font-size: 1.9rem; font-weight: 800; letter-spacing: 0.03em; background: linear-gradient(135deg, var(--white) 30%, var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo-glow { position: absolute; inset: -14px; background: var(--shimmer); border-radius: var(--r-lg); filter: blur(32px); opacity: 0; transition: opacity var(--normal); z-index: -1; }
-        .logo:hover .logo-glow { opacity: 0.35; }
-
-        .nav { display: flex; align-items: center; gap: 0.4rem; }
-        .nav-link { color: var(--muted); text-decoration: none; padding: 0.7rem 1.1rem; border-radius: var(--r-md); font-size: 0.92rem; font-weight: 500; border: 1.5px solid transparent; transition: all var(--fast); }
-        .nav-link:hover { color: var(--white); border-color: rgba(var(--nova-rgb),0.4); background: rgba(var(--nova-rgb),0.1); box-shadow: var(--clay-shadow); }
-        .nav-link.active { color: var(--white); border-color: var(--nova); background: rgba(var(--nova-rgb),0.15); box-shadow: var(--clay-shadow); }
-
-        .mob-btn {
-            display: none; background: var(--clay-bg); border: 1.5px solid var(--clay-border); color: var(--white);
-            font-size: 1.5rem; cursor: pointer; padding: 0.5rem; border-radius: var(--r-md); transition: all var(--fast); z-index: 601; backdrop-filter: blur(14px);
-            box-shadow: var(--clay-shadow);
-        }
-        .mob-btn:hover { background: rgba(var(--nova-rgb),0.25); border-color: var(--nova); }
-        #mob-toggle { display: none; }
-
-        /* ===== Buttons ===== */
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-            padding: 0.9rem 2.1rem; border-radius: var(--r-lg); font-weight: 700; font-size: 0.98rem;
-            text-decoration: none; transition: all var(--normal); border: none; cursor: pointer;
-            font-family: inherit; white-space: nowrap; position: relative; overflow: hidden; user-select: none;
-        }
-        .btn-primary {
-            background: var(--shimmer); color: var(--white); border: 1.5px solid rgba(255,255,255,0.25);
-            box-shadow: var(--btn-shadow);
-        }
-        .btn-primary::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent 50%); pointer-events: none; }
-        .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(var(--nova-rgb),0.35), 0 16px 32px rgba(var(--nova-rgb),0.3), 0 28px 56px rgba(var(--nova-rgb),0.25), inset 0 3px 6px rgba(255,255,255,0.25); }
-        .btn-primary:active { transform: translateY(-2px) scale(0.98); }
-
-        .btn-glass {
-            background: var(--clay-bg-strong); backdrop-filter: blur(14px); border: 1.5px solid rgba(255,255,255,0.15);
-            color: var(--white); box-shadow: var(--clay-shadow);
-        }
-        .btn-glass:hover { transform: translateY(-4px); background: rgba(var(--nova-rgb),0.15); border-color: rgba(var(--nova-rgb),0.45); box-shadow: var(--clay-shadow-hover); }
-
-        .ripple {
-            position: absolute; border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.6), transparent 70%);
-            transform: scale(0); animation: ripple-fx 0.6s var(--ease) forwards; pointer-events: none; z-index: 1;
-        }
-        @keyframes ripple-fx { to { transform: scale(4); opacity: 0; } }
-
-        /* ===== Main ===== */
-        .main { max-width: var(--max-w); margin: 0 auto; padding: 2rem var(--pad) 4rem; position: relative; z-index: 10; }
-
-        /* ===== Section Helpers ===== */
-        .sec { margin-bottom: 6rem; }
-        .sec-head { text-align: center; margin-bottom: 3.5rem; }
-        .sec-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(var(--nova-rgb),0.12); border: 1.5px solid rgba(var(--nova-rgb),0.3); color: var(--secondary); padding: 0.4rem 1.1rem; border-radius: var(--r-full); font-size: 0.82rem; font-weight: 600; margin-bottom: 1.2rem; letter-spacing: 0.03em; box-shadow: var(--clay-shadow); }
-        .sec-title { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; line-height: 1.2; letter-spacing: 0.03em; margin-bottom: 1rem; }
-        .grad { background: var(--shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .sec-sub { color: var(--muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; line-height: 1.9; font-weight: 400; }
+        .clay::before{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,0.06),transparent);border-radius:var(--r) var(--r) 0 0;pointer-events:none}
+        .clay:hover{box-shadow:var(--clay-sh-h);border-color:rgba(var(--nova-r),0.3);transform:translateY(-4px)}
 
         /* ===== HERO ===== */
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 6rem var(--pad); }
-        .hero-aurora {
-            position: absolute; inset: 0; pointer-events: none;
-            background:
-                radial-gradient(ellipse 700px 500px at 25% 30%, rgba(var(--nova-rgb),0.28) 0%, transparent 70%),
-                radial-gradient(ellipse 550px 400px at 75% 70%, rgba(var(--pink-rgb),0.22) 0%, transparent 70%),
-                radial-gradient(ellipse 450px 350px at 50% 50%, rgba(var(--tertiary-rgb),0.15) 0%, transparent 70%);
-            filter: blur(55px);
-        }
+        .hero{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:5rem var(--pad) 3rem;text-align:center}
+        .hero-aur{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 500px 350px at 25% 30%,rgba(var(--nova-r),0.22),transparent 70%),radial-gradient(ellipse 400px 300px at 75% 70%,rgba(var(--pink-r),0.15),transparent 70%);filter:blur(50px)}
 
-        /* Orbital Visual */
-        .hero-visual { position: absolute; left: 50%; top: 50%; width: 500px; height: 500px; transform: translate(-50%, -50%); pointer-events: none; z-index: 1; }
-        .orbit-ring {
-            position: absolute; inset: 0; border: 1.5px solid rgba(var(--nova-rgb),0.12); border-radius: 50%;
-            animation: spin-slow 40s linear infinite;
-        }
-        .orbit-ring:nth-child(2) { inset: 40px; border-color: rgba(var(--pink-rgb),0.1); animation-duration: 55s; animation-direction: reverse; }
-        .orbit-ring:nth-child(3) { inset: 80px; border-color: rgba(var(--tertiary-rgb),0.08); animation-duration: 70s; }
-        .orbit-particle {
-            position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px; border-radius: 50%;
-            box-shadow: 0 0 20px currentColor;
-        }
-        .orbit-particle:nth-child(4) { background: var(--nova); box-shadow: 0 0 18px rgba(var(--nova-rgb),0.7); animation: orbit 12s linear infinite; }
-        .orbit-particle:nth-child(5) { background: var(--pink); box-shadow: 0 0 15px rgba(var(--pink-rgb),0.6); width: 10px; height: 10px; margin: -5px; animation: orbit2 18s linear infinite; }
-        .orbit-particle:nth-child(6) { background: var(--tertiary); box-shadow: 0 0 12px rgba(var(--tertiary-rgb),0.6); width: 8px; height: 8px; margin: -4px; animation: orbit3 25s linear infinite; }
+        /* Orbital */
+        .hero-orb{position:absolute;left:50%;top:50%;width:300px;height:300px;transform:translate(-50%,-50%);pointer-events:none;z-index:1;opacity:.7}
+        .orb-ring{position:absolute;inset:0;border:1px solid rgba(var(--nova-r),0.1);border-radius:50%;animation:spin 40s linear infinite}
+        .orb-ring:nth-child(2){inset:30px;border-color:rgba(var(--pink-r),0.08);animation-duration:55s;animation-direction:reverse}
+        .orb-ring:nth-child(3){inset:60px;border-color:rgba(var(--tri-r),0.06);animation-duration:70s}
+        .orb-p{position:absolute;left:50%;top:50%;border-radius:50%}
+        .orb-p:nth-child(4){width:10px;height:10px;margin:-5px;background:var(--nova);box-shadow:0 0 12px rgba(var(--nova-r),0.6);animation:orbit 12s linear infinite}
+        .orb-p:nth-child(5){width:7px;height:7px;margin:-3.5px;background:var(--pink);box-shadow:0 0 10px rgba(var(--pink-r),0.5);animation:orbit2 18s linear infinite}
+        .orb-p:nth-child(6){width:5px;height:5px;margin:-2.5px;background:var(--tri);box-shadow:0 0 8px rgba(var(--tri-r),0.5);animation:orbit3 25s linear infinite}
 
-        /* Morphing blob */
-        .hero-blob {
-            position: absolute; left: 50%; top: 50%; width: 240px; height: 240px; transform: translate(-50%, -50%);
-            background: radial-gradient(circle, rgba(var(--nova-rgb),0.18), rgba(var(--pink-rgb),0.1), transparent 70%);
-            animation: morph 15s ease-in-out infinite; filter: blur(35px); pointer-events: none; z-index: 0;
-        }
+        .hero-blob{position:absolute;left:50%;top:50%;width:180px;height:180px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(var(--nova-r),0.12),rgba(var(--pink-r),0.06),transparent 70%);animation:morph 15s ease-in-out infinite;filter:blur(30px);pointer-events:none}
 
-        .hero-content { position: relative; z-index: 3; text-align: center; max-width: 800px; margin: 0 auto; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(var(--nova-rgb),0.15); border: 1.5px solid rgba(var(--nova-rgb),0.35); color: var(--secondary); padding: 0.5rem 1.5rem; border-radius: var(--r-full); font-size: 0.88rem; font-weight: 600; margin-bottom: 2.2rem; backdrop-filter: blur(12px); box-shadow: var(--clay-shadow); }
-        .badge-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(var(--green-rgb),0.7); animation: breathe 2s ease-in-out infinite; }
+        .hero-c{position:relative;z-index:3;max-width:700px;margin:0 auto}
+        .h-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(var(--nova-r),0.12);border:1px solid rgba(var(--nova-r),0.3);color:var(--sec);padding:.35rem 1.1rem;border-radius:var(--r-full);font-size:.8rem;font-weight:600;margin-bottom:1.5rem;backdrop-filter:blur(10px)}
+        .b-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(var(--green-r),0.6);animation:breathe 2s ease-in-out infinite}
 
-        .hero h1 { font-size: clamp(2.6rem, 7.5vw, 4.8rem); font-weight: 800; line-height: 1.12; letter-spacing: 0.03em; margin-bottom: 1.6rem; }
-        .hero h1 .hl { position: relative; display: inline; }
-        .hero h1 .hl::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 5px; background: var(--shimmer); border-radius: var(--r-full); opacity: 0.75; }
-        .hero p { font-size: clamp(1.05rem, 2.3vw, 1.25rem); color: var(--muted); max-width: 650px; margin: 0 auto 2.8rem; line-height: 2; }
-        .hero-btns { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.8rem; }
-        .hero-stats { display: flex; justify-content: center; gap: clamp(2.2rem, 5vw, 3.8rem); flex-wrap: wrap; padding-top: 2.5rem; border-top: 1.5px solid rgba(255,255,255,0.08); }
-        .h-stat { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; cursor: default; transition: all var(--fast); }
-        .h-stat:hover { transform: translateY(-4px); }
-        .h-stat-val { font-size: 2.1rem; font-weight: 800; background: var(--shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: counter-glow 4s ease-in-out infinite; }
-        .h-stat-lbl { color: var(--muted); font-size: 0.88rem; }
+        .hero h1{font-size:clamp(2rem,7vw,3.8rem);font-weight:800;line-height:1.12;letter-spacing:.03em;margin-bottom:1.2rem}
+        .hero h1 .hl{position:relative;display:inline}
+        .hero h1 .hl::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:4px;background:var(--shim);border-radius:var(--r-full);opacity:.6}
+        .hero p{font-size:clamp(.9rem,2.3vw,1.1rem);color:var(--muted);max-width:580px;margin:0 auto 2rem;line-height:1.9}
+        .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+        .hero-stats{display:flex;justify-content:center;gap:clamp(1.5rem,4vw,3rem);flex-wrap:wrap;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06)}
+        .hs{display:flex;flex-direction:column;align-items:center;gap:.3rem;cursor:default}
+        .hs:hover{transform:translateY(-2px)}
+        .hs-v{font-size:1.6rem;font-weight:800;background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:counter-glow 4s ease-in-out infinite}
+        .hs-l{color:var(--muted);font-size:.78rem}
 
         /* ===== FROZEN COUNTDOWN ===== */
-        .countdown-sec {
-            position: relative;
-            padding: 4rem 0;
-            margin: 4rem 0;
+        .countdown-sec{position:relative;padding:2rem 0}
+        .countdown-wrap{
+            background:linear-gradient(135deg,rgba(var(--nova-r),0.08),rgba(var(--tri-r),0.06),rgba(var(--pink-r),0.04));
+            backdrop-filter:var(--clay-blur);-webkit-backdrop-filter:var(--clay-blur);
+            border:1.5px solid rgba(var(--nova-r),0.2);
+            border-radius:var(--r);
+            padding:clamp(2rem,5vw,3rem) clamp(1.5rem,4vw,2.5rem);
+            text-align:center;
+            box-shadow:var(--clay-sh),0 0 60px rgba(var(--nova-r),0.08);
+            position:relative;overflow:hidden;
         }
-        .countdown-wrap {
-            background: linear-gradient(135deg, rgba(var(--ice-rgb),0.08), rgba(var(--nova-rgb),0.06));
-            backdrop-filter: var(--clay-blur);
-            border: 2px solid rgba(var(--ice-rgb),0.25);
-            border-radius: var(--r-xl);
-            padding: clamp(2rem, 5vw, 3.5rem);
-            box-shadow: var(--clay-shadow), 0 0 60px rgba(var(--ice-rgb),0.15);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-        .countdown-wrap::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(var(--ice-rgb),0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(var(--nova-rgb),0.12) 0%, transparent 40%);
-            pointer-events: none;
-        }
-        .countdown-title {
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            font-weight: 800;
-            margin-bottom: 0.8rem;
-            position: relative;
-            z-index: 1;
-            background: linear-gradient(135deg, var(--ice), var(--nova));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .countdown-subtitle {
-            color: var(--muted);
-            font-size: 1rem;
-            margin-bottom: 2.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        .countdown-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: clamp(0.8rem, 2vw, 1.5rem);
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        .countdown-box {
-            background: var(--clay-bg-strong);
-            backdrop-filter: blur(16px);
-            border: 2px solid rgba(var(--ice-rgb),0.3);
-            border-radius: var(--r-lg);
-            padding: clamp(1.2rem, 3vw, 2rem) clamp(0.8rem, 2vw, 1.2rem);
-            box-shadow: var(--clay-shadow);
-            transition: all var(--normal);
-            position: relative;
-            overflow: hidden;
-        }
-        .countdown-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
-            border-radius: var(--r-lg) var(--r-lg) 0 0;
-            pointer-events: none;
-        }
-        .countdown-box:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--clay-shadow-hover), 0 0 30px rgba(var(--ice-rgb),0.4);
-            border-color: rgba(var(--ice-rgb),0.5);
-        }
-        .countdown-num {
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            font-weight: 800;
-            color: var(--white);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 20px rgba(var(--ice-rgb),0.5);
-            animation: countdown-pulse 3s ease-in-out infinite;
-        }
-        .countdown-label {
-            font-size: clamp(0.7rem, 2vw, 0.9rem);
-            color: var(--muted);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .countdown-ice-particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--ice);
-            border-radius: 50%;
-            opacity: 0.4;
-            animation: ice-crystal 4s ease-in-out infinite;
-        }
-        .countdown-ice-particle:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
-        .countdown-ice-particle:nth-child(2) { top: 70%; left: 85%; animation-delay: 1s; }
-        .countdown-ice-particle:nth-child(3) { top: 40%; left: 90%; animation-delay: 2s; }
-        .countdown-ice-particle:nth-child(4) { top: 80%; left: 15%; animation-delay: 1.5s; }
-        .countdown-ice-particle:nth-child(5) { top: 25%; left: 75%; animation-delay: 0.5s; }
+        /* Ice frost effect */
+        .countdown-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(200,220,255,0.06),transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(var(--tri-r),0.05),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(var(--nova-r),0.05),transparent 50%);pointer-events:none}
+        .countdown-wrap::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:repeating-conic-gradient(rgba(255,255,255,0.02) 0deg 5deg,transparent 5deg 10deg);animation:spin 120s linear infinite;pointer-events:none;opacity:.5}
 
-        /* ===== INTERACTIVE DEMO PHONE ===== */
-        .demo-sec { position: relative; padding: 4rem 0; }
-        .demo-wrap { display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap; }
-        .demo-phone {
-            width: 280px; height: 560px; border-radius: 44px; background: var(--surface);
-            border: 4px solid rgba(255,255,255,0.12); position: relative; overflow: hidden;
-            box-shadow: var(--clay-shadow-hover), 0 0 70px rgba(var(--nova-rgb),0.2);
-            flex-shrink: 0;
+        .cd-frost{position:absolute;pointer-events:none;z-index:0}
+        .cd-frost span{position:absolute;width:3px;height:3px;background:rgba(200,220,255,0.5);border-radius:50%;animation:ice-sparkle 3s ease-in-out infinite}
+        .cd-frost span:nth-child(1){top:15%;left:10%;animation-delay:0s}
+        .cd-frost span:nth-child(2){top:25%;right:15%;animation-delay:0.7s;width:2px;height:2px}
+        .cd-frost span:nth-child(3){bottom:20%;left:20%;animation-delay:1.4s}
+        .cd-frost span:nth-child(4){top:40%;right:25%;animation-delay:2.1s;width:4px;height:4px}
+        .cd-frost span:nth-child(5){bottom:30%;right:10%;animation-delay:0.5s;width:2px;height:2px}
+        .cd-frost span:nth-child(6){top:60%;left:8%;animation-delay:1.8s}
+
+        .cd-label{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-full);padding:.3rem .9rem;font-size:.78rem;color:var(--muted);margin-bottom:1rem;position:relative;z-index:1}
+        .cd-label svg{width:14px;height:14px;fill:currentColor;opacity:.7}
+        .cd-title{font-size:clamp(1.3rem,4vw,1.8rem);font-weight:800;margin-bottom:.5rem;position:relative;z-index:1}
+        .cd-sub{color:var(--muted);font-size:.85rem;margin-bottom:2rem;position:relative;z-index:1;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+        .cd-boxes{display:flex;justify-content:center;gap:clamp(.6rem,2vw,1rem);position:relative;z-index:1;margin-bottom:1.5rem}
+        .cd-box{
+            background:rgba(255,255,255,0.04);
+            backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+            border:1.5px solid rgba(255,255,255,0.1);
+            border-radius:var(--r-sm);
+            padding:clamp(.8rem,2vw,1.2rem) clamp(1rem,3vw,1.8rem);
+            min-width:clamp(60px,15vw,85px);
+            box-shadow:var(--clay-sh);
+            position:relative;
+            animation:countdown-pulse 4s ease-in-out infinite;
         }
-        .phone-notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 100px; height: 28px; background: var(--bg); border-radius: 0 0 20px 20px; z-index: 5; }
-        .phone-notch::after { content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; border-radius: 50%; background: rgba(var(--nova-rgb),0.6); box-shadow: 0 0 8px rgba(var(--nova-rgb),0.5); }
-        .phone-screen { position: absolute; inset: 4px; border-radius: 40px; overflow: hidden; background: var(--bg); }
+        .cd-box:nth-child(2){animation-delay:1s}
+        .cd-box:nth-child(3){animation-delay:2s}
+        .cd-box:nth-child(4){animation-delay:3s}
+        /* Inner glow */
+        .cd-box::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,0.06),transparent 50%);pointer-events:none}
+        .cd-box::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;background:var(--shim);opacity:.3;border-radius:var(--r-full)}
 
-        /* Chat UI inside phone */
-        .chat-ui { padding: 50px 14px 14px; height: 100%; display: flex; flex-direction: column; gap: 8px; }
-        .chat-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .chat-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--shimmer); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; box-shadow: var(--clay-shadow); }
-        .chat-name { font-size: 0.82rem; font-weight: 600; color: var(--white); }
-        .chat-online { font-size: 0.68rem; color: var(--green); }
+        .cd-num{font-size:clamp(1.8rem,6vw,2.8rem);font-weight:800;font-variant-numeric:tabular-nums;background:linear-gradient(180deg,var(--w),rgba(200,220,255,0.8));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;line-height:1;margin-bottom:.3rem;text-shadow:0 0 20px rgba(var(--nova-r),0.3)}
+        .cd-unit{font-size:clamp(.6rem,1.5vw,.75rem);color:var(--muted);font-weight:500;letter-spacing:.05em}
 
-        .chat-bubble {
-            max-width: 85%; padding: 9px 13px; border-radius: 16px; font-size: 0.74rem; line-height: 1.6;
-            animation: up 0.5s var(--ease) both;
-            box-shadow: var(--clay-shadow);
+        .cd-sep{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:800;color:rgba(var(--nova-r),0.4);align-self:center;animation:pulse 2s ease-in-out infinite;margin-top:-.3rem}
+
+        .cd-bar{max-width:300px;margin:0 auto;position:relative;z-index:1}
+        .cd-track{height:4px;background:rgba(255,255,255,0.06);border-radius:var(--r-full);overflow:hidden}
+        .cd-fill{height:100%;background:var(--shim);border-radius:var(--r-full);width:0%;transition:width 1s var(--ease);position:relative}
+        .cd-fill::after{content:'';position:absolute;right:-4px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--sec);box-shadow:0 0 8px rgba(var(--sec-r),0.5)}
+        .cd-pct{text-align:left;font-size:.7rem;color:var(--muted);margin-top:.4rem}
+
+        /* ===== DEMO PHONE ===== */
+        .demo-sec{position:relative;padding:2rem 0}
+        .demo-flex{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+        .phone{
+            width:240px;height:480px;border-radius:32px;
+            background:var(--surf);border:3px solid rgba(255,255,255,0.1);
+            position:relative;overflow:hidden;flex-shrink:0;
+            box-shadow:var(--clay-sh-h),0 0 50px rgba(var(--nova-r),0.12);
         }
-        .chat-bubble.received { background: rgba(var(--nova-rgb),0.18); border: 1.5px solid rgba(var(--nova-rgb),0.25); align-self: flex-start; color: var(--white); }
-        .chat-bubble.sent { background: var(--nova); color: var(--white); align-self: flex-end; border: 1.5px solid rgba(255,255,255,0.2); }
-        .chat-bubble:nth-child(2) { animation-delay: 0.3s; }
-        .chat-bubble:nth-child(3) { animation-delay: 0.8s; }
-        .chat-bubble:nth-child(4) { animation-delay: 1.4s; }
-        .chat-bubble:nth-child(5) { animation-delay: 2s; }
+        .phone-notch{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:80px;height:22px;background:var(--bg);border-radius:0 0 14px 14px;z-index:5}
+        .phone-notch::after{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:rgba(var(--nova-r),0.5)}
+        .phone-scr{position:absolute;inset:3px;border-radius:29px;overflow:hidden;background:var(--bg)}
 
-        .chat-typing { display: flex; gap: 4px; align-self: flex-start; padding: 9px 15px; animation: up 0.5s var(--ease) both; animation-delay: 2.6s; opacity: 0; background: rgba(var(--nova-rgb),0.12); border-radius: 16px; box-shadow: var(--clay-shadow); }
-        .typing-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: pulse 1.2s ease-in-out infinite; }
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        .chat{padding:40px 12px 12px;height:100%;display:flex;flex-direction:column;gap:6px}
+        .chat-hd{display:flex;align-items:center;gap:6px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,0.05)}
+        .chat-av{width:28px;height:28px;border-radius:50%;background:var(--shim);display:flex;align-items:center;justify-content:center;font-size:.75rem}
+        .chat-nm{font-size:.72rem;font-weight:600}
+        .chat-on{font-size:.58rem;color:var(--green)}
+        .bub{max-width:82%;padding:6px 10px;border-radius:12px;font-size:.65rem;line-height:1.55;animation:up .5s var(--ease) both}
+        .bub.rx{background:rgba(var(--nova-r),0.12);border:1px solid rgba(var(--nova-r),0.18);align-self:flex-start}
+        .bub.tx{background:var(--nova);align-self:flex-end}
+        .bub:nth-child(2){animation-delay:.3s}.bub:nth-child(3){animation-delay:.8s}.bub:nth-child(4){animation-delay:1.3s}.bub:nth-child(5){animation-delay:1.8s}
+        .typing{display:flex;gap:3px;align-self:flex-start;padding:6px 12px;animation:up .5s var(--ease) both;animation-delay:2.3s;opacity:0}
+        .typing i{width:5px;height:5px;border-radius:50%;background:var(--muted);animation:pulse 1.2s ease-in-out infinite;display:block}
+        .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
 
-        .demo-info { max-width: 420px; }
-        .demo-info h3 { font-size: 1.7rem; font-weight: 800; margin-bottom: 1.1rem; }
-        .demo-features { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; margin-top: 1.6rem; }
-        .demo-feat { display: flex; align-items: flex-start; gap: 0.9rem; }
-        .demo-feat-icon { width: 44px; height: 44px; border-radius: var(--r-md); background: rgba(var(--nova-rgb),0.15); border: 1.5px solid rgba(var(--nova-rgb),0.25); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; box-shadow: var(--clay-shadow); }
-        .demo-feat-text h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
-        .demo-feat-text p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+        .demo-info{max-width:360px}
+        .demo-info h3{font-size:1.3rem;font-weight:800;margin-bottom:.8rem}
+        .demo-list{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-top:1rem}
+        .dl-i{display:flex;align-items:flex-start;gap:.7rem}
+        .dl-ic{width:36px;height:36px;border-radius:var(--r-sm);background:rgba(var(--nova-r),0.1);border:1px solid rgba(var(--nova-r),0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:var(--clay-sh)}
+        .dl-t h4{font-size:.88rem;font-weight:700;margin-bottom:.15rem}
+        .dl-t p{font-size:.78rem;color:var(--muted);line-height:1.55}
 
-        /* ===== CONNECTION VISUALIZATION ===== */
-        .connect-sec { position: relative; padding: 4rem 0; overflow: hidden; }
-        .connect-canvas {
-            width: 100%; max-width: 700px; height: 400px; margin: 0 auto; position: relative;
-        }
-        .connect-node {
-            position: absolute; width: 64px; height: 64px; border-radius: 50%;
-            background: var(--clay-bg-strong); backdrop-filter: blur(14px); border: 2.5px solid var(--clay-border);
-            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
-            box-shadow: var(--clay-shadow); transition: all var(--normal); cursor: pointer; z-index: 2;
-        }
-        .connect-node:hover { transform: scale(1.2); border-color: var(--nova); box-shadow: 0 0 30px rgba(var(--nova-rgb),0.5), var(--clay-shadow-hover); }
-        .connect-node:nth-child(1) { top: 10%; left: 50%; transform: translateX(-50%); }
-        .connect-node:nth-child(2) { top: 40%; left: 15%; }
-        .connect-node:nth-child(3) { top: 40%; right: 15%; }
-        .connect-node:nth-child(4) { bottom: 15%; left: 30%; }
-        .connect-node:nth-child(5) { bottom: 15%; right: 30%; }
-        .connect-node:nth-child(6) { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 84px; height: 84px; font-size: 1.9rem; background: rgba(var(--nova-rgb),0.25); border-color: var(--nova); box-shadow: 0 0 35px rgba(var(--nova-rgb),0.4), var(--clay-shadow); }
+        /* ===== BENTO GRID ===== */
+        .bento{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:4rem}
+        .b-item{padding:1.8rem 1.4rem;cursor:pointer}
+        .b-item::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.05),transparent);transition:left .6s var(--ease);z-index:1}
+        .b-item:hover::after{left:100%}
+        .b-big{grid-column:span 2}
+        .b-icon{font-size:2rem;margin-bottom:.8rem;display:block;animation:float 5s ease-in-out infinite;position:relative;z-index:2}
+        .b-item:nth-child(2) .b-icon{animation-delay:-1s}.b-item:nth-child(3) .b-icon{animation-delay:-2s}.b-item:nth-child(4) .b-icon{animation-delay:-3s}.b-item:nth-child(5) .b-icon{animation-delay:-4s}
+        .b-item h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem;position:relative;z-index:2}
+        .b-item p{font-size:.85rem;color:var(--muted);line-height:1.75;position:relative;z-index:2}
 
-        .connect-lines { position: absolute; inset: 0; z-index: 1; }
-        .connect-line {
-            stroke: url(#lineGrad); stroke-width: 2; fill: none; opacity: 0.35;
-            stroke-dasharray: 8 4; animation: dash 2s linear infinite;
-        }
+        /* E2E Visual */
+        .e2e{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.8rem 0;position:relative;z-index:2}
+        .e2e-n{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;box-shadow:var(--clay-sh)}
+        .e2e-n.g{background:rgba(var(--green-r),0.12);border:1.5px solid rgba(var(--green-r),0.25)}
+        .e2e-n.v{background:rgba(var(--nova-r),0.12);border:1.5px solid rgba(var(--nova-r),0.25)}
+        .e2e-line{width:40px;height:2px;background:linear-gradient(90deg,var(--green),var(--nova));border-radius:var(--r-full);position:relative;overflow:hidden}
+        .e2e-line::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);animation:wave 1.5s linear infinite;background-size:200% 100%}
 
-        /* ===== SERVICES BENTO GRID ===== */
-        .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto; gap: 1.6rem; margin-bottom: 5rem; }
-        .bento-item {
-            background: var(--clay-bg-strong); backdrop-filter: var(--clay-blur); border: 2px solid var(--clay-border);
-            border-radius: var(--r-xl); padding: 2.2rem; position: relative; overflow: hidden;
-            box-shadow: var(--clay-shadow); transition: all var(--normal); cursor: pointer;
-        }
-        .bento-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent); border-radius: var(--r-xl) var(--r-xl) 0 0; pointer-events: none; }
-        .bento-item:hover { transform: translateY(-8px); box-shadow: var(--clay-shadow-hover); border-color: rgba(var(--nova-rgb),0.4); }
-        .bento-item:hover::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); animation: shimmer-sweep 0.8s var(--ease) forwards; }
-        @keyframes shimmer-sweep { to { left: 100%; } }
+        /* Speed Bars */
+        .spd{display:flex;flex-direction:column;gap:.5rem;margin-top:.8rem;position:relative;z-index:2}
+        .spd-lbl{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted)}
+        .spd-bar{height:4px;border-radius:var(--r-full);background:rgba(255,255,255,0.06);overflow:hidden}
+        .spd-fill{height:100%;border-radius:var(--r-full);background:var(--shim);position:relative}
+        .spd-fill::after{content:'';position:absolute;right:-3px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--sec);box-shadow:0 0 6px rgba(var(--sec-r),0.5)}
 
-        .b-big { grid-column: span 2; grid-row: span 2; }
-        .b-wide { grid-column: span 2; }
-        .b-tall { grid-row: span 2; }
+        /* AI Brain */
+        .ai-brain{position:relative;width:100px;height:100px;margin:.8rem auto 0;z-index:2}
+        .br-c{position:absolute;border-radius:50%;border:1.5px solid rgba(var(--nova-r),0.15)}
+        .br-c:nth-child(1){inset:0;animation:spin 8s linear infinite}
+        .br-c:nth-child(2){inset:12px;border-color:rgba(var(--pink-r),0.15);animation:spin 12s linear infinite reverse}
+        .br-c:nth-child(3){inset:24px;border-color:rgba(var(--tri-r),0.15);animation:spin 6s linear infinite}
+        .br-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:1.5rem}
+        .br-d{position:absolute;width:5px;height:5px;border-radius:50%;animation:pulse 2s ease-in-out infinite}
+        .br-d:nth-child(5){top:0;left:50%;background:var(--nova);box-shadow:0 0 6px rgba(var(--nova-r),0.5)}
+        .br-d:nth-child(6){bottom:8px;right:8px;background:var(--pink);box-shadow:0 0 6px rgba(var(--pink-r),0.5);animation-delay:.5s}
+        .br-d:nth-child(7){bottom:8px;left:8px;background:var(--tri);box-shadow:0 0 6px rgba(var(--tri-r),0.5);animation-delay:1s}
 
-        .bento-icon { font-size: 2.8rem; margin-bottom: 1.2rem; display: block; animation: float 5s ease-in-out infinite; }
-        .bento-item:nth-child(2) .bento-icon { animation-delay: -1s; }
-        .bento-item:nth-child(3) .bento-icon { animation-delay: -2s; }
-        .bento-item:nth-child(4) .bento-icon { animation-delay: -3s; }
-        .bento-item:nth-child(5) .bento-icon { animation-delay: -4s; }
-        .bento-item h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.7rem; }
-        .bento-item p { font-size: 0.92rem; color: var(--muted); line-height: 1.85; }
+        /* ===== CONNECTION NETWORK ===== */
+        .net-sec{position:relative}
+        .net-canvas{width:100%;max-width:500px;aspect-ratio:1;margin:0 auto;position:relative}
+        .net-node{position:absolute;width:48px;height:48px;border-radius:50%;background:var(--clay);backdrop-filter:blur(10px);border:1.5px solid var(--clay-b);display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:var(--clay-sh);transition:all var(--norm);cursor:pointer;z-index:2}
+        .net-node:hover{transform:scale(1.15);border-color:var(--nova);box-shadow:0 0 20px rgba(var(--nova-r),0.4)}
+        .net-node:nth-child(1){top:5%;left:50%;transform:translateX(-50%)}
+        .net-node:nth-child(2){top:35%;left:8%}
+        .net-node:nth-child(3){top:35%;right:8%}
+        .net-node:nth-child(4){bottom:12%;left:22%}
+        .net-node:nth-child(5){bottom:12%;right:22%}
+        .net-node.center{top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;font-size:1.5rem;background:rgba(var(--nova-r),0.15);border-color:var(--nova);box-shadow:0 0 25px rgba(var(--nova-r),0.3)}
+        .net-lines{position:absolute;inset:0;z-index:1}
+        .net-lines line{stroke:url(#lg);stroke-width:1.2;fill:none;opacity:.25;stroke-dasharray:6 3}
 
-        /* Mini-visual inside bento */
-        .bento-visual { margin-top: 1.4rem; }
+        /* ===== STATS ===== */
+        .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:3.5rem 0}
+        .st-box{text-align:center;padding:1.5rem 1rem}
+        .st-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--shim);opacity:0;transition:opacity var(--fast)}
+        .st-box:hover::before{opacity:1}
+        .st-v{font-size:clamp(1.8rem,5vw,2.4rem);font-weight:800;background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.3rem;animation:counter-glow 4s ease-in-out infinite}
+        .st-l{color:var(--muted);font-size:.82rem;font-weight:500}
 
-        /* E2E encryption visual */
-        .e2e-visual { display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1.2rem 0; }
-        .e2e-lock { width: 40px; height: 40px; border-radius: 50%; background: rgba(var(--green-rgb),0.18); border: 2.5px solid rgba(var(--green-rgb),0.35); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: var(--clay-shadow); }
-        .e2e-line { width: 65px; height: 3px; background: linear-gradient(90deg, var(--green), var(--nova)); border-radius: var(--r-full); position: relative; overflow: hidden; box-shadow: 0 0 10px rgba(var(--green-rgb),0.4); }
-        .e2e-line::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent); animation: wave 1.5s linear infinite; background-size: 200% 100%; }
-        .e2e-shield { width: 40px; height: 40px; border-radius: var(--r-md); background: rgba(var(--nova-rgb),0.18); border: 2.5px solid rgba(var(--nova-rgb),0.35); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: var(--clay-shadow); }
+        /* ===== SHIELD SECURITY ===== */
+        .shield-sec{position:relative}
+        .shield-flex{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+        .shield-vis{position:relative;width:200px;height:240px;flex-shrink:0}
+        .shield-vis svg{width:160px;height:200px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 8px 24px rgba(var(--nova-r),0.3))}
+        .shield-rg{position:absolute;inset:-8px;border:1.5px solid rgba(var(--nova-r),0.12);border-radius:50%;animation:spin 20s linear infinite}
+        .shield-rg:nth-child(3){inset:-20px;border-color:rgba(var(--pink-r),0.08);animation-duration:30s;animation-direction:reverse}
+        .s-particles{position:absolute;inset:0;pointer-events:none}
+        .s-p{position:absolute;width:3px;height:3px;border-radius:50%;animation:particle 4s ease-in-out infinite}
+        .s-p:nth-child(1){left:20%;top:60%;background:var(--nova)}
+        .s-p:nth-child(2){left:70%;top:50%;background:var(--pink);animation-delay:1s}
+        .s-p:nth-child(3){left:45%;top:80%;background:var(--tri);animation-delay:2s}
+        .s-p:nth-child(4){left:80%;top:70%;background:var(--green);animation-delay:.5s}
 
-        /* Speed meter */
-        .speed-meter { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 1.2rem; }
-        .speed-bar { height: 8px; border-radius: var(--r-full); background: rgba(255,255,255,0.08); overflow: hidden; box-shadow: var(--clay-shadow-inset); }
-        .speed-fill { height: 100%; border-radius: var(--r-full); background: var(--shimmer); position: relative; box-shadow: 0 0 12px rgba(var(--nova-rgb),0.5); }
-        .speed-fill::after { content: ''; position: absolute; right: -4px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; border-radius: 50%; background: var(--secondary); box-shadow: 0 0 10px rgba(var(--secondary-rgb),0.6); }
-        .speed-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); }
+        .shield-info{max-width:350px}
+        .shield-info h3{font-size:1.3rem;font-weight:800;margin-bottom:.8rem}
+        .shield-info>p{color:var(--muted);font-size:.88rem;line-height:1.75;margin-bottom:1rem}
+        .s-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+        .s-list li{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--muted);padding:.5rem .8rem;border-radius:var(--r-sm);background:rgba(var(--nova-r),0.05);border:1px solid rgba(var(--nova-r),0.08);transition:all var(--fast)}
+        .s-list li:hover{background:rgba(var(--nova-r),0.1);border-color:rgba(var(--nova-r),0.2);color:var(--w);transform:translateX(-3px)}
 
-        /* AI brain visual */
-        .ai-brain { position: relative; width: 130px; height: 130px; margin: 1.2rem auto 0; }
-        .brain-circle { position: absolute; border-radius: 50%; border: 2px solid rgba(var(--nova-rgb),0.25); }
-        .brain-circle:nth-child(1) { inset: 0; animation: spin-slow 8s linear infinite; }
-        .brain-circle:nth-child(2) { inset: 16px; border-color: rgba(var(--pink-rgb),0.25); animation: spin-slow 12s linear infinite reverse; }
-        .brain-circle:nth-child(3) { inset: 32px; border-color: rgba(var(--tertiary-rgb),0.25); animation: spin-slow 6s linear infinite; }
-        .brain-core { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 2.2rem; filter: drop-shadow(0 0 15px rgba(var(--nova-rgb),0.5)); }
-        .brain-dot { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--nova); box-shadow: 0 0 10px rgba(var(--nova-rgb),0.6); }
-        .brain-dot:nth-child(5) { top: 0; left: 50%; animation: pulse 2s ease-in-out infinite; }
-        .brain-dot:nth-child(6) { bottom: 12px; right: 12px; background: var(--pink); box-shadow: 0 0 10px rgba(var(--pink-rgb),0.6); animation: pulse 2s ease-in-out infinite 0.5s; }
-        .brain-dot:nth-child(7) { bottom: 12px; left: 12px; background: var(--tertiary); box-shadow: 0 0 10px rgba(var(--tertiary-rgb),0.6); animation: pulse 2s ease-in-out infinite 1s; }
-
-        /* ===== TIMELINE SECTION ===== */
-        .timeline-sec { position: relative; padding: 2rem 0; }
-        .timeline { position: relative; max-width: 700px; margin: 0 auto; }
-        .timeline::before { content: ''; position: absolute; right: 50%; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--nova), var(--pink), var(--tertiary), transparent); border-radius: var(--r-full); transform: translateX(50%); box-shadow: 0 0 15px rgba(var(--nova-rgb),0.4); }
-
-        .timeline-item { display: flex; align-items: flex-start; gap: 2.2rem; margin-bottom: 3.2rem; position: relative; }
-        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
-        .timeline-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--nova); border: 3.5px solid var(--bg); box-shadow: 0 0 14px rgba(var(--nova-rgb),0.6), var(--clay-shadow); position: absolute; right: calc(50% - 9px); z-index: 2; flex-shrink: 0; }
-        .timeline-item:nth-child(2) .timeline-dot { background: var(--pink); box-shadow: 0 0 14px rgba(var(--pink-rgb),0.6), var(--clay-shadow); }
-        .timeline-item:nth-child(3) .timeline-dot { background: var(--tertiary); box-shadow: 0 0 14px rgba(var(--tertiary-rgb),0.6), var(--clay-shadow); }
-        .timeline-item:nth-child(4) .timeline-dot { background: var(--green); box-shadow: 0 0 14px rgba(var(--green-rgb),0.6), var(--clay-shadow); }
-
-        .timeline-card {
-            width: calc(50% - 2.7rem); background: var(--clay-bg-strong); backdrop-filter: blur(14px);
-            border: 2px solid var(--clay-border); border-radius: var(--r-xl); padding: 1.7rem;
-            box-shadow: var(--clay-shadow); transition: all var(--normal);
-        }
-        .timeline-card:hover { transform: translateY(-5px); border-color: rgba(var(--nova-rgb),0.35); box-shadow: var(--clay-shadow-hover); }
-        .timeline-year { font-size: 0.82rem; color: var(--secondary); font-weight: 700; margin-bottom: 0.6rem; }
-        .timeline-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .timeline-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
-
-        /* ===== STATS COUNTERS ===== */
-        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.6rem; margin: 4rem 0; }
-        .stat-box {
-            text-align: center; padding: 2.2rem 1.4rem; border-radius: var(--r-xl);
-            background: var(--clay-bg-strong); backdrop-filter: blur(14px);
-            box-shadow: var(--clay-shadow); border: 2px solid var(--clay-border);
-            transition: all var(--normal); position: relative; overflow: hidden;
-        }
-        .stat-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--shimmer); opacity: 0; transition: opacity var(--fast); }
-        .stat-box:hover { transform: translateY(-6px); box-shadow: var(--clay-shadow-hover); }
-        .stat-box:hover::before { opacity: 1; }
-        .stat-num { font-size: clamp(2.4rem, 5vw, 3.2rem); font-weight: 800; background: var(--shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; animation: counter-glow 4s ease-in-out infinite; }
-        .stat-lbl { color: var(--muted); font-size: 0.92rem; font-weight: 500; }
-
-        /* ===== SECURITY SHIELD VISUAL ===== */
-        .shield-sec { position: relative; }
-        .shield-wrap { display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap; }
-        .shield-visual { position: relative; width: 280px; height: 320px; flex-shrink: 0; }
-        .shield-shape {
-            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-        }
-        .shield-shape svg { width: 220px; height: 260px; filter: drop-shadow(0 12px 35px rgba(var(--nova-rgb),0.4)); }
-        .shield-ring { position: absolute; inset: -12px; border: 2.5px solid rgba(var(--nova-rgb),0.18); border-radius: 50%; animation: spin-slow 20s linear infinite; }
-        .shield-ring:nth-child(3) { inset: -28px; border-color: rgba(var(--pink-rgb),0.12); animation-duration: 30s; animation-direction: reverse; }
-        .shield-particles { position: absolute; inset: 0; }
-        .s-particle { position: absolute; width: 5px; height: 5px; border-radius: 50%; animation: particle-float 4s ease-in-out infinite; }
-        .s-particle:nth-child(1) { left: 20%; top: 60%; background: var(--nova); animation-delay: 0s; }
-        .s-particle:nth-child(2) { left: 70%; top: 50%; background: var(--pink); animation-delay: 1s; }
-        .s-particle:nth-child(3) { left: 45%; top: 80%; background: var(--tertiary); animation-delay: 2s; }
-        .s-particle:nth-child(4) { left: 80%; top: 70%; background: var(--green); animation-delay: 0.5s; }
-        .s-particle:nth-child(5) { left: 10%; top: 40%; background: var(--secondary); animation-delay: 1.5s; }
-
-        .shield-info { max-width: 420px; }
-        .shield-info h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1.1rem; }
-        .shield-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1.4rem; }
-        .shield-list li { display: flex; align-items: center; gap: 0.7rem; font-size: 0.95rem; color: var(--muted); padding: 0.7rem 1.1rem; border-radius: var(--r-lg); background: rgba(var(--nova-rgb),0.08); border: 1.5px solid rgba(var(--nova-rgb),0.12); transition: all var(--fast); box-shadow: var(--clay-shadow); }
-        .shield-list li:hover { background: rgba(var(--nova-rgb),0.15); border-color: rgba(var(--nova-rgb),0.3); color: var(--white); transform: translateX(-5px); box-shadow: var(--clay-shadow-hover); }
-        .shield-list-icon { font-size: 1.2rem; flex-shrink: 0; }
+        /* ===== TIMELINE ===== */
+        .tl{position:relative;max-width:600px;margin:0 auto;padding-right:2.5rem}
+        .tl::before{content:'';position:absolute;right:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--nova),var(--pink),var(--tri),transparent);border-radius:var(--r-full)}
+        .tl-item{margin-bottom:2rem;position:relative;padding-right:2rem}
+        .tl-dot{width:14px;height:14px;border-radius:50%;position:absolute;right:-4px;top:.5rem;z-index:2;border:3px solid var(--bg)}
+        .tl-item:nth-child(1) .tl-dot{background:var(--nova);box-shadow:0 0 10px rgba(var(--nova-r),0.5)}
+        .tl-item:nth-child(2) .tl-dot{background:var(--pink);box-shadow:0 0 10px rgba(var(--pink-r),0.5)}
+        .tl-item:nth-child(3) .tl-dot{background:var(--tri);box-shadow:0 0 10px rgba(var(--tri-r),0.5)}
+        .tl-item:nth-child(4) .tl-dot{background:var(--green);box-shadow:0 0 10px rgba(var(--green-r),0.5)}
+        .tl-card{padding:1.2rem;border-radius:var(--r-sm)}
+        .tl-yr{font-size:.72rem;color:var(--sec);font-weight:700;margin-bottom:.3rem}
+        .tl-card h4{font-size:.95rem;font-weight:700;margin-bottom:.3rem}
+        .tl-card p{font-size:.8rem;color:var(--muted);line-height:1.65}
 
         /* ===== TESTIMONIALS ===== */
-        .test-carousel { display: flex; gap: 1.6rem; overflow-x: auto; padding: 1rem 0 2rem; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-behavior: smooth; }
-        .test-carousel::-webkit-scrollbar { display: none; }
-        .test-card {
-            flex: 0 0 clamp(280px, 85%, 380px); scroll-snap-align: start;
-            background: var(--clay-bg-strong); backdrop-filter: blur(18px); border: 2px solid var(--clay-border);
-            border-radius: var(--r-xl); padding: 2.2rem; box-shadow: var(--clay-shadow); transition: all var(--normal);
-        }
-        .test-card:hover { transform: translateY(-6px); border-color: rgba(var(--nova-rgb),0.35); box-shadow: var(--clay-shadow-hover); }
-        .test-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.1rem; }
-        .test-av { width: 52px; height: 52px; border-radius: 50%; background: var(--shimmer); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; box-shadow: var(--clay-shadow); }
-        .test-name { font-weight: 700; font-size: 0.95rem; }
-        .test-role { font-size: 0.8rem; color: var(--muted); }
-        .test-txt { color: var(--muted); line-height: 1.9; font-size: 0.9rem; margin-bottom: 0.9rem; }
-        .test-stars { color: var(--gold); font-size: 0.95rem; letter-spacing: 2px; }
-
-        /* ===== WAVE DIVIDER ===== */
-        .wave-div { width: 100%; overflow: hidden; height: 65px; position: relative; margin: 2.5rem 0; }
-        .wave-svg { position: absolute; bottom: 0; width: 200%; height: 100%; animation: wave 8s linear infinite; }
-        .wave-svg path { fill: none; stroke: url(#waveGrad); stroke-width: 2; opacity: 0.35; }
-
-        /* ===== PARTICLE FIELD ===== */
-        .particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
-        .p-dot { position: absolute; border-radius: 50%; opacity: 0.45; }
-        .p-dot:nth-child(1) { width: 4px; height: 4px; background: var(--nova); top: 20%; left: 10%; animation: float 7s ease-in-out infinite; }
-        .p-dot:nth-child(2) { width: 3px; height: 3px; background: var(--pink); top: 60%; left: 80%; animation: float2 9s ease-in-out infinite; }
-        .p-dot:nth-child(3) { width: 5px; height: 5px; background: var(--tertiary); top: 80%; left: 30%; animation: float 11s ease-in-out infinite reverse; }
-        .p-dot:nth-child(4) { width: 3px; height: 3px; background: var(--secondary); top: 30%; left: 60%; animation: float2 8s ease-in-out infinite; }
-        .p-dot:nth-child(5) { width: 4px; height: 4px; background: var(--green); top: 50%; left: 45%; animation: float 10s ease-in-out infinite; }
+        .tst-scroll{display:flex;gap:1.2rem;overflow-x:auto;padding:.8rem .3rem 1.5rem;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+        .tst-scroll::-webkit-scrollbar{display:none}
+        .tst-card{flex:0 0 clamp(260px,80vw,320px);scroll-snap-align:start;padding:1.5rem}
+        .tst-hd{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
+        .tst-av{width:42px;height:42px;border-radius:50%;background:var(--shim);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+        .tst-nm{font-weight:700;font-size:.88rem}
+        .tst-rl{font-size:.72rem;color:var(--muted)}
+        .tst-tx{color:var(--muted);line-height:1.8;font-size:.82rem;margin-bottom:.6rem}
+        .tst-st{color:var(--gold);font-size:.85rem;letter-spacing:2px}
 
         /* ===== CTA ===== */
-        .cta-sec {
-            background: rgba(var(--nova-rgb),0.08); border: 2px solid rgba(var(--nova-rgb),0.25);
-            border-radius: var(--r-xl); padding: clamp(3.2rem, 8vw, 5.5rem) clamp(1.6rem, 5vw, 3.2rem);
-            text-align: center; margin-bottom: 4.5rem; position: relative; overflow: hidden;
-            box-shadow: var(--clay-shadow), 0 0 60px rgba(var(--nova-rgb),0.1);
+        .cta{
+            background:rgba(var(--nova-r),0.06);border:1.5px solid rgba(var(--nova-r),0.18);
+            border-radius:var(--r);padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,4vw,2.5rem);
+            text-align:center;margin-bottom:3rem;position:relative;overflow:hidden;
+            box-shadow:var(--clay-sh),0 0 50px rgba(var(--nova-r),0.06);
         }
-        .cta-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(var(--nova-rgb),0.15), transparent 55%), radial-gradient(circle at 70% 70%, rgba(var(--pink-rgb),0.1), transparent 55%); pointer-events: none; }
-        .cta-glow { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--gold); font-size: 0.85rem; font-weight: 600; background: rgba(var(--gold-rgb),0.1); border: 1.5px solid rgba(var(--gold-rgb),0.25); padding: 0.4rem 1rem; border-radius: var(--r-full); margin-bottom: 1.4rem; position: relative; z-index: 1; box-shadow: var(--clay-shadow); }
-        .cta-sec h2 { font-size: clamp(1.8rem, 5vw, 2.7rem); font-weight: 800; margin-bottom: 0.9rem; position: relative; z-index: 1; }
-        .cta-sec p { color: var(--muted); margin-bottom: 2.2rem; font-size: 1.05rem; max-width: 550px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; line-height: 1.85; }
+        .cta::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(var(--nova-r),0.1),transparent 55%),radial-gradient(circle at 70% 70%,rgba(var(--pink-r),0.06),transparent 55%);pointer-events:none}
+        .cta-g{display:inline-flex;align-items:center;gap:.3rem;color:var(--gold);font-size:.78rem;font-weight:600;background:rgba(var(--gold-r),0.08);border:1px solid rgba(var(--gold-r),0.2);padding:.25rem .8rem;border-radius:var(--r-full);margin-bottom:1rem;position:relative;z-index:1}
+        .cta h2{font-size:clamp(1.4rem,4.5vw,2.2rem);font-weight:800;margin-bottom:.6rem;position:relative;z-index:1}
+        .cta>p{color:var(--muted);margin-bottom:1.5rem;font-size:.92rem;max-width:480px;margin-left:auto;margin-right:auto;position:relative;z-index:1;line-height:1.75}
+
+        /* ===== WAVE ===== */
+        .wave{width:100%;overflow:hidden;height:40px;position:relative;margin:1.5rem 0}
+        .wave svg{position:absolute;bottom:0;width:200%;height:100%;animation:wave 8s linear infinite}
+        .wave svg path{fill:none;stroke:url(#wg);stroke-width:1.5;opacity:.25}
 
         /* ===== FOOTER ===== */
-        .footer { background: var(--bg); border-top: 1.5px solid rgba(255,255,255,0.06); padding: 4.5rem var(--pad) 2.2rem; position: relative; }
-        .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--shimmer); opacity: 0.35; }
-        .footer-grid { max-width: var(--max-w); margin: 0 auto 3.2rem; display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 2.8rem; }
-        .footer-brand p { color: var(--muted); font-size: 0.9rem; line-height: 1.85; margin-top: 0.9rem; max-width: 300px; }
-        .footer-social { display: flex; gap: 0.7rem; margin-top: 1.1rem; }
-        .footer-social a { width: 40px; height: 40px; border-radius: 50%; background: var(--clay-bg); border: 1.5px solid var(--clay-border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.95rem; transition: all var(--fast); box-shadow: var(--clay-shadow); }
-        .footer-social a:hover { background: rgba(var(--nova-rgb),0.18); border-color: var(--nova); color: var(--white); transform: translateY(-3px); box-shadow: var(--clay-shadow-hover); }
+        .footer{background:var(--bg);border-top:1px solid rgba(255,255,255,0.05);padding:3rem var(--pad) 1.5rem;position:relative}
+        .footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--shim);opacity:.3}
+        .ft-grid{max-width:var(--max);margin:0 auto 2rem;display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:2rem}
+        .ft-brand p{color:var(--muted);font-size:.82rem;line-height:1.7;margin-top:.6rem;max-width:260px}
+        .ft-soc{display:flex;gap:.5rem;margin-top:.8rem}
+        .ft-soc a{width:32px;height:32px;border-radius:50%;background:var(--clay);border:1px solid var(--clay-b);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:.8rem;transition:all var(--fast)}
+        .ft-soc a:hover{background:rgba(var(--nova-r),0.12);border-color:var(--nova);color:var(--w);transform:translateY(-2px)}
+        .ft-col h4{font-size:.88rem;margin-bottom:.8rem;color:var(--w);font-weight:700;position:relative;padding-bottom:.4rem}
+        .ft-col h4::after{content:'';position:absolute;bottom:0;right:0;width:20px;height:2px;background:var(--shim);border-radius:var(--r-full)}
+        .ft-col a{display:block;color:var(--muted);text-decoration:none;padding:.25rem 0;font-size:.8rem;transition:all var(--fast)}
+        .ft-col a:hover{color:var(--sec);transform:translateX(-3px)}
+        .ft-bot{max-width:var(--max);margin:0 auto;border-top:1px solid rgba(255,255,255,0.05);padding-top:1.2rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;font-size:.78rem;color:var(--muted)}
+        .ft-slogan{font-style:italic;opacity:.6;font-size:.75rem}
+        .enamad img{max-width:80px;height:auto;filter:brightness(.9);border-radius:var(--r-xs);cursor:pointer;transition:all var(--fast)}
+        .enamad img:hover{transform:scale(1.05);filter:brightness(1)}
 
-        .footer-col h4 { font-size: 1rem; margin-bottom: 1.1rem; color: var(--white); font-weight: 700; position: relative; padding-bottom: 0.6rem; }
-        .footer-col h4::after { content: ''; position: absolute; bottom: 0; right: 0; width: 26px; height: 3px; background: var(--shimmer); border-radius: var(--r-full); }
-        .footer-col a { display: block; color: var(--muted); text-decoration: none; padding: 0.35rem 0; font-size: 0.88rem; transition: all var(--fast); }
-        .footer-col a:hover { color: var(--secondary); transform: translateX(-4px); }
+        /* Scroll Top */
+        .stt{position:fixed;bottom:1.5rem;left:1.5rem;width:44px;height:44px;border-radius:var(--r-full);background:rgba(var(--nova-r),0.2);backdrop-filter:blur(12px);border:1.5px solid rgba(var(--nova-r),0.3);color:var(--w);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(16px);transition:all var(--norm);z-index:500}
+        .stt.vis{opacity:1;visibility:visible;transform:translateY(0)}
+        .stt:hover{transform:translateY(-3px);background:rgba(var(--nova-r),0.35);border-color:var(--nova)}
 
-        .footer-bottom { max-width: var(--max-w); margin: 0 auto; border-top: 1.5px solid rgba(255,255,255,0.06); padding-top: 1.7rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.4rem; font-size: 0.85rem; color: var(--muted); }
-        .footer-slogan { font-style: italic; opacity: 0.65; font-size: 0.82rem; }
-        .enamad img { max-width: 95px; height: auto; filter: brightness(0.92); transition: all var(--fast); border-radius: var(--r-md); cursor: pointer; box-shadow: var(--clay-shadow); }
-        .enamad img:hover { transform: scale(1.06); filter: brightness(1); box-shadow: var(--clay-shadow-hover); }
+        /* Loader */
+        .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:10000;transition:opacity .5s var(--ease),visibility .5s}
+        .ldr.gone{opacity:0;visibility:hidden;pointer-events:none}
+        .ldr-mk{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:1.5rem}
+        .ldr-mk svg{width:36px;height:36px;animation:float 2s ease-in-out infinite;filter:drop-shadow(0 4px 10px rgba(var(--nova-r),0.5))}
+        .ldr-mk span{font-size:2.2rem;font-weight:800;background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .ldr-tr{width:140px;height:4px;background:var(--surf);border-radius:var(--r-full);overflow:hidden;margin:0 auto}
+        .ldr-fl{height:100%;background:var(--shim);border-radius:var(--r-full);animation:progress 1.4s ease forwards}
+        .ldr-msg{margin-top:.8rem;color:var(--muted);font-size:.75rem}
 
-        /* ===== SCROLL TOP ===== */
-        .scroll-top { position: fixed; bottom: 2.2rem; left: 2.2rem; width: 52px; height: 52px; border-radius: var(--r-full); background: rgba(var(--nova-rgb),0.25); backdrop-filter: blur(14px); border: 2px solid rgba(var(--nova-rgb),0.35); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(22px); transition: all var(--normal); z-index: 500; box-shadow: var(--clay-shadow); }
-        .scroll-top.vis { opacity: 1; visibility: visible; transform: translateY(0); }
-        .scroll-top:hover { transform: translateY(-5px); background: rgba(var(--nova-rgb),0.4); border-color: var(--nova); box-shadow: var(--clay-shadow-hover); }
+        /* Reveal */
+        .rv{opacity:0;transform:translateY(24px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+        .rv.vis{opacity:1;transform:translateY(0)}
+        .d1{transition-delay:.1s!important}.d2{transition-delay:.2s!important}.d3{transition-delay:.3s!important}.d4{transition-delay:.4s!important}
 
-        /* ===== LOADER ===== */
-        .loader { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 10000; transition: opacity 0.5s var(--ease), visibility 0.5s; }
-        .loader.gone { opacity: 0; visibility: hidden; pointer-events: none; }
-        .loader-inner { text-align: center; }
-        .loader-mark { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-bottom: 2rem; }
-        .loader-mark svg { width: 44px; height: 44px; animation: float 2s ease-in-out infinite; filter: drop-shadow(0 5px 14px rgba(var(--nova-rgb),0.6)); }
-        .loader-mark span { font-size: 2.7rem; font-weight: 800; background: var(--shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .loader-track { width: 170px; height: 5px; background: var(--surface); border-radius: var(--r-full); overflow: hidden; margin: 0 auto; box-shadow: var(--clay-shadow-inset); }
-        .loader-fill { height: 100%; background: var(--shimmer); border-radius: var(--r-full); animation: progress 1.5s ease forwards; box-shadow: 0 0 12px rgba(var(--nova-rgb),0.5); }
-        .loader-msg { margin-top: 1.1rem; color: var(--muted); font-size: 0.85rem; }
-
-        /* ===== REVEAL ===== */
-        .rv { opacity: 0; transform: translateY(30px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
-        .rv.vis { opacity: 1; transform: translateY(0); }
-        .d1 { transition-delay: 0.1s !important; } .d2 { transition-delay: 0.2s !important; } .d3 { transition-delay: 0.3s !important; } .d4 { transition-delay: 0.4s !important; } .d5 { transition-delay: 0.5s !important; }
-
-        /* ===== MOBILE-FIRST RESPONSIVE ===== */
-        /* Base styles for mobile */
-        .side-nav { display: none; }
-        
-        @media (max-width: 768px) {
-            .nav { display: none; position: fixed; top: 80px; left: 0; right: 0; background: rgba(10,10,15,0.96); backdrop-filter: var(--clay-blur); flex-direction: column; padding: 1.6rem var(--pad); gap: 0.5rem; border-bottom: 2px solid var(--clay-border); z-index: 599; animation: up 0.3s var(--ease); box-shadow: var(--clay-shadow); }
-            .mob-btn { display: flex; }
-            #mob-toggle:checked ~ .header .nav { display: flex; }
-            .hero-btns { flex-direction: column; align-items: center; }
-            .btn { width: 100%; max-width: 320px; justify-content: center; }
-            .bento { grid-template-columns: 1fr; }
-            .b-big, .b-wide { grid-column: span 1; }
-            .demo-wrap { flex-direction: column; text-align: center; }
-            .shield-wrap { flex-direction: column; text-align: center; }
-            .shield-info { text-align: right; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-            .scroll-top { left: 50%; transform: translateX(-50%) translateY(22px); }
-            .scroll-top.vis { transform: translateX(-50%) translateY(0); }
-            .connect-canvas { height: 320px; }
-            .connect-node { width: 48px; height: 48px; font-size: 1.2rem; }
-            .connect-node:nth-child(6) { width: 64px; height: 64px; font-size: 1.5rem; }
-            .countdown-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        /* ===== RESPONSIVE (Mobile First) ===== */
+        @media(max-width:768px){
+            .nav{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(10,10,15,0.95);backdrop-filter:var(--clay-blur);flex-direction:column;padding:1.2rem var(--pad);gap:.3rem;border-bottom:1px solid var(--clay-b);z-index:599;animation:up .3s var(--ease)}
+            .mob-btn{display:flex}
+            #mt:checked~.header .nav{display:flex}
+            .hero-btns{flex-direction:column;align-items:center}
+            .btn{width:100%;max-width:280px;justify-content:center}
+            .demo-flex{flex-direction:column;text-align:center}
+            .demo-info{text-align:right}
+            .shield-flex{flex-direction:column;text-align:center}
+            .shield-info{text-align:right}
+            .ft-grid{grid-template-columns:1fr 1fr}
+            .ft-bot{flex-direction:column;text-align:center}
+            .stt{left:50%;transform:translateX(-50%) translateY(16px)}
+            .stt.vis{transform:translateX(-50%) translateY(0)}
+            .hero-orb{width:250px;height:250px;opacity:.5}
+            .phone{width:220px;height:440px;border-radius:28px}
+            .phone-scr{border-radius:25px}
+            .net-canvas{max-width:320px}
+            .net-node{width:40px;height:40px;font-size:1rem}
+            .net-node.center{width:50px;height:50px;font-size:1.2rem}
         }
-        
-        @media (max-width: 480px) {
-            .header-in { height: 72px; }
-            .logo-txt { font-size: 1.6rem; }
-            .logo-star { width: 28px; height: 28px; }
-            .hero-visual { width: 300px; height: 300px; opacity: 0.55; }
-            .demo-phone { width: 250px; height: 500px; border-radius: 36px; }
-            .phone-notch { width: 85px; height: 26px; border-radius: 0 0 16px 16px; }
-            .phone-screen { border-radius: 32px; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .countdown-num { font-size: 2.2rem; }
+        @media(max-width:480px){
+            .hdr{height:64px}
+            .logo svg{width:24px;height:24px}
+            .logo span{font-size:1.3rem}
+            .hero{padding:4rem var(--pad) 2rem}
+            .hero-orb{width:200px;height:200px;opacity:.35}
+            .bento{grid-template-columns:1fr}
+            .b-big{grid-column:span 1}
+            .stats{grid-template-columns:1fr 1fr}
+            .phone{width:200px;height:400px;border-radius:24px}
+            .phone-notch{width:65px;height:18px;border-radius:0 0 10px 10px}
+            .phone-scr{border-radius:21px}
+            .cd-boxes{gap:.4rem}
+            .ft-grid{grid-template-columns:1fr}
+            .shield-vis{width:160px;height:200px}
+            .shield-vis svg{width:120px;height:150px}
         }
-
-        /* Tablet and up */
-        @media (min-width: 769px) {
-            .side-nav { display: flex; }
-            .bento { grid-template-columns: repeat(2, 1fr); }
-            .b-big { grid-column: span 2; grid-row: span 1; }
-            .b-tall { grid-row: span 1; }
-            .hero-visual { width: 380px; height: 380px; }
-            .timeline-item { flex-direction: column !important; align-items: center; }
-            .timeline::before { right: 20px; transform: none; }
-            .timeline-dot { right: 12px !important; }
-            .timeline-card { width: calc(100% - 3.2rem); margin-right: 2.2rem; }
+        @media(min-width:769px){
+            .bento{grid-template-columns:repeat(3,1fr)}
         }
 
-        /* Desktop */
-        @media (min-width: 1025px) {
-            .bento { grid-template-columns: repeat(4, 1fr); }
-            .b-big { grid-column: span 2; grid-row: span 2; }
-            .hero-visual { width: 500px; height: 500px; }
-        }
-
-        /* Hidden SVG defs */
-        .svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+        .svg-d{position:absolute;width:0;height:0;overflow:hidden}
     </style>
 </head>
 <body>
 
-    <!-- SVG Definitions -->
-    <svg class="svg-defs" aria-hidden="true">
-        <defs>
-            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#7C3AED"/>
-                <stop offset="50%" stop-color="#EC4899"/>
-                <stop offset="100%" stop-color="#6366F1"/>
-            </linearGradient>
-            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#7C3AED"/>
-                <stop offset="50%" stop-color="#EC4899"/>
-                <stop offset="100%" stop-color="#6366F1"/>
-            </linearGradient>
-            <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#7C3AED"/>
-                <stop offset="50%" stop-color="#A855F7" stop-opacity="0.8"/>
-                <stop offset="100%" stop-color="#6366F1"/>
-            </linearGradient>
-        </defs>
-    </svg>
+<svg class="svg-d" aria-hidden="true"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#EC4899"/><stop offset="100%" stop-color="#6366F1"/></linearGradient><linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#EC4899"/><stop offset="100%" stop-color="#6366F1"/></linearGradient><linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#A855F7" stop-opacity=".8"/><stop offset="100%" stop-color="#6366F1"/></linearGradient></defs></svg>
 
-    <!-- Loader -->
-    <div class="loader" id="loader" aria-hidden="true">
-        <div class="loader-inner">
-            <div class="loader-mark">
-                <svg viewBox="0 0 48 48" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#starGradL)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/><defs><linearGradient id="starGradL" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#EC4899"/><stop offset="100%" stop-color="#6366F1"/></linearGradient></defs></svg>
-                <span>NOVA</span>
-            </div>
-            <div class="loader-track"><div class="loader-fill"></div></div>
-            <p class="loader-msg">در حال آماده‌سازی تجربه‌ای نوین...</p>
+<div class="ldr" id="ldr" aria-hidden="true"><div style="text-align:center"><div class="ldr-mk"><svg viewBox="0 0 48 48" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/></svg><span>NOVA</span></div><div class="ldr-tr"><div class="ldr-fl"></div></div><p class="ldr-msg">در حال آماده‌سازی...</p></div></div>
+
+<div class="aurora" aria-hidden="true"></div>
+<div class="scroll-bar" id="sBar"></div>
+
+<input type="checkbox" id="mt" class="sr-only">
+<header class="header"><div class="hdr">
+    <a href="#" class="logo" aria-label="NOVA"><svg viewBox="0 0 48 48" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/></svg><span>NOVA</span></a>
+    <nav class="nav" id="nav">
+        <a href="#demo">تجربه زنده</a><a href="#services">امکانات</a><a href="#security">امنیت</a><a href="#reviews">نظرات</a>
+        <a href="#cta-sec" class="btn btn-p" style="padding:.5rem 1.2rem;font-size:.82rem">✨ شروع</a>
+    </nav>
+    <label for="mt" class="mob-btn" id="mBtn" role="button" tabindex="0" aria-label="منو">☰</label>
+</div></header>
+
+<main class="main">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="hero-aur" aria-hidden="true"></div>
+    <div class="hero-orb" aria-hidden="true">
+        <div class="orb-ring"></div><div class="orb-ring"></div><div class="orb-ring"></div>
+        <div class="orb-p"></div><div class="orb-p"></div><div class="orb-p"></div>
+        <div class="hero-blob"></div>
+    </div>
+    <div class="hero-c">
+        <div class="h-badge rv"><span class="b-dot"></span>ارتباطی به وسعت فردا</div>
+        <h1 class="rv d1">جایی که <span class="hl grad">پیام‌ها به نور</span> تبدیل می‌شوند</h1>
+        <p class="rv d2">نووا یک جنبش برای بازتعریف ارتباطات انسانی در عصر دیجیتال. امن، سریع و همراه شما.</p>
+        <div class="hero-btns rv d3">
+            <a href="#" class="btn btn-p magnetic" data-s="16">✨ شروع سفر با نووا</a>
+            <a href="#demo" class="btn btn-g magnetic" data-s="10">مشاهده دمو →</a>
+        </div>
+        <div class="hero-stats rv d4">
+            <div class="hs"><span class="hs-v" data-c="500000">0</span><span class="hs-l">ستاره در کهکشان نووا</span></div>
+            <div class="hs"><span class="hs-v" data-c="99.9">0</span><span class="hs-l">٪ دسترس‌پذیری</span></div>
+            <div class="hs"><span class="hs-v" data-c="50">0</span><span class="hs-l">زبان پشتیبانی</span></div>
         </div>
     </div>
+</section>
 
-    <!-- Aurora -->
-    <div class="aurora" aria-hidden="true"></div>
-
-    <!-- Scroll Progress -->
-    <div class="scroll-bar" id="scrollBar"></div>
-
-    <!-- Side Nav -->
-    <nav class="side-nav" aria-label="ناوبری سریع">
-        <button class="side-dot active" data-target="hero" data-tip="خانه" aria-label="خانه"></button>
-        <button class="side-dot" data-target="countdown" data-tip="شمارش معکوس" aria-label="شمارش معکوس"></button>
-        <button class="side-dot" data-target="demo" data-tip="دمو" aria-label="دمو"></button>
-        <button class="side-dot" data-target="services" data-tip="سرویس‌ها" aria-label="سرویس‌ها"></button>
-        <button class="side-dot" data-target="connect" data-tip="ارتباطات" aria-label="ارتباطات"></button>
-        <button class="side-dot" data-target="security" data-tip="امنیت" aria-label="امنیت"></button>
-        <button class="side-dot" data-target="cta" data-tip="شروع" aria-label="شروع"></button>
-    </nav>
-
-    <!-- Menu Toggle -->
-    <input type="checkbox" id="mob-toggle" class="sr-only">
-
-    <!-- Header -->
-    <header class="header">
-        <div class="header-in">
-            <a href="#" class="logo" aria-label="NOVA">
-                <span class="logo-star"><svg viewBox="0 0 48 48" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#logoG)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/><defs><linearGradient id="logoG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#EC4899"/><stop offset="100%" stop-color="#6366F1"/></linearGradient></defs></svg></span>
-                <span class="logo-txt">NOVA</span>
-                <span class="logo-glow"></span>
-            </a>
-            <nav class="nav" id="mainNav">
-                <a href="#countdown" class="nav-link">شمارش معکوس</a>
-                <a href="#demo" class="nav-link">تجربه زنده</a>
-                <a href="#services" class="nav-link">امکانات</a>
-                <a href="#connect" class="nav-link">ارتباطات</a>
-                <a href="#security" class="nav-link">امنیت</a>
-                <a href="#reviews" class="nav-link">نظرات</a>
-                <a href="#cta" class="btn btn-primary magnetic" data-s="14">✨ همین حالا شروع کن</a>
-            </nav>
-            <label for="mob-toggle" class="mob-btn" role="button" tabindex="0" aria-label="منو" id="mobBtn">☰</label>
+<!-- FROZEN COUNTDOWN -->
+<section class="sec countdown-sec" id="countdown">
+    <div class="countdown-wrap">
+        <div class="cd-frost" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cd-label rv">
+            <svg viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14A6 6 0 1 1 8 2a6 6 0 0 1 0 12zm.5-9H7v5l4.3 2.5.7-1.2-3.5-2V5z"/></svg>
+            The Frozen Countdown
         </div>
-    </header>
+        <h2 class="cd-title rv d1">تا رونمایی <span class="grad">نسخه جدید</span></h2>
+        <p class="cd-sub rv d2">چیزی بزرگ در راه است. آماده باشید برای تحولی یخ‌شکن در دنیای ارتباطات.</p>
+        <div class="cd-boxes rv d3">
+            <div class="cd-box"><span class="cd-num" id="cd-d">02</span><span class="cd-unit">روز</span></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-box"><span class="cd-num" id="cd-h">23</span><span class="cd-unit">ساعت</span></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-box"><span class="cd-num" id="cd-m">58</span><span class="cd-unit">دقیقه</span></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-unit">ثانیه</span></div>
+        </div>
+        <div class="cd-bar rv d4">
+            <div class="cd-track"><div class="cd-fill" id="cdFill"></div></div>
+            <div class="cd-pct"><span id="cdPct">0</span>٪ تا رونمایی</div>
+        </div>
+    </div>
+</section>
 
-    <main class="main">
+<!-- WAVE -->
+<div class="wave" aria-hidden="true"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0 30Q150 0 300 30T600 30T900 30T1200 30T1500 30T1800 30T2100 30T2400 30" stroke="url(#wg)" stroke-width="1.5" fill="none"/></svg></div>
 
-        <!-- ===== HERO ===== -->
-        <section class="hero" id="hero">
-            <div class="hero-aurora" aria-hidden="true"></div>
-            <div class="hero-visual" aria-hidden="true">
-                <div class="orbit-ring"></div><div class="orbit-ring"></div><div class="orbit-ring"></div>
-                <div class="orbit-particle"></div><div class="orbit-particle"></div><div class="orbit-particle"></div>
-                <div class="hero-blob"></div>
-            </div>
-            <div class="particles" aria-hidden="true">
-                <div class="p-dot"></div><div class="p-dot"></div><div class="p-dot"></div><div class="p-dot"></div><div class="p-dot"></div>
-            </div>
-            <div class="hero-content">
-                <div class="hero-badge rv"><span class="badge-dot"></span>ارتباطی به وسعت فردا</div>
-                <h1 class="rv d1">جایی که <span class="hl grad">پیام‌ها به نور</span> تبدیل می‌شوند</h1>
-                <p class="rv d2">نووا فقط یک اپلیکیشن نیست؛ یک جنبش برای بازتعریف ارتباطات انسانی در عصر دیجیتال. امن، سریع و همراه شما در هر لحظه.</p>
-                <div class="hero-btns rv d3">
-                    <a href="#" class="btn btn-primary magnetic" data-s="18">✨ شروع سفر با نووا</a>
-                    <a href="#demo" class="btn btn-glass magnetic" data-s="10">مشاهده دمو زنده →</a>
-                </div>
-                <div class="hero-stats rv d4">
-                    <div class="h-stat"><span class="h-stat-val" data-c="500000">0</span><span class="h-stat-lbl">ستاره در کهکشان نووا</span></div>
-                    <div class="h-stat"><span class="h-stat-val" data-c="99.9">0</span><span class="h-stat-lbl">٪ دسترس‌پذیری</span></div>
-                    <div class="h-stat"><span class="h-stat-val" data-c="50">0</span><span class="h-stat-lbl">زبان پشتیبانی</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== FROZEN COUNTDOWN ===== -->
-        <section class="countdown-sec sec" id="countdown">
-            <div class="countdown-wrap rv">
-                <div class="countdown-ice-particle"></div>
-                <div class="countdown-ice-particle"></div>
-                <div class="countdown-ice-particle"></div>
-                <div class="countdown-ice-particle"></div>
-                <div class="countdown-ice-particle"></div>
-                <h2 class="countdown-title">❄️ شمارش معکوس یخ‌زده</h2>
-                <p class="countdown-subtitle">زمان باقی‌مانده تا رویداد بزرگ نووا</p>
-                <div class="countdown-grid">
-                    <div class="countdown-box">
-                        <div class="countdown-num" id="cd-days">02</div>
-                        <div class="countdown-label">روز</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-num" id="cd-hours">23</div>
-                        <div class="countdown-label">ساعت</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-num" id="cd-minutes">58</div>
-                        <div class="countdown-label">دقیقه</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-num" id="cd-seconds">00</div>
-                        <div class="countdown-label">ثانیه</div>
-                    </div>
+<!-- DEMO -->
+<section class="sec demo-sec" id="demo">
+    <div class="sh">
+        <span class="stag rv">📱 تجربه زنده</span>
+        <h2 class="stit rv d1">نووا را <span class="grad">لمس کنید</span></h2>
+        <p class="ssub rv d2">نگاهی به فضای واقعی پیام‌رسان نووا.</p>
+    </div>
+    <div class="demo-flex">
+        <div class="phone rv d3">
+            <div class="phone-notch"></div>
+            <div class="phone-scr">
+                <div class="chat">
+                    <div class="chat-hd"><div class="chat-av">⭐</div><div><div class="chat-nm">تیم نووا</div><div class="chat-on">آنلاین</div></div></div>
+                    <div class="bub rx">سلام! به نووا خوش اومدی 🌟</div>
+                    <div class="bub rx">اینجا پیام‌ها به نور تبدیل می‌شن.</div>
+                    <div class="bub tx">عالیه! چطور شروع کنم؟</div>
+                    <div class="bub rx">فقط یه حساب بساز و دوستاتو دعوت کن ✨</div>
+                    <div class="bub tx">مرسی، خیلی سریع بود! 🚀</div>
+                    <div class="typing"><i></i><i></i><i></i></div>
                 </div>
             </div>
-        </section>
+        </div>
+        <div class="demo-info rv d4">
+            <h3>ارتباط <span class="grad">هوشمند و امن</span></h3>
+            <p style="color:var(--muted);line-height:1.75;font-size:.88rem;margin-bottom:.8rem">هر پیام با رمزنگاری سرتاسری محافظت می‌شود. ما به حریم خصوصی شما احترام می‌گذاریم.</p>
+            <ul class="demo-list">
+                <li class="dl-i"><div class="dl-ic">🔐</div><div class="dl-t"><h4>رمزنگاری سرتاسری</h4><p>هیچ‌کس جز شما پیام‌ها رو نمی‌بینه</p></div></li>
+                <li class="dl-i"><div class="dl-ic">⚡</div><div class="dl-t"><h4>ارسال آنی</h4><p>تحویل در کسری از ثانیه</p></div></li>
+                <li class="dl-i"><div class="dl-ic">🎨</div><div class="dl-t"><h4>طراحی مینیمال</h4><p>رابط کاربری زیبا و دوستانه</p></div></li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-        <!-- ===== WAVE DIVIDER ===== -->
-        <div class="wave-div" aria-hidden="true">
-            <svg class="wave-svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
-                <path d="M0 30 Q150 0 300 30 T600 30 T900 30 T1200 30 T1500 30 T1800 30 T2100 30 T2400 30" stroke="url(#waveGrad)" stroke-width="2" fill="none"/>
+<!-- BENTO SERVICES -->
+<section class="sec" id="services">
+    <div class="sh">
+        <span class="stag rv">🌟 امکانات</span>
+        <h2 class="stit rv d1">اکوسیستم <span class="grad">کامل دیجیتال</span></h2>
+        <p class="ssub rv d2">تمام نیازهای دیجیتال شما در یک تجربه یکپارچه.</p>
+    </div>
+    <div class="bento">
+        <div class="b-item clay b-big rv">
+            <span class="b-icon">💬</span><h3>پیام‌رسان نسل آینده</h3>
+            <p>چت، تماس، استوری، کانال و لایو. همه با رمزنگاری سرتاسری.</p>
+            <div class="e2e"><div class="e2e-n g">🔒</div><div class="e2e-line"></div><div class="e2e-n v">👤</div><div class="e2e-line"></div><div class="e2e-n g">🛡️</div></div>
+        </div>
+        <div class="b-item clay rv d1"><span class="b-icon">💰</span><h3>کیف پول هوشمند</h3><p>انتقال وجه آنی، پرداخت قبوض و مدیریت مالی.</p></div>
+        <div class="b-item clay rv d2">
+            <span class="b-icon">🤖</span><h3>دستیار AI</h3><p>ترجمه فوری، تولید محتوا و پیشنهاد هوشمند.</p>
+            <div class="ai-brain"><div class="br-c"></div><div class="br-c"></div><div class="br-c"></div><span class="br-core">🧠</span><span class="br-d"></span><span class="br-d"></span><span class="br-d"></span></div>
+        </div>
+        <div class="b-item clay b-big rv d3">
+            <span class="b-icon">⚡</span><h3>عملکرد فوق‌العاده</h3><p>بارگذاری کمتر از ۲ ثانیه، مصرف بهینه و همگام‌سازی آنی.</p>
+            <div class="spd">
+                <div class="spd-lbl"><span>سرعت پاسخ</span><span style="color:var(--green)">۱۲ms</span></div>
+                <div class="spd-bar"><div class="spd-fill" style="width:95%"></div></div>
+                <div class="spd-lbl"><span>بهینه‌سازی</span><span style="color:var(--green)">۹۸٪</span></div>
+                <div class="spd-bar"><div class="spd-fill" style="width:98%"></div></div>
+            </div>
+        </div>
+        <div class="b-item clay rv d4"><span class="b-icon">🛒</span><h3>فروشگاه یکپارچه</h3><p>خرید آنلاین و سفارش خدمات بدون خروج از نووا.</p></div>
+    </div>
+</section>
+
+<!-- CONNECTION -->
+<section class="sec net-sec" id="connect">
+    <div class="sh">
+        <span class="stag rv">🌐 ارتباطات</span>
+        <h2 class="stit rv d1">پل ارتباطی بین <span class="grad">انسان‌ها</span></h2>
+        <p class="ssub rv d2">نووا شما را به دوستان، خانواده و جوامع سراسر جهان متصل می‌کند.</p>
+    </div>
+    <div class="net-canvas rv d3">
+        <svg class="net-lines" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
+            <line x1="250" y1="50" x2="60" y2="195"/><line x1="250" y1="50" x2="440" y2="195"/>
+            <line x1="60" y1="195" x2="250" y2="250"/><line x1="440" y1="195" x2="250" y2="250"/>
+            <line x1="250" y1="250" x2="135" y2="410"/><line x1="250" y1="250" x2="365" y2="410"/>
+            <line x1="60" y1="195" x2="135" y2="410"/><line x1="440" y1="195" x2="365" y2="410"/>
+        </svg>
+        <div class="net-node">👨‍💻</div><div class="net-node">👩‍🎨</div><div class="net-node">👨‍💼</div>
+        <div class="net-node">👩‍🎓</div><div class="net-node">👨‍🏫</div><div class="net-node center">⭐</div>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+    <div class="st-box clay rv"><div class="st-v" data-c="2500000">0</div><div class="st-l">دانلود</div></div>
+    <div class="st-box clay rv d1"><div class="st-v" data-c="4.9">0</div><div class="st-l">امتیاز</div></div>
+    <div class="st-box clay rv d2"><div class="st-v" data-c="150">0</div><div class="st-l">کشور</div></div>
+    <div class="st-box clay rv d3"><div class="st-v" data-c="99.99">0</div><div class="st-l">٪ رضایت</div></div>
+</div>
+
+<!-- WAVE -->
+<div class="wave" aria-hidden="true"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0 30Q150 55 300 30T600 30T900 30T1200 30T1500 30T1800 30" stroke="url(#wg)" stroke-width="1.5" fill="none"/></svg></div>
+
+<!-- SECURITY SHIELD -->
+<section class="sec shield-sec" id="security">
+    <div class="sh">
+        <span class="stag rv">🛡️ امنیت</span>
+        <h2 class="stit rv d1">داده‌های شما، <span class="grad">حریم شماست</span></h2>
+        <p class="ssub rv d2">حریم خصوصی حق شماست، نه امتیاز.</p>
+    </div>
+    <div class="shield-flex">
+        <div class="shield-vis rv d3">
+            <svg viewBox="0 0 200 240" fill="none">
+                <path d="M100 10L185 50V130C185 180 140 220 100 235C60 220 15 180 15 130V50L100 10Z" fill="url(#sg)" opacity=".15" stroke="url(#sg)" stroke-width="2"/>
+                <path d="M100 60L140 78V120C140 150 120 170 100 178C80 170 60 150 60 120V78L100 60Z" fill="url(#sg)" opacity=".25"/>
+                <text x="100" y="130" text-anchor="middle" font-size="36" fill="white" opacity=".9">🔐</text>
             </svg>
+            <div class="shield-rg"></div><div class="shield-rg"></div>
+            <div class="s-particles"><div class="s-p"></div><div class="s-p"></div><div class="s-p"></div><div class="s-p"></div></div>
         </div>
-
-        <!-- ===== INTERACTIVE DEMO ===== -->
-        <section class="sec demo-sec" id="demo">
-            <div class="sec-head">
-                <span class="sec-tag rv">📱 تجربه زنده</span>
-                <h2 class="sec-title rv d1">نووا را <span class="grad">لمس کنید</span></h2>
-                <p class="sec-sub rv d2">یک نگاه به فضای پیام‌رسان نووا. ساده، زیبا و امن.</p>
-            </div>
-            <div class="demo-wrap">
-                <div class="demo-phone rv d3">
-                    <div class="phone-notch"></div>
-                    <div class="phone-screen">
-                        <div class="chat-ui">
-                            <div class="chat-header">
-                                <div class="chat-avatar">⭐</div>
-                                <div><div class="chat-name">تیم نووا</div><div class="chat-online">آنلاین</div></div>
-                            </div>
-                            <div class="chat-bubble received">سلام! به نووا خوش اومدی 🌟</div>
-                            <div class="chat-bubble received">اینجا پیام‌هات امن‌تر از همیشه‌ست.</div>
-                            <div class="chat-bubble sent">عالیه! چطور شروع کنم؟</div>
-                            <div class="chat-bubble received">خیلی ساده! فقط کافیه یه حساب بسازی و دوستاتو دعوت کنی ✨</div>
-                            <div class="chat-bubble sent">مرسی، خیلی سریع بود! 🚀</div>
-                            <div class="chat-typing"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-info rv d4">
-                    <h3>ارتباط <span class="grad">هوشمند و امن</span></h3>
-                    <p style="color:var(--muted);line-height:1.85;margin-bottom:1.1rem;font-size:0.98rem;">هر پیامی که ارسال می‌کنید، با رمزنگاری سرتاسری محافظت می‌شود. ما به حریم خصوصی شما احترام می‌گذاریم.</p>
-                    <ul class="demo-features">
-                        <li class="demo-feat"><div class="demo-feat-icon">🔐</div><div class="demo-feat-text"><h4>رمزنگاری سرتاسری</h4><p>هیچ‌کس جز شما و مخاطبتان پیام‌ها را نمی‌بیند</p></div></li>
-                        <li class="demo-feat"><div class="demo-feat-icon">⚡</div><div class="demo-feat-text"><h4>ارسال آنی</h4><p>پیام‌ها در کسری از ثانیه تحویل داده می‌شوند</p></div></li>
-                        <li class="demo-feat"><div class="demo-feat-icon">🎨</div><div class="demo-feat-text"><h4>تجربه زیبا</h4><p>رابط کاربری مینیمال و دوستانه</p></div></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== SERVICES BENTO GRID ===== -->
-        <section class="sec" id="services">
-            <div class="sec-head">
-                <span class="sec-tag rv">🌟 امکانات</span>
-                <h2 class="sec-title rv d1">یک اکوسیستم <span class="grad">کامل دیجیتال</span></h2>
-                <p class="sec-sub rv d2">نووا فراتر از یک پیام‌رسان است. ما تمام نیازهای دیجیتال شما را در یک تجربه یکپارچه گرد هم آورده‌ایم.</p>
-            </div>
-            <div class="bento">
-                <div class="bento-item b-big rv">
-                    <span class="bento-icon">💬</span>
-                    <h3>پیام‌رسان نسل آینده</h3>
-                    <p>چت خصوصی و گروهی، تماس صوتی و تصویری، استوری، کانال‌های موضوعی و لایو. همه با رمزنگاری سرتاسری و سرعتی که باور نمی‌کنید.</p>
-                    <div class="bento-visual e2e-visual">
-                        <div class="e2e-lock">🔒</div>
-                        <div class="e2e-line"></div>
-                        <div class="e2e-lock">👤</div>
-                        <div class="e2e-line"></div>
-                        <div class="e2e-shield">🛡️</div>
-                    </div>
-                </div>
-                <div class="bento-item rv d1">
-                    <span class="bento-icon">💰</span>
-                    <h3>کیف پول هوشمند</h3>
-                    <p>انتقال وجه آنی، پرداخت قبوض، خرید شارژ و مدیریت مالی با امنیت سطح بانکی.</p>
-                </div>
-                <div class="bento-item rv d2">
-                    <span class="bento-icon">🤖</span>
-                    <h3>دستیار هوش مصنوعی</h3>
-                    <p>ترجمه فوری، تولید محتوا، خلاصه‌سازی و پیشنهادات هوشمند. دستیاری که با شما رشد می‌کند.</p>
-                    <div class="bento-visual">
-                        <div class="ai-brain">
-                            <div class="brain-circle"></div><div class="brain-circle"></div><div class="brain-circle"></div>
-                            <span class="brain-core">🧠</span>
-                            <span class="brain-dot"></span><span class="brain-dot"></span><span class="brain-dot"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="bento-item b-wide rv d3">
-                    <span class="bento-icon">⚡</span>
-                    <h3>عملکرد فوق‌العاده</h3>
-                    <p>بارگذاری کمتر از ۲ ثانیه، مصرف بهینه باتری و داده، همگام‌سازی آنی بین تمام دستگاه‌ها.</p>
-                    <div class="bento-visual speed-meter">
-                        <div class="speed-label"><span>سرعت پاسخ‌دهی</span><span style="color:var(--green)">۱۲ms</span></div>
-                        <div class="speed-bar"><div class="speed-fill" style="width:95%"></div></div>
-                        <div class="speed-label"><span>بهینه‌سازی باتری</span><span style="color:var(--green)">۹۸٪</span></div>
-                        <div class="speed-bar"><div class="speed-fill" style="width:98%"></div></div>
-                    </div>
-                </div>
-                <div class="bento-item rv d4">
-                    <span class="bento-icon">🛒</span>
-                    <h3>فروشگاه یکپارچه</h3>
-                    <p>خرید آنلاین، سفارش غذا و رزرو سرویس‌ها بدون خروج از نووا.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== CONNECTION VISUALIZATION ===== -->
-        <section class="sec connect-sec" id="connect">
-            <div class="sec-head">
-                <span class="sec-tag rv">🌐 ارتباطات</span>
-                <h2 class="sec-title rv d1">پل ارتباطی بین <span class="grad">انسان‌ها</span></h2>
-                <p class="sec-sub rv d2">نووا شما را به دوستان، خانواده، همکاران و جوامع سراسر جهان متصل می‌کند.</p>
-            </div>
-            <div class="connect-canvas rv d3">
-                <svg class="connect-lines" viewBox="0 0 700 400" preserveAspectRatio="xMidYMid meet">
-                    <line class="connect-line" x1="350" y1="65" x2="130" y2="185"/>
-                    <line class="connect-line" x1="350" y1="65" x2="570" y2="185"/>
-                    <line class="connect-line" x1="130" y1="185" x2="350" y2="200"/>
-                    <line class="connect-line" x1="570" y1="185" x2="350" y2="200"/>
-                    <line class="connect-line" x1="350" y1="200" x2="230" y2="330"/>
-                    <line class="connect-line" x1="350" y1="200" x2="470" y2="330"/>
-                    <line class="connect-line" x1="130" y1="185" x2="230" y2="330"/>
-                    <line class="connect-line" x1="570" y1="185" x2="470" y2="330"/>
-                </svg>
-                <div class="connect-node">👨‍💻</div>
-                <div class="connect-node">👩‍🎨</div>
-                <div class="connect-node">👨‍💼</div>
-                <div class="connect-node">👩‍🎓</div>
-                <div class="connect-node">👨‍🏫</div>
-                <div class="connect-node">⭐</div>
-            </div>
-        </section>
-
-        <!-- ===== STATS ===== -->
-        <div class="stats-row">
-            <div class="stat-box rv"><div class="stat-num" data-c="2500000">0</div><div class="stat-lbl">دانلود فعال</div></div>
-            <div class="stat-box rv d1"><div class="stat-num" data-c="4.9">0</div><div class="stat-lbl">امتیاز کاربران</div></div>
-            <div class="stat-box rv d2"><div class="stat-num" data-c="150">0</div><div class="stat-lbl">کشور حاضر</div></div>
-            <div class="stat-box rv d3"><div class="stat-num" data-c="99.99">0</div><div class="stat-lbl">٪ رضایت‌مندی</div></div>
+        <div class="shield-info rv d4">
+            <h3>محافظت <span class="grad">چندلایه</span></h3>
+            <p>نووا با رویکرد «حریم خصوصی از ابتدا» طراحی شده.</p>
+            <ul class="s-list">
+                <li><span>🔒</span>رمزنگاری سرتاسری تمام پیام‌ها</li>
+                <li><span>🛡️</span>احراز هویت بیومتریک و دو مرحله‌ای</li>
+                <li><span>🌍</span>تطابق با GDPR و قوانین ۱۸۰ کشور</li>
+                <li><span>📊</span>گزارش‌های امنیتی لحظه‌ای</li>
+                <li><span>🔗</span>احراز هویت بلاک‌چینی</li>
+                <li><span>⏱️</span>پشتیبانی ۲۴/۷</li>
+            </ul>
         </div>
+    </div>
+</section>
 
-        <!-- ===== WAVE DIVIDER ===== -->
-        <div class="wave-div" aria-hidden="true">
-            <svg class="wave-svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
-                <path d="M0 30 Q150 55 300 30 T600 30 T900 30 T1200 30 T1500 30 T1800 30 T2100 30 T2400 30" stroke="url(#waveGrad)" stroke-width="2" fill="none"/>
-            </svg>
+<!-- TIMELINE -->
+<section class="sec" id="roadmap">
+    <div class="sh">
+        <span class="stag rv">🚀 نقشه راه</span>
+        <h2 class="stit rv d1">مسیر <span class="grad">آینده نووا</span></h2>
+        <p class="ssub rv d2">هر قدم ما با نیاز شما شکل می‌گیرد.</p>
+    </div>
+    <div class="tl rv d3">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card clay"><div class="tl-yr">۲۰۲۴</div><h4>آغاز سفر</h4><p>پیام‌رسان امن، چت، تماس و استوری با ۲۰ زبان.</p></div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card clay"><div class="tl-yr">۲۰۲۵</div><h4>اکوسیستم هوشمند</h4><p>کیف پول، دستیار AI و فروشگاه یکپارچه.</p></div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card clay"><div class="tl-yr">۲۰۲۷</div><h4>جهانی شدن</h4><p>۱۰۰ میلیون کاربر و رابط‌های AI پیشرفته.</p></div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card clay"><div class="tl-yr">۲۰۳۰</div><h4>آینده بدون مرز</h4><p>واقعیت افزوده، متاورس و تجربه‌های نسل بعدی.</p></div></div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec" id="reviews">
+    <div class="sh">
+        <span class="stag rv">💬 صداها</span>
+        <h2 class="stit rv d1">هر کاربر، <span class="grad">یک ستاره</span></h2>
+        <p class="ssub rv d2">تجربه واقعی کسانی که نووا رو انتخاب کردن.</p>
+    </div>
+    <div class="tst-scroll rv d3">
+        <article class="tst-card clay"><div class="tst-hd"><div class="tst-av">👨‍💻</div><div><div class="tst-nm">علی محمدی</div><div class="tst-rl">توسعه‌دهنده</div></div></div><p class="tst-tx">نووا برای من یک پناهگاه دیجیتاله. امنیتش واقعاً بی‌نظیره.</p><div class="tst-st">★★★★★</div></article>
+        <article class="tst-card clay"><div class="tst-hd"><div class="tst-av">👩‍🎨</div><div><div class="tst-nm">سارا احمدی</div><div class="tst-rl">طراح</div></div></div><p class="tst-tx">رابط کاربری فوق‌العاده! هوش مصنوعیش هم کمکم می‌کنه سریع‌تر کار کنم.</p><div class="tst-st">★★★★★</div></article>
+        <article class="tst-card clay"><div class="tst-hd"><div class="tst-av">👨‍💼</div><div><div class="tst-nm">محمد رضایی</div><div class="tst-rl">کارآفرین</div></div></div><p class="tst-tx">پرداخت‌ها، ارتباط با مشتری و مدیریت کارها همه تو یک جا.</p><div class="tst-st">★★★★★</div></article>
+        <article class="tst-card clay"><div class="tst-hd"><div class="tst-av">👩‍🎓</div><div><div class="tst-nm">نیکا حسینی</div><div class="tst-rl">دانشجو</div></div></div><p class="tst-tx">همه چیز تو یه جا! از چت تا پرداخت تا هوش مصنوعی. واقعاً آینده‌ای!</p><div class="tst-st">★★★★★</div></article>
+        <article class="tst-card clay"><div class="tst-hd"><div class="tst-av">👨‍🏫</div><div><div class="tst-nm">دکتر کریمی</div><div class="tst-rl">استاد دانشگاه</div></div></div><p class="tst-tx">سادگی و اعتمادش عالیه. رابط کاربری برای همه سنین مناسبه.</p><div class="tst-st">★★★★★</div></article>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta sec" id="cta-sec">
+    <span class="cta-g rv">⭐ ارتباطی به وسعت فردا</span>
+    <h2 class="rv d1">آماده‌اید <span class="grad">ستاره‌ای در کهکشان نووا</span> باشید؟</h2>
+    <p class="rv d2">همین حالا بپیوندید. ارتباطی فراتر از یک پیام.</p>
+    <a href="#" class="btn btn-p magnetic rv d3" data-s="20" style="font-size:1rem;padding:.85rem 2.2rem">🚀 دانلود رایگان نووا</a>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="ft-grid rv">
+        <div class="ft-brand">
+            <div class="logo" style="margin-bottom:.4rem"><svg viewBox="0 0 48 48" fill="none" style="width:24px;height:24px"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/></svg><span style="font-size:1.2rem">NOVA</span></div>
+            <p>ارتباطی فراتر از یک پیام، امن‌تر از همیشه.</p>
+            <div class="ft-soc"><a href="#" aria-label="X">𝕏</a><a href="#" aria-label="Instagram">📷</a><a href="#" aria-label="LinkedIn">in</a></div>
         </div>
+        <div class="ft-col"><h4>محصول</h4><a href="#">پیام‌رسان</a><a href="#">کیف پول</a><a href="#">دستیار AI</a><a href="#">API</a></div>
+        <div class="ft-col"><h4>شرکت</h4><a href="#">درباره ما</a><a href="#">وبلاگ</a><a href="#">فرصت‌ شغلی</a><a href="#">تماس</a></div>
+        <div class="ft-col"><h4>پشتیبانی</h4><a href="#">راهنمایی</a><a href="#">مستندات</a><a href="#">حریم خصوصی</a><a href="#">شرایط</a></div>
+    </div>
+    <div class="ft-bot rv">
+        <div><p>© ۲۰۲۵ NOVA</p><p class="ft-slogan">«نووا؛ جایی که پیام‌ها به نور تبدیل می‌شوند.»</p></div>
+        <div class="enamad"><a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq"><img referrerpolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq" alt="نماد اعتماد" width="80" loading="lazy"></a></div>
+    </div>
+</footer>
 
-        <!-- ===== SECURITY SHIELD ===== -->
-        <section class="sec shield-sec" id="security">
-            <div class="sec-head">
-                <span class="sec-tag rv">🛡️ امنیت</span>
-                <h2 class="sec-title rv d1">داده‌های شما، <span class="grad">حریم شماست</span></h2>
-                <p class="sec-sub rv d2">ما باور داریم حریم خصوصی حق شماست، نه امتیاز. تمام زیرساخت‌های نووا با بالاترین استانداردهای جهانی ساخته شده‌اند.</p>
-            </div>
-            <div class="shield-wrap">
-                <div class="shield-visual rv d3">
-                    <div class="shield-shape">
-                        <svg viewBox="0 0 200 240" fill="none">
-                            <path d="M100 10L185 50V130C185 180 140 220 100 235C60 220 15 180 15 130V50L100 10Z" fill="url(#shieldGrad)" opacity="0.18" stroke="url(#shieldGrad)" stroke-width="2.5"/>
-                            <path d="M100 60L140 78V120C140 150 120 170 100 178C80 170 60 150 60 120V78L100 60Z" fill="url(#shieldGrad)" opacity="0.28"/>
-                            <text x="100" y="135" text-anchor="middle" font-size="44" fill="white" opacity="0.95">🔐</text>
-                        </svg>
-                    </div>
-                    <div class="shield-ring"></div>
-                    <div class="shield-ring"></div>
-                    <div class="shield-particles">
-                        <div class="s-particle"></div><div class="s-particle"></div><div class="s-particle"></div>
-                        <div class="s-particle"></div><div class="s-particle"></div>
-                    </div>
-                </div>
-                <div class="shield-info rv d4">
-                    <h3>محافظت <span class="grad">چندلایه</span></h3>
-                    <p style="color:var(--muted);line-height:1.85;font-size:0.98rem;">در هر لحظه بدانید که داده‌هایتان محافظت می‌شود. نووا با رویکرد «حریم خصوصی از ابتدا» طراحی شده.</p>
-                    <ul class="shield-list">
-                        <li><span class="shield-list-icon">🔒</span>رمزنگاری سرتاسری تمام پیام‌ها و تماس‌ها</li>
-                        <li><span class="shield-list-icon">🛡️</span>احراز هویت بیومتریک و دو مرحله‌ای</li>
-                        <li><span class="shield-list-icon">🌍</span>تطابق کامل با GDPR و قوانین ۱۸۰ کشور</li>
-                        <li><span class="shield-list-icon">📊</span>گزارش‌های امنیتی شفاف و لحظه‌ای</li>
-                        <li><span class="shield-list-icon">🔗</span>احراز هویت مبتنی بر بلاک‌چین</li>
-                        <li><span class="shield-list-icon">⏱️</span>پشتیبانی ۲۴ ساعته، ۷ روز هفته</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<button class="stt" id="stt" aria-label="بالا">↑</button>
 
-        <!-- ===== TIMELINE (Roadmap) ===== -->
-        <section class="sec timeline-sec" id="roadmap">
-            <div class="sec-head">
-                <span class="sec-tag rv">🚀 مسیر آینده</span>
-                <h2 class="sec-title rv d1">نقشه راه <span class="grad">نووا</span></h2>
-                <p class="sec-sub rv d2">با ما همراه باشید در سفری که تازه آغاز شده. هر قدم ما با نیاز شما شکل می‌گیرد.</p>
-            </div>
-            <div class="timeline rv d3">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card"><div class="timeline-year">۲۰۲۴</div><h4>آغاز سفر</h4><p>راه‌اندازی پیام‌رسان امن با رمزنگاری E2E، چت، تماس و استوری. پشتیبانی از ۲۰ زبان اول.</p></div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card"><div class="timeline-year">۲۰۲۵</div><h4>اکوسیستم هوشمند</h4><p>اضافه شدن کیف پول دیجیتال، دستیار هوش مصنوعی و فروشگاه یکپارچه. گسترش به ۵۰ زبان.</p></div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card"><div class="timeline-year">۲۰۲۷</div><h4>جهانی شدن</h4><p>رسیدن به ۱۰۰ میلیون کاربر، رابط‌های صوتی و تصویری AI، و ورود به بازارهای جدید.</p></div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card"><div class="timeline-year">۲۰۳۰</div><h4>آینده‌ای بدون مرز</h4><p>واقعیت افزوده (AR)، متاورس، و تجربه‌های ارتباطی نسل بعدی. نووا به خانه دوم شما تبدیل می‌شود.</p></div>
-                </div>
-            </div>
-        </section>
+<script>
+// Loader
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('ldr').classList.add('gone'),1400));
 
-        <!-- ===== TESTIMONIALS ===== -->
-        <section class="sec" id="reviews">
-            <div class="sec-head">
-                <span class="sec-tag rv">💬 صداهای واقعی</span>
-                <h2 class="sec-title rv d1">هر کاربر، <span class="grad">یک ستاره</span></h2>
-                <p class="sec-sub rv d2">تجربه واقعی کسانی که نووا را به عنوان همراه دیجیتال خود انتخاب کرده‌اند.</p>
-            </div>
-            <div class="test-carousel rv d3">
-                <article class="test-card">
-                    <div class="test-head"><div class="test-av">👨‍💻</div><div><div class="test-name">علی محمدی</div><div class="test-role">توسعه‌دهنده</div></div></div>
-                    <p class="test-txt">نووا برای من یک پناهگاه دیجیتاله. تمام ارتباطاتم رو با خیال راحت اینجا انجام میدم. امنیتش واقعاً بی‌نظیره.</p>
-                    <div class="test-stars">★★★★★</div>
-                </article>
-                <article class="test-card">
-                    <div class="test-head"><div class="test-av">👩‍🎨</div><div><div class="test-name">سارا احمدی</div><div class="test-role">طراح</div></div></div>
-                    <p class="test-txt">رابط کاربری نووا حرف نداره! مینیمال و زیبا. هوش مصنوعیش هم بهم کمک می‌کنه سریع‌تر کار کنم. عاشقشم!</p>
-                    <div class="test-stars">★★★★★</div>
-                </article>
-                <article class="test-card">
-                    <div class="test-head"><div class="test-av">👨‍💼</div><div><div class="test-name">محمد رضایی</div><div class="test-role">کارآفرین</div></div></div>
-                    <p class="test-txt">از وقتی تیممون رو به نووا آوردم، ارتباطات کاری‌مون متحول شده. کانال‌های موضوعی و کیف پول یکپارچه عالیه.</p>
-                    <div class="test-stars">★★★★★</div>
-                </article>
-                <article class="test-card">
-                    <div class="test-head"><div class="test-av">👩‍🎓</div><div><div class="test-name">نیکا حسینی</div><div class="test-role">دانشجو</div></div></div>
-                    <p class="test-txt">همه چیز تو یه جا! چت، پرداخت، هوش مصنوعی. دیگه نیازی به ده تا اپلیکیشن مختلف ندارم. واقعاً آینده‌ای!</p>
-                    <div class="test-stars">★★★★★</div>
-                </article>
-                <article class="test-card">
-                    <div class="test-head"><div class="test-av">👨‍🏫</div><div><div class="test-name">دکتر کریمی</div><div class="test-role">استاد دانشگاه</div></div></div>
-                    <p class="test-txt">سادگی و قابلیت اعتمادش منو جذب کرد. فونت‌ها خوانا هستند و رابط کاربری برای همه سنین مناسبه. ممنونم از تیم نووا.</p>
-                    <div class="test-stars">★★★★★</div>
-                </article>
-            </div>
-        </section>
+// Mobile Menu
+const mBtn=document.getElementById('mBtn'),mt=document.getElementById('mt');
+let mo=false;
+mBtn?.addEventListener('click',()=>{mo=!mo;mt.checked=mo;mBtn.innerHTML=mo?'✕':'☰'});
+document.querySelectorAll('#nav a').forEach(l=>l.addEventListener('click',()=>{mt.checked=false;mo=false;mBtn.innerHTML='☰'}));
 
-        <!-- ===== CTA ===== -->
-        <section class="cta-sec sec" id="cta">
-            <div class="particles" aria-hidden="true">
-                <div class="p-dot"></div><div class="p-dot"></div><div class="p-dot"></div>
-            </div>
-            <span class="cta-glow rv">⭐ نووا: ارتباطی به وسعت فردا</span>
-            <h2 class="rv d1">آماده‌اید <span class="grad">ستاره‌ای در کهکشان نووا</span> باشید؟</h2>
-            <p class="rv d2">همین حالا بپیوندید و تجربه ارتباطی را متحول کنید. ارتباطی فراتر از یک پیام، امن‌تر از همیشه.</p>
-            <a href="#" class="btn btn-primary magnetic rv d3" data-s="22" style="font-size:1.1rem;padding:1.1rem 2.7rem;">🚀 دانلود رایگان نووا</a>
-        </section>
-    </main>
+// Ripple
+document.querySelectorAll('.btn,.b-item,.net-node').forEach(el=>{el.addEventListener('click',function(e){const r=document.createElement('span');r.classList.add('ripple');const rc=this.getBoundingClientRect(),sz=Math.max(rc.width,rc.height)*1.6;r.style.width=r.style.height=sz+'px';r.style.left=(e.clientX-rc.left-sz/2)+'px';r.style.top=(e.clientY-rc.top-sz/2)+'px';this.appendChild(r);setTimeout(()=>r.remove(),600)})});
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-grid rv">
-            <div class="footer-brand">
-                <div class="logo" style="margin-bottom:0.6rem;">
-                    <span class="logo-star" style="width:30px;height:30px;"><svg viewBox="0 0 48 48" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#logoG)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/></svg></span>
-                    <span class="logo-txt" style="font-size:1.4rem;">NOVA</span>
-                </div>
-                <p>ارتباطی فراتر از یک پیام، امن‌تر از همیشه، و همراستا با آینده.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="توییتر">𝕏</a>
-                    <a href="#" aria-label="اینستاگرام">📷</a>
-                    <a href="#" aria-label="لینکدین">in</a>
-                    <a href="#" aria-label="گیت‌هاب">⌨</a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>محصول</h4>
-                <a href="#">پیام‌رسان</a>
-                <a href="#">کیف پول</a>
-                <a href="#">دستیار AI</a>
-                <a href="#">فروشگاه</a>
-                <a href="#">API</a>
-            </div>
-            <div class="footer-col">
-                <h4>شرکت</h4>
-                <a href="#">درباره ما</a>
-                <a href="#">وبلاگ</a>
-                <a href="#">فرصت‌های شغلی</a>
-                <a href="#">تماس</a>
-                <a href="#">خبرنامه</a>
-            </div>
-            <div class="footer-col">
-                <h4>پشتیبانی</h4>
-                <a href="#">مرکز راهنمایی</a>
-                <a href="#">مستندات فنی</a>
-                <a href="#">وضعیت سرویس</a>
-                <a href="#">حریم خصوصی</a>
-                <a href="#">شرایط استفاده</a>
-            </div>
-        </div>
-        <div class="footer-bottom rv">
-            <div>
-                <p>© ۲۰۲۵ NOVA. تمامی حقوق محفوظ است.</p>
-                <p class="footer-slogan">«نووا؛ جایی که پیام‌ها به نور تبدیل می‌شوند.»</p>
-            </div>
-            <div class="enamad" aria-label="نماد اعتماد الکترونیکی">
-                <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq">
-                    <img referrerpolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq" alt="نماد اعتماد الکترونیکی" width="95" loading="lazy">
-                </a>
-            </div>
-        </div>
-    </footer>
+// Reveal
+const rO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');rO.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.rv').forEach(el=>rO.observe(el));
 
-    <button class="scroll-top" id="scrollTop" aria-label="بازگشت به بالا">↑</button>
+// Magnetic
+document.querySelectorAll('.magnetic').forEach(b=>{const s=parseFloat(b.dataset.s)||14;b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)/s}px,${(e.clientY-r.top-r.height/2)/s}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')});
 
-    <script>
-        // Loader
-        window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('gone'), 1500));
+// Counters
+document.querySelectorAll('[data-c]').forEach(c=>{const t=parseFloat(c.dataset.c),dur=2000,inc=t/(dur/16);let cur=0;const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){const u=()=>{cur+=inc;if(cur<t){c.textContent=t>=1000?Math.floor(cur).toLocaleString('fa-IR'):t%1===0?Math.floor(cur):cur.toFixed(1);requestAnimationFrame(u)}else{c.textContent=t>=1000?Math.floor(t).toLocaleString('fa-IR'):t%1===0?t:t.toFixed(1)}};u();o.disconnect()}},{threshold:.4});o.observe(c)});
 
-        // Mobile Menu
-        const mobBtn = document.getElementById('mobBtn');
-        const mobTog = document.getElementById('mob-toggle');
-        let mOpen = false;
-        mobBtn?.addEventListener('click', () => { mOpen = !mOpen; mobTog.checked = mOpen; mobBtn.innerHTML = mOpen ? '✕' : '☰'; });
-        document.querySelectorAll('#mainNav .nav-link').forEach(l => l.addEventListener('click', () => { mobTog.checked = false; mOpen = false; mobBtn.innerHTML = '☰'; }));
+// Scroll
+window.addEventListener('scroll',()=>{const s=pageYOffset,h=document.documentElement.scrollHeight-innerHeight;document.getElementById('sBar').style.width=(s/h*100)+'%';document.querySelector('.header').classList.toggle('stuck',s>40);document.getElementById('stt').classList.toggle('vis',s>350)},{passive:true});
+document.getElementById('stt').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-        // Ripple
-        document.querySelectorAll('.btn, .bento-item, .connect-node, .trust-badge').forEach(el => {
-            el.addEventListener('click', function(e) {
-                const r = document.createElement('span'); r.classList.add('ripple');
-                const rect = this.getBoundingClientRect(), sz = Math.max(rect.width, rect.height) * 1.8;
-                r.style.width = r.style.height = sz + 'px';
-                r.style.left = (e.clientX - rect.left - sz/2) + 'px';
-                r.style.top = (e.clientY - rect.top - sz/2) + 'px';
-                this.appendChild(r); setTimeout(() => r.remove(), 600);
-            });
-        });
+// Hero Parallax
+const hero=document.querySelector('.hero'),hAur=document.querySelector('.hero-aur');
+if(hero&&hAur&&matchMedia('(hover:hover)').matches){hero.addEventListener('mousemove',e=>{const r=hero.getBoundingClientRect();hAur.style.transform=`translate(${((e.clientX-r.left)/r.width-.5)*20}px,${((e.clientY-r.top)/r.height-.5)*20}px)`});hero.addEventListener('mouseleave',()=>hAur.style.transform='')}
 
-        // Reveal
-        const rObs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) { e.target.classList.add('vis'); rObs.unobserve(e.target); } }), { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-        document.querySelectorAll('.rv').forEach(el => rObs.observe(el));
+// Carousel Drag
+const car=document.querySelector('.tst-scroll');
+if(car){let dn=false,sx,sl;car.addEventListener('mousedown',e=>{dn=true;sx=e.pageX-car.offsetLeft;sl=car.scrollLeft;car.style.cursor='grabbing'});car.addEventListener('mouseleave',()=>{dn=false;car.style.cursor='grab'});car.addEventListener('mouseup',()=>{dn=false;car.style.cursor='grab'});car.addEventListener('mousemove',e=>{if(!dn)return;e.preventDefault();car.scrollLeft=sl-(e.pageX-car.offsetLeft-sx)*2});car.style.cursor='grab'}
 
-        // Parallax Hero
-        const hero = document.querySelector('.hero');
-        const hAur = document.querySelector('.hero-aurora');
-        if(hero && hAur && matchMedia('(hover:hover)').matches) {
-            hero.addEventListener('mousemove', e => {
-                const r = hero.getBoundingClientRect();
-                const x = (e.clientX - r.left) / r.width - 0.5;
-                const y = (e.clientY - r.top) / r.height - 0.5;
-                hAur.style.transform = `translate(${x*28}px,${y*28}px)`;
-            });
-            hero.addEventListener('mouseleave', () => hAur.style.transform = '');
-        }
+// === FROZEN COUNTDOWN ===
+(function(){
+    // Target: 2 days, 23 hours, 58 minutes from now
+    const totalSeconds = 2*86400 + 23*3600 + 58*60;
+    const endTime = Date.now() + totalSeconds * 1000;
+    const totalDuration = totalSeconds;
 
-        // Magnetic
-        document.querySelectorAll('.magnetic').forEach(b => {
-            const s = parseFloat(b.dataset.s) || 16;
-            b.addEventListener('mousemove', e => {
-                const r = b.getBoundingClientRect();
-                b.style.transform = `translate(${(e.clientX-r.left-r.width/2)/s}px,${(e.clientY-r.top-r.height/2)/s}px)`;
-            });
-            b.addEventListener('mouseleave', () => b.style.transform = '');
-        });
+    function pad(n){return String(n).padStart(2,'0')}
 
-        // Counters
-        document.querySelectorAll('[data-c]').forEach(c => {
-            const t = parseFloat(c.dataset.c), dur = 2200, inc = t / (dur/16);
-            let cur = 0;
-            const o = new IntersectionObserver(([e]) => {
-                if(e.isIntersecting) {
-                    const u = () => { cur += inc; if(cur < t) { c.textContent = t >= 1000 ? Math.floor(cur).toLocaleString('fa-IR') : t % 1 === 0 ? Math.floor(cur) : cur.toFixed(1); requestAnimationFrame(u); } else { c.textContent = t >= 1000 ? Math.floor(t).toLocaleString('fa-IR') : t % 1 === 0 ? t : t.toFixed(1); } };
-                    u(); o.disconnect();
-                }
-            }, { threshold: 0.4 });
-            o.observe(c);
-        });
+    function updateCountdown(){
+        const now = Date.now();
+        let diff = Math.max(0, Math.floor((endTime - now) / 1000));
 
-        // Frozen Countdown
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const target = now + (2 * 24 * 60 * 60 * 1000) + (23 * 60 * 60 * 1000) + (58 * 60 * 1000);
-            
-            // Store target time in localStorage for persistence
-            if (!localStorage.getItem('novaCountdownTarget')) {
-                localStorage.setItem('novaCountdownTarget', target);
-            }
-            
-            const storedTarget = parseInt(localStorage.getItem('novaCountdownTarget'));
-            const distance = storedTarget - now;
-            
-            if (distance < 0) {
-                localStorage.removeItem('novaCountdownTarget');
-                document.getElementById('cd-days').textContent = '00';
-                document.getElementById('cd-hours').textContent = '00';
-                document.getElementById('cd-minutes').textContent = '00';
-                document.getElementById('cd-seconds').textContent = '00';
-                return;
-            }
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
-            document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
-        }
-        
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        const d = Math.floor(diff / 86400);
+        diff %= 86400;
+        const h = Math.floor(diff / 3600);
+        diff %= 3600;
+        const m = Math.floor(diff / 60);
+        const s = diff % 60;
 
-        // Scroll Events
-        window.addEventListener('scroll', () => {
-            const s = pageYOffset, h = document.documentElement.scrollHeight - innerHeight;
-            document.getElementById('scrollBar').style.width = (s/h*100) + '%';
-            document.querySelector('.header').classList.toggle('stuck', s > 50);
-            document.getElementById('scrollTop').classList.toggle('vis', s > 400);
-        }, { passive: true });
+        document.getElementById('cd-d').textContent = pad(d);
+        document.getElementById('cd-h').textContent = pad(h);
+        document.getElementById('cd-m').textContent = pad(m);
+        document.getElementById('cd-s').textContent = pad(s);
 
-        // Scroll Top
-        document.getElementById('scrollTop').addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+        // Progress
+        const elapsed = totalDuration - (d*86400 + h*3600 + m*60 + s);
+        const pct = Math.min(100, (elapsed / totalDuration * 100)).toFixed(1);
+        const fill = document.getElementById('cdFill');
+        const pctEl = document.getElementById('cdPct');
+        if(fill) fill.style.width = pct + '%';
+        if(pctEl) pctEl.textContent = pct;
+    }
 
-        // Side Nav
-        const dots = document.querySelectorAll('.side-dot');
-        const secs = document.querySelectorAll('section[id]');
-        const updNav = () => { let cur = ''; secs.forEach(s => { if(pageYOffset >= s.offsetTop - 150) cur = s.id; }); dots.forEach(d => d.classList.toggle('active', d.dataset.target === cur)); };
-        dots.forEach(d => d.addEventListener('click', () => document.getElementById(d.dataset.target)?.scrollIntoView({ behavior: 'smooth' })));
-        window.addEventListener('scroll', updNav, { passive: true });
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+})();
 
-        // Carousel Drag
-        const car = document.querySelector('.test-carousel');
-        if(car) {
-            let down = false, sx, sl;
-            car.addEventListener('mousedown', e => { down = true; sx = e.pageX - car.offsetLeft; sl = car.scrollLeft; car.style.cursor = 'grabbing'; });
-            car.addEventListener('mouseleave', () => { down = false; car.style.cursor = 'grab'; });
-            car.addEventListener('mouseup', () => { down = false; car.style.cursor = 'grab'; });
-            car.addEventListener('mousemove', e => { if(!down) return; e.preventDefault(); car.scrollLeft = sl - (e.pageX - car.offsetLeft - sx) * 2; });
-            car.style.cursor = 'grab';
-        }
+// Keyboard
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){mt.checked=false;mo=false;mBtn.innerHTML='☰'}});
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)document.querySelectorAll('.rv').forEach(el=>{el.style.opacity='1';el.style.transform='none'});
 
-        // Keyboard
-        document.addEventListener('keydown', e => { if(e.key === 'Escape') { mobTog.checked = false; mOpen = false; mobBtn.innerHTML = '☰'; } });
-
-        // Reduced Motion
-        if(matchMedia('(prefers-reduced-motion:reduce)').matches) document.querySelectorAll('.rv').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
-
-        console.log('%c✨ NOVA — The Future of Connection', 'font-size:18px;color:#7C3AED;font-weight:bold;text-shadow:0 0 10px rgba(124,58,237,0.6);');
-    </script>
+console.log('%c✨ NOVA — The Future of Connection','font-size:16px;color:#7C3AED;font-weight:bold;text-shadow:0 0 10px rgba(124,58,237,0.6)');
+</script>
 </body>
 </html>
