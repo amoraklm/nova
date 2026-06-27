@@ -1,40 +1,152 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وبلاگ نووا | مقالات آموزشی و اخبار</title>
-    <meta name="description" content="جدیدترین مقالات و آموزش‌های نووا درباره امنیت پیام‌رسان، کیف پول دیجیتال و هوش مصنوعی.">
-    <meta name="keywords" content="وبلاگ نووا, آموزش پیام‌رسان, امنیت دیجیتال, کیف پول, هوش مصنوعی">
-    <link rel="canonical" href="https://chatnova.ir/blog.html">
-<style>
-        @font-face{font-family:'IRANSansXFaNum';src:url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx-font@latest/dist/IRANSansXFaNum.woff2') format('woff2');font-weight:300 900;font-display:swap}
 
-        :root{
-            --nova:#7C3AED;--nova-r:124,58,237;
-            --sec:#A855F7;--sec-r:168,85,247;
-            --tri:#6366F1;--tri-r:99,102,241;
-            --pink:#EC4899;--pink-r:236,72,153;
-            --gold:#F59E0B;--gold-r:245,158,11;
-            --green:#10B981;--green-r:16,185,129;
-            --red:#EF4444;
-            --bg:#0A0A0F;--surf:#1E1B2E;--muted:#94A3B8;--w:#FFFFFF;
-            --shim:linear-gradient(135deg,var(--nova),var(--pink),var(--tri));
+    <!-- Primary SEO Meta Tags -->
+    <title>وبلاگ نووا | آموزش امنیت دیجیتال، کیف پول رمزارز و هوش مصنوعی</title>
+    <meta name="description"
+        content="جدیدترین مقالات آموزشی نووا درباره رمزنگاری سرتاسری، امنیت پیام‌رسان، کیف پول دیجیتال و کاربردهای هوش مصنوعی. راهنمای جامع حریم خصوصی آنلاین.">
+    <meta name="keywords"
+        content="وبلاگ نووا, آموزش امنیت دیجیتال, رمزنگاری سرتاسری, کیف پول دیجیتال, هوش مصنوعی, حریم خصوصی, پیام‌رسان امن, NOVA messenger">
+    <meta name="author" content="تیم نووا">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://chatnova.ir/blog">
 
-            --clay:rgba(255,255,255,0.07);
-            --clay2:rgba(255,255,255,0.10);
-            --clay-b:rgba(255,255,255,0.12);
-            --clay-glow:rgba(var(--nova-r),0.08);
-            --clay-sh:12px 12px 24px rgba(0,0,0,0.55),-8px -8px 20px rgba(255,255,255,0.04),inset 0 2px 1px rgba(255,255,255,0.12),inset 0 -2px 1px rgba(0,0,0,0.25);
-            --clay-sh-h:16px 16px 32px rgba(0,0,0,0.65),-10px -10px 24px rgba(255,255,255,0.06),inset 0 2px 1px rgba(255,255,255,0.16),inset 0 -2px 1px rgba(0,0,0,0.3);
-            --clay-sh-in:inset 8px 8px 16px rgba(0,0,0,0.5),inset -6px -6px 14px rgba(255,255,255,0.04);
-            --clay-blur:blur(20px) saturate(150%);
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="نووا - NOVA">
+    <meta property="og:title" content="وبلاگ نووا | آموزش امنیت دیجیتال و هوش مصنوعی">
+    <meta property="og:description"
+        content="جدیدترین مقالات آموزشی درباره رمزنگاری، امنیت پیام‌رسان، کیف پول دیجیتال و هوش مصنوعی.">
+    <meta property="og:url" content="https://chatnova.ir/blog">
+    <meta property="og:image" content="https://chatnova.ir/assets/og-blog.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fa_IR">
 
-            --btn-sh:0 4px 6px rgba(var(--nova-r),0.25),0 8px 15px rgba(var(--nova-r),0.2),0 16px 30px rgba(var(--nova-r),0.15),0 24px 45px rgba(var(--nova-r),0.1);
-            --ease:cubic-bezier(0.4,0,0.2,1);
-            --fast:250ms var(--ease);--norm:350ms var(--ease);--slow:500ms var(--ease);
-            --r:24px;--r-sm:16px;--r-xs:12px;--r-full:9999px;
-            --max:1200px;--pad:clamp(1rem,5vw,2.5rem)
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="وبلاگ نووا | آموزش امنیت دیجیتال و هوش مصنوعی">
+    <meta name="twitter:description"
+        content="جدیدترین مقالات آموزشی درباره رمزنگاری، امنیت پیام‌رسان، کیف پول دیجیتال و هوش مصنوعی.">
+    <meta name="twitter:image" content="https://chatnova.ir/assets/og-blog.jpg">
+
+    <!-- Structured Data - Blog -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "وبلاگ نووا",
+        "description": "جدیدترین مقالات آموزشی نووا درباره امنیت دیجیتال، کیف پول و هوش مصنوعی",
+        "url": "https://chatnova.ir/blog",
+        "publisher": {
+            "@type": "Organization",
+            "name": "NOVA",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://chatnova.ir/assets/logo.png"
+            }
+        },
+        "blogPost": [
+            {
+                "@type": "BlogPosting",
+                "headline": "چرا رمزنگاری سرتاسری برای امنیت پیام‌ها ضروری است؟",
+                "description": "آشنایی با مفاهیم رمزنگاری End-to-End و اهمیت آن در حفظ حریم خصوصی پیام‌ها",
+                "datePublished": "2025-06-20",
+                "dateModified": "2025-06-20",
+                "author": {"@type":"Person","name":"تیم محتوای نووا"},
+                "image": "https://chatnova.ir/assets/blog/encryption.jpg",
+                "url": "https://chatnova.ir/blog/end-to-end-encryption"
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "کیف پول دیجیتال در نووا؛ مدیریت مالی هوشمند",
+                "description": "راهنمای کامل استفاده از کیف پول دیجیتال نووا برای پرداخت و انتقال وجه",
+                "datePublished": "2025-06-15",
+                "dateModified": "2025-06-15",
+                "author": {"@type":"Person","name":"تیم محتوای نووا"},
+                "image": "https://chatnova.ir/assets/blog/wallet.jpg",
+                "url": "https://chatnova.ir/blog/digital-wallet"
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "هوش مصنوعی در خدمت ارتباطات؛ دستیار نووا چگونه کار می‌کند؟",
+                "description": "معرفی قابلیت‌های دستیار هوش مصنوعی نووا شامل ترجمه، تولید محتوا و برنامه‌ریزی",
+                "datePublished": "2025-06-10",
+                "dateModified": "2025-06-10",
+                "author": {"@type":"Person","name":"تیم محتوای نووا"},
+                "image": "https://chatnova.ir/assets/blog/ai-assistant.jpg",
+                "url": "https://chatnova.ir/blog/ai-assistant"
+            }
+        ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type":"ListItem","position":1,"name":"صفحه اصلی","item":"https://chatnova.ir"},
+            {"@type":"ListItem","position":2,"name":"وبلاگ","item":"https://chatnova.ir/blog"}
+        ]
+    }
+    </script>
+
+    <!-- Preconnect & Preload -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+    <style>
+        @font-face {
+            font-family: 'IRANSansXFaNum';
+            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx-font@latest/dist/IRANSansXFaNum.woff2') format('woff2');
+            font-weight: 300 900;
+            font-display: swap
+        }
+
+        :root {
+            --nova: #7C3AED;
+            --nova-r: 124, 58, 237;
+            --sec: #A855F7;
+            --sec-r: 168, 85, 247;
+            --tri: #6366F1;
+            --tri-r: 99, 102, 241;
+            --pink: #EC4899;
+            --pink-r: 236, 72, 153;
+            --gold: #F59E0B;
+            --gold-r: 245, 158, 11;
+            --green: #10B981;
+            --green-r: 16, 185, 129;
+            --red: #EF4444;
+            --bg: #0A0A0F;
+            --surf: #1E1B2E;
+            --muted: #94A3B8;
+            --w: #FFFFFF;
+            --shim: linear-gradient(135deg, var(--nova), var(--pink), var(--tri));
+            --clay: rgba(255, 255, 255, 0.07);
+            --clay2: rgba(255, 255, 255, 0.10);
+            --clay-b: rgba(255, 255, 255, 0.12);
+            --clay-glow: rgba(var(--nova-r), 0.08);
+            --clay-sh: 12px 12px 24px rgba(0, 0, 0, 0.55), -8px -8px 20px rgba(255, 255, 255, 0.04), inset 0 2px 1px rgba(255, 255, 255, 0.12), inset 0 -2px 1px rgba(0, 0, 0, 0.25);
+            --clay-sh-h: 16px 16px 32px rgba(0, 0, 0, 0.65), -10px -10px 24px rgba(255, 255, 255, 0.06), inset 0 2px 1px rgba(255, 255, 255, 0.16), inset 0 -2px 1px rgba(0, 0, 0, 0.3);
+            --clay-sh-in: inset 8px 8px 16px rgba(0, 0, 0, 0.5), inset -6px -6px 14px rgba(255, 255, 255, 0.04);
+            --clay-blur: blur(20px) saturate(150%);
+            --btn-sh: 0 4px 6px rgba(var(--nova-r), 0.25), 0 8px 15px rgba(var(--nova-r), 0.2), 0 16px 30px rgba(var(--nova-r), 0.15), 0 24px 45px rgba(var(--nova-r), 0.1);
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --fast: 250ms var(--ease);
+            --norm: 350ms var(--ease);
+            --slow: 500ms var(--ease);
+            --r: 24px;
+            --r-sm: 16px;
+            --r-xs: 12px;
+            --r-full: 9999px;
+            --max: 1200px;
+            --pad: clamp(1rem, 5vw, 2.5rem)
         }
 
         [data-theme="light"] {
@@ -42,45 +154,158 @@
             --surf: #FFFFFF;
             --w: #0A0A0F;
             --muted: #475569;
-            --clay: rgba(0,0,0,0.05);
-            --clay2: rgba(0,0,0,0.08);
-            --clay-b: rgba(0,0,0,0.10);
-            --clay-sh:12px 12px 24px rgba(0,0,0,0.08),-8px -8px 20px rgba(255,255,255,0.6),inset 0 2px 1px rgba(255,255,255,0.6),inset 0 -2px 1px rgba(0,0,0,0.05);
-            --clay-sh-h:16px 16px 32px rgba(0,0,0,0.12),-10px -10px 24px rgba(255,255,255,0.8),inset 0 2px 1px rgba(255,255,255,0.7),inset 0 -2px 1px rgba(0,0,0,0.08);
-            --clay-sh-in:inset 8px 8px 16px rgba(0,0,0,0.06),inset -6px -6px 14px rgba(255,255,255,0.5);
+            --clay: rgba(0, 0, 0, 0.05);
+            --clay2: rgba(0, 0, 0, 0.08);
+            --clay-b: rgba(0, 0, 0, 0.10);
+            --clay-sh: 12px 12px 24px rgba(0, 0, 0, 0.08), -8px -8px 20px rgba(255, 255, 255, 0.6), inset 0 2px 1px rgba(255, 255, 255, 0.6), inset 0 -2px 1px rgba(0, 0, 0, 0.05);
+            --clay-sh-h: 16px 16px 32px rgba(0, 0, 0, 0.12), -10px -10px 24px rgba(255, 255, 255, 0.8), inset 0 2px 1px rgba(255, 255, 255, 0.7), inset 0 -2px 1px rgba(0, 0, 0, 0.08);
+            --clay-sh-in: inset 8px 8px 16px rgba(0, 0, 0, 0.06), inset -6px -6px 14px rgba(255, 255, 255, 0.5);
         }
 
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
 
-        html{scroll-behavior:smooth;font-size:16px;scroll-padding-top:80px}
-        body{font-family:'IRANSansXFaNum','Inter',system-ui,sans-serif;background:var(--bg);color:var(--w);line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;transition:background var(--norm),color var(--norm)}
+        @media(prefers-reduced-motion:reduce) {
 
-        @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-        @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-        @keyframes float2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-10px) rotate(2deg)}}
-        @keyframes morph{0%,100%{border-radius:42% 58% 62% 38%/45% 55% 45% 55%}33%{border-radius:55% 45% 38% 62%/52% 48% 52% 48%}66%{border-radius:38% 62% 55% 45%/58% 42% 58% 42%}}
-        @keyframes orbit{from{transform:rotate(0deg) translateX(100px) rotate(0deg)}to{transform:rotate(360deg) translateX(100px) rotate(-360deg)}}
-        @keyframes orbit2{from{transform:rotate(120deg) translateX(75px) rotate(-120deg)}to{transform:rotate(480deg) translateX(75px) rotate(-480deg)}}
-        @keyframes orbit3{from{transform:rotate(240deg) translateX(120px) rotate(-240deg)}to{transform:rotate(600deg) translateX(120px) rotate(-600deg)}}
-        @keyframes spin{to{transform:rotate(360deg)}}
-        @keyframes breathe{0%,100%{box-shadow:0 0 0 0 rgba(var(--nova-r),0.4)}50%{box-shadow:0 0 0 8px transparent}}
-        @keyframes pulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
-        @keyframes wave{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-        @keyframes dash{to{stroke-dashoffset:0}}
-        @keyframes counter-glow{0%,100%{text-shadow:0 0 8px rgba(var(--nova-r),0.5)}50%{text-shadow:0 0 20px rgba(var(--pink-r),0.4)}}
-        @keyframes progress{from{width:0}to{width:100%}}
-        @keyframes particle{0%{transform:translate(0,0) scale(1);opacity:.6}50%{transform:translate(20px,-60px) scale(.8);opacity:.3}100%{transform:translate(0,-120px) scale(.5);opacity:0}}
-        @keyframes ripple-fx{to{transform:scale(3.5);opacity:0}}
-        @keyframes countdown-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
-        @keyframes ice-sparkle{0%,100%{opacity:0.3;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important
+            }
+        }
 
-        .aurora{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 15% 15%,rgba(var(--nova-r),0.12) 0%,transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(var(--pink-r),0.08) 0%,transparent 55%),radial-gradient(ellipse at 45% 50%,rgba(var(--tri-r),0.06) 0%,transparent 60%);filter:blur(55px)}
-        .scroll-bar{position:fixed;top:0;left:0;height:4px;z-index:1000;background:var(--shim);box-shadow:0 0 12px rgba(var(--nova-r),0.5)}
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            scroll-padding-top: 100px
+        }
 
-        :focus-visible{outline:3px solid var(--nova);outline-offset:3px;border-radius:var(--r-xs)}
-        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+        body {
+            font-family: 'IRANSansXFaNum', 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--w);
+            line-height: 1.75;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
+            transition: background var(--norm), color var(--norm)
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+        }
+
+        @keyframes up {
+            from {
+                opacity: 0;
+                transform: translateY(24px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-6px)
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: .6;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.08)
+            }
+        }
+
+        @keyframes progress {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        .aurora {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(ellipse at 15% 15%, rgba(var(--nova-r), 0.12) 0%, transparent 55%), radial-gradient(ellipse at 85% 80%, rgba(var(--pink-r), 0.08) 0%, transparent 55%), radial-gradient(ellipse at 45% 50%, rgba(var(--tri-r), 0.06) 0%, transparent 60%);
+            filter: blur(55px)
+        }
+
+        .scroll-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            z-index: 1000;
+            background: var(--shim);
+            box-shadow: 0 0 12px rgba(var(--nova-r), 0.5)
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--nova);
+            outline-offset: 3px;
+            border-radius: var(--r-xs)
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0
+        }
+
+        /* ===== SVG Defs ===== */
+        .svg-d {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden
+        }
 
         /* ===== HEADER ===== */
         .header {
@@ -94,20 +319,20 @@
             -webkit-backdrop-filter: var(--clay-blur);
             border-bottom: 1px solid var(--clay-b);
             padding: 0 var(--pad);
-            transition: all var(--norm);
+            transition: all var(--norm)
         }
 
         [data-theme="light"] .header {
-            background: rgba(241, 245, 249, 0.75);
+            background: rgba(241, 245, 249, 0.75)
         }
 
         .header.stuck {
             background: rgba(10, 10, 15, 0.88);
-            box-shadow: var(--clay-sh);
+            box-shadow: var(--clay-sh)
         }
 
         [data-theme="light"] .header.stuck {
-            background: rgba(241, 245, 249, 0.92);
+            background: rgba(241, 245, 249, 0.92)
         }
 
         .hdr {
@@ -118,7 +343,7 @@
             justify-content: space-between;
             height: 72px;
             gap: 0.5rem;
-            flex-wrap: wrap;
+            flex-wrap: wrap
         }
 
         .logo {
@@ -126,17 +351,17 @@
             align-items: center;
             gap: .4rem;
             text-decoration: none;
-            position: relative;
+            transition: transform var(--fast)
         }
 
         .logo:hover {
-            transform: scale(1.02);
+            transform: scale(1.02)
         }
 
         .logo svg {
             width: 30px;
             height: 30px;
-            filter: drop-shadow(0 2px 8px rgba(var(--nova-r), 0.5));
+            filter: drop-shadow(0 2px 8px rgba(var(--nova-r), 0.5))
         }
 
         .logo span {
@@ -145,14 +370,14 @@
             letter-spacing: .03em;
             background: linear-gradient(135deg, var(--w) 30%, var(--sec));
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-text-fill-color: transparent
         }
 
         .nav {
             display: flex;
             align-items: center;
             gap: .25rem;
-            flex-wrap: wrap;
+            flex-wrap: wrap
         }
 
         .nav a {
@@ -164,13 +389,14 @@
             font-weight: 500;
             border: 1.5px solid transparent;
             transition: all var(--fast);
-            white-space: nowrap;
+            white-space: nowrap
         }
 
-        .nav a:hover {
+        .nav a:hover,
+        .nav a[aria-current="page"] {
             color: var(--w);
             border-color: rgba(var(--nova-r), 0.3);
-            background: rgba(var(--nova-r), 0.08);
+            background: rgba(var(--nova-r), 0.08)
         }
 
         .mob-btn {
@@ -183,14 +409,13 @@
             padding: .4rem;
             border-radius: var(--r-sm);
             backdrop-filter: blur(12px);
-            z-index: 601;
+            z-index: 601
         }
 
         #mt {
-            display: none;
+            display: none
         }
 
-        /* Language Switcher & Utilities */
         .header-utils {
             display: flex;
             align-items: center;
@@ -200,12 +425,12 @@
             justify-content: flex-end;
             padding-top: 0.3rem;
             border-top: 1px solid var(--clay-b);
-            margin-top: 0.2rem;
+            margin-top: 0.2rem
         }
 
         .lang-switcher {
             display: flex;
-            gap: 0.2rem;
+            gap: 0.2rem
         }
 
         .lang-btn {
@@ -217,14 +442,14 @@
             font-size: 0.7rem;
             transition: all var(--fast);
             color: var(--muted);
-            font-family: inherit;
+            font-family: inherit
         }
 
         .lang-btn:hover,
         .lang-btn.active {
             border-color: var(--nova);
             color: var(--w);
-            background: rgba(var(--nova-r), 0.15);
+            background: rgba(var(--nova-r), 0.15)
         }
 
         .theme-toggle {
@@ -236,13 +461,13 @@
             font-size: 0.9rem;
             transition: all var(--fast);
             color: var(--muted);
-            line-height: 1.4;
+            line-height: 1.4
         }
 
         .theme-toggle:hover {
             border-color: var(--nova);
             color: var(--w);
-            background: rgba(var(--nova-r), 0.15);
+            background: rgba(var(--nova-r), 0.15)
         }
 
         .currency-select {
@@ -254,281 +479,1142 @@
             font-size: 0.7rem;
             font-family: inherit;
             cursor: pointer;
-            transition: all var(--fast);
+            transition: all var(--fast)
         }
 
         .currency-select:hover,
         .currency-select:focus {
             border-color: var(--nova);
-            color: var(--w);
+            color: var(--w)
         }
 
         /* ===== BUTTONS ===== */
-        .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.8rem;border-radius:var(--r-sm);font-weight:700;font-size:.9rem;text-decoration:none;transition:all var(--norm);border:none;cursor:pointer;font-family:inherit;white-space:nowrap;position:relative;overflow:hidden;user-select:none}
-        .btn-p{background:var(--shim);color:var(--w);border:1px solid rgba(255,255,255,0.22);box-shadow:var(--btn-sh)}
-        .btn-p::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.14),transparent 50%);pointer-events:none}
-        .btn-p:hover{transform:translateY(-3px);box-shadow:0 6px 10px rgba(var(--nova-r),0.3),0 12px 22px rgba(var(--nova-r),0.25),0 22px 44px rgba(var(--nova-r),0.2),0 32px 65px rgba(var(--nova-r),0.15)}
-        .btn-p:active{transform:translateY(-1px) scale(0.97)}
-        .btn-g{background:var(--clay);backdrop-filter:blur(12px);border:1px solid var(--clay-b);color:var(--w);box-shadow:var(--clay-sh)}
-        .btn-g:hover{transform:translateY(-3px);background:rgba(var(--nova-r),0.12);border-color:rgba(var(--nova-r),0.4)}
-        .ripple{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.5),transparent 70%);transform:scale(0);animation:ripple-fx .6s var(--ease) forwards;pointer-events:none;z-index:1}
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            padding: .75rem 1.8rem;
+            border-radius: var(--r-sm);
+            font-weight: 700;
+            font-size: .9rem;
+            text-decoration: none;
+            transition: all var(--norm);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            user-select: none
+        }
 
-        /* ===== MAIN ===== */
-        .main{max-width:var(--max);margin:0 auto;padding:1.5rem var(--pad) 3rem;position:relative;z-index:10}
-        .sec{margin-bottom:5rem}
-        .sh{text-align:center;margin-bottom:2.5rem}
-        .stag{display:inline-flex;align-items:center;gap:.3rem;background:rgba(var(--nova-r),0.1);border:1px solid rgba(var(--nova-r),0.25);color:var(--sec);padding:.25rem .8rem;border-radius:var(--r-full);font-size:.75rem;font-weight:600;margin-bottom:.8rem}
-        .stit{font-size:clamp(1.5rem,5vw,2.4rem);font-weight:800;line-height:1.2;letter-spacing:.03em;margin-bottom:.6rem}
-        .grad{background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .ssub{color:var(--muted);font-size:.92rem;max-width:520px;margin:0 auto;line-height:1.8}
+        .btn-p {
+            background: var(--shim);
+            color: var(--w);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: var(--btn-sh)
+        }
 
-        .clay{background:var(--clay);backdrop-filter:var(--clay-blur);-webkit-backdrop-filter:var(--clay-blur);border:1px solid var(--clay-b);border-radius:var(--r);box-shadow:var(--clay-sh);position:relative;overflow:hidden;transition:all var(--norm)}
-        .clay::before{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,0.06),transparent);border-radius:var(--r) var(--r) 0 0;pointer-events:none}
-        .clay:hover{box-shadow:var(--clay-sh-h);border-color:rgba(var(--nova-r),0.3);transform:translateY(-4px)}
+        .btn-p::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 50%);
+            pointer-events: none
+        }
 
-        /* ===== HERO ===== */
-        .hero{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:5rem var(--pad) 3rem;text-align:center}
-        .hero-aur{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 500px 350px at 25% 30%,rgba(var(--nova-r),0.22),transparent 70%),radial-gradient(ellipse 400px 300px at 75% 70%,rgba(var(--pink-r),0.15),transparent 70%);filter:blur(50px)}
-        .hero-orb{position:absolute;left:50%;top:50%;width:300px;height:300px;transform:translate(-50%,-50%);pointer-events:none;z-index:1;opacity:.7}
-        .orb-ring{position:absolute;inset:0;border:1px solid rgba(var(--nova-r),0.1);border-radius:50%;animation:spin 40s linear infinite}
-        .orb-ring:nth-child(2){inset:30px;border-color:rgba(var(--pink-r),0.08);animation-duration:55s;animation-direction:reverse}
-        .orb-ring:nth-child(3){inset:60px;border-color:rgba(var(--tri-r),0.06);animation-duration:70s}
-        .orb-p{position:absolute;left:50%;top:50%;border-radius:50%}
-        .orb-p:nth-child(4){width:10px;height:10px;margin:-5px;background:var(--nova);box-shadow:0 0 12px rgba(var(--nova-r),0.6);animation:orbit 12s linear infinite}
-        .orb-p:nth-child(5){width:7px;height:7px;margin:-3.5px;background:var(--pink);box-shadow:0 0 10px rgba(var(--pink-r),0.5);animation:orbit2 18s linear infinite}
-        .orb-p:nth-child(6){width:5px;height:5px;margin:-2.5px;background:var(--tri);box-shadow:0 0 8px rgba(var(--tri-r),0.5);animation:orbit3 25s linear infinite}
-        .hero-blob{position:absolute;left:50%;top:50%;width:180px;height:180px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(var(--nova-r),0.12),rgba(var(--pink-r),0.06),transparent 70%);animation:morph 15s ease-in-out infinite;filter:blur(30px);pointer-events:none}
-        .hero-c{position:relative;z-index:3;max-width:700px;margin:0 auto}
-        .h-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(var(--nova-r),0.12);border:1px solid rgba(var(--nova-r),0.3);color:var(--sec);padding:.35rem 1.1rem;border-radius:var(--r-full);font-size:.8rem;font-weight:600;margin-bottom:1.5rem;backdrop-filter:blur(10px)}
-        .b-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(var(--green-r),0.6);animation:breathe 2s ease-in-out infinite}
-        .hero h1{font-size:clamp(2rem,7vw,3.8rem);font-weight:800;line-height:1.12;letter-spacing:.03em;margin-bottom:1.2rem}
-        .hero h1 .hl{position:relative;display:inline}
-        .hero h1 .hl::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:4px;background:var(--shim);border-radius:var(--r-full);opacity:.6}
-        .hero p{font-size:clamp(.9rem,2.3vw,1.1rem);color:var(--muted);max-width:580px;margin:0 auto 2rem;line-height:1.9}
-        .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
-        .hero-stats{display:flex;justify-content:center;gap:clamp(1.5rem,4vw,3rem);flex-wrap:wrap;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06)}
-        .hs{display:flex;flex-direction:column;align-items:center;gap:.3rem;cursor:default}
-        .hs:hover{transform:translateY(-2px)}
-        .hs-v{font-size:1.6rem;font-weight:800;background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:counter-glow 4s ease-in-out infinite}
-        .hs-l{color:var(--muted);font-size:.78rem}
+        .btn-p:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(var(--nova-r), 0.3), 0 12px 22px rgba(var(--nova-r), 0.25), 0 22px 44px rgba(var(--nova-r), 0.2)
+        }
 
-        /* ===== COUNTDOWN ===== */
-        .countdown-sec{position:relative;padding:2rem 0}
-        .countdown-wrap{background:linear-gradient(135deg,rgba(var(--nova-r),0.08),rgba(var(--tri-r),0.06),rgba(var(--pink-r),0.04));backdrop-filter:var(--clay-blur);-webkit-backdrop-filter:var(--clay-blur);border:1.5px solid rgba(var(--nova-r),0.2);border-radius:var(--r);padding:clamp(2rem,5vw,3rem) clamp(1.5rem,4vw,2.5rem);text-align:center;box-shadow:var(--clay-sh),0 0 60px rgba(var(--nova-r),0.08);position:relative;overflow:hidden}
-        .countdown-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(200,220,255,0.06),transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(var(--tri-r),0.05),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(var(--nova-r),0.05),transparent 50%);pointer-events:none}
-        .countdown-wrap::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:repeating-conic-gradient(rgba(255,255,255,0.02) 0deg 5deg,transparent 5deg 10deg);animation:spin 120s linear infinite;pointer-events:none;opacity:.5}
-        .cd-frost{position:absolute;pointer-events:none;z-index:0}
-        .cd-frost span{position:absolute;width:3px;height:3px;background:rgba(200,220,255,0.5);border-radius:50%;animation:ice-sparkle 3s ease-in-out infinite}
-        .cd-frost span:nth-child(1){top:15%;left:10%;animation-delay:0s}
-        .cd-frost span:nth-child(2){top:25%;right:15%;animation-delay:0.7s;width:2px;height:2px}
-        .cd-frost span:nth-child(3){bottom:20%;left:20%;animation-delay:1.4s}
-        .cd-frost span:nth-child(4){top:40%;right:25%;animation-delay:2.1s;width:4px;height:4px}
-        .cd-frost span:nth-child(5){bottom:30%;right:10%;animation-delay:0.5s;width:2px;height:2px}
-        .cd-frost span:nth-child(6){top:60%;left:8%;animation-delay:1.8s}
-        .cd-label{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-full);padding:.3rem .9rem;font-size:.78rem;color:var(--muted);margin-bottom:1rem;position:relative;z-index:1}
-        .cd-label svg{width:14px;height:14px;fill:currentColor;opacity:.7}
-        .cd-title{font-size:clamp(1.3rem,4vw,1.8rem);font-weight:800;margin-bottom:.5rem;position:relative;z-index:1}
-        .cd-sub{color:var(--muted);font-size:.85rem;margin-bottom:2rem;position:relative;z-index:1;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.7}
-        .cd-boxes{display:flex;justify-content:center;gap:clamp(.6rem,2vw,1rem);position:relative;z-index:1;margin-bottom:1.5rem;align-items:center}
-        .cd-box{background:rgba(255,255,255,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1.5px solid rgba(255,255,255,0.1);border-radius:var(--r-sm);padding:clamp(.8rem,2vw,1.2rem) clamp(1rem,3vw,1.8rem);min-width:clamp(60px,15vw,85px);box-shadow:var(--clay-sh);position:relative;animation:countdown-pulse 4s ease-in-out infinite}
-        .cd-box:nth-child(2){animation-delay:1s}.cd-box:nth-child(3){animation-delay:2s}.cd-box:nth-child(4){animation-delay:3s}
-        .cd-box::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,0.06),transparent 50%);pointer-events:none}
-        .cd-box::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;background:var(--shim);opacity:.3;border-radius:var(--r-full)}
-        .cd-num{font-size:clamp(1.8rem,6vw,2.8rem);font-weight:800;font-variant-numeric:tabular-nums;background:linear-gradient(180deg,var(--w),rgba(200,220,255,0.8));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;line-height:1;margin-bottom:.3rem;text-shadow:0 0 20px rgba(var(--nova-r),0.3)}
-        .cd-unit{font-size:clamp(.6rem,1.5vw,.75rem);color:var(--muted);font-weight:500;letter-spacing:.05em}
-        .cd-sep{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:800;color:rgba(var(--nova-r),0.4);align-self:center;animation:pulse 2s ease-in-out infinite;margin-top:-.3rem}
-        .cd-bar{max-width:300px;margin:0 auto;position:relative;z-index:1}
-        .cd-track{height:4px;background:rgba(255,255,255,0.06);border-radius:var(--r-full);overflow:hidden}
-        .cd-fill{height:100%;background:var(--shim);border-radius:var(--r-full);width:0%;transition:width 1s var(--ease);position:relative}
-        .cd-fill::after{content:'';position:absolute;right:-4px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--sec);box-shadow:0 0 8px rgba(var(--sec-r),0.5)}
-        .cd-pct{text-align:left;font-size:.7rem;color:var(--muted);margin-top:.4rem}
+        .btn-g {
+            background: var(--clay);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--clay-b);
+            color: var(--w);
+            box-shadow: var(--clay-sh)
+        }
 
-        /* ===== DEMO ===== */
-        .demo-sec{position:relative;padding:2rem 0}
-        .demo-flex{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
-        .phone{width:240px;height:480px;border-radius:32px;background:var(--surf);border:3px solid rgba(255,255,255,0.1);position:relative;overflow:hidden;flex-shrink:0;box-shadow:var(--clay-sh-h),0 0 50px rgba(var(--nova-r),0.12)}
-        .phone-notch{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:80px;height:22px;background:var(--bg);border-radius:0 0 14px 14px;z-index:5}
-        .phone-notch::after{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:rgba(var(--nova-r),0.5)}
-        .phone-scr{position:absolute;inset:3px;border-radius:29px;overflow:hidden;background:var(--bg)}
-        .chat{padding:40px 12px 12px;height:100%;display:flex;flex-direction:column;gap:6px}
-        .chat-hd{display:flex;align-items:center;gap:6px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,0.05)}
-        .chat-av{width:28px;height:28px;border-radius:50%;background:var(--shim);display:flex;align-items:center;justify-content:center;font-size:.75rem}
-        .chat-nm{font-size:.72rem;font-weight:600}
-        .chat-on{font-size:.58rem;color:var(--green)}
-        .bub{max-width:82%;padding:6px 10px;border-radius:12px;font-size:.65rem;line-height:1.55;animation:up .5s var(--ease) both}
-        .bub.rx{background:rgba(var(--nova-r),0.12);border:1px solid rgba(var(--nova-r),0.18);align-self:flex-start}
-        .bub.tx{background:var(--nova);align-self:flex-end}
-        .bub:nth-child(2){animation-delay:.3s}.bub:nth-child(3){animation-delay:.8s}.bub:nth-child(4){animation-delay:1.3s}.bub:nth-child(5){animation-delay:1.8s}
-        .typing{display:flex;gap:3px;align-self:flex-start;padding:6px 12px;animation:up .5s var(--ease) both;animation-delay:2.3s;opacity:0}
-        .typing i{width:5px;height:5px;border-radius:50%;background:var(--muted);animation:pulse 1.2s ease-in-out infinite;display:block}
-        .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
-        .demo-info{max-width:360px}
-        .demo-info h3{font-size:1.3rem;font-weight:800;margin-bottom:.8rem}
-        .demo-list{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-top:1rem}
-        .dl-i{display:flex;align-items:flex-start;gap:.7rem}
-        .dl-ic{width:36px;height:36px;border-radius:var(--r-sm);background:rgba(var(--nova-r),0.1);border:1px solid rgba(var(--nova-r),0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:var(--clay-sh)}
-        .dl-t h4{font-size:.88rem;font-weight:700;margin-bottom:.15rem}
-        .dl-t p{font-size:.78rem;color:var(--muted);line-height:1.55}
+        .btn-g:hover {
+            transform: translateY(-3px);
+            background: rgba(var(--nova-r), 0.12);
+            border-color: rgba(var(--nova-r), 0.4)
+        }
 
-        /* ===== BENTO ===== */
-        .bento{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:4rem}
-        .b-item{padding:1.8rem 1.4rem;cursor:pointer}
-        .b-item::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.05),transparent);transition:left .6s var(--ease);z-index:1}
-        .b-item:hover::after{left:100%}
-        .b-big{grid-column:span 2}
-        .b-icon{font-size:2rem;margin-bottom:.8rem;display:block;animation:float 5s ease-in-out infinite;position:relative;z-index:2}
-        .b-item:nth-child(2) .b-icon{animation-delay:-1s}.b-item:nth-child(3) .b-icon{animation-delay:-2s}.b-item:nth-child(4) .b-icon{animation-delay:-3s}.b-item:nth-child(5) .b-icon{animation-delay:-4s}
-        .b-item h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem;position:relative;z-index:2}
-        .b-item p{font-size:.85rem;color:var(--muted);line-height:1.75;position:relative;z-index:2}
-        .e2e{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.8rem 0;position:relative;z-index:2}
-        .e2e-n{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;box-shadow:var(--clay-sh)}
-        .e2e-n.g{background:rgba(var(--green-r),0.12);border:1.5px solid rgba(var(--green-r),0.25)}
-        .e2e-n.v{background:rgba(var(--nova-r),0.12);border:1.5px solid rgba(var(--nova-r),0.25)}
-        .e2e-line{width:40px;height:2px;background:linear-gradient(90deg,var(--green),var(--nova));border-radius:var(--r-full);position:relative;overflow:hidden}
-        .e2e-line::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);animation:wave 1.5s linear infinite;background-size:200% 100%}
-        .spd{display:flex;flex-direction:column;gap:.5rem;margin-top:.8rem;position:relative;z-index:2}
-        .spd-lbl{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted)}
-        .spd-bar{height:4px;border-radius:var(--r-full);background:rgba(255,255,255,0.06);overflow:hidden}
-        .spd-fill{height:100%;border-radius:var(--r-full);background:var(--shim);position:relative}
-        .spd-fill::after{content:'';position:absolute;right:-3px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--sec);box-shadow:0 0 6px rgba(var(--sec-r),0.5)}
-        .ai-brain{position:relative;width:100px;height:100px;margin:.8rem auto 0;z-index:2}
-        .br-c{position:absolute;border-radius:50%;border:1.5px solid rgba(var(--nova-r),0.15)}
-        .br-c:nth-child(1){inset:0;animation:spin 8s linear infinite}
-        .br-c:nth-child(2){inset:12px;border-color:rgba(var(--pink-r),0.15);animation:spin 12s linear infinite reverse}
-        .br-c:nth-child(3){inset:24px;border-color:rgba(var(--tri-r),0.15);animation:spin 6s linear infinite}
-        .br-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:1.5rem}
-        .br-d{position:absolute;width:5px;height:5px;border-radius:50%;animation:pulse 2s ease-in-out infinite}
-        .br-d:nth-child(5){top:0;left:50%;background:var(--nova);box-shadow:0 0 6px rgba(var(--nova-r),0.5)}
-        .br-d:nth-child(6){bottom:8px;right:8px;background:var(--pink);box-shadow:0 0 6px rgba(var(--pink-r),0.5);animation-delay:.5s}
-        .br-d:nth-child(7){bottom:8px;left:8px;background:var(--tri);box-shadow:0 0 6px rgba(var(--tri-r),0.5);animation-delay:1s}
+        /* ===== MAIN BLOG LAYOUT ===== */
+        .main {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 var(--pad);
+            position: relative;
+            z-index: 10
+        }
 
-        /* ===== CONNECTION ===== */
-        .net-sec{position:relative}
-        .net-canvas{width:100%;max-width:500px;aspect-ratio:1;margin:0 auto;position:relative}
-        .net-node{position:absolute;width:48px;height:48px;border-radius:50%;background:var(--clay);backdrop-filter:blur(10px);border:1.5px solid var(--clay-b);display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:var(--clay-sh);transition:all var(--norm);cursor:pointer;z-index:2}
-        .net-node:hover{transform:scale(1.15);border-color:var(--nova);box-shadow:0 0 20px rgba(var(--nova-r),0.4)}
-        .net-node:nth-child(1){top:5%;left:50%;transform:translateX(-50%)}
-        .net-node:nth-child(2){top:35%;left:8%}
-        .net-node:nth-child(3){top:35%;right:8%}
-        .net-node:nth-child(4){bottom:12%;left:22%}
-        .net-node:nth-child(5){bottom:12%;right:22%}
-        .net-node.center{top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;font-size:1.5rem;background:rgba(var(--nova-r),0.15);border-color:var(--nova);box-shadow:0 0 25px rgba(var(--nova-r),0.3)}
-        .net-lines{position:absolute;inset:0;z-index:1}
-        .net-lines line{stroke:url(#lg);stroke-width:1.2;fill:none;opacity:.25;stroke-dasharray:6 3}
+        /* ===== BLOG HERO ===== */
+        .blog-hero {
+            padding: clamp(7rem, 15vw, 10rem) 0 clamp(3rem, 6vw, 5rem);
+            text-align: center;
+            position: relative
+        }
 
-        /* ===== STATS ===== */
-        .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:3.5rem 0}
-        .st-box{text-align:center;padding:1.5rem 1rem}
-        .st-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--shim);opacity:0;transition:opacity var(--fast)}
-        .st-box:hover::before{opacity:1}
-        .st-v{font-size:clamp(1.8rem,5vw,2.4rem);font-weight:800;background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.3rem;animation:counter-glow 4s ease-in-out infinite}
-        .st-l{color:var(--muted);font-size:.82rem;font-weight:500}
+        .blog-hero-aura {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse 500px 300px at 30% 40%, rgba(var(--nova-r), 0.15), transparent 70%), radial-gradient(ellipse 400px 250px at 70% 60%, rgba(var(--pink-r), 0.1), transparent 70%);
+            filter: blur(50px)
+        }
 
-        /* ===== SHIELD ===== */
-        .shield-sec{position:relative}
-        .shield-flex{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
-        .shield-vis{position:relative;width:200px;height:240px;flex-shrink:0}
-        .shield-vis svg{width:160px;height:200px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 8px 24px rgba(var(--nova-r),0.3))}
-        .shield-rg{position:absolute;inset:-8px;border:1.5px solid rgba(var(--nova-r),0.12);border-radius:50%;animation:spin 20s linear infinite}
-        .shield-rg:nth-child(3){inset:-20px;border-color:rgba(var(--pink-r),0.08);animation-duration:30s;animation-direction:reverse}
-        .s-particles{position:absolute;inset:0;pointer-events:none}
-        .s-p{position:absolute;width:3px;height:3px;border-radius:50%;animation:particle 4s ease-in-out infinite}
-        .s-p:nth-child(1){left:20%;top:60%;background:var(--nova)}
-        .s-p:nth-child(2){left:70%;top:50%;background:var(--pink);animation-delay:1s}
-        .s-p:nth-child(3){left:45%;top:80%;background:var(--tri);animation-delay:2s}
-        .s-p:nth-child(4){left:80%;top:70%;background:var(--green);animation-delay:.5s}
-        .shield-info{max-width:350px}
-        .shield-info h3{font-size:1.3rem;font-weight:800;margin-bottom:.8rem}
-        .shield-info>p{color:var(--muted);font-size:.88rem;line-height:1.75;margin-bottom:1rem}
-        .s-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
-        .s-list li{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--muted);padding:.5rem .8rem;border-radius:var(--r-sm);background:rgba(var(--nova-r),0.05);border:1px solid rgba(var(--nova-r),0.08);transition:all var(--fast)}
-        .s-list li:hover{background:rgba(var(--nova-r),0.1);border-color:rgba(var(--nova-r),0.2);color:var(--w);transform:translateX(-3px)}
+        .blog-hero-content {
+            position: relative;
+            z-index: 2
+        }
 
-        /* ===== TIMELINE ===== */
-        .tl{position:relative;max-width:600px;margin:0 auto;padding-right:2.5rem}
-        .tl::before{content:'';position:absolute;right:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--nova),var(--pink),var(--tri),transparent);border-radius:var(--r-full)}
-        .tl-item{margin-bottom:2rem;position:relative;padding-right:2rem}
-        .tl-dot{width:14px;height:14px;border-radius:50%;position:absolute;right:-4px;top:.5rem;z-index:2;border:3px solid var(--bg)}
-        .tl-item:nth-child(1) .tl-dot{background:var(--nova);box-shadow:0 0 10px rgba(var(--nova-r),0.5)}
-        .tl-item:nth-child(2) .tl-dot{background:var(--pink);box-shadow:0 0 10px rgba(var(--pink-r),0.5)}
-        .tl-item:nth-child(3) .tl-dot{background:var(--tri);box-shadow:0 0 10px rgba(var(--tri-r),0.5)}
-        .tl-item:nth-child(4) .tl-dot{background:var(--green);box-shadow:0 0 10px rgba(var(--green-r),0.5)}
-        .tl-card{padding:1.2rem;border-radius:var(--r-sm)}
-        .tl-yr{font-size:.72rem;color:var(--sec);font-weight:700;margin-bottom:.3rem}
-        .tl-card h4{font-size:.95rem;font-weight:700;margin-bottom:.3rem}
-        .tl-card p{font-size:.8rem;color:var(--muted);line-height:1.65}
+        .blog-hero .stag {
+            display: inline-flex;
+            align-items: center;
+            gap: .3rem;
+            background: rgba(var(--nova-r), 0.1);
+            border: 1px solid rgba(var(--nova-r), 0.25);
+            color: var(--sec);
+            padding: .25rem .8rem;
+            border-radius: var(--r-full);
+            font-size: .75rem;
+            font-weight: 600;
+            margin-bottom: 1rem
+        }
 
-        /* ===== TESTIMONIALS ===== */
-        .tst-scroll{display:flex;gap:1.2rem;overflow-x:auto;padding:.8rem .3rem 1.5rem;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
-        .tst-scroll::-webkit-scrollbar{display:none}
-        .tst-card{flex:0 0 clamp(260px,80vw,320px);scroll-snap-align:start;padding:1.5rem}
-        .tst-hd{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
-        .tst-av{width:42px;height:42px;border-radius:50%;background:var(--shim);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-        .tst-nm{font-weight:700;font-size:.88rem}
-        .tst-rl{font-size:.72rem;color:var(--muted)}
-        .tst-tx{color:var(--muted);line-height:1.8;font-size:.82rem;margin-bottom:.6rem}
-        .tst-st{color:var(--gold);font-size:.85rem;letter-spacing:2px}
+        .blog-hero h1 {
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: .02em;
+            margin-bottom: 1rem
+        }
 
-        /* ===== PRICING ===== */
-        .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:2rem}
-        .pricing-card{padding:2rem 1.5rem;text-align:center;transition:all var(--norm);position:relative}
-        .pricing-card.featured{border-color:var(--nova);transform:scale(1.02);box-shadow:0 0 30px rgba(var(--nova-r),0.15)}
-        .pricing-card .badge{position:absolute;top:-0.7rem;right:50%;transform:translateX(50%);background:var(--shim);color:var(--w);padding:0.2rem 1rem;border-radius:var(--r-full);font-size:0.7rem;font-weight:700}
-        .pricing-card h3{font-size:1.4rem;font-weight:700;margin-bottom:0.5rem}
-        .price{font-size:2.8rem;font-weight:800;margin:1rem 0;display:flex;align-items:center;justify-content:center;gap:0.3rem;flex-wrap:wrap}
-        .price span{font-size:1rem;color:var(--muted);font-weight:400}
-        .pricing-card ul{list-style:none;text-align:right;margin:1.5rem 0;padding:0}
-        .pricing-card ul li{padding:0.4rem 0;color:var(--muted);font-size:0.9rem;display:flex;align-items:center;gap:0.4rem}
-        .pricing-card ul li::before{content:'✓';color:var(--green);font-weight:700}
+        .blog-hero h1 .grad {
+            background: var(--shim);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
 
-        /* ===== FAQ ===== */
-        .faq-grid{max-width:720px;margin:0 auto}
-        .faq-item{padding:1.2rem 1.5rem;margin-bottom:0.8rem;cursor:pointer}
-        .faq-item summary{font-weight:700;font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-        .faq-item summary::after{content:'▾';transition:transform var(--fast);font-size:1.2rem}
-        .faq-item[open] summary::after{transform:rotate(180deg)}
-        .faq-item p{color:var(--muted);padding-top:0.8rem;font-size:0.9rem;line-height:1.8;margin:0}
+        .blog-hero>p,
+        .blog-hero-content>p {
+            color: var(--muted);
+            font-size: clamp(.9rem, 2vw, 1.05rem);
+            max-width: 580px;
+            margin: 0 auto 2rem;
+            line-height: 1.9
+        }
 
-        /* ===== DOWNLOAD PROGRESS ===== */
-        .download-progress{margin:2rem auto;max-width:360px;text-align:center}
-        .download-progress .label{font-size:.85rem;color:var(--muted);margin-bottom:.4rem;display:block}
-        .progress-track{height:6px;background:rgba(255,255,255,0.06);border-radius:var(--r-full);overflow:hidden;position:relative}
-        .progress-fill{height:100%;background:var(--shim);border-radius:var(--r-full);width:0%;transition:width 0.8s var(--ease);position:relative}
-        .progress-fill::after{content:'';position:absolute;right:-4px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:var(--sec);box-shadow:0 0 10px rgba(var(--sec-r),0.6)}
-        .progress-label{display:block;font-size:.75rem;color:var(--muted);margin-top:.3rem}
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            padding: 1rem 0;
+            font-size: .82rem;
+            color: var(--muted);
+            flex-wrap: wrap;
+            justify-content: center
+        }
 
-        /* ===== POLL ===== */
-        .poll{margin:2rem auto;max-width:480px;padding:1.8rem 1.5rem;text-align:right}
-        .poll h4{font-size:1.1rem;font-weight:700;margin-bottom:1rem}
-        .poll-options{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1rem}
-        .poll-options label{display:flex;align-items:center;gap:0.5rem;font-size:.9rem;color:var(--muted);cursor:pointer}
-        .poll-options input[type="radio"]{accent-color:var(--nova);width:18px;height:18px;cursor:pointer}
+        .breadcrumb a {
+            color: var(--sec);
+            text-decoration: none;
+            transition: color var(--fast)
+        }
 
-        /* ===== LOCAL DATE ===== */
-        .local-date{font-size:.75rem;color:var(--muted);text-align:center;margin:0.5rem 0 0;padding-top:0.5rem;border-top:1px solid var(--clay-b)}
+        .breadcrumb a:hover {
+            color: var(--nova)
+        }
 
-        /* ===== WAVE ===== */
-        .wave{width:100%;overflow:hidden;height:40px;position:relative;margin:1.5rem 0}
-        .wave svg{position:absolute;bottom:0;width:200%;height:100%;animation:wave 8s linear infinite}
-        .wave svg path{fill:none;stroke:url(#wg);stroke-width:1.5;opacity:.25}
+        .breadcrumb span {
+            opacity: .5
+        }
 
-        /* ===== CTA ===== */
-        .cta{background:rgba(var(--nova-r),0.06);border:1.5px solid rgba(var(--nova-r),0.18);border-radius:var(--r);padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,4vw,2.5rem);text-align:center;margin-bottom:3rem;position:relative;overflow:hidden;box-shadow:var(--clay-sh),0 0 50px rgba(var(--nova-r),0.06)}
-        .cta::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(var(--nova-r),0.1),transparent 55%),radial-gradient(circle at 70% 70%,rgba(var(--pink-r),0.06),transparent 55%);pointer-events:none}
-        .cta-g{display:inline-flex;align-items:center;gap:.3rem;color:var(--gold);font-size:.78rem;font-weight:600;background:rgba(var(--gold-r),0.08);border:1px solid rgba(var(--gold-r),0.2);padding:.25rem .8rem;border-radius:var(--r-full);margin-bottom:1rem;position:relative;z-index:1}
-        .cta h2{font-size:clamp(1.4rem,4.5vw,2.2rem);font-weight:800;margin-bottom:.6rem;position:relative;z-index:1}
-        .cta>p{color:var(--muted);margin-bottom:1.5rem;font-size:.92rem;max-width:480px;margin-left:auto;margin-right:auto;position:relative;z-index:1;line-height:1.75}
+        /* ===== BLOG SEARCH & FILTERS ===== */
+        .blog-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            padding: 1.2rem 1.5rem;
+            background: var(--clay);
+            backdrop-filter: var(--clay-blur);
+            border: 1px solid var(--clay-b);
+            border-radius: var(--r);
+            box-shadow: var(--clay-sh)
+        }
+
+        .blog-search {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            flex: 1;
+            min-width: 200px;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1.5px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--r-sm);
+            padding: .5rem .8rem;
+            transition: border-color var(--fast)
+        }
+
+        .blog-search:focus-within {
+            border-color: var(--nova)
+        }
+
+        .blog-search svg {
+            width: 18px;
+            height: 18px;
+            color: var(--muted);
+            flex-shrink: 0
+        }
+
+        .blog-search input {
+            background: transparent;
+            border: none;
+            color: var(--w);
+            font-family: inherit;
+            font-size: .88rem;
+            width: 100%;
+            outline: none
+        }
+
+        .blog-search input::placeholder {
+            color: var(--muted);
+            opacity: .7
+        }
+
+        .blog-filters {
+            display: flex;
+            gap: .4rem;
+            flex-wrap: wrap
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1.5px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--r-full);
+            padding: .35rem .9rem;
+            color: var(--muted);
+            font-size: .78rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all var(--fast)
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(var(--nova-r), 0.12);
+            border-color: var(--nova);
+            color: var(--w)
+        }
+
+        .blog-sort {
+            background: var(--clay);
+            border: 1.5px solid var(--clay-b);
+            border-radius: var(--r-xs);
+            padding: .35rem .6rem;
+            color: var(--muted);
+            font-size: .78rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--fast)
+        }
+
+        .blog-sort:focus,
+        .blog-sort:hover {
+            border-color: var(--nova);
+            color: var(--w)
+        }
+
+        /* ===== FEATURED POST ===== */
+        .featured-post {
+            position: relative;
+            margin-bottom: 3rem;
+            border-radius: var(--r);
+            overflow: hidden;
+            background: var(--clay);
+            backdrop-filter: var(--clay-blur);
+            border: 1px solid var(--clay-b);
+            box-shadow: var(--clay-sh);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 380px;
+            transition: all var(--norm)
+        }
+
+        .featured-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent);
+            pointer-events: none;
+            z-index: 1
+        }
+
+        .featured-post:hover {
+            box-shadow: var(--clay-sh-h);
+            border-color: rgba(var(--nova-r), 0.3);
+            transform: translateY(-4px)
+        }
+
+        .featured-img {
+            position: relative;
+            overflow: hidden;
+            min-height: 280px
+        }
+
+        .featured-img-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(var(--nova-r), 0.15), rgba(var(--pink-r), 0.1), rgba(var(--tri-r), 0.12));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative
+        }
+
+        .featured-img-placeholder .icon-large {
+            font-size: 4rem;
+            opacity: .5;
+            animation: float 6s ease-in-out infinite
+        }
+
+        .featured-img-placeholder::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 80%, rgba(0, 0, 0, 0.3), transparent 70%)
+        }
+
+        .featured-content {
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .3rem;
+            background: rgba(var(--gold-r), 0.12);
+            border: 1px solid rgba(var(--gold-r), 0.25);
+            color: var(--gold);
+            padding: .2rem .7rem;
+            border-radius: var(--r-full);
+            font-size: .7rem;
+            font-weight: 700;
+            margin-bottom: .8rem;
+            width: fit-content
+        }
+
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            margin-bottom: .8rem;
+            flex-wrap: wrap
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+            font-size: .75rem;
+            color: var(--muted)
+        }
+
+        .meta-item svg {
+            width: 14px;
+            height: 14px
+        }
+
+        .category-tag {
+            background: rgba(var(--nova-r), 0.1);
+            border: 1px solid rgba(var(--nova-r), 0.2);
+            color: var(--sec);
+            padding: .15rem .5rem;
+            border-radius: var(--r-full);
+            font-size: .68rem;
+            font-weight: 600
+        }
+
+        .featured-content h2 {
+            font-size: clamp(1.3rem, 3vw, 1.7rem);
+            font-weight: 800;
+            margin-bottom: .8rem;
+            line-height: 1.4
+        }
+
+        .featured-content h2 a {
+            color: var(--w);
+            text-decoration: none;
+            transition: color var(--fast)
+        }
+
+        .featured-content h2 a:hover {
+            color: var(--sec)
+        }
+
+        .featured-content>p {
+            color: var(--muted);
+            font-size: .88rem;
+            line-height: 1.85;
+            margin-bottom: 1.2rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            color: var(--sec);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: .88rem;
+            transition: all var(--fast);
+            width: fit-content
+        }
+
+        .read-more svg {
+            width: 16px;
+            height: 16px;
+            transition: transform var(--fast)
+        }
+
+        .read-more:hover {
+            color: var(--nova);
+            gap: .6rem
+        }
+
+        .read-more:hover svg {
+            transform: translateX(-4px)
+        }
+
+        /* ===== BLOG GRID ===== */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem
+        }
+
+        .blog-card {
+            background: var(--clay);
+            backdrop-filter: var(--clay-blur);
+            -webkit-backdrop-filter: var(--clay-blur);
+            border: 1px solid var(--clay-b);
+            border-radius: var(--r);
+            box-shadow: var(--clay-sh);
+            overflow: hidden;
+            transition: all var(--norm);
+            position: relative;
+            display: flex;
+            flex-direction: column
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent);
+            border-radius: var(--r) var(--r) 0 0;
+            pointer-events: none;
+            z-index: 1
+        }
+
+        .blog-card:hover {
+            box-shadow: var(--clay-sh-h);
+            border-color: rgba(var(--nova-r), 0.3);
+            transform: translateY(-6px)
+        }
+
+        .card-img {
+            position: relative;
+            height: 200px;
+            overflow: hidden
+        }
+
+        .card-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative
+        }
+
+        .card-img-placeholder .icon-medium {
+            font-size: 2.5rem;
+            opacity: .5;
+            animation: float 5s ease-in-out infinite;
+            position: relative;
+            z-index: 1
+        }
+
+        .card-img-placeholder::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, var(--bg), transparent);
+            opacity: .5
+        }
+
+        .card-img-1 {
+            background: linear-gradient(135deg, rgba(var(--green-r), 0.15), rgba(var(--nova-r), 0.12))
+        }
+
+        .card-img-2 {
+            background: linear-gradient(135deg, rgba(var(--gold-r), 0.15), rgba(var(--sec-r), 0.12))
+        }
+
+        .card-img-3 {
+            background: linear-gradient(135deg, rgba(var(--tri-r), 0.15), rgba(var(--pink-r), 0.12))
+        }
+
+        .card-img-4 {
+            background: linear-gradient(135deg, rgba(var(--nova-r), 0.15), rgba(var(--green-r), 0.12))
+        }
+
+        .card-img-5 {
+            background: linear-gradient(135deg, rgba(var(--pink-r), 0.15), rgba(var(--gold-r), 0.12))
+        }
+
+        .card-img-6 {
+            background: linear-gradient(135deg, rgba(var(--sec-r), 0.15), rgba(var(--tri-r), 0.12))
+        }
+
+        .card-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 2
+        }
+
+        .card-reading-time {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            padding: .15rem .5rem;
+            border-radius: var(--r-full);
+            font-size: .68rem;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: .25rem
+        }
+
+        .card-body {
+            padding: 1.4rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            margin-bottom: .6rem;
+            flex-wrap: wrap
+        }
+
+        .card-body h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: .5rem;
+            line-height: 1.5
+        }
+
+        .card-body h3 a {
+            color: var(--w);
+            text-decoration: none;
+            transition: color var(--fast)
+        }
+
+        .card-body h3 a:hover {
+            color: var(--sec)
+        }
+
+        .card-excerpt {
+            color: var(--muted);
+            font-size: .84rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: .8rem;
+            border-top: 1px solid var(--clay-b)
+        }
+
+        .card-author {
+            display: flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .author-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--shim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .7rem;
+            flex-shrink: 0
+        }
+
+        .author-info .author-name {
+            font-size: .75rem;
+            font-weight: 600;
+            color: var(--w)
+        }
+
+        .author-info .author-date {
+            font-size: .68rem;
+            color: var(--muted)
+        }
+
+        .card-stats {
+            display: flex;
+            align-items: center;
+            gap: .6rem
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: .2rem;
+            font-size: .72rem;
+            color: var(--muted)
+        }
+
+        .stat-item svg {
+            width: 14px;
+            height: 14px
+        }
+
+        /* ===== SIDEBAR ===== */
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2.5rem;
+            margin-bottom: 4rem
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem
+        }
+
+        .sidebar-widget {
+            background: var(--clay);
+            backdrop-filter: var(--clay-blur);
+            border: 1px solid var(--clay-b);
+            border-radius: var(--r);
+            box-shadow: var(--clay-sh);
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--norm)
+        }
+
+        .sidebar-widget::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent);
+            pointer-events: none
+        }
+
+        .widget-title {
+            font-size: .95rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: .5rem;
+            border-bottom: 1px solid var(--clay-b);
+            position: relative
+        }
+
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--shim);
+            border-radius: var(--r-full)
+        }
+
+        /* Popular Posts Widget */
+        .popular-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .8rem
+        }
+
+        .popular-item {
+            display: flex;
+            align-items: flex-start;
+            gap: .7rem;
+            padding: .6rem;
+            border-radius: var(--r-sm);
+            transition: all var(--fast);
+            cursor: pointer
+        }
+
+        .popular-item:hover {
+            background: rgba(var(--nova-r), 0.06)
+        }
+
+        .popular-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(var(--nova-r), 0.1);
+            border: 1px solid rgba(var(--nova-r), 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .72rem;
+            font-weight: 800;
+            color: var(--sec);
+            flex-shrink: 0
+        }
+
+        .popular-info h4 {
+            font-size: .82rem;
+            font-weight: 600;
+            margin-bottom: .2rem;
+            line-height: 1.5
+        }
+
+        .popular-info h4 a {
+            color: var(--w);
+            text-decoration: none;
+            transition: color var(--fast)
+        }
+
+        .popular-info h4 a:hover {
+            color: var(--sec)
+        }
+
+        .popular-info .pop-meta {
+            font-size: .68rem;
+            color: var(--muted)
+        }
+
+        /* Categories Widget */
+        .category-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .4rem
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .5rem .7rem;
+            border-radius: var(--r-sm);
+            transition: all var(--fast);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--muted);
+            font-size: .85rem
+        }
+
+        .category-item:hover {
+            background: rgba(var(--nova-r), 0.08);
+            color: var(--w)
+        }
+
+        .category-item .cat-icon {
+            font-size: 1rem;
+            margin-left: .4rem
+        }
+
+        .category-count {
+            background: rgba(var(--nova-r), 0.1);
+            padding: .1rem .4rem;
+            border-radius: var(--r-full);
+            font-size: .68rem;
+            font-weight: 600;
+            color: var(--sec)
+        }
+
+        /* Tags Cloud Widget */
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem
+        }
+
+        .tag-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--r-full);
+            padding: .2rem .6rem;
+            font-size: .72rem;
+            color: var(--muted);
+            text-decoration: none;
+            transition: all var(--fast)
+        }
+
+        .tag-item:hover {
+            background: rgba(var(--nova-r), 0.12);
+            border-color: var(--nova);
+            color: var(--w)
+        }
+
+        /* Newsletter Widget */
+        .newsletter-widget {
+            background: linear-gradient(135deg, rgba(var(--nova-r), 0.08), rgba(var(--pink-r), 0.05));
+            border-color: rgba(var(--nova-r), 0.2)
+        }
+
+        .newsletter-widget p {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+            line-height: 1.7
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem
+        }
+
+        .newsletter-form input[type="email"] {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1.5px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--r-sm);
+            padding: .6rem .8rem;
+            color: var(--w);
+            font-family: inherit;
+            font-size: .85rem;
+            outline: none;
+            transition: border-color var(--fast)
+        }
+
+        .newsletter-form input[type="email"]:focus {
+            border-color: var(--nova)
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: var(--muted);
+            opacity: .6
+        }
+
+        .newsletter-form .btn {
+            padding: .6rem 1rem;
+            font-size: .82rem
+        }
+
+        /* ===== PAGINATION ===== */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            margin-bottom: 3rem
+        }
+
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--r-xs);
+            background: var(--clay);
+            border: 1.5px solid var(--clay-b);
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--fast);
+            text-decoration: none;
+            font-family: inherit
+        }
+
+        .page-btn:hover {
+            background: rgba(var(--nova-r), 0.12);
+            border-color: var(--nova);
+            color: var(--w)
+        }
+
+        .page-btn.active {
+            background: var(--nova);
+            border-color: var(--nova);
+            color: var(--w);
+            box-shadow: 0 0 12px rgba(var(--nova-r), 0.4)
+        }
+
+        .page-btn.disabled {
+            opacity: .4;
+            cursor: not-allowed;
+            pointer-events: none
+        }
+
+        .page-btn svg {
+            width: 16px;
+            height: 16px
+        }
+
+        /* ===== NEWSLETTER CTA ===== */
+        .blog-cta {
+            background: rgba(var(--nova-r), 0.06);
+            border: 1.5px solid rgba(var(--nova-r), 0.18);
+            border-radius: var(--r);
+            padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--clay-sh), 0 0 50px rgba(var(--nova-r), 0.06)
+        }
+
+        .blog-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(var(--nova-r), 0.1), transparent 55%), radial-gradient(circle at 70% 70%, rgba(var(--pink-r), 0.06), transparent 55%);
+            pointer-events: none
+        }
+
+        .blog-cta h2 {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            font-weight: 800;
+            margin-bottom: .6rem;
+            position: relative;
+            z-index: 1
+        }
+
+        .blog-cta>p {
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            font-size: .9rem;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+            line-height: 1.75
+        }
+
+        .cta-form {
+            display: flex;
+            gap: .5rem;
+            max-width: 420px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1
+        }
+
+        .cta-form input[type="email"] {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--r-sm);
+            padding: .7rem 1rem;
+            color: var(--w);
+            font-family: inherit;
+            font-size: .88rem;
+            outline: none;
+            transition: border-color var(--fast)
+        }
+
+        .cta-form input[type="email"]:focus {
+            border-color: var(--nova)
+        }
+
+        .cta-form input[type="email"]::placeholder {
+            color: var(--muted);
+            opacity: .6
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .stt {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--r-full);
+            background: rgba(var(--nova-r), 0.2);
+            backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(var(--nova-r), 0.3);
+            color: var(--w);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px);
+            transition: all var(--norm);
+            z-index: 500
+        }
+
+        .stt.vis {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0)
+        }
+
+        .stt:hover {
+            transform: translateY(-3px);
+            background: rgba(var(--nova-r), 0.35);
+            border-color: var(--nova)
+        }
+
+        /* ===== LOADER ===== */
+        .ldr {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity .5s var(--ease), visibility .5s
+        }
+
+        .ldr.gone {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none
+        }
+
+        .ldr-mk {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            margin-bottom: 1.5rem
+        }
+
+        .ldr-mk svg {
+            width: 36px;
+            height: 36px;
+            animation: float 2s ease-in-out infinite;
+            filter: drop-shadow(0 4px 10px rgba(var(--nova-r), 0.5))
+        }
+
+        .ldr-mk span {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--shim);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .ldr-tr {
+            width: 140px;
+            height: 4px;
+            background: var(--surf);
+            border-radius: var(--r-full);
+            overflow: hidden;
+            margin: 0 auto
+        }
+
+        .ldr-fl {
+            height: 100%;
+            background: var(--shim);
+            border-radius: var(--r-full);
+            animation: progress 1.4s ease forwards
+        }
+
+        .ldr-msg {
+            margin-top: .8rem;
+            color: var(--muted);
+            font-size: .75rem
+        }
+
+        /* Reveal animation */
+        .rv {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .5s var(--ease), transform .5s var(--ease)
+        }
+
+        .rv.vis {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .d1 {
+            transition-delay: .1s !important
+        }
+
+        .d2 {
+            transition-delay: .2s !important
+        }
+
+        .d3 {
+            transition-delay: .3s !important
+        }
+
+        .d4 {
+            transition-delay: .4s !important
+        }
 
         /* ===== FOOTER ===== */
         .footer {
             background: var(--bg);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding: 3rem var(--pad) 1.5rem;
-            position: relative;
-        }
-
-        [data-theme="light"] .footer {
-            background: var(--bg);
+            position: relative
         }
 
         .footer::before {
@@ -539,7 +1625,7 @@
             right: 0;
             height: 1px;
             background: var(--shim);
-            opacity: .3;
+            opacity: .3
         }
 
         .ft-grid {
@@ -547,7 +1633,7 @@
             margin: 0 auto 2rem;
             display: grid;
             grid-template-columns: 1.5fr repeat(3, 1fr);
-            gap: 2rem;
+            gap: 2rem
         }
 
         .ft-brand p {
@@ -555,13 +1641,13 @@
             font-size: .82rem;
             line-height: 1.7;
             margin-top: .6rem;
-            max-width: 260px;
+            max-width: 260px
         }
 
         .ft-soc {
             display: flex;
             gap: .5rem;
-            margin-top: .8rem;
+            margin-top: .8rem
         }
 
         .ft-soc a {
@@ -576,14 +1662,14 @@
             color: var(--muted);
             text-decoration: none;
             font-size: .8rem;
-            transition: all var(--fast);
+            transition: all var(--fast)
         }
 
         .ft-soc a:hover {
             background: rgba(var(--nova-r), 0.12);
             border-color: var(--nova);
             color: var(--w);
-            transform: translateY(-2px);
+            transform: translateY(-2px)
         }
 
         .ft-col h4 {
@@ -592,7 +1678,7 @@
             color: var(--w);
             font-weight: 700;
             position: relative;
-            padding-bottom: .4rem;
+            padding-bottom: .4rem
         }
 
         .ft-col h4::after {
@@ -603,7 +1689,7 @@
             width: 20px;
             height: 2px;
             background: var(--shim);
-            border-radius: var(--r-full);
+            border-radius: var(--r-full)
         }
 
         .ft-col a {
@@ -612,12 +1698,12 @@
             text-decoration: none;
             padding: .25rem 0;
             font-size: .8rem;
-            transition: all var(--fast);
+            transition: all var(--fast)
         }
 
         .ft-col a:hover {
             color: var(--sec);
-            transform: translateX(-3px);
+            transform: translateX(-3px)
         }
 
         .ft-bot {
@@ -631,13 +1717,13 @@
             align-items: center;
             gap: 1rem;
             font-size: .78rem;
-            color: var(--muted);
+            color: var(--muted)
         }
 
         .ft-slogan {
             font-style: italic;
             opacity: .6;
-            font-size: .75rem;
+            font-size: .75rem
         }
 
         .enamad img {
@@ -646,38 +1732,39 @@
             filter: brightness(.9);
             border-radius: var(--r-xs);
             cursor: pointer;
-            transition: all var(--fast);
+            transition: all var(--fast)
         }
 
         .enamad img:hover {
             transform: scale(1.05);
-            filter: brightness(1);
+            filter: brightness(1)
         }
 
-        .stt{position:fixed;bottom:1.5rem;left:1.5rem;width:44px;height:44px;border-radius:var(--r-full);background:rgba(var(--nova-r),0.2);backdrop-filter:blur(12px);border:1.5px solid rgba(var(--nova-r),0.3);color:var(--w);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(16px);transition:all var(--norm);z-index:500}
-        .stt.vis{opacity:1;visibility:visible;transform:translateY(0)}
-        .stt:hover{transform:translateY(-3px);background:rgba(var(--nova-r),0.35);border-color:var(--nova)}
-
-        .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:10000;transition:opacity .5s var(--ease),visibility .5s}
-        .ldr.gone{opacity:0;visibility:hidden;pointer-events:none}
-        .ldr-mk{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:1.5rem}
-        .ldr-mk svg{width:36px;height:36px;animation:float 2s ease-in-out infinite;filter:drop-shadow(0 4px 10px rgba(var(--nova-r),0.5))}
-        .ldr-mk span{font-size:2.2rem;font-weight:800;background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .ldr-tr{width:140px;height:4px;background:var(--surf);border-radius:var(--r-full);overflow:hidden;margin:0 auto}
-        .ldr-fl{height:100%;background:var(--shim);border-radius:var(--r-full);animation:progress 1.4s ease forwards}
-        .ldr-msg{margin-top:.8rem;color:var(--muted);font-size:.75rem}
-
-        .rv{opacity:0;transform:translateY(24px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
-        .rv.vis{opacity:1;transform:translateY(0)}
-        .d1{transition-delay:.1s!important}.d2{transition-delay:.2s!important}.d3{transition-delay:.3s!important}.d4{transition-delay:.4s!important}
+        .local-date {
+            font-size: .75rem;
+            color: var(--muted);
+            margin-top: .3rem
+        }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem
+            }
+
+            .sidebar {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.2rem
+            }
+        }
+
         @media (max-width: 768px) {
             .nav {
                 display: none;
                 position: fixed;
                 top: 100px;
-                /* افزایش فاصله از بالا برای جا دادن ابزارها */
                 left: 0;
                 right: 0;
                 background: rgba(10, 10, 15, 0.95);
@@ -689,21 +1776,21 @@
                 z-index: 599;
                 animation: up .3s var(--ease);
                 max-height: calc(100vh - 100px);
-                overflow-y: auto;
+                overflow-y: auto
             }
 
             .mob-btn {
-                display: flex;
+                display: flex
             }
 
             #mt:checked~.header .nav {
-                display: flex;
+                display: flex
             }
 
             .hdr {
                 height: auto;
                 padding: 0.5rem 0;
-                gap: 0.3rem;
+                gap: 0.3rem
             }
 
             .header-utils {
@@ -713,43 +1800,43 @@
                 padding-top: 0;
                 margin-top: 0;
                 justify-content: flex-end;
-                gap: 0.2rem;
+                gap: 0.2rem
             }
 
             .lang-btn {
                 font-size: 0.6rem;
-                padding: 0.15rem 0.35rem;
+                padding: 0.15rem 0.35rem
             }
 
             .currency-select {
                 font-size: 0.6rem;
                 padding: 0.15rem 0.3rem;
-                max-width: 50px;
+                max-width: 50px
             }
 
             .theme-toggle {
                 font-size: 0.75rem;
-                padding: 0.1rem 0.4rem;
+                padding: 0.1rem 0.4rem
             }
 
             .logo {
                 order: 1;
-                flex: 1;
+                flex: 1
             }
 
             .logo svg {
                 width: 24px;
-                height: 24px;
+                height: 24px
             }
 
             .logo span {
-                font-size: 1.3rem;
+                font-size: 1.3rem
             }
 
             .mob-btn {
                 order: 3;
                 font-size: 1.1rem;
-                padding: 0.3rem 0.5rem;
+                padding: 0.3rem 0.5rem
             }
 
             .nav a {
@@ -757,375 +1844,1035 @@
                 padding: 0.7rem 0.8rem;
                 width: 100%;
                 text-align: center;
-                border-radius: var(--r-sm);
+                border-radius: var(--r-sm)
             }
 
             .nav a.btn {
                 width: 100%;
                 justify-content: center;
                 padding: 0.6rem 1.2rem;
-                font-size: 0.85rem;
+                font-size: 0.85rem
             }
 
-            .hero-btns {
+            .featured-post {
+                grid-template-columns: 1fr;
+                min-height: auto
+            }
+
+            .featured-img {
+                min-height: 200px
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr
+            }
+
+            .blog-toolbar {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch
             }
 
-            .btn {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
+            .blog-search {
+                max-width: 100%
             }
 
-            .demo-flex {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .demo-info {
-                text-align: right;
-            }
-
-            .shield-flex {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .shield-info {
-                text-align: right;
+            .cta-form {
+                flex-direction: column
             }
 
             .ft-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 1.5rem;
-                text-align: center;
+                text-align: center
             }
 
             .ft-brand p {
-                max-width: 100%;
-                font-size: 0.85rem;
+                max-width: 100%
             }
 
             .ft-soc {
-                justify-content: center;
+                justify-content: center
             }
 
             .ft-col h4::after {
                 right: 50%;
-                transform: translateX(50%);
-            }
-
-            .ft-col a {
-                font-size: 0.85rem;
-                padding: 0.4rem 0;
+                transform: translateX(50%)
             }
 
             .ft-bot {
                 flex-direction: column;
-                text-align: center;
-                gap: 0.8rem;
-            }
-
-            .enamad img {
-                max-width: 70px;
+                text-align: center
             }
 
             .stt {
                 left: 50%;
-                transform: translateX(-50%) translateY(16px);
+                transform: translateX(-50%) translateY(16px)
             }
 
             .stt.vis {
-                transform: translateX(-50%) translateY(0);
-            }
-
-            .hero-orb {
-                width: 250px;
-                height: 250px;
-                opacity: .5;
-            }
-
-            .phone {
-                width: 220px;
-                height: 440px;
-                border-radius: 28px;
-            }
-
-            .phone-scr {
-                border-radius: 25px;
-            }
-
-            .net-canvas {
-                max-width: 320px;
-            }
-
-            .net-node {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-
-            .net-node.center {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pricing-card.featured {
-                transform: none;
+                transform: translateX(-50%) translateY(0)
             }
         }
 
         @media (max-width: 480px) {
             .hdr {
-                padding: 0.3rem 0;
+                padding: 0.3rem 0
             }
 
             .header-utils {
-                gap: 0.15rem;
+                gap: 0.15rem
             }
 
             .lang-btn {
                 font-size: 0.5rem;
-                padding: 0.1rem 0.25rem;
+                padding: 0.1rem 0.25rem
             }
 
             .currency-select {
                 font-size: 0.5rem;
                 padding: 0.1rem 0.2rem;
-                max-width: 40px;
+                max-width: 40px
             }
 
             .theme-toggle {
                 font-size: 0.65rem;
-                padding: 0.1rem 0.3rem;
+                padding: 0.1rem 0.3rem
             }
 
             .logo svg {
                 width: 20px;
-                height: 20px;
+                height: 20px
             }
 
             .logo span {
-                font-size: 1.1rem;
+                font-size: 1.1rem
             }
 
             .mob-btn {
                 font-size: 1rem;
-                padding: 0.2rem 0.4rem;
+                padding: 0.2rem 0.4rem
             }
 
             .nav {
                 top: 85px;
                 max-height: calc(100vh - 85px);
-                padding: 1rem var(--pad);
-            }
-
-            .nav a {
-                font-size: 0.85rem;
-                padding: 0.6rem 0.6rem;
+                padding: 1rem var(--pad)
             }
 
             .ft-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
+                grid-template-columns: 1fr
             }
 
-            .ft-col h4 {
-                font-size: 0.95rem;
+            .pagination {
+                gap: .25rem
             }
 
-            .ft-col a {
-                font-size: 0.8rem;
+            .page-btn {
+                width: 34px;
+                height: 34px;
+                font-size: .78rem
             }
-
-            .ft-bot {
-                font-size: 0.7rem;
-            }
-
-            .enamad img {
-                max-width: 60px;
-            }
-
-            .hero {
-                padding: 4rem var(--pad) 2rem;
-            }
-
-            .hero-orb {
-                width: 200px;
-                height: 200px;
-                opacity: .35;
-            }
-
-            .bento {
-                grid-template-columns: 1fr;
-            }
-
-            .b-big {
-                grid-column: span 1;
-            }
-
-            .stats {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .phone {
-                width: 200px;
-                height: 400px;
-                border-radius: 24px;
-            }
-
-            .phone-notch {
-                width: 65px;
-                height: 18px;
-                border-radius: 0 0 10px 10px;
-            }
-
-            .phone-scr {
-                border-radius: 21px;
-            }
-
-            .cd-boxes {
-                gap: .4rem;
-            }
-
-            .shield-vis {
-                width: 160px;
-                height: 200px;
-            }
-
-            .shield-vis svg {
-                width: 120px;
-                height: 150px;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .bento {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .svg-d {
-            position: absolute;
-            width: 0;
-            height: 0;
-            overflow: hidden;
         }
     </style>
 </head>
+
 <body>
-<header class="header">
-    <div class="hdr">
-        <a href="#" class="logo" aria-label="NOVA">
+    <!-- SVG Definitions -->
+    <svg class="svg-d" aria-hidden="true">
+        <defs>
+            <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7C3AED" />
+                <stop offset="50%" stop-color="#EC4899" />
+                <stop offset="100%" stop-color="#6366F1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Loader -->
+    <div class="ldr" id="loader" aria-label="در حال بارگذاری">
+        <div class="ldr-mk">
             <svg viewBox="0 0 48 48" fill="none">
-                <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/>
-                <circle cx="24" cy="24" r="5" fill="white" opacity=".85"/>
+                <path
+                    d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z"
+                    fill="url(#lg)" />
+                <circle cx="24" cy="24" r="5" fill="white" opacity=".85" />
             </svg>
             <span>NOVA</span>
-        </a>
-
-        <div class="header-utils">
-            <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="fa" aria-label="فارسی">🇮🇷</button>
-                <button class="lang-btn" data-lang="en" aria-label="English">🇬🇧</button>
-                <button class="lang-btn" data-lang="tr" aria-label="Türkçe">🇹🇷</button>
-            </div>
-            <select class="currency-select" aria-label="واحد پول">
-                <option value="IRR">ریال</option>
-                <option value="USD">$</option>
-                <option value="EUR">€</option>
-                <option value="TRY">₺</option>
-            </select>
-            <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">🌓</button>
         </div>
-
-        <nav class="nav" id="nav">
-            <a href="#demo">تجربه زنده</a>
-            <a href="#services">امکانات</a>
-            <a href="#pricing">تعرفه‌ها</a>
-            <a href="#security">امنیت</a>
-            <a href="#reviews">نظرات</a>
-            <a href="#cta-sec" class="btn btn-p" style="padding:.5rem 1.2rem;font-size:.82rem">✨ شروع</a>
-        </nav>
-
-        <label for="mt" class="mob-btn" id="mBtn" role="button" tabindex="0" aria-label="منو">☰</label>
+        <div class="ldr-tr">
+            <div class="ldr-fl"></div>
+        </div>
+        <p class="ldr-msg">در حال آماده‌سازی وبلاگ…</p>
     </div>
-</header>    <main>
-        <section class="sec">
-            <h1>وبلاگ نووا</h1>
-            <article class="blog-post">
-                <h2>چرا رمزنگاری سرتاسری برای امنیت پیام‌ها ضروری است؟</h2>
-                <p>در دنیای دیجیتال امروز، حریم خصوصی به یک دغدغه بزرگ تبدیل شده است. نووا با استفاده از پروتکل‌های پیشرفته رمزنگاری، پیام‌های شما را از چشم هر ناظر ثالثی پنهان می‌کند. در این مقاله، با مفاهیم پایه رمزنگاری و اهمیت آن آشنا می‌شوید.</p>
-                <a href="#">ادامه مطلب</a>
-            </article>
-            <article class="blog-post">
-                <h2>کیف پول دیجیتال در نووا؛ مدیریت مالی هوشمند</h2>
-                <p>با کیف پول دیجیتال نووا، می‌توانید به راحتی صورتحساب‌های خود را پرداخت کنید، شارژ بخرید و حتی برای دوستان خود پول بفرستید. همه اینها با امنیت بالای بانکی و سرعت بالا.</p>
-                <a href="#">ادامه مطلب</a>
-            </article>
-            <article class="blog-post">
-                <h2>هوش مصنوعی در خدمت ارتباطات؛ دستیار نووا چگونه کار می‌کند؟</h2>
-                <p>دستیار هوش مصنوعی نووا با یادگیری عمیق، می‌تواند به شما در ترجمه، تولید محتوا و حتی برنامه‌ریزی روزانه کمک کند. در این مقاله، با قابلیت‌های شگفت‌انگیز آن آشنا شوید.</p>
-                <a href="#">ادامه مطلب</a>
-            </article>
-        </section>
-    </main>
-<footer class="footer">
-    <div class="ft-grid rv">
-        <div class="ft-brand">
-            <div class="logo" style="margin-bottom:.4rem">
-                <svg viewBox="0 0 48 48" fill="none" style="width:24px;height:24px">
-                    <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/>
-                    <circle cx="24" cy="24" r="5" fill="white" opacity=".85"/>
+
+    <!-- Aurora Background -->
+    <div class="aurora" aria-hidden="true"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
+
+    <!-- Mobile Menu Toggle -->
+    <input type="checkbox" id="mt" aria-hidden="true">
+
+    <!-- Header -->
+    <header class="header" id="header" role="banner">
+        <div class="hdr">
+            <a href="https://chatnova.ir" class="logo" aria-label="نووا - صفحه اصلی">
+                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <path
+                        d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z"
+                        fill="url(#lg)" />
+                    <circle cx="24" cy="24" r="5" fill="white" opacity=".85" />
                 </svg>
-                <span style="font-size:1.2rem">NOVA</span>
-            </div>
-            <p>ارتباطی فراتر از یک پیام، امن‌تر از همیشه.</p>
-            <div class="ft-soc">
-                <a href="#" aria-label="X">𝕏</a>
-                <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="LinkedIn">in</a>
-            </div>
-        </div>
-        <div class="ft-col">
-            <h4>محصول</h4>
-            <a href="#">پیام‌رسان</a>
-            <a href="#">کیف پول</a>
-            <a href="#">دستیار AI</a>
-            <a href="#">API</a>
-        </div>
-        <div class="ft-col">
-            <h4>شرکت</h4>
-            <a href="#">درباره ما</a>
-            <a href="#">وبلاگ</a>
-            <a href="#">فرصت‌ شغلی</a>
-            <a href="#">تماس</a>
-        </div>
-        <div class="ft-col">
-            <h4>پشتیبانی</h4>
-            <a href="#">راهنمایی</a>
-            <a href="#">مستندات</a>
-            <a href="#">حریم خصوصی</a>
-            <a href="#">شرایط</a>
-        </div>
-    </div>
-    <div class="ft-bot rv">
-        <div>
-            <p>© ۲۰۲۵ NOVA</p>
-            <p class="ft-slogan">«نووا؛ جایی که پیام‌ها به نور تبدیل می‌شوند.»</p>
-            <p class="local-date" id="localDate"></p>
-        </div>
-        <div class="enamad">
-            <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq">
-                <img referrerpolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq" alt="نماد اعتماد" width="80" loading="lazy">
+                <span>NOVA</span>
             </a>
+
+            <div class="header-utils">
+                <div class="lang-switcher" role="group" aria-label="انتخاب زبان">
+                    <button class="lang-btn active" data-lang="fa" aria-label="فارسی">🇮🇷</button>
+                    <button class="lang-btn" data-lang="en" aria-label="English">🇬🇧</button>
+                    <button class="lang-btn" data-lang="tr" aria-label="Türkçe">🇹🇷</button>
+                </div>
+                <select class="currency-select" aria-label="واحد پول">
+                    <option value="IRR">ریال</option>
+                    <option value="USD">$</option>
+                    <option value="EUR">€</option>
+                    <option value="TRY">₺</option>
+                </select>
+                <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم رنگی">🌓</button>
+            </div>
+
+            <nav class="nav" id="nav" role="navigation" aria-label="منوی اصلی">
+                <a href="https://chatnova.ir">صفحه اصلی</a>
+                <a href="https://chatnova.ir/blog" aria-current="page">وبلاگ</a>
+                <a href="https://chatnova.ir/#services">امکانات</a>
+                <a href="https://chatnova.ir/#pricing">تعرفه‌ها</a>
+                <a href="https://chatnova.ir/#security">امنیت</a>
+                <a href="https://chatnova.ir/#cta-sec" class="btn btn-p"
+                    style="padding:.5rem 1.2rem;font-size:.82rem">✨ دانلود نووا</a>
+            </nav>
+
+            <label for="mt" class="mob-btn" id="mBtn" role="button" tabindex="0" aria-label="باز/بسته کردن منو"
+                aria-expanded="false">☰</label>
         </div>
-    </div>
-</footer></body>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+
+        <!-- Blog Hero Section -->
+        <section class="blog-hero" aria-labelledby="blog-title">
+            <div class="blog-hero-aura" aria-hidden="true"></div>
+            <div class="blog-hero-content main rv">
+                <div class="breadcrumb" aria-label="مسیر ناوبری">
+                    <a href="https://chatnova.ir">خانه</a>
+                    <span>›</span>
+                    <span>وبلاگ</span>
+                </div>
+                <div class="stag">
+                    <span style="width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(var(--green-r),0.6)"></span>
+                    به‌روزرسانی هفتگی
+                </div>
+                <h1 id="blog-title">وبلاگ <span class="grad">نووا</span></h1>
+                <p>جدیدترین مقالات آموزشی، اخبار محصول و راهنماهای تخصصی درباره امنیت دیجیتال، کیف پول رمزارز و
+                    هوش مصنوعی را اینجا بخوانید.</p>
+            </div>
+        </section>
+
+        <!-- Blog Toolbar -->
+        <div class="main rv d1">
+            <div class="blog-toolbar" role="search" aria-label="جستجو و فیلتر مقالات">
+                <div class="blog-search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        aria-hidden="true">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.3-4.3" />
+                    </svg>
+                    <input type="search" placeholder="جستجو در مقالات..." aria-label="جستجوی مقالات" id="blogSearch">
+                </div>
+                <div class="blog-filters" role="group" aria-label="فیلتر دسته‌بندی">
+                    <button class="filter-btn active" data-filter="all">همه</button>
+                    <button class="filter-btn" data-filter="security">🔐 امنیت</button>
+                    <button class="filter-btn" data-filter="wallet">💰 کیف پول</button>
+                    <button class="filter-btn" data-filter="ai">🤖 هوش مصنوعی</button>
+                    <button class="filter-btn" data-filter="tutorial">📚 آموزش</button>
+                </div>
+                <select class="blog-sort" aria-label="مرتب‌سازی">
+                    <option value="newest">جدیدترین</option>
+                    <option value="popular">محبوب‌ترین</option>
+                    <option value="oldest">قدیمی‌ترین</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Featured Post -->
+        <div class="main rv d2">
+            <article class="featured-post" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="featured-img">
+                    <div class="featured-img-placeholder">
+                        <span class="icon-large" aria-hidden="true">🔐</span>
+                    </div>
+                </div>
+                <div class="featured-content">
+                    <div class="featured-badge">⭐ مقاله ویژه</div>
+                    <div class="featured-meta">
+                        <span class="category-tag">امنیت</span>
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                aria-hidden="true">
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                <path d="M16 2v4M8 2v4M3 10h18" />
+                            </svg>
+                            <time datetime="2025-06-20" itemprop="datePublished">۳۰ خرداد ۱۴۰۴</time>
+                        </span>
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                            ۸ دقیقه مطالعه
+                        </span>
+                    </div>
+                    <h2>
+                        <a href="/blog/end-to-end-encryption" itemprop="headline">
+                            چرا رمزنگاری سرتاسری برای امنیت پیام‌ها ضروری است؟
+                        </a>
+                    </h2>
+                    <p itemprop="description">
+                        در دنیای دیجیتال امروز، حریم خصوصی به یک دغدغه بزرگ تبدیل شده است. نووا با استفاده از
+                        پروتکل‌های پیشرفته رمزنگاری End-to-End، پیام‌های شما را از چشم هر ناظر ثالثی پنهان
+                        می‌کند. در این مقاله جامع، با مفاهیم پایه رمزنگاری، پروتکل Signal و اهمیت آن در حفظ
+                        حریم خصوصی آنلاین آشنا می‌شوید.
+                    </p>
+                    <a href="/blog/end-to-end-encryption" class="read-more" itemprop="url"
+                        aria-label="ادامه مطلب: رمزنگاری سرتاسری">
+                        ادامه مطلب
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                    </a>
+                    <meta itemprop="author" content="تیم محتوای نووا">
+                </div>
+            </article>
+        </div>
+
+        <!-- Blog Layout: Grid + Sidebar -->
+        <div class="main blog-layout rv d3">
+            <!-- Blog Grid -->
+            <section class="blog-content" aria-label="لیست مقالات">
+                <div class="blog-grid">
+                    <!-- Card 1 -->
+                    <article class="blog-card rv" data-category="wallet" itemscope
+                        itemtype="https://schema.org/BlogPosting">
+                        <div class="card-img">
+                            <div class="card-img-placeholder card-img-2">
+                                <span class="icon-medium" aria-hidden="true">💰</span>
+                            </div>
+                            <span class="card-category">
+                                <span class="category-tag">کیف پول</span>
+                            </span>
+                            <span class="card-reading-time">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    width="12" height="12" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                ۶ دقیقه
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="meta-item">
+                                    <time datetime="2025-06-15" itemprop="datePublished">۲۵ خرداد ۱۴۰۴</time>
+                                </span>
+                            </div>
+                            <h3>
+                                <a href="/blog/digital-wallet" itemprop="headline">
+                                    کیف پول دیجیتال در نووا؛ مدیریت مالی هوشمند
+                                </a>
+                            </h3>
+                            <p class="card-excerpt" itemprop="description">
+                                با کیف پول دیجیتال نووا، می‌توانید به راحتی صورتحساب‌های خود را پرداخت کنید، شارژ بخرید
+                                و حتی برای دوستان خود پول بفرستید. همه اینها با امنیت بالای بانکی و سرعت بی‌نظیر.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-author">
+                                    <div class="author-avatar" aria-hidden="true">👤</div>
+                                    <div class="author-info">
+                                        <div class="author-name" itemprop="author">سارا احمدی</div>
+                                        <div class="author-date">نویسنده فین‌تک</div>
+                                    </div>
+                                </div>
+                                <div class="card-stats">
+                                    <span class="stat-item" aria-label="۲۴۰ بازدید">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                        </svg>
+                                        ۲۴۰
+                                    </span>
+                                    <span class="stat-item" aria-label="۱۸ نظر">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path
+                                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                        </svg>
+                                        ۱۸
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="blog-card rv" data-category="ai" itemscope
+                        itemtype="https://schema.org/BlogPosting">
+                        <div class="card-img">
+                            <div class="card-img-placeholder card-img-3">
+                                <span class="icon-medium" aria-hidden="true">🤖</span>
+                            </div>
+                            <span class="card-category">
+                                <span class="category-tag">هوش مصنوعی</span>
+                            </span>
+                            <span class="card-reading-time">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    width="12" height="12" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                ۱۰ دقیقه
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="meta-item">
+                                    <time datetime="2025-06-10" itemprop="datePublished">۲۰ خرداد ۱۴۰۴</time>
+                                </span>
+                            </div>
+                            <h3>
+                                <a href="/blog/ai-assistant" itemprop="headline">
+                                    هوش مصنوعی در خدمت ارتباطات؛ دستیار نووا چگونه کار می‌کند؟
+                                </a>
+                            </h3>
+                            <p class="card-excerpt" itemprop="description">
+                                دستیار هوش مصنوعی نووا با یادگیری عمیق، می‌تواند به شما در ترجمه همزمان، تولید محتوا،
+                                خلاصه‌سازی مکالمات و حتی برنامه‌ریزی روزانه کمک کند. کشف قابلیت‌های شگفت‌انگیز آن.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-author">
+                                    <div class="author-avatar" aria-hidden="true">👤</div>
+                                    <div class="author-info">
+                                        <div class="author-name" itemprop="author">علی محمدی</div>
+                                        <div class="author-date">متخصص AI</div>
+                                    </div>
+                                </div>
+                                <div class="card-stats">
+                                    <span class="stat-item" aria-label="۵۲۰ بازدید">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                        </svg>
+                                        ۵۲۰
+                                    </span>
+                                    <span class="stat-item" aria-label="۳۲ نظر">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path
+                                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                        </svg>
+                                        ۳۲
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="blog-card rv" data-category="security" itemscope
+                        itemtype="https://schema.org/BlogPosting">
+                        <div class="card-img">
+                            <div class="card-img-placeholder card-img-4">
+                                <span class="icon-medium" aria-hidden="true">🛡️</span>
+                            </div>
+                            <span class="card-category">
+                                <span class="category-tag">امنیت</span>
+                            </span>
+                            <span class="card-reading-time">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    width="12" height="12" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                ۵ دقیقه
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="meta-item">
+                                    <time datetime="2025-06-05" itemprop="datePublished">۱۵ خرداد ۱۴۰۴</time>
+                                </span>
+                            </div>
+                            <h3>
+                                <a href="/blog/two-factor-auth" itemprop="headline">
+                                    احراز هویت دو مرحله‌ای: چرا و چگونه فعال کنیم؟
+                                </a>
+                            </h3>
+                            <p class="card-excerpt" itemprop="description">
+                                فعال‌سازی احراز هویت دو مرحله‌ای (2FA) یکی از ساده‌ترین و مؤثرترین راه‌ها برای افزایش
+                                امنیت حساب کاربری شماست. در این آموزش قدم به قدم یاد بگیرید.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-author">
+                                    <div class="author-avatar" aria-hidden="true">👤</div>
+                                    <div class="author-info">
+                                        <div class="author-name" itemprop="author">مریم رضایی</div>
+                                        <div class="author-date">کارشناس امنیت</div>
+                                    </div>
+                                </div>
+                                <div class="card-stats">
+                                    <span class="stat-item" aria-label="۳۸۰ بازدید">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                        </svg>
+                                        ۳۸۰
+                                    </span>
+                                    <span class="stat-item" aria-label="۲۵ نظر">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path
+                                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                        </svg>
+                                        ۲۵
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="blog-card rv" data-category="tutorial" itemscope
+                        itemtype="https://schema.org/BlogPosting">
+                        <div class="card-img">
+                            <div class="card-img-placeholder card-img-5">
+                                <span class="icon-medium" aria-hidden="true">📱</span>
+                            </div>
+                            <span class="card-category">
+                                <span class="category-tag">آموزش</span>
+                            </span>
+                            <span class="card-reading-time">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    width="12" height="12" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                ۴ دقیقه
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="meta-item">
+                                    <time datetime="2025-05-28" itemprop="datePublished">۷ خرداد ۱۴۰۴</time>
+                                </span>
+                            </div>
+                            <h3>
+                                <a href="/blog/getting-started" itemprop="headline">
+                                    شروع کار با نووا: راهنمای کامل نصب و راه‌اندازی
+                                </a>
+                            </h3>
+                            <p class="card-excerpt" itemprop="description">
+                                از دانلود اپلیکیشن تا ساخت اولین گروه و تماس ویدیویی. راهنمای تصویری و قدم به قدم
+                                برای کاربران جدید نووا.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-author">
+                                    <div class="author-avatar" aria-hidden="true">👤</div>
+                                    <div class="author-info">
+                                        <div class="author-name" itemprop="author">رضا کریمی</div>
+                                        <div class="author-date">تیم پشتیبانی</div>
+                                    </div>
+                                </div>
+                                <div class="card-stats">
+                                    <span class="stat-item" aria-label="۶۹۰ بازدید">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                        </svg>
+                                        ۶۹۰
+                                    </span>
+                                    <span class="stat-item" aria-label="۴۱ نظر">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path
+                                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                        </svg>
+                                        ۴۱
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="blog-card rv" data-category="ai" itemscope
+                        itemtype="https://schema.org/BlogPosting">
+                        <div class="card-img">
+                            <div class="card-img-placeholder card-img-6">
+                                <span class="icon-medium" aria-hidden="true">🧠</span>
+                            </div>
+                            <span class="card-category">
+                                <span class="category-tag">هوش مصنوعی</span>
+                            </span>
+                            <span class="card-reading-time">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    width="12" height="12" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                ۷ دقیقه
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="meta-item">
+                                    <time datetime="2025-05-20" itemprop="datePublished">۳۰ اردیبهشت ۱۴۰۴</time>
+                                </span>
+                            </div>
+                            <h3>
+                                <a href="/blog/ai-translation" itemprop="headline">
+                                    ترجمه همزمان با هوش مصنوعی نووا: ارتباط بدون مرز زبانی
+                                </a>
+                            </h3>
+                            <p class="card-excerpt" itemprop="description">
+                                قابلیت ترجمه همزمان نووا از بیش از ۵۰ زبان پشتیبانی می‌کند. بدون نیاز به اپ جداگانه،
+                                پیام‌ها را در لحظه ترجمه کنید.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-author">
+                                    <div class="author-avatar" aria-hidden="true">👤</div>
+                                    <div class="author-info">
+                                        <div class="author-name" itemprop="author">نیلوفر حسینی</div>
+                                        <div class="author-date">مترجم و زبان‌شناس</div>
+                                    </div>
+                                </div>
+                                <div class="card-stats">
+                                    <span class="stat-item" aria-label="۴۱۵ بازدید">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                        </svg>
+                                        ۴۱۵
+                                    </span>
+                                    <span class="stat-item" aria-label="۲۷ نظر">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path
+                                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                        </svg>
+                                        ۲۷
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="blog-card rv" data-category="wallet" itemscope
+                        itemtype="https://schema.org/BlogPosting">
+                        <div class="card-img">
+                            <div class="card-img-placeholder card-img-1">
+                                <span class="icon-medium" aria-hidden="true">💳</span>
+                            </div>
+                            <span class="card-category">
+                                <span class="category-tag">کیف پول</span>
+                            </span>
+                            <span class="card-reading-time">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    width="12" height="12" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                ۵ دقیقه
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="meta-item">
+                                    <time datetime="2025-05-12" itemprop="datePublished">۲۲ اردیبهشت ۱۴۰۴</time>
+                                </span>
+                            </div>
+                            <h3>
+                                <a href="/blog/crypto-basics" itemprop="headline">
+                                    آشنایی با ارزهای دیجیتال: راهنمای مبتدیان
+                                </a>
+                            </h3>
+                            <p class="card-excerpt" itemprop="description">
+                                بیت‌کوین، اتریوم و… از کجا شروع کنیم؟ یک راهنمای ساده و بدون پیچیدگی برای آشنایی
+                                با دنیای ارزهای دیجیتال و نحوه مدیریت آنها در نووا.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-author">
+                                    <div class="author-avatar" aria-hidden="true">👤</div>
+                                    <div class="author-info">
+                                        <div class="author-name" itemprop="author">امیر جعفری</div>
+                                        <div class="author-date">تحلیلگر بازار</div>
+                                    </div>
+                                </div>
+                                <div class="card-stats">
+                                    <span class="stat-item" aria-label="۵۵۰ بازدید">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                        </svg>
+                                        ۵۵۰
+                                    </span>
+                                    <span class="stat-item" aria-label="۳۶ نظر">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            aria-hidden="true">
+                                            <path
+                                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                        </svg>
+                                        ۳۶
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <nav class="pagination rv" role="navigation" aria-label="صفحه‌بندی مقالات">
+                    <a href="#" class="page-btn disabled" aria-label="صفحه قبل" aria-disabled="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" aria-hidden="true">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </a>
+                    <a href="#" class="page-btn active" aria-label="صفحه ۱" aria-current="page">۱</a>
+                    <a href="#" class="page-btn" aria-label="صفحه ۲">۲</a>
+                    <a href="#" class="page-btn" aria-label="صفحه ۳">۳</a>
+                    <span class="page-btn" style="border:none;background:transparent;cursor:default">…</span>
+                    <a href="#" class="page-btn" aria-label="صفحه ۸">۸</a>
+                    <a href="#" class="page-btn" aria-label="صفحه بعد">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" aria-hidden="true">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </a>
+                </nav>
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="sidebar" role="complementary" aria-label="ابزارهای جانبی">
+                <!-- Popular Posts -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">🔥 محبوب‌ترین مقالات</h3>
+                    <ol class="popular-list">
+                        <li class="popular-item">
+                            <span class="popular-num">۱</span>
+                            <div class="popular-info">
+                                <h4><a href="/blog/getting-started">شروع کار با نووا: راهنمای کامل</a></h4>
+                                <span class="pop-meta">۶۹۰ بازدید • ۴ دقیقه</span>
+                            </div>
+                        </li>
+                        <li class="popular-item">
+                            <span class="popular-num">۲</span>
+                            <div class="popular-info">
+                                <h4><a href="/blog/crypto-basics">آشنایی با ارزهای دیجیتال</a></h4>
+                                <span class="pop-meta">۵۵۰ بازدید • ۵ دقیقه</span>
+                            </div>
+                        </li>
+                        <li class="popular-item">
+                            <span class="popular-num">۳</span>
+                            <div class="popular-info">
+                                <h4><a href="/blog/ai-assistant">دستیار هوش مصنوعی نووا</a></h4>
+                                <span class="pop-meta">۵۲۰ بازدید • ۱۰ دقیقه</span>
+                            </div>
+                        </li>
+                        <li class="popular-item">
+                            <span class="popular-num">۴</span>
+                            <div class="popular-info">
+                                <h4><a href="/blog/ai-translation">ترجمه همزمان با AI</a></h4>
+                                <span class="pop-meta">۴۱۵ بازدید • ۷ دقیقه</span>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Categories -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">📂 دسته‌بندی‌ها</h3>
+                    <ul class="category-list">
+                        <li>
+                            <a href="#" class="category-item">
+                                <span><span class="cat-icon">🔐</span> امنیت دیجیتال</span>
+                                <span class="category-count">۱۲</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="category-item">
+                                <span><span class="cat-icon">💰</span> کیف پول و مالی</span>
+                                <span class="category-count">۸</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="category-item">
+                                <span><span class="cat-icon">🤖</span> هوش مصنوعی</span>
+                                <span class="category-count">۱۵</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="category-item">
+                                <span><span class="cat-icon">📚</span> آموزش و راهنما</span>
+                                <span class="category-count">۲۰</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="category-item">
+                                <span><span class="cat-icon">📰</span> اخبار و بروزرسانی</span>
+                                <span class="category-count">۶</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tags -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">🏷️ برچسب‌ها</h3>
+                    <div class="tags-cloud">
+                        <a href="#" class="tag-item">رمزنگاری</a>
+                        <a href="#" class="tag-item">حریم خصوصی</a>
+                        <a href="#" class="tag-item">بلاک‌چین</a>
+                        <a href="#" class="tag-item">پیام‌رسان</a>
+                        <a href="#" class="tag-item">کریپتو</a>
+                        <a href="#" class="tag-item">یادگیری عمیق</a>
+                        <a href="#" class="tag-item">ترجمه</a>
+                        <a href="#" class="tag-item">2FA</a>
+                        <a href="#" class="tag-item">امنیت</a>
+                        <a href="#" class="tag-item">API</a>
+                        <a href="#" class="tag-item">تماس ویدیویی</a>
+                        <a href="#" class="tag-item">فین‌تک</a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="sidebar-widget newsletter-widget">
+                    <h3 class="widget-title">📬 خبرنامه نووا</h3>
+                    <p>هر هفته جدیدترین مقالات و آموزش‌ها را مستقیم در ایمیل خود دریافت کنید.</p>
+                    <form class="newsletter-form" aria-label="عضویت در خبرنامه">
+                        <input type="email" placeholder="ایمیل شما…" aria-label="آدرس ایمیل" required>
+                        <button type="submit" class="btn btn-p" style="font-size:.82rem;padding:.55rem 1rem">عضویت
+                            رایگان ✉️</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Newsletter CTA -->
+        <div class="main rv">
+            <section class="blog-cta" aria-labelledby="cta-title">
+                <h2 id="cta-title">هیچ مقاله‌ای را از دست ندهید! 🚀</h2>
+                <p>با عضویت در خبرنامه نووا، جدیدترین مقالات آموزشی، نکات امنیتی و اخبار محصول را هر هفته دریافت کنید.
+                </p>
+                <form class="cta-form" aria-label="عضویت در خبرنامه">
+                    <input type="email" placeholder="آدرس ایمیل خود را وارد کنید…" aria-label="آدرس ایمیل" required>
+                    <button type="submit" class="btn btn-p">عضویت رایگان</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="ft-grid rv">
+            <div class="ft-brand">
+                <a href="https://chatnova.ir" class="logo" style="margin-bottom:.4rem"
+                    aria-label="نووا - صفحه اصلی">
+                    <svg viewBox="0 0 48 48" fill="none" style="width:24px;height:24px" aria-hidden="true">
+                        <path
+                            d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z"
+                            fill="url(#lg)" />
+                        <circle cx="24" cy="24" r="5" fill="white" opacity=".85" />
+                    </svg>
+                    <span style="font-size:1.2rem">NOVA</span>
+                </a>
+                <p>ارتباطی فراتر از یک پیام، امن‌تر از همیشه.</p>
+                <div class="ft-soc">
+                    <a href="#" aria-label="ما را در X دنبال کنید">𝕏</a>
+                    <a href="#" aria-label="ما را در اینستاگرام دنبال کنید">📷</a>
+                    <a href="#" aria-label="ما را در لینکدین دنبال کنید">in</a>
+                </div>
+            </div>
+            <div class="ft-col">
+                <h4>محصول</h4>
+                <a href="#">پیام‌رسان</a>
+                <a href="#">کیف پول</a>
+                <a href="#">دستیار AI</a>
+                <a href="#">API</a>
+            </div>
+            <div class="ft-col">
+                <h4>شرکت</h4>
+                <a href="#">درباره ما</a>
+                <a href="/blog">وبلاگ</a>
+                <a href="#">فرصت‌ شغلی</a>
+                <a href="#">تماس</a>
+            </div>
+            <div class="ft-col">
+                <h4>پشتیبانی</h4>
+                <a href="#">راهنمایی</a>
+                <a href="#">مستندات</a>
+                <a href="#">حریم خصوصی</a>
+                <a href="#">شرایط استفاده</a>
+            </div>
+        </div>
+        <div class="ft-bot rv">
+            <div>
+                <p>© ۲۰۲۵ NOVA — تمامی حقوق محفوظ است.</p>
+                <p class="ft-slogan">«نووا؛ جایی که پیام‌ها به نور تبدیل می‌شوند.»</p>
+                <p class="local-date" id="localDate"></p>
+            </div>
+            <div class="enamad">
+                <a referrerpolicy="origin" target="_blank" rel="noopener noreferrer"
+                    href="https://trustseal.enamad.ir/?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq">
+                    <img referrerpolicy="origin"
+                        src="https://trustseal.enamad.ir/logo.aspx?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq"
+                        alt="نماد اعتماد الکترونیک" width="80" height="80" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="stt" id="stt" aria-label="بازگشت به بالای صفحه">↑</button>
+
+    <script>
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => document.getElementById('loader').classList.add('gone'), 1500);
+        });
+
+        // Header Sticky
+        const header = document.getElementById('header');
+        const stt = document.getElementById('stt');
+        const scrollBar = document.getElementById('scrollBar');
+
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            const docH = document.documentElement.scrollHeight - window.innerHeight;
+
+            // Header
+            header.classList.toggle('stuck', y > 60);
+
+            // Scroll to top button
+            stt.classList.toggle('vis', y > 400);
+
+            // Scroll progress bar
+            const pct = docH > 0 ? (y / docH) * 100 : 0;
+            scrollBar.style.width = pct + '%';
+        }, { passive: true });
+
+        // Scroll to top
+        stt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('nova-theme');
+        if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('nova-theme', next);
+            themeToggle.textContent = next === 'light' ? '🌙' : '🌓';
+        });
+
+        // Mobile menu aria
+        const mBtn = document.getElementById('mBtn');
+        const mt = document.getElementById('mt');
+        if (mBtn && mt) {
+            mt.addEventListener('change', () => {
+                mBtn.setAttribute('aria-expanded', mt.checked);
+                mBtn.textContent = mt.checked ? '✕' : '☰';
+            });
+        }
+
+        // Reveal on scroll
+        const rvEls = document.querySelectorAll('.rv');
+        const rvObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('vis');
+                    rvObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        rvEls.forEach(el => rvObs.observe(el));
+
+        // Local Date
+        const localDateEl = document.getElementById('localDate');
+        if (localDateEl) {
+            const now = new Date();
+            localDateEl.textContent = now.toLocaleDateString('fa-IR', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            });
+        }
+
+        // Filter Buttons
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+
+                blogCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = '';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(16px)';
+                        requestAnimationFrame(() => {
+                            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        });
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Blog Search (client-side filter)
+        const searchInput = document.getElementById('blogSearch');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const q = e.target.value.trim().toLowerCase();
+                blogCards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    card.style.display = text.includes(q) ? '' : 'none';
+                });
+            });
+        }
+
+        // Language Switcher
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
 </html>
