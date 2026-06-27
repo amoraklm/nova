@@ -763,17 +763,29 @@ const car=document.querySelector('.tst-scroll');
 if(car){let dn=false,sx,sl;car.addEventListener('mousedown',e=>{dn=true;sx=e.pageX-car.offsetLeft;sl=car.scrollLeft;car.style.cursor='grabbing'});car.addEventListener('mouseleave',()=>{dn=false;car.style.cursor='grab'});car.addEventListener('mouseup',()=>{dn=false;car.style.cursor='grab'});car.addEventListener('mousemove',e=>{if(!dn)return;e.preventDefault();car.scrollLeft=sl-(e.pageX-car.offsetLeft-sx)*2});car.style.cursor='grab'}
 
 // === FROZEN COUNTDOWN ===
+// === FROZEN COUNTDOWN — REAL ===
 (function(){
-    // Target: 2 days, 23 hours, 58 minutes from now
-    const totalSeconds = 2*86400 + 23*3600 + 58*60;
-    const endTime = Date.now() + totalSeconds * 1000;
-    const totalDuration = totalSeconds;
+    // 📌 تاریخ هدف را اینجا تنظیم کنید (سال، ماه، روز، ساعت، دقیقه، ثانیه)
+    // ماه‌ها از 0 شروع می‌شوند: 0=فروردین، 11=اسفند
+    const targetDate = new Date(2026, 6, 17, 23, 59, 59); // ۱۷ تیر ۱۴۰۵، ساعت ۲۳:۵۹:۵۹
+    
+    const totalDuration = Math.floor((targetDate.getTime() - Date.now()) / 1000);
+    if (totalDuration <= 0) {
+        // اگر تاریخ گذشته باشد، پیام نمایش می‌دهیم
+        document.getElementById('cd-d').textContent = '۰۰';
+        document.getElementById('cd-h').textContent = '۰۰';
+        document.getElementById('cd-m').textContent = '۰۰';
+        document.getElementById('cd-s').textContent = '۰۰';
+        document.getElementById('cdFill').style.width = '100%';
+        document.getElementById('cdPct').textContent = '۱۰۰';
+        return;
+    }
 
-    function pad(n){return String(n).padStart(2,'0')}
+    function pad(n){ return String(n).padStart(2, '0'); }
 
     function updateCountdown(){
         const now = Date.now();
-        let diff = Math.max(0, Math.floor((endTime - now) / 1000));
+        let diff = Math.max(0, Math.floor((targetDate.getTime() - now) / 1000));
 
         const d = Math.floor(diff / 86400);
         diff %= 86400;
@@ -787,7 +799,7 @@ if(car){let dn=false,sx,sl;car.addEventListener('mousedown',e=>{dn=true;sx=e.pag
         document.getElementById('cd-m').textContent = pad(m);
         document.getElementById('cd-s').textContent = pad(s);
 
-        // Progress
+        // پیشرفت
         const elapsed = totalDuration - (d*86400 + h*3600 + m*60 + s);
         const pct = Math.min(100, (elapsed / totalDuration * 100)).toFixed(1);
         const fill = document.getElementById('cdFill');
@@ -799,7 +811,6 @@ if(car){let dn=false,sx,sl;car.addEventListener('mousedown',e=>{dn=true;sx=e.pag
     updateCountdown();
     setInterval(updateCountdown, 1000);
 })();
-
 // Keyboard
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){mt.checked=false;mo=false;mBtn.innerHTML='☰'}});
 if(matchMedia('(prefers-reduced-motion:reduce)').matches)document.querySelectorAll('.rv').forEach(el=>{el.style.opacity='1';el.style.transform='none'});
