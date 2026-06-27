@@ -151,9 +151,9 @@
     .mob-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
     .mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:899;animation:fadeIn .3s var(--ease)}
     .mobile-overlay.active{display:block}
-    .mobile-drawer{position:fixed;top:0;left:0;width:min(320px,85vw);height:100%;background:rgba(14,12,26,.97);backdrop-filter:blur(30px) saturate(160%);-webkit-backdrop-filter:blur(30px) saturate(160%);border-right:1px solid rgba(255,255,255,.08);z-index:950;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s var(--ease);overflow-y:auto;overscroll-behavior:contain}
-    [data-theme="light"] .mobile-drawer{background:rgba(241,245,249,.97)}
-    .mobile-drawer.open{transform:translateX(0)}
+        .mobile-drawer{position:fixed;top:0;right:0;width:min(320px,85vw);height:100%;background:rgba(14,12,26,.97);backdrop-filter:blur(30px) saturate(160%);-webkit-backdrop-filter:blur(30px) saturate(160%);border-left:1px solid rgba(255,255,255,.08);z-index:950;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s var(--ease);overflow-y:auto;overscroll-behavior:contain}
+        [data-theme="light"] .mobile-drawer{background:rgba(241,245,249,.97);border-left-color:rgba(0,0,0,.08)}
+        .mobile-drawer.open{transform:translateX(0)}
     .mobile-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
     .mobile-close{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all var(--fast)}
     .mobile-close:hover{background:rgba(var(--red),.1);color:var(--red)}
@@ -615,29 +615,36 @@
     }
 
     /* نمایش منوی موبایل و مخفی کردن منوی دسکتاپ در موبایل */
-    @media (max-width: 900px) {
-        .nav-desktop {
-            display: none !important;
+        @media (max-width: 900px) {
+            .nav-desktop {
+                display: none !important;
+            }
+            .header-cta-desktop {
+                display: none !important;
+            }
+            .lang-selector-desktop {
+                display: none !important;
+            }
+            .header-divider {
+                display: none !important;
+            }
+            .mob-toggle {
+                display: flex !important;
+            }
+            .mobile-drawer {
+                display: flex !important; /* توسط کلاس .open کنترل می‌شود */
+                right: 0 !important;
+                left: auto !important;
+                border-left: 1px solid rgba(255,255,255,.08) !important;
+                border-right: none !important;
+            }
+            [data-theme="light"] .mobile-drawer {
+                border-left-color: rgba(0,0,0,.08) !important;
+            }
+            .mobile-overlay {
+                display: block !important; /* توسط کلاس .active کنترل می‌شود */
+            }
         }
-        .header-cta-desktop {
-            display: none !important;
-        }
-        .lang-selector-desktop {
-            display: none !important;
-        }
-        .header-divider {
-            display: none !important;
-        }
-        .mob-toggle {
-            display: flex !important;
-        }
-        .mobile-drawer {
-            display: flex !important; /* توسط کلاس .open کنترل می‌شود */
-        }
-        .mobile-overlay {
-            display: block !important; /* توسط کلاس .active کنترل می‌شود */
-        }
-    }
 
     /* ریسپانسیو موبایل (هدر و فوتر و بخش‌های دیگر) */
     @media (max-width: 768px) {
