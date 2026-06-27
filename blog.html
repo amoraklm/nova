@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Primary SEO Meta Tags -->
     <title>وبلاگ نووا | آموزش امنیت دیجیتال، کیف پول رمزارز و هوش مصنوعی</title>
     <meta name="description"
         content="جدیدترین مقالات آموزشی نووا درباره رمزنگاری سرتاسری، امنیت پیام‌رسان، کیف پول دیجیتال و کاربردهای هوش مصنوعی. راهنمای جامع حریم خصوصی آنلاین.">
@@ -14,8 +12,6 @@
     <meta name="author" content="تیم نووا">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://chatnova.ir/blog">
-
-    <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="نووا - NOVA">
     <meta property="og:title" content="وبلاگ نووا | آموزش امنیت دیجیتال و هوش مصنوعی">
@@ -26,15 +22,12 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fa_IR">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="وبلاگ نووا | آموزش امنیت دیجیتال و هوش مصنوعی">
     <meta name="twitter:description"
         content="جدیدترین مقالات آموزشی درباره رمزنگاری، امنیت پیام‌رسان، کیف پول دیجیتال و هوش مصنوعی.">
     <meta name="twitter:image" content="https://chatnova.ir/assets/og-blog.jpg">
 
-    <!-- Structured Data - Blog -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -45,10 +38,7 @@
         "publisher": {
             "@type": "Organization",
             "name": "NOVA",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://chatnova.ir/assets/logo.png"
-            }
+            "logo": {"@type": "ImageObject", "url": "https://chatnova.ir/assets/logo.png"}
         },
         "blogPost": [
             {
@@ -84,8 +74,6 @@
         ]
     }
     </script>
-
-    <!-- BreadcrumbList Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -97,9 +85,7 @@
     }
     </script>
 
-    <!-- Preconnect & Preload -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
     <style>
         @font-face {
@@ -131,22 +117,20 @@
             --clay: rgba(255, 255, 255, 0.07);
             --clay2: rgba(255, 255, 255, 0.10);
             --clay-b: rgba(255, 255, 255, 0.12);
-            --clay-glow: rgba(var(--nova-r), 0.08);
             --clay-sh: 12px 12px 24px rgba(0, 0, 0, 0.55), -8px -8px 20px rgba(255, 255, 255, 0.04), inset 0 2px 1px rgba(255, 255, 255, 0.12), inset 0 -2px 1px rgba(0, 0, 0, 0.25);
             --clay-sh-h: 16px 16px 32px rgba(0, 0, 0, 0.65), -10px -10px 24px rgba(255, 255, 255, 0.06), inset 0 2px 1px rgba(255, 255, 255, 0.16), inset 0 -2px 1px rgba(0, 0, 0, 0.3);
-            --clay-sh-in: inset 8px 8px 16px rgba(0, 0, 0, 0.5), inset -6px -6px 14px rgba(255, 255, 255, 0.04);
             --clay-blur: blur(20px) saturate(150%);
-            --btn-sh: 0 4px 6px rgba(var(--nova-r), 0.25), 0 8px 15px rgba(var(--nova-r), 0.2), 0 16px 30px rgba(var(--nova-r), 0.15), 0 24px 45px rgba(var(--nova-r), 0.1);
+            --btn-sh: 0 4px 6px rgba(var(--nova-r), 0.25), 0 8px 15px rgba(var(--nova-r), 0.2), 0 16px 30px rgba(var(--nova-r), 0.15);
             --ease: cubic-bezier(0.4, 0, 0.2, 1);
             --fast: 250ms var(--ease);
             --norm: 350ms var(--ease);
-            --slow: 500ms var(--ease);
             --r: 24px;
             --r-sm: 16px;
             --r-xs: 12px;
             --r-full: 9999px;
             --max: 1200px;
-            --pad: clamp(1rem, 5vw, 2.5rem)
+            --pad: clamp(1rem, 5vw, 2.5rem);
+            --header-h: 64px
         }
 
         [data-theme="light"] {
@@ -158,8 +142,7 @@
             --clay2: rgba(0, 0, 0, 0.08);
             --clay-b: rgba(0, 0, 0, 0.10);
             --clay-sh: 12px 12px 24px rgba(0, 0, 0, 0.08), -8px -8px 20px rgba(255, 255, 255, 0.6), inset 0 2px 1px rgba(255, 255, 255, 0.6), inset 0 -2px 1px rgba(0, 0, 0, 0.05);
-            --clay-sh-h: 16px 16px 32px rgba(0, 0, 0, 0.12), -10px -10px 24px rgba(255, 255, 255, 0.8), inset 0 2px 1px rgba(255, 255, 255, 0.7), inset 0 -2px 1px rgba(0, 0, 0, 0.08);
-            --clay-sh-in: inset 8px 8px 16px rgba(0, 0, 0, 0.06), inset -6px -6px 14px rgba(255, 255, 255, 0.5);
+            --clay-sh-h: 16px 16px 32px rgba(0, 0, 0, 0.12), -10px -10px 24px rgba(255, 255, 255, 0.8), inset 0 2px 1px rgba(255, 255, 255, 0.7), inset 0 -2px 1px rgba(0, 0, 0, 0.08)
         }
 
         *,
@@ -183,7 +166,7 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
-            scroll-padding-top: 100px
+            scroll-padding-top: calc(var(--header-h) + 16px)
         }
 
         body {
@@ -193,26 +176,13 @@
             line-height: 1.75;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            -webkit-tap-highlight-color: transparent;
             transition: background var(--norm), color var(--norm)
-        }
-
-        @keyframes shimmer {
-
-            0%,
-            100% {
-                background-position: 0% 50%
-            }
-
-            50% {
-                background-position: 100% 50%
-            }
         }
 
         @keyframes up {
             from {
                 opacity: 0;
-                transform: translateY(24px)
+                transform: translateY(20px)
             }
 
             to {
@@ -233,26 +203,6 @@
             }
         }
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg)
-            }
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: .6;
-                transform: scale(1)
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.08)
-            }
-        }
-
         @keyframes progress {
             from {
                 width: 0
@@ -260,6 +210,40 @@
 
             to {
                 width: 100%
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes mobileSlide {
+            from {
+                opacity: 0;
+                transform: translateX(100%)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
             }
         }
 
@@ -276,10 +260,11 @@
             position: fixed;
             top: 0;
             left: 0;
-            height: 4px;
-            z-index: 1000;
+            height: 3px;
+            z-index: 1001;
             background: var(--shim);
-            box-shadow: 0 0 12px rgba(var(--nova-r), 0.5)
+            box-shadow: 0 0 12px rgba(var(--nova-r), 0.5);
+            transition: width 80ms linear
         }
 
         :focus-visible {
@@ -299,7 +284,6 @@
             border: 0
         }
 
-        /* ===== SVG Defs ===== */
         .svg-d {
             position: absolute;
             width: 0;
@@ -307,188 +291,849 @@
             overflow: hidden
         }
 
-        /* ===== HEADER ===== */
+        /* ═══════════════════════════════════════════
+           HEADER — COMPLETE REWRITE
+           ═══════════════════════════════════════════ */
+
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 600;
-            background: rgba(10, 10, 15, 0.65);
-            backdrop-filter: var(--clay-blur);
-            -webkit-backdrop-filter: var(--clay-blur);
-            border-bottom: 1px solid var(--clay-b);
-            padding: 0 var(--pad);
-            transition: all var(--norm)
+            z-index: 900;
+            height: var(--header-h);
+            transition: background var(--norm), box-shadow var(--norm), height var(--norm)
         }
 
-        [data-theme="light"] .header {
-            background: rgba(241, 245, 249, 0.75)
+        /* Glass backdrop — separate layer for performance */
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 15, 0.55);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: background var(--norm), border-color var(--norm)
         }
 
-        .header.stuck {
-            background: rgba(10, 10, 15, 0.88);
-            box-shadow: var(--clay-sh)
+        [data-theme="light"] .header::before {
+            background: rgba(241, 245, 249, 0.7);
+            border-bottom-color: rgba(0, 0, 0, 0.06)
         }
 
-        [data-theme="light"] .header.stuck {
-            background: rgba(241, 245, 249, 0.92)
+        .header.stuck::before {
+            background: rgba(10, 10, 15, 0.82);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25)
         }
 
+        [data-theme="light"] .header.stuck::before {
+            background: rgba(241, 245, 249, 0.88);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08)
+        }
+
+        /* Shimmer line at bottom */
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--shim);
+            opacity: 0;
+            transition: opacity var(--norm)
+        }
+
+        .header.stuck::after {
+            opacity: .3
+        }
+
+        /* Container */
         .hdr {
+            position: relative;
+            z-index: 1;
             max-width: var(--max);
             margin: 0 auto;
+            padding: 0 var(--pad);
+            height: 100%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            height: 72px;
-            gap: 0.5rem;
-            flex-wrap: wrap
+            gap: 1rem
         }
 
+        /* ── Logo ── */
         .logo {
             display: flex;
             align-items: center;
-            gap: .4rem;
+            gap: .5rem;
             text-decoration: none;
-            transition: transform var(--fast)
+            flex-shrink: 0;
+            transition: transform var(--fast);
+            position: relative
         }
 
         .logo:hover {
-            transform: scale(1.02)
+            transform: scale(1.03)
         }
 
-        .logo svg {
-            width: 30px;
-            height: 30px;
-            filter: drop-shadow(0 2px 8px rgba(var(--nova-r), 0.5))
+        .logo:active {
+            transform: scale(0.98)
         }
 
-        .logo span {
-            font-size: 1.6rem;
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            filter: drop-shadow(0 2px 8px rgba(var(--nova-r), 0.45));
+            transition: filter var(--fast)
+        }
+
+        .logo:hover .logo-icon {
+            filter: drop-shadow(0 4px 14px rgba(var(--nova-r), 0.6))
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
             font-weight: 800;
-            letter-spacing: .03em;
+            letter-spacing: .04em;
             background: linear-gradient(135deg, var(--w) 30%, var(--sec));
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent
+            -webkit-text-fill-color: transparent;
+            line-height: 1
         }
 
-        .nav {
+        /* ── Desktop Navigation ── */
+        .nav-desktop {
             display: flex;
             align-items: center;
-            gap: .25rem;
-            flex-wrap: wrap
+            gap: .15rem;
+            margin-right: auto
         }
 
-        .nav a {
+        .nav-link {
             color: var(--muted);
             text-decoration: none;
-            padding: .5rem .8rem;
+            padding: .45rem .75rem;
             border-radius: var(--r-xs);
-            font-size: .85rem;
+            font-size: .84rem;
             font-weight: 500;
-            border: 1.5px solid transparent;
-            transition: all var(--fast);
-            white-space: nowrap
+            white-space: nowrap;
+            position: relative;
+            transition: color var(--fast), background var(--fast)
         }
 
-        .nav a:hover,
-        .nav a[aria-current="page"] {
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            right: 50%;
+            height: 2px;
+            background: var(--shim);
+            border-radius: var(--r-full);
+            transition: left var(--fast), right var(--fast);
+            opacity: 0
+        }
+
+        .nav-link:hover {
             color: var(--w);
-            border-color: rgba(var(--nova-r), 0.3);
-            background: rgba(var(--nova-r), 0.08)
+            background: rgba(var(--nova-r), 0.06)
         }
 
-        .mob-btn {
-            display: none;
-            background: var(--clay);
-            border: 1.5px solid var(--clay-b);
+        .nav-link:hover::after,
+        .nav-link[aria-current="page"]::after {
+            left: 20%;
+            right: 20%;
+            opacity: 1
+        }
+
+        .nav-link[aria-current="page"] {
             color: var(--w);
-            font-size: 1.3rem;
-            cursor: pointer;
-            padding: .4rem;
-            border-radius: var(--r-sm);
-            backdrop-filter: blur(12px);
-            z-index: 601
+            font-weight: 600
         }
 
-        #mt {
-            display: none
+        /* Dropdown */
+        .nav-dropdown {
+            position: relative
         }
 
-        .header-utils {
+        .nav-dropdown-trigger {
             display: flex;
             align-items: center;
-            gap: 0.3rem;
-            order: 3;
-            width: 100%;
-            justify-content: flex-end;
-            padding-top: 0.3rem;
-            border-top: 1px solid var(--clay-b);
-            margin-top: 0.2rem
-        }
-
-        .lang-switcher {
-            display: flex;
-            gap: 0.2rem
-        }
-
-        .lang-btn {
-            background: var(--clay);
-            border: 1.5px solid var(--clay-b);
-            border-radius: var(--r-xs);
-            padding: 0.2rem 0.5rem;
+            gap: .3rem;
             cursor: pointer;
-            font-size: 0.7rem;
-            transition: all var(--fast);
-            color: var(--muted);
+            background: none;
+            border: none;
             font-family: inherit
         }
 
-        .lang-btn:hover,
-        .lang-btn.active {
-            border-color: var(--nova);
-            color: var(--w);
-            background: rgba(var(--nova-r), 0.15)
+        .nav-dropdown-trigger .chevron {
+            width: 12px;
+            height: 12px;
+            transition: transform var(--fast);
+            opacity: .5
         }
 
-        .theme-toggle {
-            background: var(--clay);
-            border: 1.5px solid var(--clay-b);
-            border-radius: var(--r-xs);
-            padding: 0.2rem 0.5rem;
-            cursor: pointer;
-            font-size: 0.9rem;
+        .nav-dropdown:hover .chevron,
+        .nav-dropdown:focus-within .chevron {
+            transform: rotate(180deg);
+            opacity: 1
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            min-width: 200px;
+            background: rgba(20, 18, 35, 0.95);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--r-sm);
+            padding: .5rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
             transition: all var(--fast);
-            color: var(--muted);
-            line-height: 1.4
+            z-index: 100
         }
 
-        .theme-toggle:hover {
-            border-color: var(--nova);
-            color: var(--w);
-            background: rgba(var(--nova-r), 0.15)
+        [data-theme="light"] .nav-dropdown-menu {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12)
         }
 
-        .currency-select {
-            background: var(--clay);
-            border: 1.5px solid var(--clay-b);
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown:focus-within .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0)
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .55rem .7rem;
             border-radius: var(--r-xs);
-            padding: 0.2rem 0.4rem;
+            text-decoration: none;
             color: var(--muted);
-            font-size: 0.7rem;
-            font-family: inherit;
-            cursor: pointer;
+            font-size: .82rem;
+            font-weight: 500;
             transition: all var(--fast)
         }
 
-        .currency-select:hover,
-        .currency-select:focus {
-            border-color: var(--nova);
+        .dropdown-item:hover {
+            background: rgba(var(--nova-r), 0.1);
             color: var(--w)
         }
 
-        /* ===== BUTTONS ===== */
+        .dropdown-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .95rem;
+            flex-shrink: 0;
+            background: rgba(var(--nova-r), 0.08);
+            border: 1px solid rgba(var(--nova-r), 0.12)
+        }
+
+        .dropdown-label {
+            display: flex;
+            flex-direction: column
+        }
+
+        .dropdown-label strong {
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--w)
+        }
+
+        .dropdown-label small {
+            font-size: .68rem;
+            color: var(--muted);
+            margin-top: .1rem
+        }
+
+        .dropdown-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.06);
+            margin: .3rem .5rem
+        }
+
+        [data-theme="light"] .dropdown-divider {
+            background: rgba(0, 0, 0, 0.06)
+        }
+
+        /* ── Header Actions (desktop) ── */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: .35rem;
+            flex-shrink: 0
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+            cursor: pointer;
+            transition: all var(--fast);
+            font-size: .95rem;
+            position: relative
+        }
+
+        .action-btn:hover {
+            background: rgba(var(--nova-r), 0.1);
+            border-color: rgba(var(--nova-r), 0.3);
+            color: var(--w);
+            transform: translateY(-1px)
+        }
+
+        .action-btn:active {
+            transform: scale(0.95)
+        }
+
+        /* Tooltip */
+        .action-btn[data-tooltip]::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
+            background: rgba(20, 18, 35, 0.95);
+            color: var(--w);
+            padding: .25rem .55rem;
+            border-radius: 8px;
+            font-size: .68rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--fast);
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.08)
+        }
+
+        [data-theme="light"] .action-btn[data-tooltip]::before {
+            background: rgba(15, 23, 42, 0.9);
+            color: #fff
+        }
+
+        .action-btn[data-tooltip]::after {
+            content: '';
+            position: absolute;
+            bottom: calc(100% + 4px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid transparent;
+            border-top-color: rgba(20, 18, 35, 0.95);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--fast);
+            pointer-events: none
+        }
+
+        .action-btn[data-tooltip]:hover::before,
+        .action-btn[data-tooltip]:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0)
+        }
+
+        .action-btn[data-tooltip]:hover::after {
+            transform: translateX(-50%)
+        }
+
+        /* Language Selector */
+        .lang-selector {
+            position: relative
+        }
+
+        .lang-current {
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+            padding: .3rem .5rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+            font-size: .75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--fast);
+            font-family: inherit;
+            height: 36px
+        }
+
+        .lang-current:hover {
+            background: rgba(var(--nova-r), 0.1);
+            border-color: rgba(var(--nova-r), 0.3);
+            color: var(--w)
+        }
+
+        .lang-current .flag {
+            font-size: .9rem;
+            line-height: 1
+        }
+
+        .lang-current .chevron {
+            width: 10px;
+            height: 10px;
+            opacity: .5;
+            transition: transform var(--fast)
+        }
+
+        .lang-selector:hover .lang-current .chevron,
+        .lang-selector:focus-within .lang-current .chevron {
+            transform: rotate(180deg)
+        }
+
+        .lang-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            min-width: 140px;
+            background: rgba(20, 18, 35, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--r-xs);
+            padding: .35rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-4px);
+            transition: all var(--fast);
+            z-index: 100
+        }
+
+        [data-theme="light"] .lang-menu {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)
+        }
+
+        .lang-selector:hover .lang-menu,
+        .lang-selector:focus-within .lang-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0)
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .4rem .6rem;
+            border-radius: 8px;
+            font-size: .78rem;
+            color: var(--muted);
+            cursor: pointer;
+            transition: all var(--fast);
+            border: none;
+            background: none;
+            width: 100%;
+            font-family: inherit;
+            text-align: right
+        }
+
+        .lang-option:hover {
+            background: rgba(var(--nova-r), 0.1);
+            color: var(--w)
+        }
+
+        .lang-option.active {
+            color: var(--sec);
+            font-weight: 600
+        }
+
+        .lang-option.active::after {
+            content: '✓';
+            margin-right: auto;
+            font-size: .7rem;
+            color: var(--green)
+        }
+
+        .lang-option .flag {
+            font-size: .95rem
+        }
+
+        /* Divider (vertical) */
+        .header-divider {
+            width: 1px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            margin: 0 .2rem
+        }
+
+        [data-theme="light"] .header-divider {
+            background: rgba(0, 0, 0, 0.08)
+        }
+
+        /* CTA Button */
+        .header-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .45rem 1.1rem;
+            border-radius: var(--r-xs);
+            font-weight: 700;
+            font-size: .8rem;
+            text-decoration: none;
+            color: var(--w);
+            background: var(--shim);
+            background-size: 200% 200%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 8px rgba(var(--nova-r), 0.25);
+            transition: all var(--fast);
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            font-family: inherit
+        }
+
+        .header-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent 50%);
+            pointer-events: none
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(var(--nova-r), 0.35)
+        }
+
+        .header-cta:active {
+            transform: translateY(0) scale(0.97)
+        }
+
+        /* ── Mobile Hamburger ── */
+        .mob-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            gap: 5px;
+            padding: 0;
+            flex-shrink: 0;
+            transition: background var(--fast);
+            z-index: 1001
+        }
+
+        .mob-toggle:hover {
+            background: rgba(var(--nova-r), 0.1)
+        }
+
+        .mob-toggle span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--w);
+            border-radius: 2px;
+            transition: all var(--fast);
+            transform-origin: center
+        }
+
+        .mob-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px)
+        }
+
+        .mob-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0)
+        }
+
+        .mob-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px)
+        }
+
+        /* ── Mobile Overlay ── */
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 899;
+            animation: fadeIn .3s var(--ease)
+        }
+
+        .mobile-overlay.active {
+            display: block
+        }
+
+        /* ── Mobile Drawer ── */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: min(320px, 85vw);
+            height: 100%;
+            background: rgba(14, 12, 26, 0.97);
+            backdrop-filter: blur(30px) saturate(160%);
+            -webkit-backdrop-filter: blur(30px) saturate(160%);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 950;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform .35s var(--ease);
+            overflow-y: auto;
+            overscroll-behavior: contain
+        }
+
+        [data-theme="light"] .mobile-drawer {
+            background: rgba(241, 245, 249, 0.97);
+            border-right-color: rgba(0, 0, 0, 0.08)
+        }
+
+        .mobile-drawer.open {
+            transform: translateX(0)
+        }
+
+        .mobile-drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        [data-theme="light"] .mobile-drawer-header {
+            border-bottom-color: rgba(0, 0, 0, 0.06)
+        }
+
+        .mobile-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all var(--fast)
+        }
+
+        .mobile-close:hover {
+            background: rgba(var(--red), 0.1);
+            color: var(--red)
+        }
+
+        .mobile-nav {
+            padding: 1rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .2rem;
+            flex: 1
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .7rem .8rem;
+            border-radius: var(--r-xs);
+            color: var(--muted);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 500;
+            transition: all var(--fast)
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link[aria-current="page"] {
+            background: rgba(var(--nova-r), 0.08);
+            color: var(--w)
+        }
+
+        .mobile-nav-link[aria-current="page"] {
+            font-weight: 600;
+            border-right: 3px solid var(--nova)
+        }
+
+        .mobile-nav-link .nav-icon {
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center
+        }
+
+        .mobile-nav-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.06);
+            margin: .5rem 0
+        }
+
+        [data-theme="light"] .mobile-nav-divider {
+            background: rgba(0, 0, 0, 0.06)
+        }
+
+        .mobile-nav-section {
+            font-size: .7rem;
+            color: var(--muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            padding: .5rem .8rem .2rem;
+            opacity: .6
+        }
+
+        /* Mobile Accordion */
+        .mobile-accordion {
+            border: none;
+            background: none
+        }
+
+        .mobile-accordion summary {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .7rem .8rem;
+            border-radius: var(--r-xs);
+            color: var(--muted);
+            font-size: .9rem;
+            font-weight: 500;
+            cursor: pointer;
+            list-style: none;
+            transition: all var(--fast)
+        }
+
+        .mobile-accordion summary::-webkit-details-marker {
+            display: none
+        }
+
+        .mobile-accordion summary:hover {
+            background: rgba(var(--nova-r), 0.08);
+            color: var(--w)
+        }
+
+        .mobile-accordion summary .acc-chevron {
+            margin-right: auto;
+            transition: transform var(--fast);
+            font-size: .7rem;
+            opacity: .5
+        }
+
+        .mobile-accordion[open] summary .acc-chevron {
+            transform: rotate(180deg)
+        }
+
+        .mobile-accordion-body {
+            padding: .2rem 0 .2rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: .1rem
+        }
+
+        .mobile-accordion-body a {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .45rem .6rem;
+            border-radius: 8px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: .82rem;
+            transition: all var(--fast)
+        }
+
+        .mobile-accordion-body a:hover {
+            background: rgba(var(--nova-r), 0.06);
+            color: var(--w)
+        }
+
+        /* Mobile Footer */
+        .mobile-drawer-footer {
+            padding: 1rem 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            flex-direction: column;
+            gap: .8rem
+        }
+
+        [data-theme="light"] .mobile-drawer-footer {
+            border-top-color: rgba(0, 0, 0, 0.06)
+        }
+
+        .mobile-utils {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .mobile-util-btn {
+            display: flex;
+            align-items: center;
+            gap: .35rem;
+            padding: .4rem .7rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+            font-size: .75rem;
+            cursor: pointer;
+            transition: all var(--fast);
+            font-family: inherit
+        }
+
+        .mobile-util-btn:hover {
+            background: rgba(var(--nova-r), 0.1);
+            border-color: rgba(var(--nova-r), 0.3);
+            color: var(--w)
+        }
+
+        .mobile-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            padding: .7rem 1.2rem;
+            border-radius: var(--r-xs);
+            font-weight: 700;
+            font-size: .88rem;
+            text-decoration: none;
+            color: var(--w);
+            background: var(--shim);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 8px rgba(var(--nova-r), 0.25);
+            transition: all var(--fast);
+            font-family: inherit;
+            cursor: pointer
+        }
+
+        .mobile-cta:hover {
+            box-shadow: 0 4px 16px rgba(var(--nova-r), 0.35)
+        }
+
+        /* ═══════════════════════════════════════════
+           BUTTONS
+           ═══════════════════════════════════════════ */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -505,8 +1150,7 @@
             font-family: inherit;
             white-space: nowrap;
             position: relative;
-            overflow: hidden;
-            user-select: none
+            overflow: hidden
         }
 
         .btn-p {
@@ -526,7 +1170,7 @@
 
         .btn-p:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 10px rgba(var(--nova-r), 0.3), 0 12px 22px rgba(var(--nova-r), 0.25), 0 22px 44px rgba(var(--nova-r), 0.2)
+            box-shadow: 0 6px 10px rgba(var(--nova-r), 0.3), 0 12px 22px rgba(var(--nova-r), 0.25)
         }
 
         .btn-g {
@@ -543,7 +1187,9 @@
             border-color: rgba(var(--nova-r), 0.4)
         }
 
-        /* ===== MAIN BLOG LAYOUT ===== */
+        /* ═══════════════════════════════════════════
+           MAIN BLOG LAYOUT
+           ═══════════════════════════════════════════ */
         .main {
             max-width: var(--max);
             margin: 0 auto;
@@ -552,7 +1198,7 @@
             z-index: 10
         }
 
-        /* ===== BLOG HERO ===== */
+        /* Blog Hero */
         .blog-hero {
             padding: clamp(7rem, 15vw, 10rem) 0 clamp(3rem, 6vw, 5rem);
             text-align: center;
@@ -590,18 +1236,16 @@
             font-size: clamp(2rem, 6vw, 3.2rem);
             font-weight: 800;
             line-height: 1.2;
-            letter-spacing: .02em;
             margin-bottom: 1rem
         }
 
-        .blog-hero h1 .grad {
+        .grad {
             background: var(--shim);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text
         }
 
-        .blog-hero>p,
         .blog-hero-content>p {
             color: var(--muted);
             font-size: clamp(.9rem, 2vw, 1.05rem);
@@ -610,7 +1254,7 @@
             line-height: 1.9
         }
 
-        /* ===== BREADCRUMB ===== */
+        /* Breadcrumb */
         .breadcrumb {
             display: flex;
             align-items: center;
@@ -636,7 +1280,7 @@
             opacity: .5
         }
 
-        /* ===== BLOG SEARCH & FILTERS ===== */
+        /* Blog Toolbar */
         .blog-toolbar {
             display: flex;
             align-items: center;
@@ -736,7 +1380,7 @@
             color: var(--w)
         }
 
-        /* ===== FEATURED POST ===== */
+        /* Featured Post */
         .featured-post {
             position: relative;
             margin-bottom: 3rem;
@@ -790,13 +1434,6 @@
             font-size: 4rem;
             opacity: .5;
             animation: float 6s ease-in-out infinite
-        }
-
-        .featured-img-placeholder::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 80%, rgba(0, 0, 0, 0.3), transparent 70%)
         }
 
         .featured-content {
@@ -909,7 +1546,7 @@
             transform: translateX(-4px)
         }
 
-        /* ===== BLOG GRID ===== */
+        /* Blog Grid */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -920,7 +1557,6 @@
         .blog-card {
             background: var(--clay);
             backdrop-filter: var(--clay-blur);
-            -webkit-backdrop-filter: var(--clay-blur);
             border: 1px solid var(--clay-b);
             border-radius: var(--r);
             box-shadow: var(--clay-sh);
@@ -939,7 +1575,6 @@
             right: 0;
             height: 50%;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent);
-            border-radius: var(--r) var(--r) 0 0;
             pointer-events: none;
             z-index: 1
         }
@@ -961,27 +1596,13 @@
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative
+            justify-content: center
         }
 
         .card-img-placeholder .icon-medium {
             font-size: 2.5rem;
             opacity: .5;
-            animation: float 5s ease-in-out infinite;
-            position: relative;
-            z-index: 1
-        }
-
-        .card-img-placeholder::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60%;
-            background: linear-gradient(to top, var(--bg), transparent);
-            opacity: .5
+            animation: float 5s ease-in-out infinite
         }
 
         .card-img-1 {
@@ -1044,8 +1665,7 @@
             display: flex;
             align-items: center;
             gap: .6rem;
-            margin-bottom: .6rem;
-            flex-wrap: wrap
+            margin-bottom: .6rem
         }
 
         .card-body h3 {
@@ -1103,13 +1723,13 @@
             flex-shrink: 0
         }
 
-        .author-info .author-name {
+        .author-name {
             font-size: .75rem;
             font-weight: 600;
             color: var(--w)
         }
 
-        .author-info .author-date {
+        .author-date {
             font-size: .68rem;
             color: var(--muted)
         }
@@ -1133,7 +1753,7 @@
             height: 14px
         }
 
-        /* ===== SIDEBAR ===== */
+        /* Blog Layout */
         .blog-layout {
             display: grid;
             grid-template-columns: 1fr 320px;
@@ -1141,6 +1761,7 @@
             margin-bottom: 4rem
         }
 
+        /* Sidebar */
         .sidebar {
             display: flex;
             flex-direction: column;
@@ -1155,8 +1776,7 @@
             box-shadow: var(--clay-sh);
             padding: 1.5rem;
             position: relative;
-            overflow: hidden;
-            transition: all var(--norm)
+            overflow: hidden
         }
 
         .sidebar-widget::before {
@@ -1190,7 +1810,6 @@
             border-radius: var(--r-full)
         }
 
-        /* Popular Posts Widget */
         .popular-list {
             list-style: none;
             display: flex;
@@ -1244,12 +1863,11 @@
             color: var(--sec)
         }
 
-        .popular-info .pop-meta {
+        .pop-meta {
             font-size: .68rem;
             color: var(--muted)
         }
 
-        /* Categories Widget */
         .category-list {
             list-style: none;
             display: flex;
@@ -1275,8 +1893,7 @@
             color: var(--w)
         }
 
-        .category-item .cat-icon {
-            font-size: 1rem;
+        .cat-icon {
             margin-left: .4rem
         }
 
@@ -1289,7 +1906,6 @@
             color: var(--sec)
         }
 
-        /* Tags Cloud Widget */
         .tags-cloud {
             display: flex;
             flex-wrap: wrap;
@@ -1313,7 +1929,6 @@
             color: var(--w)
         }
 
-        /* Newsletter Widget */
         .newsletter-widget {
             background: linear-gradient(135deg, rgba(var(--nova-r), 0.08), rgba(var(--pink-r), 0.05));
             border-color: rgba(var(--nova-r), 0.2)
@@ -1353,12 +1968,7 @@
             opacity: .6
         }
 
-        .newsletter-form .btn {
-            padding: .6rem 1rem;
-            font-size: .82rem
-        }
-
-        /* ===== PAGINATION ===== */
+        /* Pagination */
         .pagination {
             display: flex;
             align-items: center;
@@ -1409,7 +2019,7 @@
             height: 16px
         }
 
-        /* ===== NEWSLETTER CTA ===== */
+        /* Blog CTA */
         .blog-cta {
             background: rgba(var(--nova-r), 0.06);
             border: 1.5px solid rgba(var(--nova-r), 0.18);
@@ -1419,7 +2029,7 @@
             margin-bottom: 3rem;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--clay-sh), 0 0 50px rgba(var(--nova-r), 0.06)
+            box-shadow: var(--clay-sh)
         }
 
         .blog-cta::before {
@@ -1481,7 +2091,7 @@
             opacity: .6
         }
 
-        /* ===== SCROLL TO TOP ===== */
+        /* Scroll to Top */
         .stt {
             position: fixed;
             bottom: 1.5rem;
@@ -1517,7 +2127,7 @@
             border-color: var(--nova)
         }
 
-        /* ===== LOADER ===== */
+        /* Loader */
         .ldr {
             position: fixed;
             inset: 0;
@@ -1539,7 +2149,6 @@
         .ldr-mk {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: .5rem;
             margin-bottom: 1.5rem
         }
@@ -1564,8 +2173,7 @@
             height: 4px;
             background: var(--surf);
             border-radius: var(--r-full);
-            overflow: hidden;
-            margin: 0 auto
+            overflow: hidden
         }
 
         .ldr-fl {
@@ -1581,7 +2189,6 @@
             font-size: .75rem
         }
 
-        /* Reveal animation */
         .rv {
             opacity: 0;
             transform: translateY(24px);
@@ -1605,11 +2212,7 @@
             transition-delay: .3s !important
         }
 
-        .d4 {
-            transition-delay: .4s !important
-        }
-
-        /* ===== FOOTER ===== */
+        /* Footer */
         .footer {
             background: var(--bg);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -1731,7 +2334,6 @@
             height: auto;
             filter: brightness(.9);
             border-radius: var(--r-xs);
-            cursor: pointer;
             transition: all var(--fast)
         }
 
@@ -1746,7 +2348,9 @@
             margin-top: .3rem
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ═══════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════ */
         @media (max-width: 1024px) {
             .blog-layout {
                 grid-template-columns: 1fr;
@@ -1760,100 +2364,43 @@
             }
         }
 
+        @media (max-width: 900px) {
+            .nav-desktop {
+                display: none
+            }
+
+            .header-cta-desktop {
+                display: none
+            }
+
+            .header-divider {
+                display: none
+            }
+
+            .lang-selector-desktop {
+                display: none
+            }
+
+            .mob-toggle {
+                display: flex
+            }
+        }
+
+        @media (min-width: 901px) {
+            .mob-toggle {
+                display: none !important
+            }
+
+            .mobile-drawer {
+                display: none !important
+            }
+
+            .mobile-overlay {
+                display: none !important
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav {
-                display: none;
-                position: fixed;
-                top: 100px;
-                left: 0;
-                right: 0;
-                background: rgba(10, 10, 15, 0.95);
-                backdrop-filter: var(--clay-blur);
-                flex-direction: column;
-                padding: 1.2rem var(--pad);
-                gap: .3rem;
-                border-bottom: 1px solid var(--clay-b);
-                z-index: 599;
-                animation: up .3s var(--ease);
-                max-height: calc(100vh - 100px);
-                overflow-y: auto
-            }
-
-            .mob-btn {
-                display: flex
-            }
-
-            #mt:checked~.header .nav {
-                display: flex
-            }
-
-            .hdr {
-                height: auto;
-                padding: 0.5rem 0;
-                gap: 0.3rem
-            }
-
-            .header-utils {
-                order: 2;
-                width: auto;
-                border-top: none;
-                padding-top: 0;
-                margin-top: 0;
-                justify-content: flex-end;
-                gap: 0.2rem
-            }
-
-            .lang-btn {
-                font-size: 0.6rem;
-                padding: 0.15rem 0.35rem
-            }
-
-            .currency-select {
-                font-size: 0.6rem;
-                padding: 0.15rem 0.3rem;
-                max-width: 50px
-            }
-
-            .theme-toggle {
-                font-size: 0.75rem;
-                padding: 0.1rem 0.4rem
-            }
-
-            .logo {
-                order: 1;
-                flex: 1
-            }
-
-            .logo svg {
-                width: 24px;
-                height: 24px
-            }
-
-            .logo span {
-                font-size: 1.3rem
-            }
-
-            .mob-btn {
-                order: 3;
-                font-size: 1.1rem;
-                padding: 0.3rem 0.5rem
-            }
-
-            .nav a {
-                font-size: 0.9rem;
-                padding: 0.7rem 0.8rem;
-                width: 100%;
-                text-align: center;
-                border-radius: var(--r-sm)
-            }
-
-            .nav a.btn {
-                width: 100%;
-                justify-content: center;
-                padding: 0.6rem 1.2rem;
-                font-size: 0.85rem
-            }
-
             .featured-post {
                 grid-template-columns: 1fr;
                 min-height: auto
@@ -1915,50 +2462,6 @@
         }
 
         @media (max-width: 480px) {
-            .hdr {
-                padding: 0.3rem 0
-            }
-
-            .header-utils {
-                gap: 0.15rem
-            }
-
-            .lang-btn {
-                font-size: 0.5rem;
-                padding: 0.1rem 0.25rem
-            }
-
-            .currency-select {
-                font-size: 0.5rem;
-                padding: 0.1rem 0.2rem;
-                max-width: 40px
-            }
-
-            .theme-toggle {
-                font-size: 0.65rem;
-                padding: 0.1rem 0.3rem
-            }
-
-            .logo svg {
-                width: 20px;
-                height: 20px
-            }
-
-            .logo span {
-                font-size: 1.1rem
-            }
-
-            .mob-btn {
-                font-size: 1rem;
-                padding: 0.2rem 0.4rem
-            }
-
-            .nav {
-                top: 85px;
-                max-height: calc(100vh - 85px);
-                padding: 1rem var(--pad)
-            }
-
             .ft-grid {
                 grid-template-columns: 1fr
             }
@@ -1971,6 +2474,10 @@
                 width: 34px;
                 height: 34px;
                 font-size: .78rem
+            }
+
+            .blog-hero {
+                padding: 5rem 0 2rem
             }
         }
     </style>
@@ -1991,10 +2498,8 @@
     <!-- Loader -->
     <div class="ldr" id="loader" aria-label="در حال بارگذاری">
         <div class="ldr-mk">
-            <svg viewBox="0 0 48 48" fill="none">
-                <path
-                    d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z"
-                    fill="url(#lg)" />
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)" />
                 <circle cx="24" cy="24" r="5" fill="white" opacity=".85" />
             </svg>
             <span>NOVA</span>
@@ -2005,77 +2510,232 @@
         <p class="ldr-msg">در حال آماده‌سازی وبلاگ…</p>
     </div>
 
-    <!-- Aurora Background -->
+    <!-- Aurora -->
     <div class="aurora" aria-hidden="true"></div>
 
-    <!-- Scroll Progress Bar -->
+    <!-- Scroll Progress -->
     <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
 
-    <!-- Mobile Menu Toggle -->
-    <input type="checkbox" id="mt" aria-hidden="true">
-
-    <!-- Header -->
+    <!-- ═══════════════════════════════════════════
+         HEADER
+         ═══════════════════════════════════════════ -->
     <header class="header" id="header" role="banner">
         <div class="hdr">
+            <!-- Logo -->
             <a href="https://chatnova.ir" class="logo" aria-label="نووا - صفحه اصلی">
-                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                    <path
-                        d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z"
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z"
                         fill="url(#lg)" />
                     <circle cx="24" cy="24" r="5" fill="white" opacity=".85" />
                 </svg>
-                <span>NOVA</span>
+                <span class="logo-text">NOVA</span>
             </a>
 
-            <div class="header-utils">
-                <div class="lang-switcher" role="group" aria-label="انتخاب زبان">
-                    <button class="lang-btn active" data-lang="fa" aria-label="فارسی">🇮🇷</button>
-                    <button class="lang-btn" data-lang="en" aria-label="English">🇬🇧</button>
-                    <button class="lang-btn" data-lang="tr" aria-label="Türkçe">🇹🇷</button>
-                </div>
-                <select class="currency-select" aria-label="واحد پول">
-                    <option value="IRR">ریال</option>
-                    <option value="USD">$</option>
-                    <option value="EUR">€</option>
-                    <option value="TRY">₺</option>
-                </select>
-                <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم رنگی">🌓</button>
-            </div>
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop" id="navDesktop" role="navigation" aria-label="منوی اصلی">
+                <a href="https://chatnova.ir" class="nav-link">صفحه اصلی</a>
+                <a href="https://chatnova.ir/blog" class="nav-link" aria-current="page">وبلاگ</a>
 
-            <nav class="nav" id="nav" role="navigation" aria-label="منوی اصلی">
-                <a href="https://chatnova.ir">صفحه اصلی</a>
-                <a href="https://chatnova.ir/blog" aria-current="page">وبلاگ</a>
-                <a href="https://chatnova.ir/#services">امکانات</a>
-                <a href="https://chatnova.ir/#pricing">تعرفه‌ها</a>
-                <a href="https://chatnova.ir/#security">امنیت</a>
-                <a href="https://chatnova.ir/#cta-sec" class="btn btn-p"
-                    style="padding:.5rem 1.2rem;font-size:.82rem">✨ دانلود نووا</a>
+                <!-- Products Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                        محصولات
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="#" class="dropdown-item" role="menuitem">
+                            <div class="dropdown-icon">💬</div>
+                            <div class="dropdown-label">
+                                <strong>پیام‌رسان</strong>
+                                <small>چت امن و سریع</small>
+                            </div>
+                        </a>
+                        <a href="#" class="dropdown-item" role="menuitem">
+                            <div class="dropdown-icon">💰</div>
+                            <div class="dropdown-label">
+                                <strong>کیف پول</strong>
+                                <small>مدیریت مالی هوشمند</small>
+                            </div>
+                        </a>
+                        <a href="#" class="dropdown-item" role="menuitem">
+                            <div class="dropdown-icon">🤖</div>
+                            <div class="dropdown-label">
+                                <strong>دستیار AI</strong>
+                                <small>هوش مصنوعی پیشرفته</small>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" role="menuitem">
+                            <div class="dropdown-icon">📡</div>
+                            <div class="dropdown-label">
+                                <strong>API توسعه‌دهندگان</strong>
+                                <small>ساخت ربات و اتصال</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="https://chatnova.ir/#pricing" class="nav-link">تعرفه‌ها</a>
+                <a href="https://chatnova.ir/#security" class="nav-link">امنیت</a>
+                <a href="https://chatnova.ir/#reviews" class="nav-link">نظرات</a>
             </nav>
 
-            <label for="mt" class="mob-btn" id="mBtn" role="button" tabindex="0" aria-label="باز/بسته کردن منو"
-                aria-expanded="false">☰</label>
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <!-- Theme Toggle -->
+                <button class="action-btn" id="themeToggle" data-tooltip="تغییر تم" aria-label="تغییر تم رنگی">
+                    🌓
+                </button>
+
+                <!-- Language Selector -->
+                <div class="lang-selector lang-selector-desktop">
+                    <button class="lang-current" aria-haspopup="true" aria-expanded="false" aria-label="انتخاب زبان">
+                        <span class="flag">🇮🇷</span>
+                        <span>FA</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="lang-menu" role="listbox">
+                        <button class="lang-option active" role="option" data-lang="fa" aria-selected="true">
+                            <span class="flag">🇮🇷</span> فارسی
+                        </button>
+                        <button class="lang-option" role="option" data-lang="en" aria-selected="false">
+                            <span class="flag">🇬🇧</span> English
+                        </button>
+                        <button class="lang-option" role="option" data-lang="tr" aria-selected="false">
+                            <span class="flag">🇹🇷</span> Türkçe
+                        </button>
+                    </div>
+                </div>
+
+                <div class="header-divider"></div>
+
+                <!-- CTA -->
+                <a href="https://chatnova.ir/#cta-sec" class="header-cta header-cta-desktop">
+                    ✨ دانلود نووا
+                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="mob-toggle" id="mobToggle" aria-label="باز کردن منو" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+
+    <!-- Mobile Drawer -->
+    <nav class="mobile-drawer" id="mobileDrawer" role="navigation" aria-label="منوی موبایل" aria-hidden="true">
+        <div class="mobile-drawer-header">
+            <a href="https://chatnova.ir" class="logo" aria-label="نووا">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" style="width:26px;height:26px"
+                    aria-hidden="true">
+                    <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z"
+                        fill="url(#lg)" />
+                    <circle cx="24" cy="24" r="5" fill="white" opacity=".85" />
+                </svg>
+                <span class="logo-text" style="font-size:1.2rem">NOVA</span>
+            </a>
+            <button class="mobile-close" id="mobileClose" aria-label="بستن منو">✕</button>
+        </div>
+
+        <div class="mobile-nav">
+            <a href="https://chatnova.ir" class="mobile-nav-link">
+                <span class="nav-icon">🏠</span> صفحه اصلی
+            </a>
+            <a href="https://chatnova.ir/blog" class="mobile-nav-link" aria-current="page">
+                <span class="nav-icon">📝</span> وبلاگ
+            </a>
+
+            <div class="mobile-nav-divider"></div>
+            <div class="mobile-nav-section">محصولات</div>
+
+            <details class="mobile-accordion">
+                <summary>
+                    <span class="nav-icon">📦</span> محصولات نووا
+                    <span class="acc-chevron">▾</span>
+                </summary>
+                <div class="mobile-accordion-body">
+                    <a href="#">💬 پیام‌رسان</a>
+                    <a href="#">💰 کیف پول</a>
+                    <a href="#">🤖 دستیار AI</a>
+                    <a href="#">📡 API توسعه‌دهندگان</a>
+                </div>
+            </details>
+
+            <div class="mobile-nav-divider"></div>
+
+            <a href="https://chatnova.ir/#pricing" class="mobile-nav-link">
+                <span class="nav-icon">💎</span> تعرفه‌ها
+            </a>
+            <a href="https://chatnova.ir/#security" class="mobile-nav-link">
+                <span class="nav-icon">🔐</span> امنیت
+            </a>
+            <a href="https://chatnova.ir/#reviews" class="mobile-nav-link">
+                <span class="nav-icon">⭐</span> نظرات کاربران
+            </a>
+
+            <div class="mobile-nav-divider"></div>
+            <div class="mobile-nav-section">شرکت</div>
+
+            <a href="#" class="mobile-nav-link">
+                <span class="nav-icon">ℹ️</span> درباره ما
+            </a>
+            <a href="#" class="mobile-nav-link">
+                <span class="nav-icon">📞</span> تماس با ما
+            </a>
+            <a href="#" class="mobile-nav-link">
+                <span class="nav-icon">💼</span> فرصت‌های شغلی
+            </a>
+        </div>
+
+        <div class="mobile-drawer-footer">
+            <div class="mobile-utils">
+                <button class="mobile-util-btn" id="mobileThemeToggle" aria-label="تغییر تم">
+                    🌓 تم
+                </button>
+                <button class="mobile-util-btn" data-lang="fa">🇮🇷 فارسی</button>
+                <button class="mobile-util-btn" data-lang="en">🇬🇧 EN</button>
+                <button class="mobile-util-btn" data-lang="tr">🇹🇷 TR</button>
+            </div>
+            <a href="https://chatnova.ir/#cta-sec" class="mobile-cta">
+                ✨ دانلود رایگان نووا
+            </a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════
+         MAIN CONTENT
+         ═══════════════════════════════════════════ -->
     <main id="main-content" role="main">
 
-        <!-- Blog Hero Section -->
+        <!-- Blog Hero -->
         <section class="blog-hero" aria-labelledby="blog-title">
             <div class="blog-hero-aura" aria-hidden="true"></div>
             <div class="blog-hero-content main rv">
-                <div class="breadcrumb" aria-label="مسیر ناوبری">
+                <nav class="breadcrumb" aria-label="مسیر ناوبری">
                     <a href="https://chatnova.ir">خانه</a>
                     <span>›</span>
                     <span>وبلاگ</span>
-                </div>
+                </nav>
                 <div class="stag">
-                    <span style="width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(var(--green-r),0.6)"></span>
+                    <span
+                        style="width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(var(--green-r),0.6)"
+                        aria-hidden="true"></span>
                     به‌روزرسانی هفتگی
                 </div>
                 <h1 id="blog-title">وبلاگ <span class="grad">نووا</span></h1>
-                <p>جدیدترین مقالات آموزشی، اخبار محصول و راهنماهای تخصصی درباره امنیت دیجیتال، کیف پول رمزارز و
-                    هوش مصنوعی را اینجا بخوانید.</p>
+                <p>جدیدترین مقالات آموزشی، اخبار محصول و راهنماهای تخصصی درباره امنیت دیجیتال، کیف پول رمزارز و هوش
+                    مصنوعی.</p>
             </div>
         </section>
 
@@ -2134,17 +2794,11 @@
                             ۸ دقیقه مطالعه
                         </span>
                     </div>
-                    <h2>
-                        <a href="/blog/end-to-end-encryption" itemprop="headline">
-                            چرا رمزنگاری سرتاسری برای امنیت پیام‌ها ضروری است؟
-                        </a>
-                    </h2>
-                    <p itemprop="description">
-                        در دنیای دیجیتال امروز، حریم خصوصی به یک دغدغه بزرگ تبدیل شده است. نووا با استفاده از
-                        پروتکل‌های پیشرفته رمزنگاری End-to-End، پیام‌های شما را از چشم هر ناظر ثالثی پنهان
-                        می‌کند. در این مقاله جامع، با مفاهیم پایه رمزنگاری، پروتکل Signal و اهمیت آن در حفظ
-                        حریم خصوصی آنلاین آشنا می‌شوید.
-                    </p>
+                    <h2><a href="/blog/end-to-end-encryption" itemprop="headline">چرا رمزنگاری سرتاسری برای امنیت
+                            پیام‌ها ضروری است؟</a></h2>
+                    <p itemprop="description">در دنیای دیجیتال امروز، حریم خصوصی به یک دغدغه بزرگ تبدیل شده است. نووا با
+                        استفاده از پروتکل‌های پیشرفته رمزنگاری End-to-End، پیام‌های شما را از چشم هر ناظر ثالثی پنهان
+                        می‌کند.</p>
                     <a href="/blog/end-to-end-encryption" class="read-more" itemprop="url"
                         aria-label="ادامه مطلب: رمزنگاری سرتاسری">
                         ادامه مطلب
@@ -2158,9 +2812,8 @@
             </article>
         </div>
 
-        <!-- Blog Layout: Grid + Sidebar -->
+        <!-- Blog Layout -->
         <div class="main blog-layout rv d3">
-            <!-- Blog Grid -->
             <section class="blog-content" aria-label="لیست مقالات">
                 <div class="blog-grid">
                     <!-- Card 1 -->
@@ -2170,12 +2823,10 @@
                             <div class="card-img-placeholder card-img-2">
                                 <span class="icon-medium" aria-hidden="true">💰</span>
                             </div>
-                            <span class="card-category">
-                                <span class="category-tag">کیف پول</span>
-                            </span>
+                            <span class="card-category"><span class="category-tag">کیف پول</span></span>
                             <span class="card-reading-time">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    width="12" height="12" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12"
+                                    height="12" aria-hidden="true">
                                     <circle cx="12" cy="12" r="10" />
                                     <path d="M12 6v6l4 2" />
                                 </svg>
@@ -2184,19 +2835,13 @@
                         </div>
                         <div class="card-body">
                             <div class="card-meta">
-                                <span class="meta-item">
-                                    <time datetime="2025-06-15" itemprop="datePublished">۲۵ خرداد ۱۴۰۴</time>
-                                </span>
+                                <span class="meta-item"><time datetime="2025-06-15" itemprop="datePublished">۲۵ خرداد
+                                        ۱۴۰۴</time></span>
                             </div>
-                            <h3>
-                                <a href="/blog/digital-wallet" itemprop="headline">
-                                    کیف پول دیجیتال در نووا؛ مدیریت مالی هوشمند
-                                </a>
-                            </h3>
-                            <p class="card-excerpt" itemprop="description">
-                                با کیف پول دیجیتال نووا، می‌توانید به راحتی صورتحساب‌های خود را پرداخت کنید، شارژ بخرید
-                                و حتی برای دوستان خود پول بفرستید. همه اینها با امنیت بالای بانکی و سرعت بی‌نظیر.
-                            </p>
+                            <h3><a href="/blog/digital-wallet" itemprop="headline">کیف پول دیجیتال در نووا؛ مدیریت مالی
+                                    هوشمند</a></h3>
+                            <p class="card-excerpt" itemprop="description">با کیف پول دیجیتال نووا، می‌توانید به راحتی
+                                صورتحساب‌ها را پرداخت کنید، شارژ بخرید و حتی برای دوستان خود پول بفرستید.</p>
                             <div class="card-footer">
                                 <div class="card-author">
                                     <div class="author-avatar" aria-hidden="true">👤</div>
@@ -2211,16 +2856,14 @@
                                             aria-hidden="true">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                             <circle cx="12" cy="12" r="3" />
-                                        </svg>
-                                        ۲۴۰
+                                        </svg>۲۴۰
                                     </span>
                                     <span class="stat-item" aria-label="۱۸ نظر">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             aria-hidden="true">
                                             <path
                                                 d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                                        </svg>
-                                        ۱۸
+                                        </svg>۱۸
                                     </span>
                                 </div>
                             </div>
@@ -2234,12 +2877,10 @@
                             <div class="card-img-placeholder card-img-3">
                                 <span class="icon-medium" aria-hidden="true">🤖</span>
                             </div>
-                            <span class="card-category">
-                                <span class="category-tag">هوش مصنوعی</span>
-                            </span>
+                            <span class="card-category"><span class="category-tag">هوش مصنوعی</span></span>
                             <span class="card-reading-time">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    width="12" height="12" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12"
+                                    height="12" aria-hidden="true">
                                     <circle cx="12" cy="12" r="10" />
                                     <path d="M12 6v6l4 2" />
                                 </svg>
@@ -2248,19 +2889,14 @@
                         </div>
                         <div class="card-body">
                             <div class="card-meta">
-                                <span class="meta-item">
-                                    <time datetime="2025-06-10" itemprop="datePublished">۲۰ خرداد ۱۴۰۴</time>
-                                </span>
+                                <span class="meta-item"><time datetime="2025-06-10" itemprop="datePublished">۲۰ خرداد
+                                        ۱۴۰۴</time></span>
                             </div>
-                            <h3>
-                                <a href="/blog/ai-assistant" itemprop="headline">
-                                    هوش مصنوعی در خدمت ارتباطات؛ دستیار نووا چگونه کار می‌کند؟
-                                </a>
-                            </h3>
-                            <p class="card-excerpt" itemprop="description">
-                                دستیار هوش مصنوعی نووا با یادگیری عمیق، می‌تواند به شما در ترجمه همزمان، تولید محتوا،
-                                خلاصه‌سازی مکالمات و حتی برنامه‌ریزی روزانه کمک کند. کشف قابلیت‌های شگفت‌انگیز آن.
-                            </p>
+                            <h3><a href="/blog/ai-assistant" itemprop="headline">هوش مصنوعی در خدمت ارتباطات؛ دستیار نووا
+                                    چگونه کار می‌کند؟</a></h3>
+                            <p class="card-excerpt" itemprop="description">دستیار هوش مصنوعی نووا با یادگیری عمیق،
+                                می‌تواند به شما در ترجمه همزمان، تولید محتوا، خلاصه‌سازی مکالمات و برنامه‌ریزی روزانه
+                                کمک کند.</p>
                             <div class="card-footer">
                                 <div class="card-author">
                                     <div class="author-avatar" aria-hidden="true">👤</div>
@@ -2275,16 +2911,14 @@
                                             aria-hidden="true">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                             <circle cx="12" cy="12" r="3" />
-                                        </svg>
-                                        ۵۲۰
+                                        </svg>۵۲۰
                                     </span>
                                     <span class="stat-item" aria-label="۳۲ نظر">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             aria-hidden="true">
                                             <path
                                                 d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                                        </svg>
-                                        ۳۲
+                                        </svg>۳۲
                                     </span>
                                 </div>
                             </div>
@@ -2298,12 +2932,10 @@
                             <div class="card-img-placeholder card-img-4">
                                 <span class="icon-medium" aria-hidden="true">🛡️</span>
                             </div>
-                            <span class="card-category">
-                                <span class="category-tag">امنیت</span>
-                            </span>
+                            <span class="card-category"><span class="category-tag">امنیت</span></span>
                             <span class="card-reading-time">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    width="12" height="12" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12"
+                                    height="12" aria-hidden="true">
                                     <circle cx="12" cy="12" r="10" />
                                     <path d="M12 6v6l4 2" />
                                 </svg>
@@ -2312,19 +2944,13 @@
                         </div>
                         <div class="card-body">
                             <div class="card-meta">
-                                <span class="meta-item">
-                                    <time datetime="2025-06-05" itemprop="datePublished">۱۵ خرداد ۱۴۰۴</time>
-                                </span>
+                                <span class="meta-item"><time datetime="2025-06-05" itemprop="datePublished">۱۵ خرداد
+                                        ۱۴۰۴</time></span>
                             </div>
-                            <h3>
-                                <a href="/blog/two-factor-auth" itemprop="headline">
-                                    احراز هویت دو مرحله‌ای: چرا و چگونه فعال کنیم؟
-                                </a>
-                            </h3>
-                            <p class="card-excerpt" itemprop="description">
-                                فعال‌سازی احراز هویت دو مرحله‌ای (2FA) یکی از ساده‌ترین و مؤثرترین راه‌ها برای افزایش
-                                امنیت حساب کاربری شماست. در این آموزش قدم به قدم یاد بگیرید.
-                            </p>
+                            <h3><a href="/blog/two-factor-auth" itemprop="headline">احراز هویت دو مرحله‌ای: چرا و چگونه
+                                    فعال کنیم؟</a></h3>
+                            <p class="card-excerpt" itemprop="description">فعال‌سازی احراز هویت دو مرحله‌ای (2FA) یکی از
+                                ساده‌ترین و مؤثرترین راه‌ها برای افزایش امنیت حساب کاربری شماست.</p>
                             <div class="card-footer">
                                 <div class="card-author">
                                     <div class="author-avatar" aria-hidden="true">👤</div>
@@ -2339,16 +2965,14 @@
                                             aria-hidden="true">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                             <circle cx="12" cy="12" r="3" />
-                                        </svg>
-                                        ۳۸۰
+                                        </svg>۳۸۰
                                     </span>
                                     <span class="stat-item" aria-label="۲۵ نظر">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             aria-hidden="true">
                                             <path
                                                 d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                                        </svg>
-                                        ۲۵
+                                        </svg>۲۵
                                     </span>
                                 </div>
                             </div>
@@ -2362,12 +2986,10 @@
                             <div class="card-img-placeholder card-img-5">
                                 <span class="icon-medium" aria-hidden="true">📱</span>
                             </div>
-                            <span class="card-category">
-                                <span class="category-tag">آموزش</span>
-                            </span>
+                            <span class="card-category"><span class="category-tag">آموزش</span></span>
                             <span class="card-reading-time">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    width="12" height="12" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12"
+                                    height="12" aria-hidden="true">
                                     <circle cx="12" cy="12" r="10" />
                                     <path d="M12 6v6l4 2" />
                                 </svg>
@@ -2376,19 +2998,13 @@
                         </div>
                         <div class="card-body">
                             <div class="card-meta">
-                                <span class="meta-item">
-                                    <time datetime="2025-05-28" itemprop="datePublished">۷ خرداد ۱۴۰۴</time>
-                                </span>
+                                <span class="meta-item"><time datetime="2025-05-28" itemprop="datePublished">۷ خرداد
+                                        ۱۴۰۴</time></span>
                             </div>
-                            <h3>
-                                <a href="/blog/getting-started" itemprop="headline">
-                                    شروع کار با نووا: راهنمای کامل نصب و راه‌اندازی
-                                </a>
-                            </h3>
-                            <p class="card-excerpt" itemprop="description">
-                                از دانلود اپلیکیشن تا ساخت اولین گروه و تماس ویدیویی. راهنمای تصویری و قدم به قدم
-                                برای کاربران جدید نووا.
-                            </p>
+                            <h3><a href="/blog/getting-started" itemprop="headline">شروع کار با نووا: راهنمای کامل نصب و
+                                    راه‌اندازی</a></h3>
+                            <p class="card-excerpt" itemprop="description">از دانلود اپلیکیشن تا ساخت اولین گروه و تماس
+                                ویدیویی. راهنمای تصویری و قدم به قدم برای کاربران جدید نووا.</p>
                             <div class="card-footer">
                                 <div class="card-author">
                                     <div class="author-avatar" aria-hidden="true">👤</div>
@@ -2403,16 +3019,14 @@
                                             aria-hidden="true">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                             <circle cx="12" cy="12" r="3" />
-                                        </svg>
-                                        ۶۹۰
+                                        </svg>۶۹۰
                                     </span>
                                     <span class="stat-item" aria-label="۴۱ نظر">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             aria-hidden="true">
                                             <path
                                                 d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                                        </svg>
-                                        ۴۱
+                                        </svg>۴۱
                                     </span>
                                 </div>
                             </div>
@@ -2426,12 +3040,10 @@
                             <div class="card-img-placeholder card-img-6">
                                 <span class="icon-medium" aria-hidden="true">🧠</span>
                             </div>
-                            <span class="card-category">
-                                <span class="category-tag">هوش مصنوعی</span>
-                            </span>
+                            <span class="card-category"><span class="category-tag">هوش مصنوعی</span></span>
                             <span class="card-reading-time">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    width="12" height="12" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12"
+                                    height="12" aria-hidden="true">
                                     <circle cx="12" cy="12" r="10" />
                                     <path d="M12 6v6l4 2" />
                                 </svg>
@@ -2440,19 +3052,13 @@
                         </div>
                         <div class="card-body">
                             <div class="card-meta">
-                                <span class="meta-item">
-                                    <time datetime="2025-05-20" itemprop="datePublished">۳۰ اردیبهشت ۱۴۰۴</time>
-                                </span>
+                                <span class="meta-item"><time datetime="2025-05-20" itemprop="datePublished">۳۰
+                                        اردیبهشت ۱۴۰۴</time></span>
                             </div>
-                            <h3>
-                                <a href="/blog/ai-translation" itemprop="headline">
-                                    ترجمه همزمان با هوش مصنوعی نووا: ارتباط بدون مرز زبانی
-                                </a>
-                            </h3>
-                            <p class="card-excerpt" itemprop="description">
-                                قابلیت ترجمه همزمان نووا از بیش از ۵۰ زبان پشتیبانی می‌کند. بدون نیاز به اپ جداگانه،
-                                پیام‌ها را در لحظه ترجمه کنید.
-                            </p>
+                            <h3><a href="/blog/ai-translation" itemprop="headline">ترجمه همزمان با هوش مصنوعی نووا:
+                                    ارتباط بدون مرز زبانی</a></h3>
+                            <p class="card-excerpt" itemprop="description">قابلیت ترجمه همزمان نووا از بیش از ۵۰ زبان
+                                پشتیبانی می‌کند. بدون نیاز به اپ جداگانه، پیام‌ها را در لحظه ترجمه کنید.</p>
                             <div class="card-footer">
                                 <div class="card-author">
                                     <div class="author-avatar" aria-hidden="true">👤</div>
@@ -2467,16 +3073,14 @@
                                             aria-hidden="true">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                             <circle cx="12" cy="12" r="3" />
-                                        </svg>
-                                        ۴۱۵
+                                        </svg>۴۱۵
                                     </span>
                                     <span class="stat-item" aria-label="۲۷ نظر">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             aria-hidden="true">
                                             <path
                                                 d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                                        </svg>
-                                        ۲۷
+                                        </svg>۲۷
                                     </span>
                                 </div>
                             </div>
@@ -2490,12 +3094,10 @@
                             <div class="card-img-placeholder card-img-1">
                                 <span class="icon-medium" aria-hidden="true">💳</span>
                             </div>
-                            <span class="card-category">
-                                <span class="category-tag">کیف پول</span>
-                            </span>
+                            <span class="card-category"><span class="category-tag">کیف پول</span></span>
                             <span class="card-reading-time">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    width="12" height="12" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12"
+                                    height="12" aria-hidden="true">
                                     <circle cx="12" cy="12" r="10" />
                                     <path d="M12 6v6l4 2" />
                                 </svg>
@@ -2504,19 +3106,13 @@
                         </div>
                         <div class="card-body">
                             <div class="card-meta">
-                                <span class="meta-item">
-                                    <time datetime="2025-05-12" itemprop="datePublished">۲۲ اردیبهشت ۱۴۰۴</time>
-                                </span>
+                                <span class="meta-item"><time datetime="2025-05-12" itemprop="datePublished">۲۲
+                                        اردیبهشت ۱۴۰۴</time></span>
                             </div>
-                            <h3>
-                                <a href="/blog/crypto-basics" itemprop="headline">
-                                    آشنایی با ارزهای دیجیتال: راهنمای مبتدیان
-                                </a>
-                            </h3>
-                            <p class="card-excerpt" itemprop="description">
-                                بیت‌کوین، اتریوم و… از کجا شروع کنیم؟ یک راهنمای ساده و بدون پیچیدگی برای آشنایی
-                                با دنیای ارزهای دیجیتال و نحوه مدیریت آنها در نووا.
-                            </p>
+                            <h3><a href="/blog/crypto-basics" itemprop="headline">آشنایی با ارزهای دیجیتال: راهنمای
+                                    مبتدیان</a></h3>
+                            <p class="card-excerpt" itemprop="description">بیت‌کوین، اتریوم و… از کجا شروع کنیم؟ یک
+                                راهنمای ساده برای آشنایی با دنیای ارزهای دیجیتال و نحوه مدیریت آنها در نووا.</p>
                             <div class="card-footer">
                                 <div class="card-author">
                                     <div class="author-avatar" aria-hidden="true">👤</div>
@@ -2531,16 +3127,14 @@
                                             aria-hidden="true">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                             <circle cx="12" cy="12" r="3" />
-                                        </svg>
-                                        ۵۵۰
+                                        </svg>۵۵۰
                                     </span>
                                     <span class="stat-item" aria-label="۳۶ نظر">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             aria-hidden="true">
                                             <path
                                                 d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                                        </svg>
-                                        ۳۶
+                                        </svg>۳۶
                                     </span>
                                 </div>
                             </div>
@@ -2559,7 +3153,8 @@
                     <a href="#" class="page-btn active" aria-label="صفحه ۱" aria-current="page">۱</a>
                     <a href="#" class="page-btn" aria-label="صفحه ۲">۲</a>
                     <a href="#" class="page-btn" aria-label="صفحه ۳">۳</a>
-                    <span class="page-btn" style="border:none;background:transparent;cursor:default">…</span>
+                    <span class="page-btn" style="border:none;background:transparent;cursor:default"
+                        aria-hidden="true">…</span>
                     <a href="#" class="page-btn" aria-label="صفحه ۸">۸</a>
                     <a href="#" class="page-btn" aria-label="صفحه بعد">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -2572,7 +3167,6 @@
 
             <!-- Sidebar -->
             <aside class="sidebar" role="complementary" aria-label="ابزارهای جانبی">
-                <!-- Popular Posts -->
                 <div class="sidebar-widget">
                     <h3 class="widget-title">🔥 محبوب‌ترین مقالات</h3>
                     <ol class="popular-list">
@@ -2607,44 +3201,22 @@
                     </ol>
                 </div>
 
-                <!-- Categories -->
                 <div class="sidebar-widget">
                     <h3 class="widget-title">📂 دسته‌بندی‌ها</h3>
                     <ul class="category-list">
-                        <li>
-                            <a href="#" class="category-item">
-                                <span><span class="cat-icon">🔐</span> امنیت دیجیتال</span>
-                                <span class="category-count">۱۲</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="category-item">
-                                <span><span class="cat-icon">💰</span> کیف پول و مالی</span>
-                                <span class="category-count">۸</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="category-item">
-                                <span><span class="cat-icon">🤖</span> هوش مصنوعی</span>
-                                <span class="category-count">۱۵</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="category-item">
-                                <span><span class="cat-icon">📚</span> آموزش و راهنما</span>
-                                <span class="category-count">۲۰</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="category-item">
-                                <span><span class="cat-icon">📰</span> اخبار و بروزرسانی</span>
-                                <span class="category-count">۶</span>
-                            </a>
-                        </li>
+                        <li><a href="#" class="category-item"><span><span class="cat-icon">🔐</span> امنیت
+                                    دیجیتال</span><span class="category-count">۱۲</span></a></li>
+                        <li><a href="#" class="category-item"><span><span class="cat-icon">💰</span> کیف پول و
+                                    مالی</span><span class="category-count">۸</span></a></li>
+                        <li><a href="#" class="category-item"><span><span class="cat-icon">🤖</span> هوش
+                                    مصنوعی</span><span class="category-count">۱۵</span></a></li>
+                        <li><a href="#" class="category-item"><span><span class="cat-icon">📚</span> آموزش و
+                                    راهنما</span><span class="category-count">۲۰</span></a></li>
+                        <li><a href="#" class="category-item"><span><span class="cat-icon">📰</span> اخبار و
+                                    بروزرسانی</span><span class="category-count">۶</span></a></li>
                     </ul>
                 </div>
 
-                <!-- Tags -->
                 <div class="sidebar-widget">
                     <h3 class="widget-title">🏷️ برچسب‌ها</h3>
                     <div class="tags-cloud">
@@ -2663,7 +3235,6 @@
                     </div>
                 </div>
 
-                <!-- Newsletter -->
                 <div class="sidebar-widget newsletter-widget">
                     <h3 class="widget-title">📬 خبرنامه نووا</h3>
                     <p>هر هفته جدیدترین مقالات و آموزش‌ها را مستقیم در ایمیل خود دریافت کنید.</p>
@@ -2694,15 +3265,13 @@
     <footer class="footer" role="contentinfo">
         <div class="ft-grid rv">
             <div class="ft-brand">
-                <a href="https://chatnova.ir" class="logo" style="margin-bottom:.4rem"
-                    aria-label="نووا - صفحه اصلی">
+                <a href="https://chatnova.ir" class="logo" style="margin-bottom:.4rem" aria-label="نووا">
                     <svg viewBox="0 0 48 48" fill="none" style="width:24px;height:24px" aria-hidden="true">
-                        <path
-                            d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z"
+                        <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z"
                             fill="url(#lg)" />
                         <circle cx="24" cy="24" r="5" fill="white" opacity=".85" />
                     </svg>
-                    <span style="font-size:1.2rem">NOVA</span>
+                    <span class="logo-text" style="font-size:1.2rem">NOVA</span>
                 </a>
                 <p>ارتباطی فراتر از یک پیام، امن‌تر از همیشه.</p>
                 <div class="ft-soc">
@@ -2754,58 +3323,93 @@
     <button class="stt" id="stt" aria-label="بازگشت به بالای صفحه">↑</button>
 
     <script>
-        // Loader
+        // ── Loader ──
         window.addEventListener('load', () => {
-            setTimeout(() => document.getElementById('loader').classList.add('gone'), 1500);
+            setTimeout(() => document.getElementById('loader').classList.add('gone'), 1200);
         });
 
-        // Header Sticky
+        // ── Header Sticky + Scroll Progress + STT ──
         const header = document.getElementById('header');
         const stt = document.getElementById('stt');
         const scrollBar = document.getElementById('scrollBar');
+        let ticking = false;
 
         window.addEventListener('scroll', () => {
-            const y = window.scrollY;
-            const docH = document.documentElement.scrollHeight - window.innerHeight;
-
-            // Header
-            header.classList.toggle('stuck', y > 60);
-
-            // Scroll to top button
-            stt.classList.toggle('vis', y > 400);
-
-            // Scroll progress bar
-            const pct = docH > 0 ? (y / docH) * 100 : 0;
-            scrollBar.style.width = pct + '%';
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const y = window.scrollY;
+                    const docH = document.documentElement.scrollHeight - window.innerHeight;
+                    header.classList.toggle('stuck', y > 40);
+                    stt.classList.toggle('vis', y > 400);
+                    if (docH > 0) scrollBar.style.width = ((y / docH) * 100) + '%';
+                    ticking = false;
+                });
+                ticking = true;
+            }
         }, { passive: true });
 
-        // Scroll to top
         stt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        // Theme Toggle
+        // ── Theme Toggle ──
         const themeToggle = document.getElementById('themeToggle');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
         const savedTheme = localStorage.getItem('nova-theme');
         if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
 
-        themeToggle.addEventListener('click', () => {
+        function toggleTheme() {
             const current = document.documentElement.getAttribute('data-theme');
             const next = current === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('nova-theme', next);
             themeToggle.textContent = next === 'light' ? '🌙' : '🌓';
-        });
-
-        // Mobile menu aria
-        const mBtn = document.getElementById('mBtn');
-        const mt = document.getElementById('mt');
-        if (mBtn && mt) {
-            mt.addEventListener('change', () => {
-                mBtn.setAttribute('aria-expanded', mt.checked);
-                mBtn.textContent = mt.checked ? '✕' : '☰';
-            });
+            if (mobileThemeToggle) mobileThemeToggle.innerHTML = (next === 'light' ? '🌙' : '🌓') + ' تم';
         }
 
-        // Reveal on scroll
+        themeToggle.addEventListener('click', toggleTheme);
+        if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+
+        // ── Mobile Drawer ──
+        const mobToggle = document.getElementById('mobToggle');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileClose = document.getElementById('mobileClose');
+
+        function openDrawer() {
+            mobileDrawer.classList.add('open');
+            mobileDrawer.setAttribute('aria-hidden', 'false');
+            mobileOverlay.classList.add('active');
+            mobToggle.classList.add('active');
+            mobToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            mobileDrawer.classList.remove('open');
+            mobileDrawer.setAttribute('aria-hidden', 'true');
+            mobileOverlay.classList.remove('active');
+            mobToggle.classList.remove('active');
+            mobToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+
+        mobToggle.addEventListener('click', () => {
+            mobileDrawer.classList.contains('open') ? closeDrawer() : openDrawer();
+        });
+
+        mobileClose.addEventListener('click', closeDrawer);
+        mobileOverlay.addEventListener('click', closeDrawer);
+
+        // Close drawer on link click
+        mobileDrawer.querySelectorAll('.mobile-nav-link, .mobile-cta, .mobile-accordion-body a').forEach(link => {
+            link.addEventListener('click', closeDrawer);
+        });
+
+        // Close drawer on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) closeDrawer();
+        });
+
+        // ── Reveal on Scroll ──
         const rvEls = document.querySelectorAll('.rv');
         const rvObs = new IntersectionObserver((entries) => {
             entries.forEach(e => {
@@ -2817,16 +3421,15 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         rvEls.forEach(el => rvObs.observe(el));
 
-        // Local Date
+        // ── Local Date ──
         const localDateEl = document.getElementById('localDate');
         if (localDateEl) {
-            const now = new Date();
-            localDateEl.textContent = now.toLocaleDateString('fa-IR', {
+            localDateEl.textContent = new Date().toLocaleDateString('fa-IR', {
                 weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
             });
         }
 
-        // Filter Buttons
+        // ── Blog Filters ──
         const filterBtns = document.querySelectorAll('.filter-btn');
         const blogCards = document.querySelectorAll('.blog-card');
 
@@ -2835,41 +3438,46 @@
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 const filter = btn.dataset.filter;
-
                 blogCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = '';
+                    const show = filter === 'all' || card.dataset.category === filter;
+                    card.style.display = show ? '' : 'none';
+                    if (show) {
                         card.style.opacity = '0';
-                        card.style.transform = 'translateY(16px)';
+                        card.style.transform = 'translateY(12px)';
                         requestAnimationFrame(() => {
-                            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                            card.style.transition = 'opacity .35s ease, transform .35s ease';
                             card.style.opacity = '1';
                             card.style.transform = 'translateY(0)';
                         });
-                    } else {
-                        card.style.display = 'none';
                     }
                 });
             });
         });
 
-        // Blog Search (client-side filter)
+        // ── Blog Search ──
         const searchInput = document.getElementById('blogSearch');
         if (searchInput) {
+            let debounceTimer;
             searchInput.addEventListener('input', (e) => {
-                const q = e.target.value.trim().toLowerCase();
-                blogCards.forEach(card => {
-                    const text = card.textContent.toLowerCase();
-                    card.style.display = text.includes(q) ? '' : 'none';
-                });
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    const q = e.target.value.trim().toLowerCase();
+                    blogCards.forEach(card => {
+                        card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
+                    });
+                }, 200);
             });
         }
 
-        // Language Switcher
-        document.querySelectorAll('.lang-btn').forEach(btn => {
+        // ── Language Switcher ──
+        document.querySelectorAll('.lang-option').forEach(btn => {
             btn.addEventListener('click', () => {
-                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.lang-option').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
                 btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
             });
         });
     </script>
