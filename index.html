@@ -615,6 +615,7 @@
     }
 
     /* نمایش منوی موبایل و مخفی کردن منوی دسکتاپ در موبایل */
+        /* نمایش منوی موبایل و مخفی کردن منوی دسکتاپ در موبایل */
         @media (max-width: 900px) {
             .nav-desktop {
                 display: none !important;
@@ -641,8 +642,12 @@
             [data-theme="light"] .mobile-drawer {
                 border-left-color: rgba(0,0,0,.08) !important;
             }
+            /* لایه تیره - فقط در زمان باز بودن سایدبار نمایش داده شود */
             .mobile-overlay {
-                display: block !important; /* توسط کلاس .active کنترل می‌شود */
+                display: none !important;
+            }
+            .mobile-overlay.active {
+                display: block !important;
             }
         }
 
