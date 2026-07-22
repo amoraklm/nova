@@ -1919,11 +1919,22 @@ document.querySelectorAll('[data-c]').forEach(c => {
         if (e.isIntersecting) {
             const update = () => {
                 cur += inc;
+                // === تغییر اصلی: نمایش همه اعداد به فارسی ===
                 if (cur < target) {
-                    c.textContent = target >= 1000 ? Math.floor(cur).toLocaleString('fa-IR') : (target % 1 === 0 ? Math.floor(cur) : cur.toFixed(1));
+                    if (target % 1 === 0) {
+                        // اعداد صحیح
+                        c.textContent = Math.floor(cur).toLocaleString('fa-IR');
+                    } else {
+                        // اعداد اعشاری (با یک رقم اعشار)
+                        c.textContent = cur.toFixed(1).toLocaleString('fa-IR');
+                    }
                     requestAnimationFrame(update);
                 } else {
-                    c.textContent = target >= 1000 ? Math.floor(target).toLocaleString('fa-IR') : (target % 1 === 0 ? target : target.toFixed(1));
+                    if (target % 1 === 0) {
+                        c.textContent = Math.floor(target).toLocaleString('fa-IR');
+                    } else {
+                        c.textContent = target.toFixed(1).toLocaleString('fa-IR');
+                    }
                 }
             };
             update();
