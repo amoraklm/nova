@@ -1919,22 +1919,11 @@ document.querySelectorAll('[data-c]').forEach(c => {
         if (e.isIntersecting) {
             const update = () => {
                 cur += inc;
-                // === تغییر اصلی: نمایش همه اعداد به فارسی ===
                 if (cur < target) {
-                    if (target % 1 === 0) {
-                        // اعداد صحیح
-                        c.textContent = Math.floor(cur).toLocaleString('fa-IR');
-                    } else {
-                        // اعداد اعشاری (با یک رقم اعشار)
-                        c.textContent = cur.toFixed(1).toLocaleString('fa-IR');
-                    }
+                    c.textContent = convertToPersianNumbers(cur);
                     requestAnimationFrame(update);
                 } else {
-                    if (target % 1 === 0) {
-                        c.textContent = Math.floor(target).toLocaleString('fa-IR');
-                    } else {
-                        c.textContent = target.toFixed(1).toLocaleString('fa-IR');
-                    }
+                    c.textContent = convertToPersianNumbers(target);
                 }
             };
             update();
@@ -1943,6 +1932,41 @@ document.querySelectorAll('[data-c]').forEach(c => {
     }, { threshold: 0.4 });
     obs.observe(c);
 });
+
+// ===== تابع تبدیل اعداد انگلیسی به فارسی =====
+function convertToPersianNumbers(num) {
+    // اگر عدد اعشاری است، تعداد رقم‌های اعشار را حفظ کن
+    let str;
+    if (Number.isInteger(num)) {
+        str = Math.floor(num).toString();
+    } else {
+        // برای اعداد اعشاری، یک رقم اعشار نمایش بده
+        str = num.toFixed(1).toString();
+    }
+    
+    // جایگزینی کاراکترهای انگلیسی با فارسی
+    const persianDigits = {
+        '0': '۰', '1': '۱', '2': '۲', '3': '۳', '4': '۴',
+        '5': '۵', '6': '۶', '7': '۷', '8': '۸', '9': '۹'
+    };
+    
+    // جایگزینی هر رقم
+    let result = '';
+    for (let char of str) {
+        if (persianDigits[char]) {
+            result += persianDigits[char];
+        } else {
+            result += char; // نقطه اعشار و سایر کاراکترها را حفظ کن
+        }
+    }
+    
+    // برای اعداد بزرگ، جداکننده هزارگان فارسی اضافه کن
+    if (num >= 1000 && Number.isInteger(num)) {
+        return Math.floor(num).toLocaleString('fa-IR');
+    }
+    
+    return result;
+}
 
 // ===== HERO PARALLAX =====
 const hero = document.querySelector('.hero');
