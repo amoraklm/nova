@@ -2011,6 +2011,15 @@ if (car) {
     const startDate = new Date(2026, 4, 14, 0, 0, 0);
     const totalDuration = Math.floor((targetDate.getTime() - startDate.getTime()) / 1000);
 
+    // تابع تبدیل اعداد انگلیسی به فارسی
+    function toPersianDigits(num) {
+        const persianDigits = {
+            '0': '۰', '1': '۱', '2': '۲', '3': '۳', '4': '۴',
+            '5': '۵', '6': '۶', '7': '۷', '8': '۸', '9': '۹'
+        };
+        return String(num).split('').map(char => persianDigits[char] || char).join('');
+    }
+
     if (totalDuration <= 0) {
         document.getElementById('cd-d').textContent = '۰۰';
         document.getElementById('cd-h').textContent = '۰۰';
@@ -2021,7 +2030,9 @@ if (car) {
         return;
     }
 
-    function pad(n) { return String(n).padStart(2, '0'); }
+    function pad(n) { 
+        return toPersianDigits(String(n).padStart(2, '0')); 
+    }
 
     function updateCountdown() {
         const now = Date.now();
@@ -2039,15 +2050,14 @@ if (car) {
         document.getElementById('cd-s').textContent = pad(s);
 
         const elapsed = totalDuration - (d * 86400 + h * 3600 + m * 60 + s);
-        const pct = Math.min(100, (elapsed / totalDuration * 100)).toFixed(1);
+        const pct = Math.min(100, (elapsed / totalDuration * 100));
         document.getElementById('cdFill').style.width = pct + '%';
-        document.getElementById('cdPct').textContent = pct;
+        document.getElementById('cdPct').textContent = toPersianDigits(pct.toFixed(1));
     }
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
 })();
-
 // ===== POLL =====
 const pollSubmit = document.getElementById('pollSubmit');
 if (pollSubmit) {
