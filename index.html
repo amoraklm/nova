@@ -34,7 +34,7 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- Preload font for performance -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/gh/rastikerdar/iransansx-font@latest/dist/IRANSansXFaNum.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/IRANSansXFaNum.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -133,7 +133,14 @@
     </script>
 
 <style>    
-        @font-face{font-family:'IRANSansXFaNum';src:url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx-font@latest/dist/IRANSansXFaNum.woff2') format('woff2');font-weight:300 900;font-display:swap}
+        @font-face {
+    font-family: 'IRANSansXFaNum';
+    src: url('/fonts/IRANSansXFaNum.woff2') format('woff2');
+    font-weight: 300 900;
+    font-display: swap;
+    /* fallback برای مرورگرهای قدیمی */
+    font-display: fallback;
+}
 
     :root{
         --nova:#7C3AED;--nova-r:124,58,237;
