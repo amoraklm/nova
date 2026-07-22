@@ -133,7 +133,7 @@
     </script>
 
 <style>    
-    @font-face{font-family:'IRANSansXFaNum';src:url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx-font@latest/dist/IRANSansXFaNum.woff2') format('woff2');font-weight:300 900;font-display:swap}
+        @font-face{font-family:'IRANSansXFaNum';src:url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx-font@latest/dist/IRANSansXFaNum.woff2') format('woff2');font-weight:300 900;font-display:swap}
 
     :root{
         --nova:#7C3AED;--nova-r:124,58,237;
@@ -788,7 +788,7 @@
         letter-spacing: 0.05em;
     }
 
-    /* ===== ریسپانسیو فوتر ===== */
+    /* ===== ریسپانسیو فوتر (اصلاح‌شده) ===== */
     @media (max-width: 992px) {
         .footer-container {
             grid-template-columns: 1.5fr 1fr 1fr;
@@ -864,8 +864,8 @@
         .footer {
             padding: 1.5rem var(--pad) 1rem;
         }
+        /* حذف grid-template-columns: 1fr برای حفظ دو ستونی */
         .footer-container {
-            grid-template-columns: 1fr;
             gap: 1.5rem;
         }
         .footer-logo {
@@ -1688,10 +1688,10 @@
         <div class="footer-links">
             <h4 class="footer-heading">محصول</h4>
             <ul>
-                <li><a href="/features">✨ امکانات</a></li>
-                <li><a href="/download">⬇️ دانلود</a></li>
-                <li><a href="/blog">📝 وبلاگ</a></li>
-                <li><a href="#">🤖 Nova AI</a></li>
+                <li><a href="/features">امکانات</a></li>
+                <li><a href="/download">دانلود</a></li>
+                <li><a href="/blog">وبلاگ</a></li>
+                <li><a href="#">Nova AI</a></li>
             </ul>
         </div>
 
@@ -1699,10 +1699,10 @@
         <div class="footer-links">
             <h4 class="footer-heading">شرکت</h4>
             <ul>
-                <li><a href="/about">ℹ️ درباره ما</a></li>
-                <li><a href="/contact">📞 تماس</a></li>
-                <li><a href="#">💼 فرصت‌های شغلی</a></li>
-                <li><a href="#">📢 اخبار</a></li>
+                <li><a href="/about">درباره ما</a></li>
+                <li><a href="/contact">تماس</a></li>
+                <li><a href="#">فرصت‌های شغلی</a></li>
+                <li><a href="#">اخبار</a></li>
             </ul>
         </div>
 
@@ -1710,10 +1710,10 @@
         <div class="footer-links">
             <h4 class="footer-heading">قوانین</h4>
             <ul>
-                <li><a href="/terms">📋 شرایط استفاده</a></li>
-                <li><a href="/privacy">🔐 حریم خصوصی</a></li>
-                <li><a href="#">🍪 کوکی‌ها</a></li>
-                <li><a href="#">📄 مستندات</a></li>
+                <li><a href="/terms">شرایط استفاده</a></li>
+                <li><a href="/privacy">حریم خصوصی</a></li>
+                <li><a href="#">کوکی‌ها</a></li>
+                <li><a href="#">مستندات</a></li>
             </ul>
         </div>
     </div>
