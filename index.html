@@ -133,45 +133,11 @@
     </script>
 
 <style>    
-    /* سبک (Light) */
-    @font-face {
-        font-family: 'IRANSansXFaNum';
-        src: url('/fonts/IRANSansXFaNum-Light.woff2') format('woff2');
-        font-weight: 300;
-        font-display: swap;
-    }
-    
-    /* معمولی (Regular) */
-    @font-face {
-        font-family: 'IRANSansXFaNum';
-        src: url('/fonts/IRANSansXFaNum-Regular.woff2') format('woff2');
-        font-weight: 400;
-        font-display: swap;
-    }
-    
-    /* نیمه‌ضخیم (DemiBold) */
-    @font-face {
-        font-family: 'IRANSansXFaNum';
-        src: url('/fonts/IRANSansXFaNum-DemiBold.woff2') format('woff2');
-        font-weight: 600;
-        font-display: swap;
-    }
-    
-    /* ضخیم (Bold) */
-    @font-face {
-        font-family: 'IRANSansXFaNum';
-        src: url('/fonts/IRANSansXFaNum-Bold.woff2') format('woff2');
-        font-weight: 700;
-        font-display: swap;
-    }
-    
-    /* خیلی ضخیم (ExtraBold) */
-    @font-face {
-        font-family: 'IRANSansXFaNum';
-        src: url('/fonts/IRANSansXFaNum-ExtraBold.woff2') format('woff2');
-        font-weight: 800;
-        font-display: swap;
-    }
+    @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-Light.woff2') format('woff2');font-weight:300;font-display:swap}
+    @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-DemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+    @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+    @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
 
     :root{
         --nova:#7C3AED;--nova-r:124,58,237;
@@ -247,74 +213,515 @@
     :focus-visible{outline:3px solid var(--nova);outline-offset:3px;border-radius:var(--r-xs)}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 
-    /* ═══════════════════════════════════════════
-       HEADER — UNIFIED VERSION
-       ═══════════════════════════════════════════ */
-    .header{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--header-h);transition:background var(--norm),box-shadow var(--norm)}
-    .header::before{content:'';position:absolute;inset:0;background:rgba(10,10,15,.55);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.06);transition:background var(--norm),border-color var(--norm)}
-    [data-theme="light"] .header::before{background:rgba(241,245,249,.7);border-bottom-color:rgba(0,0,0,.06)}
-    .header.stuck::before{background:rgba(10,10,15,.82);border-bottom-color:rgba(255,255,255,.1);box-shadow:0 4px 30px rgba(0,0,0,.25)}
-    [data-theme="light"] .header.stuck::before{background:rgba(241,245,249,.88);box-shadow:0 4px 30px rgba(0,0,0,.08)}
-    .header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--shim);opacity:0;transition:opacity var(--norm)}
-    .header.stuck::after{opacity:.3}
-    .hdr{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 var(--pad);height:100%;display:flex;align-items:center;gap:1rem}
-    .logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;flex-shrink:0;transition:transform var(--fast)}
-    .logo:hover{transform:scale(1.03)}
-    .logo-icon{width:32px;height:32px;filter:drop-shadow(0 2px 8px rgba(var(--nova-r),.45))}
-    .logo-text{font-size:1.5rem;font-weight:800;letter-spacing:.04em;background:linear-gradient(135deg,var(--w) 30%,var(--sec));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
-    .nav-desktop{display:flex;align-items:center;gap:.15rem;margin-right:auto}
-    .nav-link{color:var(--muted);text-decoration:none;padding:.45rem .75rem;border-radius:var(--r-xs);font-size:.84rem;font-weight:500;white-space:nowrap;position:relative;transition:color var(--fast),background var(--fast)}
-    .nav-link::after{content:'';position:absolute;bottom:4px;left:50%;right:50%;height:2px;background:var(--shim);border-radius:var(--r-full);transition:left var(--fast),right var(--fast);opacity:0}
-    .nav-link:hover{color:var(--w);background:rgba(var(--nova-r),.06)}
-    .nav-link:hover::after,.nav-link[aria-current="page"]::after{left:20%;right:20%;opacity:1}
-    .nav-link[aria-current="page"]{color:var(--w);font-weight:600}
-    .nav-dropdown{position:relative}
-    .nav-dropdown-trigger{display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;font-family:inherit}
-    .nav-dropdown-trigger .chevron{width:12px;height:12px;transition:transform var(--fast);opacity:.5}
-    .nav-dropdown:hover .chevron,.nav-dropdown:focus-within .chevron{transform:rotate(180deg);opacity:1}
-    .nav-dropdown-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:200px;background:rgba(20,18,35,.95);backdrop-filter:blur(20px) saturate(150%);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);padding:.5rem;box-shadow:0 12px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(-6px);transition:all var(--fast);z-index:100}
-    [data-theme="light"] .nav-dropdown-menu{background:rgba(255,255,255,.95);border-color:rgba(0,0,0,.08);box-shadow:0 12px 40px rgba(0,0,0,.12)}
-    .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
-    .dropdown-item{display:flex;align-items:center;gap:.6rem;padding:.55rem .7rem;border-radius:var(--r-xs);text-decoration:none;color:var(--muted);font-size:.82rem;font-weight:500;transition:all var(--fast)}
-    .dropdown-item:hover{background:rgba(var(--nova-r),.1);color:var(--w)}
-    .dropdown-icon{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;background:rgba(var(--nova-r),.08);border:1px solid rgba(var(--nova-r),.12)}
-    .dropdown-label{display:flex;flex-direction:column}
-    .dropdown-label strong{font-size:.82rem;font-weight:600;color:var(--w)}
-    .dropdown-label small{font-size:.68rem;color:var(--muted);margin-top:.1rem}
-    .dropdown-divider{height:1px;background:rgba(255,255,255,.06);margin:.3rem .5rem}
-    .header-actions{display:flex;align-items:center;gap:.35rem;flex-shrink:0}
-    .action-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);cursor:pointer;transition:all var(--fast);font-size:.95rem;position:relative}
-    .action-btn:hover{background:rgba(var(--nova-r),.1);border-color:rgba(var(--nova-r),.3);color:var(--w);transform:translateY(-1px)}
-    .action-btn[data-tooltip]::before{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);background:rgba(20,18,35,.95);color:var(--w);padding:.25rem .55rem;border-radius:8px;font-size:.68rem;white-space:nowrap;opacity:0;visibility:hidden;transition:all var(--fast);pointer-events:none;border:1px solid rgba(255,255,255,.08)}
-    .action-btn[data-tooltip]:hover::before{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-    .lang-selector{position:relative}
-    .lang-current{display:flex;align-items:center;gap:.3rem;padding:.3rem .5rem;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.75rem;font-weight:600;cursor:pointer;transition:all var(--fast);font-family:inherit;height:36px}
-    .lang-current:hover{background:rgba(var(--nova-r),.1);border-color:rgba(var(--nova-r),.3);color:var(--w)}
-    .lang-current .chevron{width:10px;height:10px;opacity:.5;transition:transform var(--fast)}
-    .lang-selector:hover .lang-current .chevron,.lang-selector:focus-within .lang-current .chevron{transform:rotate(180deg)}
-    .lang-menu{position:absolute;top:calc(100% + 6px);left:0;min-width:140px;background:rgba(20,18,35,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-xs);padding:.35rem;box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0;visibility:hidden;transform:translateY(-4px);transition:all var(--fast);z-index:100}
-    [data-theme="light"] .lang-menu{background:rgba(255,255,255,.95);border-color:rgba(0,0,0,.08)}
-    .lang-selector:hover .lang-menu,.lang-selector:focus-within .lang-menu{opacity:1;visibility:visible;transform:translateY(0)}
-    .lang-option{display:flex;align-items:center;gap:.5rem;padding:.4rem .6rem;border-radius:8px;font-size:.78rem;color:var(--muted);cursor:pointer;transition:all var(--fast);border:none;background:none;width:100%;font-family:inherit;text-align:right}
-    .lang-option:hover{background:rgba(var(--nova-r),.1);color:var(--w)}
-    .lang-option.active{color:var(--sec);font-weight:600}
-    .lang-option.active::after{content:'✓';margin-right:auto;font-size:.7rem;color:var(--green)}
-    .header-divider{width:1px;height:20px;background:rgba(255,255,255,.08);margin:0 .2rem}
-    [data-theme="light"] .header-divider{background:rgba(0,0,0,.08)}
-    .header-cta{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1.1rem;border-radius:var(--r-xs);font-weight:700;font-size:.8rem;text-decoration:none;color:var(--w);background:var(--shim);border:1px solid rgba(255,255,255,.2);box-shadow:0 2px 8px rgba(var(--nova-r),.25);transition:all var(--fast);white-space:nowrap;position:relative;overflow:hidden;cursor:pointer;font-family:inherit}
-    .header-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent 50%);pointer-events:none}
-    .header-cta:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(var(--nova-r),.35)}
-    .mob-toggle{display:none;flex-direction:column;justify-content:center;align-items:center;width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);cursor:pointer;gap:5px;padding:0;flex-shrink:0;transition:background var(--fast);z-index:1001}
-    .mob-toggle:hover{background:rgba(var(--nova-r),.1)}
-    .mob-toggle span{display:block;width:18px;height:2px;background:var(--w);border-radius:2px;transition:all var(--fast);transform-origin:center}
-    .mob-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-    .mob-toggle.active span:nth-child(2){opacity:0;transform:scaleX(0)}
-    .mob-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    /* ===== HEADER — REFINED ===== */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 900;
+        height: var(--header-h);
+        transition: background var(--norm), box-shadow var(--norm);
+    }
+
+    .header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 10, 15, .55);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        border-bottom: 1px solid rgba(255, 255, 255, .06);
+        transition: background var(--norm), border-color var(--norm);
+    }
+
+    [data-theme="light"] .header::before {
+        background: rgba(241, 245, 249, .7);
+        border-bottom-color: rgba(0, 0, 0, .06);
+    }
+
+    .header.stuck::before {
+        background: rgba(10, 10, 15, .82);
+        border-bottom-color: rgba(255, 255, 255, .1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, .25);
+    }
+
+    [data-theme="light"] .header.stuck::before {
+        background: rgba(241, 245, 249, .88);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, .08);
+    }
+
+    .hdr {
+        position: relative;
+        z-index: 1;
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 var(--pad);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    /* ===== LOGO ===== */
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        text-decoration: none;
+        flex-shrink: 0;
+        transition: transform var(--fast);
+    }
+
+    .logo:hover {
+        transform: scale(1.03);
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        filter: drop-shadow(0 2px 8px rgba(var(--nova-r), .45));
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: .04em;
+        background: linear-gradient(135deg, var(--w) 30%, var(--sec));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+    }
+
+    /* ===== DESKTOP NAV ===== */
+    .nav-desktop {
+        display: flex;
+        align-items: center;
+        gap: .15rem;
+        margin-right: auto;
+    }
+
+    .nav-link {
+        color: var(--muted);
+        text-decoration: none;
+        padding: .45rem .75rem;
+        border-radius: var(--r-xs);
+        font-size: .84rem;
+        font-weight: 500;
+        white-space: nowrap;
+        position: relative;
+        transition: color var(--fast), background var(--fast);
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 50%;
+        right: 50%;
+        height: 2px;
+        background: var(--shim);
+        border-radius: var(--r-full);
+        transition: left var(--fast), right var(--fast);
+        opacity: 0;
+    }
+
+    .nav-link:hover {
+        color: var(--w);
+        background: rgba(var(--nova-r), .06);
+    }
+
+    .nav-link:hover::after,
+    .nav-link[aria-current="page"]::after {
+        left: 20%;
+        right: 20%;
+        opacity: 1;
+    }
+
+    .nav-link[aria-current="page"] {
+        color: var(--w);
+        font-weight: 600;
+    }
+
+    .nav-dropdown {
+        position: relative;
+    }
+
+    .nav-dropdown-trigger {
+        display: flex;
+        align-items: center;
+        gap: .3rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: inherit;
+    }
+
+    .nav-dropdown-trigger .chevron {
+        width: 12px;
+        height: 12px;
+        transition: transform var(--fast);
+        opacity: .5;
+    }
+
+    .nav-dropdown:hover .chevron,
+    .nav-dropdown:focus-within .chevron {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+
+    .nav-dropdown-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        min-width: 200px;
+        background: rgba(20, 18, 35, .95);
+        backdrop-filter: blur(20px) saturate(150%);
+        border: 1px solid rgba(255, 255, 255, .1);
+        border-radius: var(--r-sm);
+        padding: .5rem;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-6px);
+        transition: all var(--fast);
+        z-index: 100;
+    }
+
+    [data-theme="light"] .nav-dropdown-menu {
+        background: rgba(255, 255, 255, .95);
+        border-color: rgba(0, 0, 0, .08);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, .12);
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: .6rem;
+        padding: .55rem .7rem;
+        border-radius: var(--r-xs);
+        text-decoration: none;
+        color: var(--muted);
+        font-size: .82rem;
+        font-weight: 500;
+        transition: all var(--fast);
+    }
+
+    .dropdown-item:hover {
+        background: rgba(var(--nova-r), .1);
+        color: var(--w);
+    }
+
+    .dropdown-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: .95rem;
+        flex-shrink: 0;
+        background: rgba(var(--nova-r), .08);
+        border: 1px solid rgba(var(--nova-r), .12);
+    }
+
+    .dropdown-label {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dropdown-label strong {
+        font-size: .82rem;
+        font-weight: 600;
+        color: var(--w);
+    }
+
+    .dropdown-label small {
+        font-size: .68rem;
+        color: var(--muted);
+        margin-top: .1rem;
+    }
+
+    .dropdown-divider {
+        height: 1px;
+        background: rgba(255, 255, 255, .06);
+        margin: .3rem .5rem;
+    }
+
+    /* ===== DESKTOP HEADER ACTIONS ===== */
+    .header-actions-desktop {
+        display: flex;
+        align-items: center;
+        gap: .35rem;
+        flex-shrink: 0;
+    }
+
+    /* ===== MOBILE HEADER ACTIONS ===== */
+    .header-actions-mobile {
+        display: none;
+        align-items: center;
+        gap: .35rem;
+        flex-shrink: 0;
+    }
+
+    /* ===== ACTION BUTTONS ===== */
+    .action-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .04);
+        border: 1px solid rgba(255, 255, 255, .08);
+        color: var(--muted);
+        cursor: pointer;
+        transition: all var(--fast);
+        font-size: .95rem;
+        position: relative;
+    }
+
+    .action-btn:hover {
+        background: rgba(var(--nova-r), .1);
+        border-color: rgba(var(--nova-r), .3);
+        color: var(--w);
+        transform: translateY(-1px);
+    }
+
+    .action-btn[data-tooltip]::before {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%) translateY(4px);
+        background: rgba(20, 18, 35, .95);
+        color: var(--w);
+        padding: .25rem .55rem;
+        border-radius: 8px;
+        font-size: .68rem;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--fast);
+        pointer-events: none;
+        border: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .action-btn[data-tooltip]:hover::before {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    /* ===== LANGUAGE SELECTOR ===== */
+    .lang-selector {
+        position: relative;
+    }
+
+    .lang-current {
+        display: flex;
+        align-items: center;
+        gap: .3rem;
+        padding: .3rem .5rem;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, .04);
+        border: 1px solid rgba(255, 255, 255, .08);
+        color: var(--muted);
+        font-size: .75rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--fast);
+        font-family: inherit;
+        height: 36px;
+    }
+
+    .lang-current:hover {
+        background: rgba(var(--nova-r), .1);
+        border-color: rgba(var(--nova-r), .3);
+        color: var(--w);
+    }
+
+    .lang-current .chevron {
+        width: 10px;
+        height: 10px;
+        opacity: .5;
+        transition: transform var(--fast);
+    }
+
+    .lang-selector:hover .lang-current .chevron,
+    .lang-selector:focus-within .lang-current .chevron {
+        transform: rotate(180deg);
+    }
+
+    .lang-menu {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        min-width: 140px;
+        background: rgba(20, 18, 35, .95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, .1);
+        border-radius: var(--r-xs);
+        padding: .35rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4px);
+        transition: all var(--fast);
+        z-index: 100;
+    }
+
+    [data-theme="light"] .lang-menu {
+        background: rgba(255, 255, 255, .95);
+        border-color: rgba(0, 0, 0, .08);
+    }
+
+    .lang-selector:hover .lang-menu,
+    .lang-selector:focus-within .lang-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .lang-option {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        padding: .4rem .6rem;
+        border-radius: 8px;
+        font-size: .78rem;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all var(--fast);
+        border: none;
+        background: none;
+        width: 100%;
+        font-family: inherit;
+        text-align: right;
+    }
+
+    .lang-option:hover {
+        background: rgba(var(--nova-r), .1);
+        color: var(--w);
+    }
+
+    .lang-option.active {
+        color: var(--sec);
+        font-weight: 600;
+    }
+
+    .lang-option.active::after {
+        content: '✓';
+        margin-right: auto;
+        font-size: .7rem;
+        color: var(--green);
+    }
+
+    .header-divider {
+        width: 1px;
+        height: 20px;
+        background: rgba(255, 255, 255, .08);
+        margin: 0 .2rem;
+    }
+
+    [data-theme="light"] .header-divider {
+        background: rgba(0, 0, 0, .08);
+    }
+
+    .header-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        padding: .45rem 1.1rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: .8rem;
+        text-decoration: none;
+        color: var(--w);
+        background: var(--shim);
+        border: 1px solid rgba(255, 255, 255, .2);
+        box-shadow: 0 2px 8px rgba(var(--nova-r), .25);
+        transition: all var(--fast);
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+    .header-cta::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, .15), transparent 50%);
+        pointer-events: none;
+    }
+
+    .header-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(var(--nova-r), .35);
+    }
+
+    /* ===== MOBILE HAMBURGER ===== */
+    .mob-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .04);
+        border: 1px solid rgba(255, 255, 255, .08);
+        cursor: pointer;
+        gap: 5px;
+        padding: 0;
+        flex-shrink: 0;
+        transition: background var(--fast);
+        z-index: 1001;
+    }
+
+    .mob-toggle:hover {
+        background: rgba(var(--nova-r), .1);
+    }
+
+    .mob-toggle span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: var(--w);
+        border-radius: 2px;
+        transition: all var(--fast);
+        transform-origin: center;
+    }
+
+    .mob-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mob-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .mob-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
     .mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:899;animation:fadeIn .3s var(--ease)}
     .mobile-overlay.active{display:block}
-        .mobile-drawer{position:fixed;top:0;right:0;width:min(320px,85vw);height:100%;background:rgba(14,12,26,.97);backdrop-filter:blur(30px) saturate(160%);-webkit-backdrop-filter:blur(30px) saturate(160%);border-left:1px solid rgba(255,255,255,.08);z-index:950;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s var(--ease);overflow-y:auto;overscroll-behavior:contain}
-        [data-theme="light"] .mobile-drawer{background:rgba(241,245,249,.97);border-left-color:rgba(0,0,0,.08)}
-        .mobile-drawer.open{transform:translateX(0)}
+    .mobile-drawer{position:fixed;top:0;right:0;width:min(320px,85vw);height:100%;background:rgba(14,12,26,.97);backdrop-filter:blur(30px) saturate(160%);-webkit-backdrop-filter:blur(30px) saturate(160%);border-left:1px solid rgba(255,255,255,.08);z-index:950;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s var(--ease);overflow-y:auto;overscroll-behavior:contain}
+    [data-theme="light"] .mobile-drawer{background:rgba(241,245,249,.97);border-left-color:rgba(0,0,0,.08)}
+    .mobile-drawer.open{transform:translateX(0)}
     .mobile-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
     .mobile-close{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all var(--fast)}
     .mobile-close:hover{background:rgba(var(--red),.1);color:var(--red)}
@@ -325,15 +732,6 @@
     .mobile-nav-link .nav-icon{font-size:1.1rem;width:24px;text-align:center}
     .mobile-nav-divider{height:1px;background:rgba(255,255,255,.06);margin:.5rem 0}
     .mobile-nav-section{font-size:.7rem;color:var(--muted);font-weight:600;letter-spacing:.08em;padding:.5rem .8rem .2rem;opacity:.6}
-    .mobile-accordion{border:none;background:none}
-    .mobile-accordion summary{display:flex;align-items:center;gap:.6rem;padding:.7rem .8rem;border-radius:var(--r-xs);color:var(--muted);font-size:.9rem;font-weight:500;cursor:pointer;list-style:none;transition:all var(--fast)}
-    .mobile-accordion summary::-webkit-details-marker{display:none}
-    .mobile-accordion summary:hover{background:rgba(var(--nova-r),.08);color:var(--w)}
-    .mobile-accordion summary .acc-chevron{margin-right:auto;transition:transform var(--fast);font-size:.7rem;opacity:.5}
-    .mobile-accordion[open] summary .acc-chevron{transform:rotate(180deg)}
-    .mobile-accordion-body{padding:.2rem 0 .2rem 2.5rem;display:flex;flex-direction:column;gap:.1rem}
-    .mobile-accordion-body a{display:flex;align-items:center;gap:.5rem;padding:.45rem .6rem;border-radius:8px;color:var(--muted);text-decoration:none;font-size:.82rem;transition:all var(--fast)}
-    .mobile-accordion-body a:hover{background:rgba(var(--nova-r),.06);color:var(--w)}
     .mobile-drawer-footer{padding:1rem 1.2rem;border-top:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;gap:.8rem}
     .mobile-utils{display:flex;align-items:center;gap:.5rem;justify-content:center;flex-wrap:wrap}
     .mobile-util-btn{display:flex;align-items:center;gap:.35rem;padding:.4rem .7rem;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.75rem;cursor:pointer;transition:all var(--fast);font-family:inherit}
@@ -902,7 +1300,6 @@
         .footer {
             padding: 1.5rem var(--pad) 1rem;
         }
-        /* حذف grid-template-columns: 1fr برای حفظ دو ستونی */
         .footer-container {
             gap: 1.5rem;
         }
@@ -984,11 +1381,11 @@
         .nav-desktop {
             display: flex !important;
         }
-        .header-cta-desktop {
-            display: inline-flex !important;
+        .header-actions-desktop {
+            display: flex !important;
         }
-        .lang-selector-desktop {
-            display: block !important;
+        .header-actions-mobile {
+            display: none !important;
         }
         .header-divider {
             display: block !important;
@@ -996,41 +1393,39 @@
     }
 
     /* نمایش منوی موبایل و مخفی کردن منوی دسکتاپ در موبایل */
-        /* نمایش منوی موبایل و مخفی کردن منوی دسکتاپ در موبایل */
-        @media (max-width: 900px) {
-            .nav-desktop {
-                display: none !important;
-            }
-            .header-cta-desktop {
-                display: none !important;
-            }
-            .lang-selector-desktop {
-                display: none !important;
-            }
-            .header-divider {
-                display: none !important;
-            }
-            .mob-toggle {
-                display: flex !important;
-            }
-            .mobile-drawer {
-                display: flex !important; /* توسط کلاس .open کنترل می‌شود */
-                right: 0 !important;
-                left: auto !important;
-                border-left: 1px solid rgba(255,255,255,.08) !important;
-                border-right: none !important;
-            }
-            [data-theme="light"] .mobile-drawer {
-                border-left-color: rgba(0,0,0,.08) !important;
-            }
-            /* لایه تیره - فقط در زمان باز بودن سایدبار نمایش داده شود */
-            .mobile-overlay {
-                display: none !important;
-            }
-            .mobile-overlay.active {
-                display: block !important;
-            }
+    @media (max-width: 900px) {
+        .nav-desktop {
+            display: none !important;
         }
+        .header-actions-desktop {
+            display: none !important;
+        }
+        .header-actions-mobile {
+            display: flex !important;
+        }
+        .header-divider {
+            display: none !important;
+        }
+        .mob-toggle {
+            display: flex !important;
+        }
+        .mobile-drawer {
+            display: flex !important;
+            right: 0 !important;
+            left: auto !important;
+            border-left: 1px solid rgba(255,255,255,.08) !important;
+            border-right: none !important;
+        }
+        [data-theme="light"] .mobile-drawer {
+            border-left-color: rgba(0,0,0,.08) !important;
+        }
+        .mobile-overlay {
+            display: none !important;
+        }
+        .mobile-overlay.active {
+            display: block !important;
+        }
+    }
 
     /* ریسپانسیو موبایل (هدر و فوتر و بخش‌های دیگر) */
     @media (max-width: 768px) {
@@ -1053,7 +1448,7 @@
             font-size: 1.3rem;
         }
 
-        .header-actions {
+        .header-actions-mobile {
             order: 2;
             gap: 0.2rem;
             flex-shrink: 1;
@@ -1065,17 +1460,7 @@
             font-size: 0.85rem;
         }
 
-        .lang-current {
-            padding: 0.15rem 0.35rem;
-            font-size: 0.65rem;
-            height: 32px;
-        }
-        .lang-current .flag {
-            font-size: 0.75rem;
-        }
-
         .mob-toggle {
-            order: 3;
             width: 36px;
             height: 36px;
             font-size: 1rem;
@@ -1157,21 +1542,13 @@
         .hdr {
             padding: 0.3rem 0;
         }
-        .header-actions {
+        .header-actions-mobile {
             gap: 0.15rem;
         }
         .action-btn {
             width: 28px;
             height: 28px;
             font-size: 0.75rem;
-        }
-        .lang-current {
-            padding: 0.1rem 0.25rem;
-            font-size: 0.55rem;
-            height: 28px;
-        }
-        .lang-current .flag {
-            font-size: 0.65rem;
         }
         .mob-toggle {
             width: 32px;
@@ -1270,115 +1647,115 @@
 <div class="aurora" aria-hidden="true"></div>
 <div class="scroll-bar" id="sBar"></div>
 
-<!-- ===== HEADER ===== -->
-    <!-- ═══════════════════════════════════════════
-         HEADER — NEW UNIFIED VERSION
-         ═══════════════════════════════════════════ -->
-    <header class="header" id="header" role="banner">
-        <div class="hdr">
-            <!-- Logo -->
-            <a href="https://chatnova.ir" class="logo" aria-label="نووا - صفحه اصلی">
-                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                    <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/>
-                    <circle cx="24" cy="24" r="5" fill="white" opacity=".85"/>
-                </svg>
-                <span class="logo-text">NOVA</span>
-            </a>
+<!-- ===== HEADER (بازطراحی‌شده) ===== -->
+<header class="header" id="header" role="banner">
+    <div class="hdr">
+        <!-- Logo -->
+        <a href="https://chatnova.ir" class="logo" aria-label="نووا - صفحه اصلی">
+            <svg class="logo-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/>
+                <circle cx="24" cy="24" r="5" fill="white" opacity=".85"/>
+            </svg>
+            <span class="logo-text">NOVA</span>
+        </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="nav-desktop" role="navigation" aria-label="منوی اصلی">
-                <a href="https://chatnova.ir" class="nav-link" aria-current="page">صفحه اصلی</a>
-                <a href="https://chatnova.ir/features" class="nav-link">امکانات</a>
-                <a href="https://chatnova.ir/blog" class="nav-link">وبلاگ</a>
-
-                <!-- Dropdown -->
-                <div class="nav-dropdown">
-                    <button class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-                        بیشتر
-                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-                            <path d="M6 9l6 6 6-6"/>
-                        </svg>
-                    </button>
-                    <div class="nav-dropdown-menu" role="menu">
-                        <a href="https://chatnova.ir/about" class="dropdown-item" role="menuitem">
-                            <div class="dropdown-icon">ℹ️</div>
-                            <div class="dropdown-label"><strong>درباره ما</strong><small>داستان نووا</small></div>
-                        </a>
-                        <a href="https://chatnova.ir/contact" class="dropdown-item" role="menuitem">
-                            <div class="dropdown-icon">📞</div>
-                            <div class="dropdown-label"><strong>تماس</strong><small>ارتباط با ما</small></div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="https://chatnova.ir/download" class="dropdown-item" role="menuitem">
-                            <div class="dropdown-icon">⬇️</div>
-                            <div class="dropdown-label"><strong>دانلود</strong><small>دریافت اپلیکیشن</small></div>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-
-            <!-- Header Actions -->
-            <div class="header-actions">
-                <button class="action-btn" id="themeToggle" data-tooltip="تغییر تم" aria-label="تغییر تم رنگی">🌓</button>
-                <div class="lang-selector lang-selector-desktop">
-                    <button class="lang-current" aria-haspopup="true" aria-label="انتخاب زبان">
-                        <span>🇮🇷</span><span>FA</span>
-                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-                            <path d="M6 9l6 6 6-6"/>
-                        </svg>
-                    </button>
-                    <div class="lang-menu" role="listbox">
-                        <button class="lang-option active" role="option" data-lang="fa" aria-selected="true"><span>🇮🇷</span> فارسی</button>
-                        <button class="lang-option" role="option" data-lang="en" aria-selected="false"><span>🇬🇧</span> English</button>
-                        <button class="lang-option" role="option" data-lang="tr" aria-selected="false"><span>🇹🇷</span> Türkçe</button>
-                    </div>
-                </div>
-                <div class="header-divider"></div>
-                <a href="https://chatnova.ir/download" class="header-cta header-cta-desktop">⬇️ دانلود نووا</a>
-                <button class="mob-toggle" id="mobToggle" aria-label="باز کردن منو" aria-expanded="false">
-                    <span></span><span></span><span></span>
+        <!-- دسکتاپ: منوی اصلی -->
+        <nav class="nav-desktop" role="navigation" aria-label="منوی اصلی">
+            <a href="https://chatnova.ir" class="nav-link" aria-current="page">صفحه اصلی</a>
+            <a href="https://chatnova.ir/features" class="nav-link">امکانات</a>
+            <a href="https://chatnova.ir/blog" class="nav-link">وبلاگ</a>
+            <div class="nav-dropdown">
+                <button class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                    بیشتر
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
                 </button>
+                <div class="nav-dropdown-menu" role="menu">
+                    <a href="https://chatnova.ir/about" class="dropdown-item" role="menuitem">
+                        <div class="dropdown-icon">ℹ️</div>
+                        <div class="dropdown-label"><strong>درباره ما</strong><small>داستان نووا</small></div>
+                    </a>
+                    <a href="https://chatnova.ir/contact" class="dropdown-item" role="menuitem">
+                        <div class="dropdown-icon">📞</div>
+                        <div class="dropdown-label"><strong>تماس</strong><small>ارتباط با ما</small></div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://chatnova.ir/download" class="dropdown-item" role="menuitem">
+                        <div class="dropdown-icon">⬇️</div>
+                        <div class="dropdown-label"><strong>دانلود</strong><small>دریافت اپلیکیشن</small></div>
+                    </a>
+                </div>
             </div>
-        </div>
-    </header>
+        </nav>
 
-    <!-- Mobile Overlay -->
-    <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
-
-    <!-- Mobile Drawer -->
-    <nav class="mobile-drawer" id="mobileDrawer" role="navigation" aria-label="منوی موبایل" aria-hidden="true">
-        <div class="mobile-drawer-header">
-            <a href="https://chatnova.ir" class="logo" aria-label="نووا">
-                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" style="width:26px;height:26px" aria-hidden="true">
-                    <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/>
-                    <circle cx="24" cy="24" r="5" fill="white" opacity=".85"/>
-                </svg>
-                <span class="logo-text" style="font-size:1.2rem">NOVA</span>
-            </a>
-            <button class="mobile-close" id="mobileClose" aria-label="بستن منو">✕</button>
-        </div>
-        <div class="mobile-nav">
-            <a href="https://chatnova.ir" class="mobile-nav-link" aria-current="page"><span class="nav-icon">🏠</span> صفحه اصلی</a>
-            <a href="https://chatnova.ir/features" class="mobile-nav-link"><span class="nav-icon">⚡</span> امکانات</a>
-            <a href="https://chatnova.ir/blog" class="mobile-nav-link"><span class="nav-icon">📝</span> وبلاگ</a>
-            <div class="mobile-nav-divider"></div>
-            <a href="https://chatnova.ir/about" class="mobile-nav-link"><span class="nav-icon">ℹ️</span> درباره ما</a>
-            <a href="https://chatnova.ir/contact" class="mobile-nav-link"><span class="nav-icon">📞</span> تماس</a>
-            <div class="mobile-nav-divider"></div>
-            <a href="https://chatnova.ir/download" class="mobile-nav-link"><span class="nav-icon">⬇️</span> دانلود</a>
-            <a href="https://chatnova.ir/terms" class="mobile-nav-link"><span class="nav-icon">📋</span> شرایط استفاده</a>
-            <a href="https://chatnova.ir/privacy" class="mobile-nav-link"><span class="nav-icon">🔐</span> حریم خصوصی</a>
-        </div>
-        <div class="mobile-drawer-footer">
-            <div class="mobile-utils">
-                <button class="mobile-util-btn" id="mobileThemeToggle" aria-label="تغییر تم">🌓 تم</button>
-                <button class="mobile-util-btn" data-lang="fa">🇮🇷 فارسی</button>
-                <button class="mobile-util-btn" data-lang="en">🇬🇧 EN</button>
-                <button class="mobile-util-btn" data-lang="tr">🇹🇷 TR</button>
+        <!-- دسکتاپ: دکمه‌های سمت چپ -->
+        <div class="header-actions-desktop">
+            <button class="action-btn" id="themeToggleDesktop" data-tooltip="تغییر تم" aria-label="تغییر تم رنگی">🌓</button>
+            <div class="lang-selector">
+                <button class="lang-current" aria-haspopup="true" aria-label="انتخاب زبان">
+                    <span>🇮🇷</span><span>FA</span>
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="lang-menu" role="listbox">
+                    <button class="lang-option active" role="option" data-lang="fa" aria-selected="true"><span>🇮🇷</span> فارسی</button>
+                    <button class="lang-option" role="option" data-lang="en" aria-selected="false"><span>🇬🇧</span> English</button>
+                    <button class="lang-option" role="option" data-lang="tr" aria-selected="false"><span>🇹🇷</span> Türkçe</button>
+                </div>
             </div>
-            <a href="https://chatnova.ir/download" class="mobile-cta">⬇️ دانلود رایگان نووا</a>
+            <div class="header-divider"></div>
+            <a href="https://chatnova.ir/download" class="header-cta">⬇️ دانلود نووا</a>
         </div>
-    </nav>
+
+        <!-- موبایل: دکمه تم + همبرگر -->
+        <div class="header-actions-mobile">
+            <button class="action-btn mobile-theme-toggle" id="themeToggleMobile" aria-label="تغییر تم">🌓</button>
+            <button class="mob-toggle" id="mobToggle" aria-label="باز کردن منو" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+
+<!-- Mobile Drawer -->
+<nav class="mobile-drawer" id="mobileDrawer" role="navigation" aria-label="منوی موبایل" aria-hidden="true">
+    <div class="mobile-drawer-header">
+        <a href="https://chatnova.ir" class="logo" aria-label="نووا">
+            <svg class="logo-icon" viewBox="0 0 48 48" fill="none" style="width:26px;height:26px" aria-hidden="true">
+                <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/>
+                <circle cx="24" cy="24" r="5" fill="white" opacity=".85"/>
+            </svg>
+            <span class="logo-text" style="font-size:1.2rem">NOVA</span>
+        </a>
+        <button class="mobile-close" id="mobileClose" aria-label="بستن منو">✕</button>
+    </div>
+    <div class="mobile-nav">
+        <a href="https://chatnova.ir" class="mobile-nav-link" aria-current="page"><span class="nav-icon">🏠</span> صفحه اصلی</a>
+        <a href="https://chatnova.ir/features" class="mobile-nav-link"><span class="nav-icon">⚡</span> امکانات</a>
+        <a href="https://chatnova.ir/blog" class="mobile-nav-link"><span class="nav-icon">📝</span> وبلاگ</a>
+        <div class="mobile-nav-divider"></div>
+        <a href="https://chatnova.ir/about" class="mobile-nav-link"><span class="nav-icon">ℹ️</span> درباره ما</a>
+        <a href="https://chatnova.ir/contact" class="mobile-nav-link"><span class="nav-icon">📞</span> تماس</a>
+        <div class="mobile-nav-divider"></div>
+        <a href="https://chatnova.ir/download" class="mobile-nav-link"><span class="nav-icon">⬇️</span> دانلود</a>
+        <a href="https://chatnova.ir/terms" class="mobile-nav-link"><span class="nav-icon">📋</span> شرایط استفاده</a>
+        <a href="https://chatnova.ir/privacy" class="mobile-nav-link"><span class="nav-icon">🔐</span> حریم خصوصی</a>
+    </div>
+    <div class="mobile-drawer-footer">
+        <div class="mobile-utils">
+            <button class="mobile-util-btn" id="mobileThemeToggle" aria-label="تغییر تم">🌓 تم</button>
+            <button class="mobile-util-btn" data-lang="fa">🇮🇷 فارسی</button>
+            <button class="mobile-util-btn" data-lang="en">🇬🇧 EN</button>
+            <button class="mobile-util-btn" data-lang="tr">🇹🇷 TR</button>
+        </div>
+        <a href="https://chatnova.ir/download" class="mobile-cta">⬇️ دانلود رایگان نووا</a>
+    </div>
+</nav>
 
 <main class="main">
 
@@ -1726,10 +2103,10 @@
         <div class="footer-links">
             <h4 class="footer-heading">محصول</h4>
             <ul>
-                <li><a href="/features">امکانات</a></li>
-                <li><a href="/download">دانلود</a></li>
-                <li><a href="/blog">وبلاگ</a></li>
-                <li><a href="#">Nova AI</a></li>
+                <li><a href="/features">✨ امکانات</a></li>
+                <li><a href="/download">⬇️ دانلود</a></li>
+                <li><a href="/blog">📝 وبلاگ</a></li>
+                <li><a href="#">🤖 Nova AI</a></li>
             </ul>
         </div>
 
@@ -1737,10 +2114,10 @@
         <div class="footer-links">
             <h4 class="footer-heading">شرکت</h4>
             <ul>
-                <li><a href="/about">درباره ما</a></li>
-                <li><a href="/contact">تماس</a></li>
-                <li><a href="#">فرصت‌های شغلی</a></li>
-                <li><a href="#">اخبار</a></li>
+                <li><a href="/about">ℹ️ درباره ما</a></li>
+                <li><a href="/contact">📞 تماس</a></li>
+                <li><a href="#">💼 فرصت‌های شغلی</a></li>
+                <li><a href="#">📢 اخبار</a></li>
             </ul>
         </div>
 
@@ -1748,10 +2125,10 @@
         <div class="footer-links">
             <h4 class="footer-heading">قوانین</h4>
             <ul>
-                <li><a href="/terms">شرایط استفاده</a></li>
-                <li><a href="/privacy">حریم خصوصی</a></li>
-                <li><a href="#">کوکی‌ها</a></li>
-                <li><a href="#">مستندات</a></li>
+                <li><a href="/terms">📋 شرایط استفاده</a></li>
+                <li><a href="/privacy">🔐 حریم خصوصی</a></li>
+                <li><a href="#">🍪 کوکی‌ها</a></li>
+                <li><a href="#">📄 مستندات</a></li>
             </ul>
         </div>
     </div>
@@ -1855,7 +2232,8 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===== THEME TOGGLE =====
-const themeToggle = document.getElementById('themeToggle');
+const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+const themeToggleMobile = document.getElementById('themeToggleMobile');
 const mobileThemeToggle = document.getElementById('mobileThemeToggle');
 const savedTheme = localStorage.getItem('nova-theme');
 if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
@@ -1865,11 +2243,13 @@ function toggleTheme() {
     const next = current === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('nova-theme', next);
-    if (themeToggle) themeToggle.textContent = next === 'light' ? '🌙' : '🌓';
+    if (themeToggleDesktop) themeToggleDesktop.textContent = next === 'light' ? '🌙' : '🌓';
+    if (themeToggleMobile) themeToggleMobile.textContent = next === 'light' ? '🌙' : '🌓';
     if (mobileThemeToggle) mobileThemeToggle.innerHTML = (next === 'light' ? '🌙' : '🌓') + ' تم';
 }
 
-if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+if (themeToggleDesktop) themeToggleDesktop.addEventListener('click', toggleTheme);
+if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
 if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
 
 // ===== LANGUAGE SWITCHER =====
@@ -1947,7 +2327,7 @@ document.querySelectorAll('.magnetic').forEach(b => {
     b.addEventListener('mouseleave', () => b.style.transform = '');
 });
 
-// ===== COUNTERS =====
+// ===== COUNTERS (با اعداد فارسی) =====
 document.querySelectorAll('[data-c]').forEach(c => {
     const target = parseFloat(c.dataset.c);
     const dur = 2000;
@@ -1971,38 +2351,30 @@ document.querySelectorAll('[data-c]').forEach(c => {
     obs.observe(c);
 });
 
-// ===== تابع تبدیل اعداد انگلیسی به فارسی =====
 function convertToPersianNumbers(num) {
-    // اگر عدد اعشاری است، تعداد رقم‌های اعشار را حفظ کن
-    let str;
-    if (Number.isInteger(num)) {
-        str = Math.floor(num).toString();
-    } else {
-        // برای اعداد اعشاری، یک رقم اعشار نمایش بده
-        str = num.toFixed(1).toString();
-    }
-    
-    // جایگزینی کاراکترهای انگلیسی با فارسی
     const persianDigits = {
         '0': '۰', '1': '۱', '2': '۲', '3': '۳', '4': '۴',
         '5': '۵', '6': '۶', '7': '۷', '8': '۸', '9': '۹'
     };
     
-    // جایگزینی هر رقم
+    let str;
+    if (Number.isInteger(num)) {
+        str = Math.floor(num).toString();
+        if (num >= 1000) {
+            return Math.floor(num).toLocaleString('fa-IR');
+        }
+    } else {
+        str = num.toFixed(1).toString();
+    }
+    
     let result = '';
     for (let char of str) {
         if (persianDigits[char]) {
             result += persianDigits[char];
         } else {
-            result += char; // نقطه اعشار و سایر کاراکترها را حفظ کن
+            result += char;
         }
     }
-    
-    // برای اعداد بزرگ، جداکننده هزارگان فارسی اضافه کن
-    if (num >= 1000 && Number.isInteger(num)) {
-        return Math.floor(num).toLocaleString('fa-IR');
-    }
-    
     return result;
 }
 
@@ -2043,13 +2415,8 @@ if (car) {
     car.style.cursor = 'grab';
 }
 
-// ===== REAL COUNTDOWN =====
+// ===== REAL COUNTDOWN (با اعداد فارسی) =====
 (function() {
-    const targetDate = new Date(2026, 11, 17, 23, 59, 59);
-    const startDate = new Date(2026, 4, 14, 0, 0, 0);
-    const totalDuration = Math.floor((targetDate.getTime() - startDate.getTime()) / 1000);
-
-    // تابع تبدیل اعداد انگلیسی به فارسی
     function toPersianDigits(num) {
         const persianDigits = {
             '0': '۰', '1': '۱', '2': '۲', '3': '۳', '4': '۴',
@@ -2057,6 +2424,10 @@ if (car) {
         };
         return String(num).split('').map(char => persianDigits[char] || char).join('');
     }
+
+    const targetDate = new Date(2026, 11, 17, 23, 59, 59);
+    const startDate = new Date(2026, 4, 14, 0, 0, 0);
+    const totalDuration = Math.floor((targetDate.getTime() - startDate.getTime()) / 1000);
 
     if (totalDuration <= 0) {
         document.getElementById('cd-d').textContent = '۰۰';
@@ -2096,6 +2467,7 @@ if (car) {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 })();
+
 // ===== POLL =====
 const pollSubmit = document.getElementById('pollSubmit');
 if (pollSubmit) {
