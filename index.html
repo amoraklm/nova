@@ -427,10 +427,24 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: .95rem;
         flex-shrink: 0;
         background: rgba(var(--nova-r), .08);
         border: 1px solid rgba(var(--nova-r), .12);
+    }
+
+    .dropdown-icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--muted);
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        transition: stroke var(--fast);
+    }
+
+    .dropdown-item:hover .dropdown-icon svg {
+        stroke: var(--w);
     }
 
     .dropdown-label {
@@ -468,7 +482,7 @@
     .header-actions-mobile {
         display: none;
         align-items: center;
-        gap: .35rem;
+        gap: .5rem;
         flex-shrink: 0;
     }
 
@@ -485,8 +499,18 @@
         color: var(--muted);
         cursor: pointer;
         transition: all var(--fast);
-        font-size: .95rem;
         position: relative;
+    }
+
+    .action-btn svg {
+        width: 20px;
+        height: 20px;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        transition: stroke var(--fast);
     }
 
     .action-btn:hover {
@@ -494,6 +518,10 @@
         border-color: rgba(var(--nova-r), .3);
         color: var(--w);
         transform: translateY(-1px);
+    }
+
+    .action-btn:hover svg {
+        stroke: var(--w);
     }
 
     .action-btn[data-tooltip]::before {
@@ -658,6 +686,16 @@
         font-family: inherit;
     }
 
+    .header-cta svg {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+    }
+
     .header-cta::before {
         content: '';
         position: absolute;
@@ -717,26 +755,30 @@
         transform: rotate(-45deg) translate(5px, -5px);
     }
 
+    /* ===== MOBILE OVERLAY & DRAWER ===== */
     .mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:899;animation:fadeIn .3s var(--ease)}
     .mobile-overlay.active{display:block}
     .mobile-drawer{position:fixed;top:0;right:0;width:min(320px,85vw);height:100%;background:rgba(14,12,26,.97);backdrop-filter:blur(30px) saturate(160%);-webkit-backdrop-filter:blur(30px) saturate(160%);border-left:1px solid rgba(255,255,255,.08);z-index:950;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s var(--ease);overflow-y:auto;overscroll-behavior:contain}
     [data-theme="light"] .mobile-drawer{background:rgba(241,245,249,.97);border-left-color:rgba(0,0,0,.08)}
     .mobile-drawer.open{transform:translateX(0)}
     .mobile-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
-    .mobile-close{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all var(--fast)}
+    .mobile-close{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--fast)}
+    .mobile-close svg{width:20px;height:20px;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
     .mobile-close:hover{background:rgba(var(--red),.1);color:var(--red)}
     .mobile-nav{padding:1rem;display:flex;flex-direction:column;gap:.2rem;flex:1}
     .mobile-nav-link{display:flex;align-items:center;gap:.6rem;padding:.7rem .8rem;border-radius:var(--r-xs);color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:all var(--fast)}
     .mobile-nav-link:hover,.mobile-nav-link[aria-current="page"]{background:rgba(var(--nova-r),.08);color:var(--w)}
     .mobile-nav-link[aria-current="page"]{font-weight:600;border-right:3px solid var(--nova)}
-    .mobile-nav-link .nav-icon{font-size:1.1rem;width:24px;text-align:center}
+    .mobile-nav-link .nav-icon{width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .mobile-nav-link .nav-icon svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
     .mobile-nav-divider{height:1px;background:rgba(255,255,255,.06);margin:.5rem 0}
-    .mobile-nav-section{font-size:.7rem;color:var(--muted);font-weight:600;letter-spacing:.08em;padding:.5rem .8rem .2rem;opacity:.6}
     .mobile-drawer-footer{padding:1rem 1.2rem;border-top:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;gap:.8rem}
     .mobile-utils{display:flex;align-items:center;gap:.5rem;justify-content:center;flex-wrap:wrap}
     .mobile-util-btn{display:flex;align-items:center;gap:.35rem;padding:.4rem .7rem;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.75rem;cursor:pointer;transition:all var(--fast);font-family:inherit}
+    .mobile-util-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
     .mobile-util-btn:hover{background:rgba(var(--nova-r),.1);border-color:rgba(var(--nova-r),.3);color:var(--w)}
     .mobile-cta{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.7rem 1.2rem;border-radius:var(--r-xs);font-weight:700;font-size:.88rem;text-decoration:none;color:var(--w);background:var(--shim);border:1px solid rgba(255,255,255,.2);font-family:inherit;cursor:pointer}
+    .mobile-cta svg{width:16px;height:16px;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
 
     /* ===== BUTTONS ===== */
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.8rem;border-radius:var(--r-sm);font-weight:700;font-size:.9rem;text-decoration:none;transition:all var(--norm);border:none;cursor:pointer;font-family:inherit;white-space:nowrap;position:relative;overflow:hidden;user-select:none}
@@ -753,6 +795,7 @@
     .sec{margin-bottom:5rem}
     .sh{text-align:center;margin-bottom:2.5rem}
     .stag{display:inline-flex;align-items:center;gap:.3rem;background:rgba(var(--nova-r),0.1);border:1px solid rgba(var(--nova-r),0.25);color:var(--sec);padding:.25rem .8rem;border-radius:var(--r-full);font-size:.75rem;font-weight:600;margin-bottom:.8rem}
+    .stag svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
     .stit{font-size:clamp(1.5rem,5vw,2.4rem);font-weight:800;line-height:1.2;letter-spacing:.03em;margin-bottom:.6rem}
     .grad{background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .ssub{color:var(--muted);font-size:.92rem;max-width:520px;margin:0 auto;line-height:1.8}
@@ -775,7 +818,7 @@
     .hero-blob{position:absolute;left:50%;top:50%;width:180px;height:180px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(var(--nova-r),0.12),rgba(var(--pink-r),0.06),transparent 70%);animation:morph 15s ease-in-out infinite;filter:blur(30px);pointer-events:none}
     .hero-c{position:relative;z-index:3;max-width:700px;margin:0 auto}
     .h-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(var(--nova-r),0.12);border:1px solid rgba(var(--nova-r),0.3);color:var(--sec);padding:.35rem 1.1rem;border-radius:var(--r-full);font-size:.8rem;font-weight:600;margin-bottom:1.5rem;backdrop-filter:blur(10px)}
-    .b-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(var(--green-r),0.6);animation:breathe 2s ease-in-out infinite}
+    .h-badge .b-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(var(--green-r),0.6);animation:breathe 2s ease-in-out infinite}
     .hero h1{font-size:clamp(2rem,7vw,3.8rem);font-weight:800;line-height:1.12;letter-spacing:.03em;margin-bottom:1.2rem}
     .hero h1 .hl{position:relative;display:inline}
     .hero h1 .hl::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:4px;background:var(--shim);border-radius:var(--r-full);opacity:.6}
@@ -842,6 +885,7 @@
     .demo-list{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-top:1rem}
     .dl-i{display:flex;align-items:flex-start;gap:.7rem}
     .dl-ic{width:36px;height:36px;border-radius:var(--r-sm);background:rgba(var(--nova-r),0.1);border:1px solid rgba(var(--nova-r),0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:var(--clay-sh)}
+    .dl-ic svg{width:20px;height:20px;stroke:var(--sec);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
     .dl-t h4{font-size:.88rem;font-weight:700;margin-bottom:.15rem}
     .dl-t p{font-size:.78rem;color:var(--muted);line-height:1.55}
 
@@ -917,7 +961,9 @@
     .shield-info>p{color:var(--muted);font-size:.88rem;line-height:1.75;margin-bottom:1rem}
     .s-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
     .s-list li{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--muted);padding:.5rem .8rem;border-radius:var(--r-sm);background:rgba(var(--nova-r),0.05);border:1px solid rgba(var(--nova-r),0.08);transition:all var(--fast)}
+    .s-list li svg{width:18px;height:18px;stroke:var(--sec);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none;flex-shrink:0}
     .s-list li:hover{background:rgba(var(--nova-r),0.1);border-color:rgba(var(--nova-r),0.2);color:var(--w);transform:translateX(-3px)}
+    .s-list li:hover svg{stroke:var(--w)}
 
     /* ===== TIMELINE ===== */
     .tl{position:relative;max-width:600px;margin:0 auto;padding-right:2.5rem}
@@ -1089,6 +1135,7 @@
     .social-link svg {
         width: 18px;
         height: 18px;
+        fill: currentColor;
     }
 
     .social-link:hover {
@@ -1224,7 +1271,7 @@
         letter-spacing: 0.05em;
     }
 
-    /* ===== ریسپانسیو فوتر (اصلاح‌شده) ===== */
+    /* ===== ریسپانسیو فوتر ===== */
     @media (max-width: 992px) {
         .footer-container {
             grid-template-columns: 1.5fr 1fr 1fr;
@@ -1366,8 +1413,39 @@
     .d1{transition-delay:.1s!important}.d2{transition-delay:.2s!important}.d3{transition-delay:.3s!important}.d4{transition-delay:.4s!important}
 
     /* ===== RESPONSIVE — UNIFIED ===== */
+    @media (max-width: 900px) {
+        .nav-desktop,
+        .header-actions-desktop {
+            display: none !important;
+        }
+        .header-actions-mobile {
+            display: flex !important;
+        }
+        .mob-toggle {
+            display: flex !important;
+        }
+        .mobile-drawer {
+            display: flex !important;
+            right: 0 !important;
+            left: auto !important;
+            border-left: 1px solid rgba(255,255,255,.08) !important;
+            border-right: none !important;
+        }
+        [data-theme="light"] .mobile-drawer {
+            border-left-color: rgba(0,0,0,.08) !important;
+        }
+        .mobile-overlay.active {
+            display: block !important;
+        }
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+        }
+        .logo-text {
+            font-size: 1.2rem;
+        }
+    }
 
-    /* پنهان کردن منوی موبایل در دسکتاپ */
     @media (min-width: 901px) {
         .mob-toggle {
             display: none !important;
@@ -1392,42 +1470,6 @@
         }
     }
 
-    /* نمایش منوی موبایل و مخفی کردن منوی دسکتاپ در موبایل */
-    @media (max-width: 900px) {
-        .nav-desktop {
-            display: none !important;
-        }
-        .header-actions-desktop {
-            display: none !important;
-        }
-        .header-actions-mobile {
-            display: flex !important;
-        }
-        .header-divider {
-            display: none !important;
-        }
-        .mob-toggle {
-            display: flex !important;
-        }
-        .mobile-drawer {
-            display: flex !important;
-            right: 0 !important;
-            left: auto !important;
-            border-left: 1px solid rgba(255,255,255,.08) !important;
-            border-right: none !important;
-        }
-        [data-theme="light"] .mobile-drawer {
-            border-left-color: rgba(0,0,0,.08) !important;
-        }
-        .mobile-overlay {
-            display: none !important;
-        }
-        .mobile-overlay.active {
-            display: block !important;
-        }
-    }
-
-    /* ریسپانسیو موبایل (هدر و فوتر و بخش‌های دیگر) */
     @media (max-width: 768px) {
         .hdr {
             height: auto;
@@ -1435,7 +1477,6 @@
             gap: 0.3rem;
             flex-wrap: wrap;
         }
-
         .logo {
             order: 1;
             flex: 1;
@@ -1447,19 +1488,19 @@
         .logo-text {
             font-size: 1.3rem;
         }
-
         .header-actions-mobile {
             order: 2;
             gap: 0.2rem;
             flex-shrink: 1;
         }
-
         .action-btn {
             width: 32px;
             height: 32px;
-            font-size: 0.85rem;
         }
-
+        .action-btn svg {
+            width: 18px;
+            height: 18px;
+        }
         .mob-toggle {
             width: 36px;
             height: 36px;
@@ -1470,8 +1511,6 @@
             width: 16px;
             height: 2px;
         }
-
-        /* منوی کشویی موبایل */
         .mobile-drawer {
             width: min(300px, 80vw);
         }
@@ -1479,8 +1518,6 @@
             font-size: 0.85rem;
             padding: 0.6rem 0.7rem;
         }
-
-        /* سایر بخش‌ها */
         .hero-btns {
             flex-direction: column;
             align-items: center;
@@ -1548,7 +1585,10 @@
         .action-btn {
             width: 28px;
             height: 28px;
-            font-size: 0.75rem;
+        }
+        .action-btn svg {
+            width: 16px;
+            height: 16px;
         }
         .mob-toggle {
             width: 32px;
@@ -1567,7 +1607,6 @@
         .logo-text {
             font-size: 1.1rem;
         }
-
         .mobile-drawer {
             width: min(260px, 80vw);
         }
@@ -1579,7 +1618,6 @@
             font-size: 0.8rem;
             padding: 0.6rem 1rem;
         }
-
         .hero {
             padding: 4rem var(--pad) 2rem;
         }
@@ -1623,7 +1661,6 @@
         }
     }
 
-    /* دسکتاپ بزرگ (برای اطمینان از نمایش منوی دسکتاپ) */
     @media (min-width: 769px) {
         .bento {
             grid-template-columns: repeat(3, 1fr);
@@ -1647,8 +1684,7 @@
 <div class="aurora" aria-hidden="true"></div>
 <div class="scroll-bar" id="sBar"></div>
 
-<!-- ===== HEADER (بازطراحی‌شده) ===== -->
-<!-- ===== HEADER ===== -->
+<!-- ===== HEADER (بازطراحی‌شده با آیکون‌های SVG) ===== -->
 <header class="header" id="header" role="banner">
     <div class="hdr">
         <!-- Logo -->
@@ -1727,7 +1763,7 @@
             </div>
             <div class="header-divider"></div>
             <a href="https://chatnova.ir/download" class="header-cta">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                     <polyline points="7 10 12 15 17 10"/>
                     <line x1="12" y1="15" x2="12" y2="3"/>
@@ -1753,7 +1789,7 @@
 <!-- Mobile Overlay -->
 <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
 
-<!-- Mobile Drawer -->
+<!-- Mobile Drawer (با آیکون‌های SVG) -->
 <nav class="mobile-drawer" id="mobileDrawer" role="navigation" aria-label="منوی موبایل" aria-hidden="true">
     <div class="mobile-drawer-header">
         <a href="https://chatnova.ir" class="logo" aria-label="نووا">
@@ -1764,7 +1800,7 @@
             <span class="logo-text" style="font-size:1.2rem">NOVA</span>
         </a>
         <button class="mobile-close" id="mobileClose" aria-label="بستن منو">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"/>
                 <line x1="6" y1="6" x2="18" y2="18"/>
             </svg>
@@ -1852,7 +1888,7 @@
     <div class="mobile-drawer-footer">
         <div class="mobile-utils">
             <button class="mobile-util-btn" id="mobileThemeToggle" aria-label="تغییر تم">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
                 </svg>
                 تم
@@ -1862,7 +1898,7 @@
             <button class="mobile-util-btn" data-lang="tr">🇹🇷 TR</button>
         </div>
         <a href="https://chatnova.ir/download" class="mobile-cta">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
@@ -1953,9 +1989,33 @@
             <h3>چت هوشمند و امن <span class="grad">نووا (Chat Nova)</span></h3>
             <p style="color:var(--muted);line-height:1.75;font-size:.88rem;margin-bottom:.8rem">با chatnova، پیام‌رسان امن ایرانی، چت کنید. هر پیام با رمزنگاری سرتاسری محافظت می‌شود. Nova Chat، جایی که حریم خصوصی شماست.</p>
             <ul class="demo-list">
-                <li class="dl-i"><div class="dl-ic">🔐</div><div class="dl-t"><h4>رمزنگاری سرتاسری</h4><p>هیچ‌کس جز شما پیام‌ها رو نمی‌بینه</p></div></li>
-                <li class="dl-i"><div class="dl-ic">⚡</div><div class="dl-t"><h4>ارسال آنی</h4><p>تحویل در کسری از ثانیه</p></div></li>
-                <li class="dl-i"><div class="dl-ic">🎨</div><div class="dl-t"><h4>طراحی مینیمال</h4><p>رابط کاربری زیبا و دوستانه</p></div></li>
+                <li class="dl-i">
+                    <div class="dl-ic">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <polyline points="9 12 11 14 15 10"/>
+                        </svg>
+                    </div>
+                    <div class="dl-t"><h4>رمزنگاری سرتاسری</h4><p>هیچ‌کس جز شما پیام‌ها رو نمی‌بینه</p></div>
+                </li>
+                <li class="dl-i">
+                    <div class="dl-ic">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </div>
+                    <div class="dl-t"><h4>ارسال آنی</h4><p>تحویل در کسری از ثانیه</p></div>
+                </li>
+                <li class="dl-i">
+                    <div class="dl-ic">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="dl-t"><h4>طراحی مینیمال</h4><p>رابط کاربری زیبا و دوستانه</p></div>
+                </li>
             </ul>
         </div>
     </div>
@@ -2090,12 +2150,51 @@
             <h3>محافظت <span class="grad">چندلایه</span></h3>
             <p>نووا با رویکرد «حریم خصوصی از ابتدا» طراحی شده. پیام‌رسانی امن با Nova Messenger.</p>
             <ul class="s-list">
-                <li><span>🔒</span>رمزنگاری سرتاسری تمام پیام‌ها</li>
-                <li><span>🛡️</span>احراز هویت بیومتریک و دو مرحله‌ای</li>
-                <li><span>🌍</span>تطابق با GDPR و قوانین ۱۸۰ کشور</li>
-                <li><span>📊</span>گزارش‌های امنیتی لحظه‌ای</li>
-                <li><span>🔗</span>احراز هویت بلاک‌چینی</li>
-                <li><span>⏱️</span>پشتیبانی ۲۴/۷</li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <polyline points="9 12 11 14 15 10"/>
+                    </svg>
+                    رمزنگاری سرتاسری تمام پیام‌ها
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    احراز هویت بیومتریک و دو مرحله‌ای
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                    تطابق با GDPR و قوانین ۱۸۰ کشور
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h7"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    گزارش‌های امنیتی لحظه‌ای
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                        <polyline points="17 6 23 6 23 12"/>
+                    </svg>
+                    احراز هویت بلاک‌چینی
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    پشتیبانی ۲۴/۷
+                </li>
             </ul>
         </div>
     </div>
@@ -2358,8 +2457,8 @@ function toggleTheme() {
     const next = current === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('nova-theme', next);
-    if (themeToggleDesktop) themeToggleDesktop.textContent = next === 'light' ? '🌙' : '🌓';
-    if (themeToggleMobile) themeToggleMobile.textContent = next === 'light' ? '🌙' : '🌓';
+    if (themeToggleDesktop) themeToggleDesktop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    if (themeToggleMobile) themeToggleMobile.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
     if (mobileThemeToggle) mobileThemeToggle.innerHTML = (next === 'light' ? '🌙' : '🌓') + ' تم';
 }
 
