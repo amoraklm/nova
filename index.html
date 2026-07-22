@@ -991,14 +991,14 @@
     .stt.vis{opacity:1;visibility:visible;transform:translateY(0)}
     .stt:hover{transform:translateY(-3px);background:rgba(var(--nova-r),0.35);border-color:var(--nova)}
 
-    .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:10000;transition:opacity .5s var(--ease),visibility .5s}
-    .ldr.gone{opacity:0;visibility:hidden;pointer-events:none}
-    .ldr-mk{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:1.5rem}
-    .ldr-mk svg{width:36px;height:36px;animation:float 2s ease-in-out infinite;filter:drop-shadow(0 4px 10px rgba(var(--nova-r),0.5))}
-    .ldr-mk span{font-size:2.2rem;font-weight:800;background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .ldr-tr{width:140px;height:4px;background:var(--surf);border-radius:var(--r-full);overflow:hidden;margin:0 auto}
-    .ldr-fl{height:100%;background:var(--shim);border-radius:var(--r-full);animation:progress 1.4s ease forwards}
-    .ldr-msg{margin-top:.8rem;color:var(--muted);font-size:.75rem}
+body {
+    animation: fadeInBody 0.6s ease forwards;
+}
+
+@keyframes fadeInBody {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
     .rv{opacity:0;transform:translateY(24px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
     .rv.vis{opacity:1;transform:translateY(0)}
@@ -1319,12 +1319,6 @@
 <body>
 
 <svg class="svg-d" aria-hidden="true"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#EC4899"/><stop offset="100%" stop-color="#6366F1"/></linearGradient><linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#EC4899"/><stop offset="100%" stop-color="#6366F1"/></linearGradient><linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#A855F7" stop-opacity=".8"/><stop offset="100%" stop-color="#6366F1"/></linearGradient></defs></svg>
-
-<div class="ldr" id="ldr" aria-hidden="true"><div style="text-align:center"><!-- لودینگ جدید (PNG) -->
-<div class="ldr-mk">
-    <img src="/assets/logo.png" alt="نووا - لوگو" class="ldr-logo" width="48" height="48">
-    <span>NOVA</span>
-</div></div><div class="ldr-tr"><div class="ldr-fl"></div></div><p class="ldr-msg">در حال آماده‌سازی...</p></div></div>
 
 <div class="aurora" aria-hidden="true"></div>
 <div class="scroll-bar" id="sBar"></div>
@@ -2021,10 +2015,6 @@
 <button class="stt" id="stt" aria-label="بالا">↑</button>
 
 <script>
-// ===== LOADER =====
-window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('ldr').classList.add('gone'), 1400);
-});
 
 // ===== SCROLL PROGRESS, STICKY HEADER, STT =====
 const header = document.getElementById('header');
