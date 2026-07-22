@@ -1751,13 +1751,82 @@
         height: 0;
         overflow: hidden;
     }
+    /* ===== LOGO IMAGE ===== */
+.logo-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(var(--nova-r), 0.45));
+    transition: filter var(--fast);
+}
+
+.logo:hover .logo-img {
+    filter: drop-shadow(0 4px 14px rgba(var(--nova-r), 0.6));
+}
+
+/* ===== LOADER LOGO ===== */
+.ldr-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    animation: float 2s ease-in-out infinite;
+    filter: drop-shadow(0 4px 10px rgba(var(--nova-r), 0.5));
+}
+
+/* ===== FOOTER LOGO ===== */
+.footer-logo-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(var(--nova-r), 0.3));
+    transition: filter var(--fast);
+}
+
+.footer-logo:hover .footer-logo-img {
+    filter: drop-shadow(0 4px 12px rgba(var(--nova-r), 0.5));
+}
+
+/* ===== RESPONSIVE LOGO ===== */
+@media (max-width: 768px) {
+    .logo-img {
+        width: 24px;
+        height: 24px;
+    }
+    .ldr-logo {
+        width: 36px;
+        height: 36px;
+    }
+    .footer-logo-img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: 20px;
+        height: 20px;
+    }
+    .ldr-logo {
+        width: 32px;
+        height: 32px;
+    }
+    .footer-logo-img {
+        width: 18px;
+        height: 18px;
+    }
+}
 </style>
 </head>
 <body>
 
 <svg class="svg-d" aria-hidden="true"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#EC4899"/><stop offset="100%" stop-color="#6366F1"/></linearGradient><linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#EC4899"/><stop offset="100%" stop-color="#6366F1"/></linearGradient><linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#A855F7" stop-opacity=".8"/><stop offset="100%" stop-color="#6366F1"/></linearGradient></defs></svg>
 
-<div class="ldr" id="ldr" aria-hidden="true"><div style="text-align:center"><div class="ldr-mk"><svg viewBox="0 0 48 48" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/></svg><span>NOVA</span></div><div class="ldr-tr"><div class="ldr-fl"></div></div><p class="ldr-msg">در حال آماده‌سازی...</p></div></div>
+<div class="ldr" id="ldr" aria-hidden="true"><div style="text-align:center"><!-- لودینگ جدید (PNG) -->
+<div class="ldr-mk">
+    <img src="/assets/logo.png" alt="نووا - لوگو" class="ldr-logo" width="48" height="48">
+    <span>NOVA</span>
+</div></div><div class="ldr-tr"><div class="ldr-fl"></div></div><p class="ldr-msg">در حال آماده‌سازی...</p></div></div>
 
 <div class="aurora" aria-hidden="true"></div>
 <div class="scroll-bar" id="sBar"></div>
@@ -2377,10 +2446,8 @@
     <div class="footer-container">
         <div class="footer-brand">
             <a href="/" class="footer-logo" aria-label="نووا - صفحه اصلی">
-                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                    <path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/>
-                    <circle cx="24" cy="24" r="5" fill="white" opacity=".85"/>
-                </svg>
+                <!-- فوتر جدید (PNG) -->
+<img src="/assets/logo.png" alt="نووا - لوگو" class="footer-logo-img" width="24" height="24">
                 <span>NOVA</span>
             </a>
             <p class="footer-description">
