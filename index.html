@@ -479,11 +479,79 @@
     .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
     .demo-info{max-width:360px}
     .demo-info h3{font-size:1.3rem;font-weight:800;margin-bottom:.8rem}
-    .demo-list{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-top:1rem}
-    .dl-i{display:flex;align-items:flex-start;gap:.7rem}
-    .dl-ic{width:36px;height:36px;border-radius:var(--r-sm);background:rgba(var(--nova-r),0.1);border:1px solid rgba(var(--nova-r),0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:var(--clay-sh)}
-    .dl-t h4{font-size:.88rem;font-weight:700;margin-bottom:.15rem}
-    .dl-t p{font-size:.78rem;color:var(--muted);line-height:1.55}
+    /* ===== DEMO LIST ICONS ===== */
+.demo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.dl-i {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+}
+
+.dl-ic {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    max-width: 36px;
+    max-height: 36px;
+    border-radius: var(--r-sm);
+    background: rgba(var(--nova-r), 0.1);
+    border: 1px solid rgba(var(--nova-r), 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--clay-sh);
+    transition: all var(--fast);
+}
+
+.dl-ic svg {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    stroke: var(--sec);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    display: block;
+    transition: stroke var(--fast), transform var(--fast);
+}
+
+.dl-i:hover .dl-ic {
+    background: rgba(var(--nova-r), 0.2);
+    border-color: var(--nova);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--nova-r), 0.2);
+}
+
+.dl-i:hover .dl-ic svg {
+    stroke: var(--w);
+    transform: scale(1.05);
+}
+
+.dl-t h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+    color: var(--w);
+}
+
+.dl-t p {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.55;
+}
 
     /* ===== BENTO ===== */
     .bento{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:4rem}
