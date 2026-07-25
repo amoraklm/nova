@@ -1,0 +1,100 @@
+# ============================================
+# robots.txt برای chatnova.ir
+# آخرین به‌روزرسانی: ۱۴۰۴/۰۵/۰۴
+# ============================================
+
+# ===== همه ربات‌ها =====
+User-agent: *
+
+# ===== اجازه به همه‌ی مسیرها (پیش‌فرض) =====
+Allow: /
+
+# ===== ممنوعیت خزش صفحات بی‌ارزش =====
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /temp/
+Disallow: /backup/
+Disallow: /logs/
+Disallow: /config/
+Disallow: /vendor/
+Disallow: /node_modules/
+Disallow: /assets/   # (تصاویر و فایل‌های استاتیک - نیازی به خزش ندارن)
+
+# ===== جلوگیری از ایندکس شدن صفحات تکراری (اگر از سیستم مدیریت محتوا داری) =====
+Disallow: /*?page=
+Disallow: /*?s=
+Disallow: /*?search=
+Disallow: /*?category=
+Disallow: /*?tag=
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+
+# ===== ممنوعیت خزش صفحات موقت و آزمایشی =====
+Disallow: /*.tmp$
+Disallow: /*.bak$
+Disallow: /*.swp$
+Disallow: /*~$
+
+# ===== زمان‌های خزش =====
+Crawl-delay: 1
+
+# ===== معرفی نقشه‌ی سایت (Sitemap) به گوگل و بینگ =====
+Sitemap: https://chatnova.ir/sitemap.xml
+
+# ============================================
+# تنظیمات اختصاصی برای ربات‌های مختلف
+# ============================================
+
+# ===== گوگل (Googlebot) =====
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /*?page=
+Disallow: /*?s=
+Crawl-delay: 1
+
+# ===== بینگ (Bingbot) =====
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /tmp/
+Crawl-delay: 1
+
+# ===== یاهو (Slurp) =====
+User-agent: Slurp
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# ===== داک‌داک‌گو (DuckDuckBot) =====
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# ===== ربات‌های دیگر =====
+User-agent: Baiduspider
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+User-agent: Yandex
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+User-agent: AhrefsBot
+Disallow: /
+Crawl-delay: 2
+
+User-agent: SemrushBot
+Disallow: /
+Crawl-delay: 2
+
+User-agent: MJ12bot
+Disallow: /
+Crawl-delay: 2
