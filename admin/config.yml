@@ -6,10 +6,17 @@ backend:
   name: github
   repo: amoraklm/chatnova.ir
   branch: main
+  auth_scope: repo
+  app_id: Ov231iuszmKuws6gS4Ny
 
 media_folder: "assets/blog-images"
 public_folder: "/assets/blog-images"
 
+# ===== تنظیمات زبان و محلی‌سازی =====
+locale: 'fa'
+display_url: https://chatnova.ir
+
+# ===== کالکشن مقالات وبلاگ =====
 collections:
   - name: "blog"
     label: "مقالات وبلاگ"
@@ -18,13 +25,16 @@ collections:
     create: true
     delete: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    path: "{{slug}}/index"
+    editor:
+      preview: true
     fields:
       - { label: "عنوان", name: "title", widget: "string", required: true }
-      - { label: "تاریخ انتشار", name: "date", widget: "datetime", default: "", format: "YYYY-MM-DD" }
-      - { label: "نویسنده", name: "author", widget: "string", default: "علی ترکمن" }
+      - { label: "تاریخ انتشار", name: "date", widget: "datetime", default: "", format: "YYYY-MM-DD", dateFormat: "YYYY-MM-DD", timeFormat: false }
+      - { label: "نویسنده", name: "author", widget: "string", default: "علی ترکمن", required: true }
       - { label: "دسته‌بندی", name: "category", widget: "select", options: ["امنیت", "کیف پول", "هوش مصنوعی", "آموزش", "اخبار"], default: "آموزش" }
       - { label: "تصویر شاخص", name: "image", widget: "image", required: false }
-      - { label: "توضیحات کوتاه", name: "excerpt", widget: "text", required: true }
+      - { label: "توضیحات کوتاه", name: "excerpt", widget: "text", required: true, pattern: ['.{20,160}', "حداقل ۲۰ و حداکثر ۱۶۰ کاراکتر"] }
       - { label: "متن اصلی", name: "body", widget: "markdown", required: true }
-      - { label: "برچسب‌ها", name: "tags", widget: "list", default: [] }
+      - { label: "برچسب‌ها", name: "tags", widget: "list", default: [], required: false }
       - { label: "منتشر شود؟", name: "published", widget: "boolean", default: true }
