@@ -4,7 +4,7 @@
 
 backend:
   name: github
-  repo: amoraklm/chatnova.ir
+  repo: amoraklm/nova
   branch: main
   auth_scope: repo
   app_id: Ov23liq60DQHqiw4f5qJ
