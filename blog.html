@@ -45,10 +45,13 @@
         
         @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
         @keyframes progress{from{width:0}to{width:100%}}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
         
         .aurora{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 15% 15%,rgba(var(--nova-r),.12) 0%,transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(var(--pink-r),.08) 0%,transparent 55%);filter:blur(55px)}
-        .scroll-bar{position:fixed;top:0;left:0;height:4px;z-index:1000;background:var(--shim)}
+        .scroll-bar{position:fixed;top:0;left:0;height:4px;z-index:1000;background:var(--shim);transition:width 100ms linear}
         
+        /* ===== Header (یکسان با index و contact) ===== */
         .header{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--header-h)}
         .header::before{content:'';position:absolute;inset:0;background:rgba(10,10,15,.55);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.06)}
         [data-theme="light"] .header::before{background:rgba(241,245,249,.7);border-bottom-color:rgba(0,0,0,.06)}
@@ -60,19 +63,58 @@
         .nav-desktop{display:flex;align-items:center;gap:.15rem;margin-right:auto}
         .nav-link{color:var(--muted);text-decoration:none;padding:.45rem .75rem;border-radius:var(--r-xs);font-size:.84rem;font-weight:500;transition:color var(--fast)}
         .nav-link:hover,.nav-link[aria-current="page"]{color:var(--w)}
+        
+        /* Dropdown "بیشتر" */
+        .nav-more{position:relative}
+        .nav-more-btn{display:inline-flex;align-items:center;gap:.3rem;color:var(--muted);text-decoration:none;padding:.45rem .75rem;border-radius:var(--r-xs);font-size:.84rem;font-weight:500;cursor:pointer;background:transparent;border:none;font-family:inherit;transition:color var(--fast)}
+        .nav-more-btn:hover{color:var(--w)}
+        .nav-more-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;transition:transform var(--fast)}
+        .nav-more.open .nav-more-btn svg{transform:rotate(180deg)}
+        .nav-more-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:220px;background:var(--surf);border:1px solid var(--clay-b);border-radius:var(--r-sm);box-shadow:var(--clay-sh-h);padding:.5rem;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all var(--fast);z-index:100}
+        .nav-more.open .nav-more-menu{opacity:1;visibility:visible;transform:translateY(0);animation:slideDown .25s var(--ease)}
+        .nav-more-item{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;border-radius:var(--r-xs);text-decoration:none;color:var(--muted);transition:all var(--fast)}
+        .nav-more-item:hover{background:rgba(var(--nova-r),.08);color:var(--w)}
+        .nav-more-item .item-icon{width:32px;height:32px;border-radius:var(--r-xs);background:rgba(var(--nova-r),.1);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+        .nav-more-item .item-text{display:flex;flex-direction:column}
+        .nav-more-item .item-title{font-size:.84rem;font-weight:600;color:var(--w)}
+        .nav-more-item .item-desc{font-size:.7rem;color:var(--muted)}
+        
         .header-actions-desktop{display:flex;align-items:center;gap:.5rem}
         .action-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);cursor:pointer;transition:all var(--fast)}
         .action-btn:hover{background:rgba(255,255,255,.1);color:var(--w)}
         .action-btn svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;fill:none}
+        
+        /* Language Dropdown */
+        .lang-wrap{position:relative}
+        .lang-btn{display:inline-flex;align-items:center;gap:.3rem;padding:.35rem .7rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-xs);color:var(--muted);font-family:inherit;font-size:.8rem;cursor:pointer;transition:all var(--fast)}
+        .lang-btn:hover{background:rgba(255,255,255,.1);color:var(--w)}
+        .lang-btn svg{width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none}
+        .lang-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:150px;background:var(--surf);border:1px solid var(--clay-b);border-radius:var(--r-sm);box-shadow:var(--clay-sh-h);padding:.4rem;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all var(--fast);z-index:100}
+        .lang-wrap.open .lang-menu{opacity:1;visibility:visible;transform:translateY(0);animation:slideDown .25s var(--ease)}
+        .lang-option{display:block;width:100%;padding:.5rem .7rem;background:transparent;border:none;color:var(--muted);font-family:inherit;font-size:.84rem;text-align:right;cursor:pointer;border-radius:var(--r-xs);transition:all var(--fast)}
+        .lang-option:hover{background:rgba(var(--nova-r),.08);color:var(--w)}
+        
         .header-cta{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1.1rem;border-radius:50px;font-weight:700;font-size:.8rem;text-decoration:none;color:var(--w);background:var(--shim);border:1px solid rgba(255,255,255,.2);transition:transform var(--fast)}
         .header-cta:hover{transform:translateY(-2px)}
-        .lang-select{background:transparent;border:1px solid rgba(255,255,255,.1);color:var(--muted);padding:.3rem .6rem;border-radius:var(--r-xs);font-family:inherit;font-size:.8rem;cursor:pointer}
+        
+        /* Mobile Toggle */
         .mob-toggle{display:none;flex-direction:column;justify-content:center;align-items:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);cursor:pointer;gap:4px}
         .mob-toggle span{display:block;width:16px;height:2px;background:var(--w);border-radius:2px;transition:all var(--fast)}
+        
+        /* Mobile Menu */
+        .mob-menu{position:fixed;top:var(--header-h);left:0;right:0;bottom:0;background:rgba(10,10,15,.95);backdrop-filter:blur(24px);z-index:800;padding:1.5rem var(--pad);overflow-y:auto;transform:translateX(100%);transition:transform var(--norm)}
+        [data-theme="light"] .mob-menu{background:rgba(241,245,249,.98)}
+        .mob-menu.open{transform:translateX(0)}
+        .mob-menu-list{list-style:none;display:flex;flex-direction:column;gap:.3rem}
+        .mob-menu-link{display:block;padding:.8rem 1rem;color:var(--muted);text-decoration:none;font-size:1rem;font-weight:500;border-radius:var(--r-sm);transition:all var(--fast)}
+        .mob-menu-link:hover,.mob-menu-link[aria-current="page"]{background:rgba(var(--nova-r),.08);color:var(--w)}
+        .mob-menu-divider{height:1px;background:var(--clay-b);margin:1rem 0}
+        .mob-menu-cta{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.5rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;color:var(--w);background:var(--shim);border:1px solid rgba(255,255,255,.2);margin-top:1rem}
 
         .main{max-width:var(--max);margin:0 auto;padding:0 var(--pad);position:relative;z-index:10}
         .grad{background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
         
+        /* ===== Blog Hero ===== */
         .blog-hero{padding:clamp(7rem,15vw,10rem) 0 clamp(3rem,6vw,5rem);text-align:center;position:relative}
         .blog-hero-content{position:relative;z-index:2}
         .stag{display:inline-flex;align-items:center;gap:.3rem;background:rgba(var(--nova-r),.1);border:1px solid rgba(var(--nova-r),.25);color:var(--sec);padding:.25rem .8rem;border-radius:var(--r-full);font-size:.75rem;font-weight:600;margin-bottom:1rem}
@@ -83,6 +125,7 @@
         .breadcrumb a{color:var(--sec);text-decoration:none;transition:color var(--fast)}
         .breadcrumb a:hover{color:var(--nova)}
 
+        /* ===== Toolbar ===== */
         .blog-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;padding:1.2rem 1.5rem;background:var(--clay);border:1px solid var(--clay-b);border-radius:var(--r);backdrop-filter:blur(10px)}
         .blog-search{display:flex;align-items:center;gap:.5rem;flex:1;min-width:200px;max-width:400px;background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.08);border-radius:var(--r-sm);padding:.5rem .8rem;transition:border-color var(--fast)}
         .blog-search:focus-within{border-color:var(--nova)}
@@ -92,7 +135,8 @@
         .filter-btn{background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.08);border-radius:var(--r-full);padding:.35rem .9rem;color:var(--muted);font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all var(--fast)}
         .filter-btn:hover,.filter-btn.active{background:rgba(var(--nova-r),0.12);border-color:var(--nova);color:var(--w)}
 
-        .featured-post{position:relative;margin-bottom:3rem;border-radius:var(--r);overflow:hidden;background:var(--clay);border:1px solid var(--clay-b);box-shadow:var(--clay-sh);display:grid;grid-template-columns:1fr 1fr;min-height:300px;transition:all var(--norm)}
+        /* ===== Featured Post ===== */
+        .featured-post{position:relative;margin-bottom:3rem;border-radius:var(--r);overflow:hidden;background:var(--clay);border:1px solid var(--clay-b);box-shadow:var(--clay-sh);display:grid;grid-template-columns:1fr 1fr;min-height:300px;transition:all var(--norm);backdrop-filter:blur(10px)}
         .featured-post:hover{box-shadow:var(--clay-sh-h);border-color:rgba(var(--nova-r),.3);transform:translateY(-4px)}
         .featured-post.hidden{display:none}
         .featured-img{position:relative;overflow:hidden;min-height:220px;background:linear-gradient(135deg,rgba(var(--nova-r),.15),rgba(var(--pink-r),.1))}
@@ -110,30 +154,7 @@
         .read-more{display:inline-flex;color:var(--sec);text-decoration:none;font-weight:700;font-size:.88rem;transition:color var(--fast)}
         .read-more:hover{color:var(--nova)}
 
-        .blog-layout{display:grid;grid-template-columns:1fr 290px;gap:2.5rem;margin-bottom:4rem}
-        .sidebar{display:flex;flex-direction:column;gap:1.5rem}
-        .sidebar-widget{background:var(--clay);border:1px solid var(--clay-b);border-radius:var(--r);box-shadow:var(--clay-sh);padding:1.4rem;backdrop-filter:blur(10px)}
-        .widget-title{font-size:.95rem;font-weight:700;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--clay-b)}
-        .popular-list{list-style:none;display:flex;flex-direction:column;gap:.7rem}
-        .popular-item{display:flex;align-items:flex-start;gap:.7rem;padding:.5rem;border-radius:var(--r-sm);transition:background var(--fast)}
-        .popular-item:hover{background:rgba(var(--nova-r),.06)}
-        .popular-num{width:26px;height:26px;border-radius:50%;background:rgba(var(--nova-r),.1);border:1px solid rgba(var(--nova-r),.2);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--sec);flex-shrink:0}
-        .popular-info h4{font-size:.8rem;font-weight:600;margin-bottom:.15rem;line-height:1.45}
-        .popular-info h4 a{color:var(--w);text-decoration:none;transition:color var(--fast)}
-        .popular-info h4 a:hover{color:var(--sec)}
-        .pop-meta{font-size:.65rem;color:var(--muted)}
-        .category-list{list-style:none;display:flex;flex-direction:column;gap:.35rem}
-        .category-item{display:flex;align-items:center;justify-content:space-between;padding:.45rem .65rem;border-radius:var(--r-sm);text-decoration:none;color:var(--muted);font-size:.84rem;transition:all var(--fast)}
-        .category-item:hover{background:rgba(var(--nova-r),.08);color:var(--w)}
-        .category-count{background:rgba(var(--nova-r),.1);padding:.1rem .4rem;border-radius:var(--r-full);font-size:.68rem;font-weight:600;color:var(--sec)}
-        .tags-cloud{display:flex;flex-wrap:wrap;gap:.35rem}
-        .tag-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r-full);padding:.15rem .55rem;font-size:.7rem;color:var(--muted);text-decoration:none;transition:all var(--fast)}
-        .tag-item:hover{background:rgba(var(--nova-r),0.12);border-color:var(--nova);color:var(--w)}
-
-        .blog-cta{background:rgba(var(--nova-r),0.06);border:1.5px solid rgba(var(--nova-r),0.18);border-radius:var(--r);padding:clamp(2rem,5vw,3rem);text-align:center;margin-bottom:3rem;backdrop-filter:blur(10px)}
-        .blog-cta h2{font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:800;margin-bottom:.6rem}
-        .blog-cta p{color:var(--muted);font-size:.9rem;margin-bottom:1.5rem}
-
+        /* ===== Blog Grid ===== */
         .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin-bottom:3rem}
         .blog-card{background:var(--clay);border:1px solid var(--clay-b);border-radius:var(--r);box-shadow:var(--clay-sh);overflow:hidden;transition:all var(--norm);display:flex;flex-direction:column;backdrop-filter:blur(10px)}
         .blog-card:hover{box-shadow:var(--clay-sh-h);border-color:rgba(var(--nova-r),.3);transform:translateY(-6px)}
@@ -157,18 +178,49 @@
         .author-name{font-size:.75rem;font-weight:600;color:var(--w)}
         .author-date{font-size:.68rem;color:var(--muted)}
 
-        .footer{background:var(--bg);border-top:1px solid rgba(255,255,255,0.06);padding:2.5rem var(--pad) 1.5rem;margin-top:2rem}
-        .footer-container{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.05)}
-        .footer-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,var(--w) 30%,var(--sec));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .footer-description{color:var(--muted);font-size:.84rem;line-height:1.8;max-width:280px;margin-top:.7rem}
-        .footer-heading{font-size:.88rem;font-weight:700;color:var(--w);margin-bottom:.5rem}
-        .footer-links ul{list-style:none}
-        .footer-links ul li a{color:var(--muted);text-decoration:none;font-size:.84rem;display:block;padding:.2rem 0;transition:color var(--fast)}
-        .footer-links ul li a:hover{color:var(--w)}
-        .footer-bottom{max-width:var(--max);margin:0 auto;padding-top:1rem;text-align:center}
-        .footer-copy{font-size:.78rem;color:var(--muted)}
-        .footer-slogan{font-size:.85rem;color:var(--sec);margin-top:.5rem;font-weight:600}
+        /* ===== Layout & Sidebar ===== */
+        .blog-layout{display:grid;grid-template-columns:1fr 290px;gap:2.5rem;margin-bottom:4rem}
+        .sidebar{display:flex;flex-direction:column;gap:1.5rem}
+        .sidebar-widget{background:var(--clay);border:1px solid var(--clay-b);border-radius:var(--r);box-shadow:var(--clay-sh);padding:1.4rem;backdrop-filter:blur(10px)}
+        .widget-title{font-size:.95rem;font-weight:700;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--clay-b)}
+        .popular-list{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+        .popular-item{display:flex;align-items:flex-start;gap:.7rem;padding:.5rem;border-radius:var(--r-sm);transition:background var(--fast)}
+        .popular-item:hover{background:rgba(var(--nova-r),.06)}
+        .popular-num{width:26px;height:26px;border-radius:50%;background:rgba(var(--nova-r),.1);border:1px solid rgba(var(--nova-r),.2);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--sec);flex-shrink:0}
+        .popular-info h4{font-size:.8rem;font-weight:600;margin-bottom:.15rem;line-height:1.45}
+        .popular-info h4 a{color:var(--w);text-decoration:none;transition:color var(--fast)}
+        .popular-info h4 a:hover{color:var(--sec)}
+        .pop-meta{font-size:.65rem;color:var(--muted)}
+        .category-list{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+        .category-item{display:flex;align-items:center;justify-content:space-between;padding:.45rem .65rem;border-radius:var(--r-sm);text-decoration:none;color:var(--muted);font-size:.84rem;transition:all var(--fast)}
+        .category-item:hover{background:rgba(var(--nova-r),.08);color:var(--w)}
+        .category-count{background:rgba(var(--nova-r),.1);padding:.1rem .4rem;border-radius:var(--r-full);font-size:.68rem;font-weight:600;color:var(--sec)}
+        .tags-cloud{display:flex;flex-wrap:wrap;gap:.35rem}
+        .tag-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r-full);padding:.15rem .55rem;font-size:.7rem;color:var(--muted);text-decoration:none;transition:all var(--fast)}
+        .tag-item:hover{background:rgba(var(--nova-r),0.12);border-color:var(--nova);color:var(--w)}
 
+        /* ===== CTA ===== */
+        .blog-cta{background:rgba(var(--nova-r),0.06);border:1.5px solid rgba(var(--nova-r),0.18);border-radius:var(--r);padding:clamp(2rem,5vw,3rem);text-align:center;margin-bottom:3rem;backdrop-filter:blur(10px)}
+        .blog-cta h2{font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:800;margin-bottom:.6rem}
+        .blog-cta p{color:var(--muted);font-size:.9rem;margin-bottom:1.5rem}
+
+        /* ===== Footer (یکسان با index و contact) ===== */
+        .footer{background:var(--bg);border-top:1px solid rgba(255,255,255,0.06);padding:3rem var(--pad) 1.5rem;margin-top:2rem;position:relative;z-index:10}
+        .footer-container{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.05)}
+        .footer-brand{display:flex;flex-direction:column;gap:.8rem}
+        .footer-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,var(--w) 30%,var(--sec));-webkit-background-clip:text;-webkit-text-fill-color:transparent;width:fit-content}
+        .footer-description{color:var(--muted);font-size:.84rem;line-height:1.8;max-width:320px}
+        .footer-heading{font-size:.88rem;font-weight:700;color:var(--w);margin-bottom:.8rem}
+        .footer-links ul{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+        .footer-links ul li a{color:var(--muted);text-decoration:none;font-size:.84rem;transition:color var(--fast)}
+        .footer-links ul li a:hover{color:var(--w)}
+        .footer-bottom{max-width:var(--max);margin:0 auto;padding-top:1.5rem;text-align:center}
+        .footer-copy{font-size:.78rem;color:var(--muted);margin-bottom:.4rem}
+        .footer-slogan{font-size:.85rem;color:var(--sec);font-weight:600;margin-bottom:1rem}
+        .footer-trust{display:inline-block;margin-top:.5rem}
+        .footer-trust img{height:60px;opacity:.85;border-radius:8px}
+
+        /* ===== Utilities ===== */
         .stt{position:fixed;bottom:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:var(--r-full);background:rgba(var(--nova-r),0.2);border:1.5px solid rgba(var(--nova-r),0.3);color:var(--w);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:all var(--norm);z-index:500;backdrop-filter:blur(10px)}
         .stt.vis{opacity:1;visibility:visible}
         .stt:hover{background:rgba(var(--nova-r),0.4);transform:translateY(-3px)}
@@ -182,10 +234,25 @@
 
         .empty-state{grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)}
 
-        @media (max-width:1024px){.blog-layout{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}}
-        @media (max-width:900px){.nav-desktop,.header-actions-desktop{display:none}.mob-toggle{display:flex}}
-        @media (max-width:768px){.featured-post{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}.blog-toolbar{flex-direction:column}.footer-container{grid-template-columns:1fr 1fr}}
-        @media (max-width:480px){.footer-container{grid-template-columns:1fr}}
+        /* ===== Responsive ===== */
+        @media (max-width:1024px){
+            .blog-layout{grid-template-columns:1fr}
+            .sidebar{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+        }
+        @media (max-width:900px){
+            .nav-desktop,.header-actions-desktop{display:none}
+            .mob-toggle{display:flex}
+        }
+        @media (max-width:768px){
+            .featured-post{grid-template-columns:1fr}
+            .blog-grid{grid-template-columns:1fr}
+            .blog-toolbar{flex-direction:column;align-items:stretch}
+            .blog-search{max-width:none}
+            .footer-container{grid-template-columns:1fr 1fr}
+        }
+        @media (max-width:480px){
+            .footer-container{grid-template-columns:1fr}
+        }
     </style>
 </head>
 <body>
@@ -202,41 +269,98 @@
     <div class="aurora" aria-hidden="true"></div>
     <div class="scroll-bar" id="scrollBar"></div>
 
+    <!-- ===== Header (یکسان با index و contact) ===== -->
     <header class="header" id="header">
         <div class="hdr">
             <a href="https://chatnova.ir" class="logo">
                 <svg class="logo-icon" viewBox="0 0 48 48" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/></svg>
                 <span class="logo-text">NOVA</span>
             </a>
+            
             <nav class="nav-desktop">
                 <a href="https://chatnova.ir" class="nav-link">صفحه اصلی</a>
                 <a href="https://chatnova.ir/features" class="nav-link">امکانات</a>
                 <a href="https://chatnova.ir/blog" class="nav-link" aria-current="page">وبلاگ</a>
-                <a href="https://chatnova.ir/about" class="nav-link">درباره ما</a>
-                <a href="https://chatnova.ir/contact" class="nav-link">تماس</a>
+                <div class="nav-more" id="navMore">
+                    <button class="nav-more-btn" aria-expanded="false" aria-haspopup="true">
+                        بیشتر
+                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="nav-more-menu" role="menu">
+                        <a href="https://chatnova.ir/about" class="nav-more-item" role="menuitem">
+                            <span class="item-icon">✨</span>
+                            <span class="item-text">
+                                <span class="item-title">درباره ما</span>
+                                <span class="item-desc">داستان نووا</span>
+                            </span>
+                        </a>
+                        <a href="https://chatnova.ir/contact" class="nav-more-item" role="menuitem">
+                            <span class="item-icon">💬</span>
+                            <span class="item-text">
+                                <span class="item-title">تماس</span>
+                                <span class="item-desc">ارتباط با ما</span>
+                            </span>
+                        </a>
+                        <a href="https://chatnova.ir/download" class="nav-more-item" role="menuitem">
+                            <span class="item-icon">📥</span>
+                            <span class="item-text">
+                                <span class="item-title">دانلود</span>
+                                <span class="item-desc">دریافت اپلیکیشن</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </nav>
+            
             <div class="header-actions-desktop">
                 <button class="action-btn" id="themeToggle" aria-label="تغییر تم">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                 </button>
-                <select class="lang-select" aria-label="تغییر زبان">
-                    <option value="fa">🇮🇷 FA</option>
-                    <option value="en">🇬🇧 EN</option>
-                    <option value="tr">🇹🇷 TR</option>
-                </select>
+                <div class="lang-wrap" id="langWrap">
+                    <button class="lang-btn" aria-haspopup="true">
+                        🇮🇷 FA
+                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="lang-menu" role="menu">
+                        <button class="lang-option" role="menuitem" data-lang="fa">🇮🇷 فارسی</button>
+                        <button class="lang-option" role="menuitem" data-lang="en">🇬🇧 English</button>
+                        <button class="lang-option" role="menuitem" data-lang="tr">🇹🇷 Türkçe</button>
+                    </div>
+                </div>
                 <a href="https://chatnova.ir/download" class="header-cta">دانلود نووا</a>
             </div>
+            
             <button class="mob-toggle" id="mobToggle" aria-label="منو">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
+    <!-- Mobile Menu -->
+    <div class="mob-menu" id="mobMenu">
+        <ul class="mob-menu-list">
+            <li><a href="https://chatnova.ir" class="mob-menu-link">صفحه اصلی</a></li>
+            <li><a href="https://chatnova.ir/features" class="mob-menu-link">امکانات</a></li>
+            <li><a href="https://chatnova.ir/blog" class="mob-menu-link" aria-current="page">وبلاگ</a></li>
+            <li class="mob-menu-divider"></li>
+            <li><a href="https://chatnova.ir/about" class="mob-menu-link">درباره ما</a></li>
+            <li><a href="https://chatnova.ir/contact" class="mob-menu-link">تماس</a></li>
+            <li><a href="https://chatnova.ir/download" class="mob-menu-link">دانلود</a></li>
+            <li class="mob-menu-divider"></li>
+            <li><a href="https://chatnova.ir/terms" class="mob-menu-link">شرایط استفاده</a></li>
+            <li><a href="https://chatnova.ir/privacy" class="mob-menu-link">حریم خصوصی</a></li>
+        </ul>
+        <a href="https://chatnova.ir/download" class="mob-menu-cta">دانلود رایگان نووا</a>
+    </div>
+
     <main>
+        <!-- ===== Blog Hero ===== -->
         <section class="blog-hero">
             <div class="blog-hero-content main">
                 <nav class="breadcrumb">
-                    <a href="https://chatnova.ir">خانه</a><span>›</span><span>وبلاگ</span>
+                    <a href="https://chatnova.ir">خانه</a>
+                    <span>›</span>
+                    <span>وبلاگ</span>
                 </nav>
                 <div class="stag"><span class="dot"></span> به‌روزرسانی خودکار</div>
                 <h1>وبلاگ <span class="grad">نووا</span></h1>
@@ -244,6 +368,7 @@
             </div>
         </section>
 
+        <!-- ===== Toolbar ===== -->
         <div class="main">
             <div class="blog-toolbar">
                 <div class="blog-search">
@@ -261,6 +386,7 @@
             </div>
         </div>
 
+        <!-- ===== Featured Post ===== -->
         <div class="main">
             <article class="featured-post hidden" id="featuredPost">
                 <div class="featured-img">
@@ -279,6 +405,7 @@
             </article>
         </div>
 
+        <!-- ===== Blog Layout ===== -->
         <div class="main blog-layout">
             <section>
                 <div class="blog-grid" id="blogGrid">
@@ -311,18 +438,20 @@
             </aside>
         </div>
 
+        <!-- ===== CTA ===== -->
         <div class="main">
             <section class="blog-cta">
                 <h2>هیچ مقاله‌ای را از دست ندهید! 🚀</h2>
                 <p>برای دریافت جدیدترین آموزش‌های امنیت و هوش مصنوعی، نووا را دانلود کنید و در کانال رسمی ما عضو شوید.</p>
-                <a href="https://chatnova.ir/download" class="header-cta" style="font-size: 1rem; padding: .7rem 1.5rem;">دانلود رایگان نووا</a>
+                <a href="https://chatnova.ir/download" class="header-cta" style="font-size:1rem;padding:.7rem 1.5rem">دانلود رایگان نووا</a>
             </section>
         </div>
     </main>
 
+    <!-- ===== Footer (یکسان با index و contact) ===== -->
     <footer class="footer">
         <div class="footer-container">
-            <div>
+            <div class="footer-brand">
                 <a href="https://chatnova.ir" class="footer-logo">NOVA</a>
                 <p class="footer-description">نووا، پیام‌رسان امن ایرانی با کیف پول دیجیتال و هوش مصنوعی. ارتباطی امن، هوشمند و بدون مرز.</p>
             </div>
@@ -332,6 +461,7 @@
                     <li><a href="/features">امکانات</a></li>
                     <li><a href="/download">دانلود</a></li>
                     <li><a href="/blog">وبلاگ</a></li>
+                    <li><a href="#">Nova AI</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -339,6 +469,8 @@
                 <ul>
                     <li><a href="/about">درباره ما</a></li>
                     <li><a href="/contact">تماس</a></li>
+                    <li><a href="#">فرصت‌های شغلی</a></li>
+                    <li><a href="#">اخبار</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -346,20 +478,24 @@
                 <ul>
                     <li><a href="/terms">شرایط استفاده</a></li>
                     <li><a href="/privacy">حریم خصوصی</a></li>
+                    <li><a href="#">کوکی‌ها</a></li>
+                    <li><a href="#">مستندات</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="footer-copy">© ۲۰۲۶ <strong>NOVA</strong> — کلیه حقوق محفوظ است.</p>
+            <p class="footer-copy">© ۲۰۲۵ <strong>NOVA</strong> — کلیه حقوق محفوظ است.</p>
             <p class="footer-slogan">«نووا؛ جایی که پیام‌ها به نور تبدیل می‌شوند.»</p>
-            <img src="https://trustseal.enamad.ir/logo.aspx?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq" alt="نماد اعتماد الکترونیکی" style="margin-top: 1rem; height: 60px; opacity: 0.8;">
+            <div class="footer-trust">
+                <img src="https://trustseal.enamad.ir/logo.aspx?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq" alt="نماد اعتماد الکترونیکی">
+            </div>
         </div>
     </footer>
 
     <button class="stt" id="stt" aria-label="بازگشت به بالا">↑</button>
 
     <script>
-        // --- Theme & UI Logic ---
+        // ===== Theme =====
         const savedTheme = localStorage.getItem('nova-theme');
         if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
         
@@ -369,6 +505,7 @@
             localStorage.setItem('nova-theme', n);
         });
 
+        // ===== Scroll Effects =====
         const header = document.getElementById('header'), stt = document.getElementById('stt'), scrollBar = document.getElementById('scrollBar');
         window.addEventListener('scroll', () => {
             const y = window.scrollY;
@@ -381,12 +518,53 @@
         stt?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
         window.addEventListener('load', () => setTimeout(() => document.getElementById('loader')?.classList.add('gone'), 700));
 
-        // Mobile Menu Toggle (Basic implementation matching site UX)
-        document.getElementById('mobToggle')?.addEventListener('click', () => {
-            alert('منوی موبایل در نسخه نهایی با انیمیشن اسلاید باز می‌شود. (می‌توانید کد منوی موبایل index.html را اینجا کپی کنید)');
+        // ===== Dropdown "بیشتر" =====
+        const navMore = document.getElementById('navMore');
+        const navMoreBtn = navMore?.querySelector('.nav-more-btn');
+        navMoreBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = navMore.classList.toggle('open');
+            navMoreBtn.setAttribute('aria-expanded', isOpen);
+            document.getElementById('langWrap')?.classList.remove('open');
         });
 
-        // --- Blog Logic ---
+        // ===== Language Dropdown =====
+        const langWrap = document.getElementById('langWrap');
+        const langBtn = langWrap?.querySelector('.lang-btn');
+        langBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langWrap.classList.toggle('open');
+            navMore?.classList.remove('open');
+        });
+        
+        langWrap?.querySelectorAll('.lang-option').forEach(opt => {
+            opt.addEventListener('click', () => {
+                const lang = opt.dataset.lang;
+                const flag = opt.textContent.trim().split(' ')[0];
+                const code = lang.toUpperCase();
+                langBtn.innerHTML = `${flag} ${code} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>`;
+                langWrap.classList.remove('open');
+                // اینجا می‌تونی منطق تغییر زبان رو اضافه کنی
+                console.log('Language changed to:', lang);
+            });
+        });
+
+        // ===== Close dropdowns on outside click =====
+        document.addEventListener('click', (e) => {
+            if (!navMore?.contains(e.target)) navMore?.classList.remove('open');
+            if (!langWrap?.contains(e.target)) langWrap?.classList.remove('open');
+        });
+
+        // ===== Mobile Menu =====
+        const mobToggle = document.getElementById('mobToggle');
+        const mobMenu = document.getElementById('mobMenu');
+        mobToggle?.addEventListener('click', () => {
+            mobMenu.classList.toggle('open');
+            const isOpen = mobMenu.classList.contains('open');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        // ===== Blog Logic =====
         function parseFrontmatter(c) {
             const m = {};
             const x = c.match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -419,21 +597,20 @@
             return { 'امنیت': 'card-img-1', 'کیف پول': 'card-img-2', 'هوش مصنوعی': 'card-img-3', 'آموزش': 'card-img-4', 'اخبار': 'card-img-5' }[c] || 'card-img-1';
         }
 
-        // Fallback data to ensure UX is never broken if GitHub API fails or is empty
+        // Fallback data
         const mockPosts = [
-            { title: "چرا رمزنگاری سرتاسری (E2EE) در پیام‌رسان‌ها حیاتی است؟", date: "2026-07-20", category: "امنیت", excerpt: "در این مقاله به زبان ساده بررسی می‌کنیم که رمزنگاری سرتاسری چطور از پیام‌های شما در برابر دسترسی اشخاص ثالث محافظت می‌کند.", author: "تیم نووا", slug: "e2ee-importance", url: "/blog/e2ee-importance", tags: ["امنیت", "E2EE", "حریم خصوصی"] },
-            { title: "راهنمای جامع استفاده از کیف پول دیجیتال نووا", date: "2026-07-15", category: "کیف پول", excerpt: "یاد بگیرید چطور در کمتر از ۳ دقیقه کیف پول خود را فعال کنید، ارزهای دیجیتال را ذخیره کرده و پرداخت‌های آنی انجام دهید.", author: "تیم نووا", slug: "nova-wallet-guide", url: "/blog/nova-wallet-guide", tags: ["کیف پول", "رمزارز", "آموزش"] },
-            { title: "آشنایی با دستیار هوش مصنوعی Nova AI", date: "2026-07-10", category: "هوش مصنوعی", excerpt: "دستیار هوشمند نووا چگونه می‌تواند در ترجمه فوری، خلاصه‌سازی پیام‌ها و تولید محتوا به شما کمک کند؟", author: "تیم نووا", slug: "nova-ai-intro", url: "/blog/nova-ai-intro", tags: ["هوش مصنوعی", "Nova AI", "بهره‌وری"] }
+            { title: "چرا رمزنگاری سرتاسری (E2EE) در پیام‌رسان‌ها حیاتی است؟", date: "2026-07-20", category: "امنیت", excerpt: "در این مقاله به زبان ساده بررسی می‌کنیم که رمزنگاری سرتاسری چطور از پیام‌های شما در برابر دسترسی اشخاص ثالث محافظت می‌کند.", author: "تیم نووا", slug: "e2ee-importance", url: "/post.html?slug=e2ee-importance", tags: ["امنیت", "E2EE", "حریم خصوصی"] },
+            { title: "راهنمای جامع استفاده از کیف پول دیجیتال نووا", date: "2026-07-15", category: "کیف پول", excerpt: "یاد بگیرید چطور در کمتر از ۳ دقیقه کیف پول خود را فعال کنید، ارزهای دیجیتال را ذخیره کرده و پرداخت‌های آنی انجام دهید.", author: "تیم نووا", slug: "nova-wallet-guide", url: "/post.html?slug=nova-wallet-guide", tags: ["کیف پول", "رمزارز", "آموزش"] },
+            { title: "آشنایی با دستیار هوش مصنوعی Nova AI", date: "2026-07-10", category: "هوش مصنوعی", excerpt: "دستیار هوشمند نووا چگونه می‌تواند در ترجمه فوری، خلاصه‌سازی پیام‌ها و تولید محتوا به شما کمک کند؟", author: "تیم نووا", slug: "nova-ai-intro", url: "/post.html?slug=nova-ai-intro", tags: ["هوش مصنوعی", "Nova AI", "بهره‌وری"] }
         ];
 
         let allPosts = [];
 
         async function loadBlogPosts() {
             const grid = document.getElementById('blogGrid');
-            const repo = 'amoraklm/nova'; // نام ریپازیتوری گیت‌هاب شما
+            const repo = 'amoraklm/nova';
             
             try {
-                // تلاش برای دریافت از گیت‌هاب
                 const res = await fetch(`https://api.github.com/repos/${repo}/contents/blog`);
                 if (!res.ok) throw new Error('API ' + res.status);
                 const files = await res.json();
@@ -458,7 +635,7 @@
                             excerpt: meta.excerpt || t.split('\n').slice(0, 3).join(' ').substring(0, 150) + '...',
                             author: meta.author || 'تیم نووا',
                             slug: slug,
-                            url: `/blog/${slug}`,
+                            url: `/post.html?slug=${slug}`,
                             tags: meta.tags ? String(meta.tags).split(',').map(x => x.trim()).filter(Boolean) : []
                         });
                         
@@ -468,20 +645,22 @@
                 }
                 
                 posts.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-                allPosts = posts.length > 0 ? posts : mockPosts; // Fallback to mock if repo is empty
+                allPosts = posts.length > 0 ? posts : mockPosts;
                 
             } catch (err) {
                 console.warn('GitHub API failed, using fallback data:', err);
-                allPosts = mockPosts; // Fallback ensures the UI always looks professional
+                allPosts = mockPosts;
             }
 
-            // Update UI
-            Object.keys({'امنیت':0,'کیف پول':0,'هوش مصنوعی':0,'آموزش':0,'اخبار':0}).forEach(k => {
+            // Update category counts
+            const cats = ['امنیت', 'کیف پول', 'هوش مصنوعی', 'آموزش', 'اخبار'];
+            cats.forEach(k => {
                 const count = allPosts.filter(p => p.category === k).length;
                 const el = document.getElementById('cat-' + k);
                 if (el) el.textContent = count;
             });
 
+            // Update tags cloud
             const tc = document.getElementById('tagsCloud');
             const allTags = new Set();
             allPosts.forEach(p => (p.tags || []).forEach(t => allTags.add(t)));
@@ -548,25 +727,19 @@
                 </article>`).join('');
         }
 
-        // Filter Logic
+        // Filter
         document.getElementById('filterButtons')?.addEventListener('click', e => {
             const b = e.target.closest('.filter-btn');
             if (!b) return;
             document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active'));
             b.classList.add('active');
             const f = b.dataset.filter;
-            
-            // Re-render grid based on filter
-            const filtered = f === 'all' ? allPosts : allPosts.filter(p => p.category === f);
-            renderGrid(filtered.length > 1 ? filtered.slice(1) : filtered); // Keep featured separate if needed, or just render all filtered
-            
-            // Simpler approach: just hide/show existing DOM elements for instant UX
             document.querySelectorAll('.blog-card').forEach(c => {
                 c.style.display = (f === 'all' || c.dataset.category === f) ? '' : 'none';
             });
         });
 
-        // Search Logic
+        // Search
         document.getElementById('blogSearch')?.addEventListener('input', e => {
             const q = e.target.value.trim().toLowerCase();
             document.querySelectorAll('.blog-card').forEach(c => {
@@ -574,7 +747,7 @@
             });
         });
 
-        // Category Sidebar Click
+        // Category sidebar
         document.getElementById('categoryList')?.addEventListener('click', e => {
             const i = e.target.closest('.category-item');
             if (!i) return;
