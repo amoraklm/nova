@@ -1,0 +1,53 @@
+# ============================================
+# تنظیمات Decap CMS برای وبلاگ نووا
+# ============================================
+
+# ===== تنظیمات پایه =====
+backend:
+  name: github
+  repo: your-username/chatnova.ir   # 👈 نام کاربری گیت‌هاب خود را وارد کنید
+  branch: main
+
+media_folder: "assets/blog-images"
+public_folder: "/assets/blog-images"
+
+# ===== تنظیمات زبان و محلی‌سازی =====
+locale: 'fa'
+display_url: https://chatnova.ir
+
+# ===== کالکشن‌های محتوا =====
+collections:
+  - name: "blog"
+    label: "مقالات وبلاگ"
+    label_singular: "مقاله"
+    folder: "blog"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    path: "{{slug}}/index"
+    editor:
+      preview: true
+    fields:
+      - { label: "عنوان", name: "title", widget: "string", required: true }
+      - { label: "تاریخ انتشار", name: "date", widget: "datetime", default: "", format: "YYYY-MM-DD", dateFormat: "YYYY-MM-DD", timeFormat: false }
+      - { label: "نویسنده", name: "author", widget: "string", default: "علی ترکمن", required: true }
+      - { label: "دسته‌بندی", name: "category", widget: "select", options: ["امنیت", "کیف پول", "هوش مصنوعی", "آموزش", "اخبار"], default: "آموزش" }
+      - { label: "تصویر شاخص", name: "image", widget: "image", required: false }
+      - { label: "توضیحات کوتاه", name: "excerpt", widget: "text", required: true, pattern: ['.{20,160}', "حداقل ۲۰ و حداکثر ۱۶۰ کاراکتر"] }
+      - { label: "متن اصلی", name: "body", widget: "markdown", required: true }
+      - { label: "برچسب‌ها", name: "tags", widget: "list", default: [], required: false }
+      - { label: "منتشر شود؟", name: "published", widget: "boolean", default: true }
+
+# ===== تنظیمات سایت (صفحات ثابت) =====
+  - name: "pages"
+    label: "صفحات ثابت"
+    label_singular: "صفحه"
+    folder: "pages"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "عنوان", name: "title", widget: "string", required: true }
+      - { label: "مسیر (URL)", name: "slug", widget: "string", required: true, pattern: ['^[a-z0-9-]+$', "فقط حروف کوچک، اعداد و خط تیره"] }
+      - { label: "متن اصلی", name: "body", widget: "markdown", required: true }
+      - { label: "ترتیب نمایش", name: "order", widget: "number", default: 0, required: false }
