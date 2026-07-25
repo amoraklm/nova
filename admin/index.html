@@ -1,1 +1,65 @@
-
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت وبلاگ نووا</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <style>
+        body {
+            font-family: 'IRANSansXFaNum', system-ui, sans-serif;
+            background: #0A0A0F;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem;
+        }
+        .login-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(12px);
+        }
+        .login-box h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #7C3AED, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .login-box p {
+            color: #94A3B8;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        .login-box .logo {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .login-box .note {
+            font-size: 0.7rem;
+            color: #475569;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <span class="logo">🚀</span>
+        <h1>پنل مدیریت نووا</h1>
+        <p>برای مدیریت وبلاگ، با گیت‌هاب خود وارد شوید.</p>
+        <div id="cms-login"></div>
+        <p class="note">🔒 فقط شما به این صفحه دسترسی دارید.</p>
+    </div>
+</body>
+</html>
