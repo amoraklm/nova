@@ -3,532 +3,520 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گم شدی؟ | نووا (NOVA) - پیام‌رسان امن ایرانی</title>
-    <meta name="description" content="اوه! انگار در کهکشان نووا گم شدی. نگران نباش، ما تو رو به خانه راهنمایی می‌کنیم.">
+    <title>گمشده در فضا | NOVA</title>
     <meta name="robots" content="noindex, follow">
-    <link rel="canonical" href="https://chatnova.ir/">
-
-    <!-- Preload font -->
     <link rel="preload" href="/fonts/IRANSansXFaNum-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
     <style>
         /* ===== فونت‌ها ===== */
         @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-Light.woff2') format('woff2');font-weight:300;font-display:swap}
         @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
-        @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-DemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
         @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
         @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
 
-        /* ===== متغیرها ===== */
+        /* ===== Variables ===== */
         :root{
             --nova:#7C3AED;--nova-r:124,58,237;
-            --sec:#A855F7;--sec-r:168,85,247;
-            --tri:#6366F1;--tri-r:99,102,241;
             --pink:#EC4899;--pink-r:236,72,153;
-            --gold:#F59E0B;--gold-r:245,158,11;
-            --green:#10B981;--green-r:16,185,129;
-            --bg:#0A0A0F;--surf:#1E1B2E;--muted:#94A3B8;--w:#FFFFFF;
-            --shim:linear-gradient(135deg,var(--nova),var(--pink),var(--tri));
-            --clay:rgba(255,255,255,0.07);
-            --clay-b:rgba(255,255,255,0.12);
-            --clay-sh:12px 12px 24px rgba(0,0,0,0.55),-8px -8px 20px rgba(255,255,255,0.04),inset 0 2px 1px rgba(255,255,255,0.12),inset 0 -2px 1px rgba(0,0,0,0.25);
-            --clay-sh-h:16px 16px 32px rgba(0,0,0,0.65),-10px -10px 24px rgba(255,255,255,0.06),inset 0 2px 1px rgba(255,255,255,0.16),inset 0 -2px 1px rgba(0,0,0,0.3);
-            --clay-blur:blur(20px) saturate(150%);
-            --ease:cubic-bezier(0.4,0,0.2,1);
-            --fast:250ms var(--ease);--norm:350ms var(--ease);
-            --r:24px;--r-sm:16px;--r-xs:12px;--r-full:9999px;
-            --max:1200px;--pad:clamp(1rem,5vw,2.5rem);
-            --header-h:64px;
+            --bg:#0A0A0F;--w:#FFFFFF;--muted:#94A3B8;
+            --shim:linear-gradient(135deg,var(--nova),var(--pink));
         }
 
-        [data-theme="light"] {
-            --bg:#F1F5F9;
-            --surf:#FFFFFF;
-            --w:#0A0A0F;
-            --muted:#475569;
-            --clay:rgba(0,0,0,0.05);
-            --clay-b:rgba(0,0,0,0.10);
-            --clay-sh:12px 12px 24px rgba(0,0,0,0.08),-8px -8px 20px rgba(255,255,255,0.6),inset 0 2px 1px rgba(255,255,255,0.6),inset 0 -2px 1px rgba(0,0,0,0.05);
-            --clay-sh-h:16px 16px 32px rgba(0,0,0,0.12),-10px -10px 24px rgba(255,255,255,0.8),inset 0 2px 1px rgba(255,255,255,0.7),inset 0 -2px 1px rgba(0,0,0,0.08);
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'IRANSansXFaNum',sans-serif;
+            background:var(--bg);
+            color:var(--w);
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
+            position:relative;
         }
 
-        /* ===== ریست ===== */
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-        html{scroll-behavior:smooth;font-size:16px}
-        body{font-family:'IRANSansXFaNum','Inter',system-ui,sans-serif;background:var(--bg);color:var(--w);line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;transition:background var(--norm),color var(--norm);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem var(--pad);text-align:center}
-
-        /* ===== پس‌زمینه ===== */
-        .aurora{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 15% 15%,rgba(var(--nova-r),0.12) 0%,transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(var(--pink-r),0.08) 0%,transparent 55%),radial-gradient(ellipse at 45% 50%,rgba(var(--tri-r),0.06) 0%,transparent 60%);filter:blur(55px)}
-
-        /* ===== کانتینر اصلی (با Container Queries) ===== */
-        .error-container {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            width: 100%;
-            container-type: inline-size;
-            container-name: error;
-            padding: 1rem;
+        /* ===== پس‌زمینه فضایی پویا ===== */
+        .space-bg{
+            position:fixed;
+            inset:0;
+            z-index:0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(var(--nova-r),0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(var(--pink-r),0.1) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 100%, rgba(var(--nova-r),0.05) 0%, transparent 50%);
         }
 
-        /* ===== کارت اصلی ===== */
-        .error-card {
-            background: var(--clay);
-            backdrop-filter: var(--clay-blur);
-            -webkit-backdrop-filter: var(--clay-blur);
-            border: 1px solid var(--clay-b);
-            border-radius: var(--r);
-            box-shadow: var(--clay-sh);
-            padding: clamp(1.5rem, 5vw, 3rem);
-            transition: all var(--norm);
-            position: relative;
-            overflow: hidden;
+        /* ===== ستاره‌های متحرک ===== */
+        .stars{
+            position:fixed;
+            inset:0;
+            z-index:0;
+            pointer-events:none;
+        }
+        .star{
+            position:absolute;
+            width:3px;height:3px;
+            background:var(--w);
+            border-radius:50%;
+            opacity:0;
+            animation:twinkle var(--duration) ease-in-out infinite;
+        }
+        @keyframes twinkle{
+            0%,100%{opacity:0;transform:scale(0.8)}
+            50%{opacity:0.8;transform:scale(1.2)}
         }
 
-        .error-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.06), transparent);
-            border-radius: var(--r) var(--r) 0 0;
-            pointer-events: none;
+        /* ===== کانتینر ===== */
+        .container{
+            position:relative;
+            z-index:1;
+            width:100%;
+            max-width:600px;
+            padding:1.5rem;
+            container-type:inline-size;
+            container-name:error;
         }
 
-        .error-card:hover {
-            box-shadow: var(--clay-sh-h);
-            border-color: rgba(var(--nova-r), 0.3);
-            transform: translateY(-4px);
+        /* ===== کارت ===== */
+        .card{
+            background:rgba(255,255,255,0.03);
+            backdrop-filter:blur(20px);
+            -webkit-backdrop-filter:blur(20px);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:32px;
+            padding:clamp(2rem,6vw,4rem) clamp(1.5rem,5vw,3rem);
+            text-align:center;
+            position:relative;
+            overflow:hidden;
+            transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+        .card:hover{
+            border-color:rgba(var(--nova-r),0.3);
+            box-shadow:0 0 60px rgba(var(--nova-r),0.06);
+            transform:translateY(-2px);
         }
 
-        /* ===== Container Queries ریسپانسیو ===== */
-        @container error (max-width: 480px) {
-            .error-card { padding: 1.5rem; }
-            .error-number { font-size: clamp(4rem, 15vw, 6rem); }
-            .error-title { font-size: 1.3rem; }
-            .error-text { font-size: 0.85rem; }
-            .btn-group { flex-direction: column; gap: 0.6rem; }
-            .btn { width: 100%; justify-content: center; }
-            .suggestions { gap: 0.3rem; }
-            .suggestions a { font-size: 0.7rem; padding: 0.2rem 0.6rem; }
-            .pathway-item { flex-direction: column; align-items: center; text-align: center; gap: 0.3rem; }
+        /* ===== افکت نورانی ===== */
+        .glow{
+            position:absolute;
+            top:-50%;
+            left:-50%;
+            width:200%;
+            height:200%;
+            background:radial-gradient(circle at center, rgba(var(--nova-r),0.06) 0%, transparent 70%);
+            pointer-events:none;
+            animation:orbit 20s linear infinite;
+        }
+        @keyframes orbit{
+            0%{transform:rotate(0deg) scale(1)}
+            50%{transform:rotate(180deg) scale(1.1)}
+            100%{transform:rotate(360deg) scale(1)}
         }
 
-        @container error (max-width: 380px) {
-            .error-card { padding: 1rem; }
-            .error-number { font-size: 3.5rem; }
-            .error-title { font-size: 1.1rem; }
-            .error-text { font-size: 0.75rem; }
-            .btn { font-size: 0.75rem; padding: 0.5rem 1rem; }
-            .stats-item { font-size: 0.6rem; }
+        /* ===== آواتار ===== */
+        .avatar{
+            position:relative;
+            width:clamp(80px,20vw,140px);
+            height:clamp(80px,20vw,140px);
+            margin:0 auto 0.5rem;
+            animation:float 6s ease-in-out infinite;
+        }
+        @keyframes float{
+            0%,100%{transform:translateY(0px)}
+            50%{transform:translateY(-12px)}
+        }
+        .avatar-ring{
+            position:absolute;
+            inset:-4px;
+            border-radius:50%;
+            background:var(--shim);
+            opacity:0.2;
+            animation:pulse-ring 3s ease-in-out infinite;
+        }
+        @keyframes pulse-ring{
+            0%,100%{transform:scale(1);opacity:0.2}
+            50%{transform:scale(1.08);opacity:0.4}
+        }
+        .avatar-circle{
+            width:100%;height:100%;
+            border-radius:50%;
+            background:linear-gradient(135deg, rgba(var(--nova-r),0.2), rgba(var(--pink-r),0.1));
+            border:2px solid rgba(var(--nova-r),0.3);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:clamp(2.5rem,8vw,4.5rem);
+            position:relative;
+            z-index:1;
+            backdrop-filter:blur(10px);
+        }
+        .avatar-dot{
+            position:absolute;
+            bottom:4px;
+            right:4px;
+            width:16px;height:16px;
+            border-radius:50%;
+            background:var(--nova);
+            border:2px solid var(--bg);
+            box-shadow:0 0 20px rgba(var(--nova-r),0.6);
+            z-index:2;
+            animation:blink 2.5s ease-in-out infinite;
+        }
+        @keyframes blink{
+            0%,100%{opacity:1;transform:scale(1)}
+            50%{opacity:0.3;transform:scale(0.85)}
         }
 
-        @container error (min-width: 700px) {
-            .error-card { padding: 3rem; }
-            .error-number { font-size: 8rem; }
-            .error-title { font-size: 2rem; }
+        /* ===== عدد ۴۰۴ ===== */
+        .code{
+            font-size:clamp(4.5rem,15vw,8rem);
+            font-weight:800;
+            line-height:1;
+            background:var(--shim);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            letter-spacing:-0.03em;
+            animation:glow-text 3s ease-in-out infinite;
+        }
+        @keyframes glow-text{
+            0%,100%{filter:drop-shadow(0 0 20px rgba(var(--nova-r),0.2))}
+            50%{filter:drop-shadow(0 0 40px rgba(var(--nova-r),0.4))}
         }
 
-        /* ===== عناصر صفحه ===== */
-        .error-emoji {
-            font-size: clamp(3rem, 8vw, 4.5rem);
-            display: block;
-            margin-bottom: 0.5rem;
-            animation: float 6s ease-in-out infinite;
-            filter: drop-shadow(0 4px 20px rgba(var(--nova-r), 0.2));
+        /* ===== عنوان ===== */
+        .title{
+            font-size:clamp(1rem,3vw,1.4rem);
+            font-weight:700;
+            margin:0.3rem 0 0.8rem;
+            color:var(--w);
+        }
+        .title span{
+            background:var(--shim);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
         }
 
-        .error-number {
-            font-size: clamp(5rem, 12vw, 8rem);
-            font-weight: 800;
-            background: var(--shim);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1;
-            margin-bottom: 0.2rem;
-            animation: pulse-glow 4s ease-in-out infinite;
-            display: inline-block;
-        }
-
-        .error-title {
-            font-size: clamp(1.5rem, 4vw, 2.4rem);
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: var(--w);
-        }
-
-        .error-title .highlight {
-            background: var(--shim);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .error-text {
-            color: var(--muted);
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            max-width: 450px;
-            margin: 0 auto 1.5rem;
-            line-height: 1.9;
-        }
-
-        .error-text .emoji {
-            display: inline-block;
-            animation: wiggle 2s ease-in-out infinite;
+        /* ===== پیام ===== */
+        .msg{
+            font-size:clamp(0.8rem,1.5vw,0.95rem);
+            color:var(--muted);
+            line-height:1.8;
+            max-width:380px;
+            margin:0 auto 1.5rem;
+            opacity:0.7;
         }
 
         /* ===== دکمه‌ها ===== */
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 1.5rem 0;
+        .actions{
+            display:flex;
+            gap:0.6rem;
+            flex-wrap:wrap;
+            justify-content:center;
+            margin-bottom:1.2rem;
+        }
+        .btn{
+            display:inline-flex;
+            align-items:center;
+            gap:0.4rem;
+            padding:0.6rem 1.4rem;
+            border-radius:50px;
+            font-weight:700;
+            font-size:clamp(0.75rem,1.2vw,0.85rem);
+            text-decoration:none;
+            transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+            border:none;
+            cursor:pointer;
+            font-family:inherit;
+            position:relative;
+            overflow:hidden;
+        }
+        .btn-primary{
+            background:var(--shim);
+            color:var(--w);
+            box-shadow:0 4px 20px rgba(var(--nova-r),0.3);
+        }
+        .btn-primary:hover{
+            transform:translateY(-2px);
+            box-shadow:0 8px 30px rgba(var(--nova-r),0.4);
+        }
+        .btn-secondary{
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.1);
+            color:var(--muted);
+        }
+        .btn-secondary:hover{
+            background:rgba(var(--nova-r),0.1);
+            border-color:rgba(var(--nova-r),0.3);
+            color:var(--w);
+        }
+        .btn svg{
+            width:16px;height:16px;
+            stroke:currentColor;
+            fill:none;stroke-width:2.5;
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.7rem 1.6rem;
-            border-radius: var(--r-sm);
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all var(--norm);
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-            position: relative;
-            overflow: hidden;
+        /* ===== اثر اجتماعی (Social Proof) ===== */
+        .social{
+            display:flex;
+            gap:1.5rem;
+            justify-content:center;
+            flex-wrap:wrap;
+            padding-top:0.8rem;
+            border-top:1px solid rgba(255,255,255,0.06);
+        }
+        .social-item{
+            display:flex;
+            align-items:center;
+            gap:0.3rem;
+            font-size:clamp(0.6rem,1vw,0.7rem);
+            color:var(--muted);
+            opacity:0.5;
+        }
+        .social-item .num{
+            font-weight:700;
+            color:var(--nova);
+            font-size:clamp(0.7rem,1.1vw,0.8rem);
+        }
+        .social-item .icon{font-size:0.9rem;}
+
+        /* ===== ریسپانسیو با Container Queries ===== */
+        @container error (max-width: 420px){
+            .card{padding:1.5rem 1rem;border-radius:24px}
+            .actions{flex-direction:column;gap:0.4rem}
+            .btn{width:100%;justify-content:center}
+            .social{gap:0.8rem}
+            .social-item{font-size:0.55rem}
+            .avatar{width:70px;height:70px}
+            .avatar-circle{font-size:2rem}
+            .avatar-dot{width:12px;height:12px;bottom:2px;right:2px}
+        }
+        @container error (max-width: 340px){
+            .card{padding:1rem 0.8rem;border-radius:18px}
+            .code{font-size:3.5rem}
+            .title{font-size:0.85rem}
+            .msg{font-size:0.7rem}
+            .social{gap:0.5rem;flex-wrap:wrap}
+            .social-item{font-size:0.5rem}
         }
 
-        .btn-primary {
-            background: var(--shim);
-            color: var(--w);
-            border: 1px solid rgba(255,255,255,0.22);
-            box-shadow: 0 4px 6px rgba(var(--nova-r),0.25);
+        /* ===== لینک‌های سریع ===== */
+        .quick-links{
+            display:flex;
+            gap:0.4rem;
+            flex-wrap:wrap;
+            justify-content:center;
+            margin-top:0.5rem;
         }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 10px rgba(var(--nova-r),0.3);
+        .quick-links a{
+            color:var(--muted);
+            text-decoration:none;
+            font-size:clamp(0.6rem,0.9vw,0.7rem);
+            padding:0.2rem 0.6rem;
+            border-radius:50px;
+            border:1px solid rgba(255,255,255,0.04);
+            transition:all 0.3s;
+            opacity:0.4;
         }
-
-        .btn-secondary {
-            background: var(--clay);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--clay-b);
-            color: var(--w);
-            box-shadow: var(--clay-sh);
-        }
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            background: rgba(var(--nova-r),0.12);
-            border-color: rgba(var(--nova-r),0.4);
-        }
-
-        .btn svg {
-            width: 18px;
-            height: 18px;
-            stroke: currentColor;
-            stroke-width: 2.5;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            flex-shrink: 0;
+        .quick-links a:hover{
+            opacity:1;
+            border-color:rgba(var(--nova-r),0.2);
+            color:var(--w);
         }
 
-        /* ===== پیشنهادات مسیر ===== */
-        .pathway-section {
-            margin: 1.5rem 0 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--clay-b);
+        /* ===== تغییر تم ===== */
+        .theme-toggle{
+            position:fixed;
+            top:1rem;
+            right:1rem;
+            z-index:10;
+            background:rgba(255,255,255,0.04);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:50%;
+            width:38px;height:38px;
+            color:var(--muted);
+            font-size:1rem;
+            cursor:pointer;
+            backdrop-filter:blur(12px);
+            transition:all 0.3s;
+            font-family:inherit;
+        }
+        .theme-toggle:hover{
+            background:rgba(var(--nova-r),0.1);
+            border-color:rgba(var(--nova-r),0.3);
+            color:var(--w);
         }
 
-        .pathway-title {
-            font-size: 0.85rem;
-            color: var(--muted);
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            letter-spacing: 0.05em;
+        /* ===== Dark/Light ===== */
+        [data-theme="light"]{
+            --bg:#F1F5F9;
+            --w:#0A0A0F;
+            --muted:#64748B;
         }
-
-        .pathway-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
+        [data-theme="light"] .card{
+            background:rgba(255,255,255,0.6);
+            border-color:rgba(0,0,0,0.06);
         }
-
-        .pathway-item {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.3rem 0.8rem;
-            border-radius: var(--r-full);
-            font-size: 0.8rem;
-            color: var(--muted);
-            text-decoration: none;
-            transition: all var(--fast);
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
+        [data-theme="light"] .btn-secondary{
+            background:rgba(0,0,0,0.04);
+            border-color:rgba(0,0,0,0.08);
         }
-
-        .pathway-item:hover {
-            background: rgba(var(--nova-r),0.12);
-            border-color: var(--nova);
-            color: var(--w);
-            transform: translateY(-2px);
+        [data-theme="light"] .btn-secondary:hover{
+            background:rgba(var(--nova-r),0.08);
         }
-
-        .pathway-item .icon {
-            font-size: 1rem;
-        }
-
-        .pathway-item .label {
-            font-weight: 500;
-        }
-
-        /* ===== آمار سرگرم‌کننده (اثر اجتماعی) ===== */
-        .social-proof {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 1rem 0 0;
-            padding-top: 0.8rem;
-            border-top: 1px solid var(--clay-b);
-        }
-
-        .stats-item {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.75rem;
-            color: var(--muted);
-        }
-
-        .stats-item .num {
-            font-weight: 700;
-            color: var(--sec);
-            font-size: 0.9rem;
-        }
-
-        .stats-item .icon {
-            font-size: 0.9rem;
-        }
-
-        /* ===== انیمیشن‌ها ===== */
-        @keyframes float {
-            0%,100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-
-        @keyframes pulse-glow {
-            0%,100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.02); }
-        }
-
-        @keyframes wiggle {
-            0%,100% { transform: rotate(0deg); }
-            25% { transform: rotate(-6deg); }
-            75% { transform: rotate(6deg); }
-        }
-
-        /* ===== فوتر کوچک ===== */
-        .footer-note {
-            margin-top: 1.5rem;
-            color: var(--muted);
-            font-size: 0.7rem;
-            opacity: 0.4;
-            transition: opacity var(--fast);
-        }
-
-        .footer-note:hover {
-            opacity: 0.8;
-        }
-
-        /* ===== دکمه تم (اختیاری) ===== */
-        .theme-toggle {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 100;
-            background: var(--clay);
-            border: 1px solid var(--clay-b);
-            border-radius: var(--r-full);
-            padding: 0.4rem 0.8rem;
-            color: var(--muted);
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all var(--fast);
-            backdrop-filter: blur(12px);
-            font-family: inherit;
-        }
-
-        .theme-toggle:hover {
-            background: rgba(var(--nova-r),0.12);
-            border-color: var(--nova);
-            color: var(--w);
-        }
-
-        /* ===== Responsive Fallback ===== */
-        @media (max-width: 480px) {
-            .btn-group { flex-direction: column; gap: 0.6rem; }
-            .btn { width: 100%; justify-content: center; }
-            .pathway-grid { gap: 0.3rem; }
-            .pathway-item { font-size: 0.7rem; padding: 0.2rem 0.6rem; }
-            .social-proof { gap: 0.8rem; }
-            .stats-item { font-size: 0.65rem; }
-            .error-emoji { font-size: 2.5rem; }
-        }
+        [data-theme="light"] .social-item{opacity:0.7}
+        [data-theme="light"] .avatar-dot{border-color:var(--bg)}
+        [data-theme="light"] .quick-links a{opacity:0.6}
     </style>
 </head>
 <body>
 
-    <!-- ===== پس‌زمینه ===== -->
-    <div class="aurora" aria-hidden="true"></div>
+    <!-- ===== پس‌زمینه فضایی ===== -->
+    <div class="space-bg" aria-hidden="true"></div>
+    <div class="stars" id="stars" aria-hidden="true"></div>
 
-    <!-- ===== دکمه تغییر تم (اختیاری) ===== -->
+    <!-- ===== دکمه تم ===== -->
     <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">🌓</button>
 
-    <!-- ===== کانتینر اصلی ===== -->
-    <div class="error-container">
-        <div class="error-card">
+    <!-- ===== کانتینر ===== -->
+    <div class="container">
+        <div class="card">
 
-            <!-- ===== اموجی سرگرم‌کننده ===== -->
-            <span class="error-emoji" aria-hidden="true">🚀</span>
+            <!-- ===== افکت نورانی ===== -->
+            <div class="glow" aria-hidden="true"></div>
 
-            <!-- ===== عدد ۴۰۴ با افکت ===== -->
-            <div class="error-number">۴۰۴</div>
+            <!-- ===== آواتار ===== -->
+            <div class="avatar">
+                <div class="avatar-ring"></div>
+                <div class="avatar-circle">
+                    🚀
+                </div>
+                <div class="avatar-dot"></div>
+            </div>
+
+            <!-- ===== عدد ۴۰۴ ===== -->
+            <div class="code">۴۰۴</div>
 
             <!-- ===== عنوان ===== -->
-            <h1 class="error-title">
-                انگار <span class="highlight">گم شدی</span>، هوم؟ 🌌
+            <h1 class="title">
+                <span>گم شدی</span>، رفیق؟
             </h1>
 
-            <!-- ===== توضیح دوستانه ===== -->
-            <p class="error-text">
-                صفحه‌ای که دنبالش بودی یا <strong>توی کهکشان نووا گم شده</strong>، یا شاید خودت <span class="emoji">🌀</span> یه مسیر جدید کشف کردی!
-                <br>
-                نگران نباش، اینجا هیچ‌کس تنها نیست. من <strong>نووا</strong> هستم، راهنمای تو در این دنیای دیجیتال.
+            <!-- ===== پیام ===== -->
+            <p class="msg">
+                انگار یه جای ناشناخته‌ای از <strong style="color:var(--nova)">کهکشان نووا</strong> رو کشف کردی.
+                <br>نگران نباش، من راهت رو پیدا می‌کنم.
             </p>
 
             <!-- ===== دکمه‌ها ===== -->
-            <div class="btn-group">
+            <div class="actions">
                 <a href="/" class="btn btn-primary">
                     <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                    برگردیم به خانه
+                    برگردیم
                 </a>
                 <a href="/features" class="btn btn-secondary">
                     <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    ببین چی داری
+                    ببین چیا داری
                 </a>
                 <a href="/download" class="btn btn-secondary">
                     <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    نووا رو دانلود کن
+                    دانلود
                 </a>
             </div>
 
-            <!-- ===== پیشنهادات مسیر ===== -->
-            <div class="pathway-section">
-                <div class="pathway-title">📍 شاید اینجا خوش‌بگذره:</div>
-                <div class="pathway-grid">
-                    <a href="/" class="pathway-item"><span class="icon">🏠</span><span class="label">خانه</span></a>
-                    <a href="/blog" class="pathway-item"><span class="icon">📝</span><span class="label">وبلاگ</span></a>
-                    <a href="/about" class="pathway-item"><span class="icon">ℹ️</span><span class="label">درباره ما</span></a>
-                    <a href="/contact" class="pathway-item"><span class="icon">💬</span><span class="label">تماس</span></a>
-                    <a href="/terms" class="pathway-item"><span class="icon">📋</span><span class="label">شرایط</span></a>
-                    <a href="/privacy" class="pathway-item"><span class="icon">🔐</span><span class="label">حریم خصوصی</span></a>
-                </div>
+            <!-- ===== لینک‌های سریع ===== -->
+            <div class="quick-links">
+                <a href="/">خانه</a>
+                <a href="/blog">وبلاگ</a>
+                <a href="/about">درباره</a>
+                <a href="/contact">تماس</a>
+                <a href="/terms">شرایط</a>
+                <a href="/privacy">حریم خصوصی</a>
             </div>
 
-            <!-- ===== اثر اجتماعی (Social Proof) ===== -->
-            <div class="social-proof">
-                <span class="stats-item">
+            <!-- ===== Social Proof ===== -->
+            <div class="social">
+                <span class="social-item">
                     <span class="icon">🧭</span>
-                    <span class="num" id="lostCount">۱۲,۸۴۷</span>
-                    <span>مسافر گم‌شده به خانه رسیدن</span>
+                    <span class="num" id="counter">۰</span>
+                    <span>مسافر برگشتن</span>
                 </span>
-                <span class="stats-item">
+                <span class="social-item">
                     <span class="icon">⭐</span>
                     <span class="num">۴.۹</span>
-                    <span>از ۵ ستاره</span>
+                    <span>از ۵</span>
                 </span>
-                <span class="stats-item">
+                <span class="social-item">
                     <span class="icon">🌍</span>
                     <span class="num">+۱۵۰</span>
                     <span>کشور</span>
                 </span>
             </div>
 
-            <!-- ===== پیام پایانی ===== -->
-            <div class="footer-note">
-                ✨ نووا همیشه منتظرته. تو هیچ‌وقت گم نیستی.
-            </div>
-
         </div>
     </div>
 
-    <!-- ===== اسکریپت‌ها ===== -->
     <script>
-        // ===== Theme Toggle =====
-        const themeToggle = document.getElementById('themeToggle');
-        const savedTheme = localStorage.getItem('nova-theme');
-        if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+        // ===== ستاره‌ها =====
+        (function createStars(){
+            const container = document.getElementById('stars');
+            for(let i=0; i<80; i++){
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random()*3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random()*100 + '%';
+                star.style.top = Math.random()*100 + '%';
+                star.style.setProperty('--duration', (Math.random()*3+2) + 's');
+                star.style.animationDelay = (Math.random()*5) + 's';
+                container.appendChild(star);
+            }
+        })();
 
-        themeToggle.addEventListener('click', () => {
+        // ===== شمارنده =====
+        (function counter(){
+            const el = document.getElementById('counter');
+            const target = 12847;
+            let current = 0;
+            const step = Math.ceil(target / 80);
+            const timer = setInterval(() => {
+                current += step;
+                if(current >= target){
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = current.toLocaleString('fa-IR');
+            }, 30);
+        })();
+
+        // ===== تم =====
+        const toggle = document.getElementById('themeToggle');
+        const saved = localStorage.getItem('nova-theme');
+        if(saved) document.documentElement.setAttribute('data-theme', saved);
+
+        toggle.addEventListener('click', () => {
             const current = document.documentElement.getAttribute('data-theme');
             const next = current === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('nova-theme', next);
-            themeToggle.textContent = next === 'light' ? '🌙' : '🌓';
+            toggle.textContent = next === 'light' ? '🌙' : '🌓';
         });
 
-        // ===== شمارنده متحرک (اثر اجتماعی پویا) =====
-        document.addEventListener('DOMContentLoaded', function() {
-            const el = document.getElementById('lostCount');
-            if (el) {
-                const target = 12847;
-                const duration = 2000;
-                const startTime = performance.now();
-
-                function updateCounter(currentTime) {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const current = Math.floor(progress * target);
-                    el.textContent = current.toLocaleString('fa-IR');
-                    if (progress < 1) {
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        el.textContent = target.toLocaleString('fa-IR');
-                    }
-                }
-                requestAnimationFrame(updateCounter);
-            }
-        });
-
-        // ===== پارالاکس ملایم =====
-        document.addEventListener('mousemove', function(e) {
-            const card = document.querySelector('.error-card');
-            if (!card) return;
+        // ===== پارالاکس =====
+        document.addEventListener('mousemove', (e) => {
+            const card = document.querySelector('.card');
+            if(!card) return;
             const rect = card.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width;
-            const y = (e.clientY - rect.top) / rect.height;
-            const rotateX = (y - 0.5) * 4;
-            const rotateY = (x - 0.5) * 4;
-            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform =
+                `perspective(600px) rotateY(${x*3}deg) rotateX(${-y*3}deg)`;
         });
-
-        document.addEventListener('mouseleave', function() {
-            const card = document.querySelector('.error-card');
-            if (card) {
-                card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)';
-                card.style.transition = 'transform 0.6s cubic-bezier(0.4,0,0.2,1)';
-                setTimeout(() => { card.style.transition = ''; }, 600);
-            }
+        document.addEventListener('mouseleave', () => {
+            document.querySelector('.card').style.transform =
+                'perspective(600px) rotateY(0deg) rotateX(0deg)';
+            document.querySelector('.card').style.transition = 'transform 0.5s';
+            setTimeout(() => document.querySelector('.card').style.transition = '', 500);
         });
     </script>
 </body>
