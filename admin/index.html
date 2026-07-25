@@ -52,6 +52,21 @@
             margin-top: 1rem;
         }
     </style>
+    <script>
+// ===== محافظت با رمز عبور =====
+(function() {
+    const password = prompt('لطفاً رمز عبور را وارد کنید:');
+    if (password !== 'NOVA2025') {
+        document.body.innerHTML = `
+            <div style="text-align:center;padding:4rem;color:#EF4444;">
+                <h1>⛔ دسترسی غیرمجاز</h1>
+                <p>شما اجازه دسترسی به این صفحه را ندارید.</p>
+            </div>
+        `;
+        throw new Error('Unauthorized');
+    }
+})();
+</script>
 </head>
 <body>
     <div class="login-box">
