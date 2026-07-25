@@ -6,8 +6,9 @@ backend:
   name: github
   repo: amoraklm/nova
   branch: main
-  auth_scope: repo
-  app_id: Ov23liq60DQHqiw4f5qJ
+  # بعد از راه‌اندازی Cloudflare Worker این خط را پر کنید:
+  # base_url: https://nova-auth.YOUR-SUBDOMAIN.workers.dev
+  # یا اگر دامنه سفارشی دارید: https://auth.chatnova.ir
 
 media_folder: "assets/blog-images"
 public_folder: "/assets/blog-images"
