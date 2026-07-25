@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">در حال بارگذاری مقاله... | وبلاگ نووا</title>
+    <meta name="description" id="pageDesc" content="مقاله‌ای از وبلاگ نووا درباره امنیت دیجیتال، کیف پول رمزارز و هوش مصنوعی.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" id="pageCanonical" href="https://chatnova.ir/post">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="نووا - NOVA">
+    <meta property="og:title" id="ogTitle" content="وبلاگ نووا">
+    <meta property="og:description" id="ogDesc" content="مقاله‌ای از وبلاگ نووا">
+    <meta property="og:url" id="ogUrl" content="https://chatnova.ir/post">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="article:published_time" id="articleTime" content="">
+    <meta property="article:author" content="تیم نووا">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="twTitle" content="وبلاگ نووا">
+    <meta name="twitter:description" id="twDesc" content="مقاله‌ای از وبلاگ نووا">
+    <link rel="preload" href="/fonts/IRANSansXFaNum-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <style>
+        @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-Light.woff2') format('woff2');font-weight:300;font-display:swap}
+        @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+        @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-DemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+        @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+        @font-face{font-family:'IRANSansXFaNum';src:url('/fonts/IRANSansXFaNum-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+        
+        :root{
+            --nova:#7C3AED;--nova-r:124,58,237;--sec:#A855F7;--sec-r:168,85,247;
+            --tri:#6366F1;--tri-r:99,102,241;--pink:#EC4899;--pink-r:236,72,153;
+            --gold:#F59E0B;--gold-r:245,158,11;--green:#10B981;--green-r:16,185,129;
+            --red:#EF4444;--bg:#0A0A0F;--surf:#1E1B2E;--muted:#94A3B8;--w:#FFFFFF;
+            --shim:linear-gradient(135deg,var(--nova),var(--pink),var(--tri));
+            --clay:rgba(255,255,255,0.07);--clay-b:rgba(255,255,255,0.12);
+            --clay-sh:12px 12px 24px rgba(0,0,0,0.55),-8px -8px 20px rgba(255,255,255,0.04),inset 0 2px 1px rgba(255,255,255,0.12),inset 0 -2px 1px rgba(0,0,0,0.25);
+            --clay-sh-h:16px 16px 32px rgba(0,0,0,0.65),-10px -10px 24px rgba(255,255,255,0.06),inset 0 2px 1px rgba(255,255,255,0.16),inset 0 -2px 1px rgba(0,0,0,0.3);
+            --btn-sh:0 4px 6px rgba(var(--nova-r),0.25),0 8px 15px rgba(var(--nova-r),0.2);
+            --ease:cubic-bezier(0.4,0,0.2,1);--fast:250ms var(--ease);--norm:350ms var(--ease);
+            --r:24px;--r-sm:16px;--r-xs:12px;--r-full:9999px;--max:1200px;--pad:clamp(1rem,5vw,2.5rem);--header-h:64px;
+            --content-max:780px;
+        }
+        [data-theme="light"]{
+            --bg:#F1F5F9;--surf:#FFFFFF;--w:#0A0A0F;--muted:#475569;
+            --clay:rgba(0,0,0,0.05);--clay-b:rgba(0,0,0,0.10);
+            --clay-sh:12px 12px 24px rgba(0,0,0,0.08),-8px -8px 20px rgba(255,255,255,0.6),inset 0 2px 1px rgba(255,255,255,0.6),inset 0 -2px 1px rgba(0,0,0,0.05);
+            --clay-sh-h:16px 16px 32px rgba(0,0,0,0.12),-10px -10px 24px rgba(255,255,255,0.8),inset 0 2px 1px rgba(255,255,255,0.7),inset 0 -2px 1px rgba(0,0,0,0.08);
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;font-size:16px;scroll-padding-top:calc(var(--header-h) + 2rem)}
+        body{font-family:'IRANSansXFaNum','Inter',system-ui,sans-serif;background:var(--bg);color:var(--w);line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background var(--norm),color var(--norm)}
+        
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+        @keyframes progress{from{width:0}to{width:100%}}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        
+        .aurora{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 15% 15%,rgba(var(--nova-r),.12) 0%,transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(var(--pink-r),.08) 0%,transparent 55%);filter:blur(55px)}
+        .scroll-bar{position:fixed;top:0;left:0;height:4px;z-index:1000;background:var(--shim);transition:width 100ms linear}
+        
+        .header{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--header-h)}
+        .header::before{content:'';position:absolute;inset:0;background:rgba(10,10,15,.55);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.06)}
+        [data-theme="light"] .header::before{background:rgba(241,245,249,.7);border-bottom-color:rgba(0,0,0,.06)}
+        .header.stuck::before{background:rgba(10,10,15,.82)}
+        .hdr{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 var(--pad);height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+        .logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+        .logo-icon{width:32px;height:32px;filter:drop-shadow(0 2px 8px rgba(var(--nova-r),.45))}
+        .logo-text{font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,var(--w) 30%,var(--sec));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .nav-desktop{display:flex;align-items:center;gap:.15rem;margin-right:auto}
+        .nav-link{color:var(--muted);text-decoration:none;padding:.45rem .75rem;border-radius:var(--r-xs);font-size:.84rem;font-weight:500;transition:color var(--fast)}
+        .nav-link:hover,.nav-link[aria-current="page"]{color:var(--w)}
+        .header-actions-desktop{display:flex;align-items:center;gap:.5rem}
+        .action-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);cursor:pointer;transition:all var(--fast)}
+        .action-btn:hover{background:rgba(255,255,255,.1);color:var(--w)}
+        .action-btn svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;fill:none}
+        .header-cta{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1.1rem;border-radius:50px;font-weight:700;font-size:.8rem;text-decoration:none;color:var(--w);background:var(--shim);border:1px solid rgba(255,255,255,.2);transition:transform var(--fast)}
+        .header-cta:hover{transform:translateY(-2px)}
+        .lang-select{background:transparent;border:1px solid rgba(255,255,255,.1);color:var(--muted);padding:.3rem .6rem;border-radius:var(--r-xs);font-family:inherit;font-size:.8rem;cursor:pointer}
+        .mob-toggle{display:none;flex-direction:column;justify-content:center;align-items:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);cursor:pointer;gap:4px}
+        .mob-toggle span{display:block;width:16px;height:2px;background:var(--w);border-radius:2px}
+
+        .main{max-width:var(--max);margin:0 auto;padding:0 var(--pad);position:relative;z-index:10}
+        .grad{background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        
+        /* Article Hero */
+        .article-hero{padding:clamp(7rem,15vw,10rem) 0 2rem;text-align:center;position:relative}
+        .article-hero-content{position:relative;z-index:2;max-width:var(--content-max);margin:0 auto}
+        .stag{display:inline-flex;align-items:center;gap:.3rem;background:rgba(var(--nova-r),.1);border:1px solid rgba(var(--nova-r),.25);color:var(--sec);padding:.25rem .8rem;border-radius:var(--r-full);font-size:.75rem;font-weight:600;margin-bottom:1rem}
+        .stag .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:float 2s ease-in-out infinite}
+        .breadcrumb{display:flex;align-items:center;gap:.4rem;padding:1rem 0;font-size:.82rem;color:var(--muted);justify-content:center;flex-wrap:wrap}
+        .breadcrumb a{color:var(--sec);text-decoration:none;transition:color var(--fast)}
+        .breadcrumb a:hover{color:var(--nova)}
+        .breadcrumb .sep{opacity:.5}
+        
+        .article-category{display:inline-block;background:rgba(var(--nova-r),.12);border:1px solid rgba(var(--nova-r),.25);color:var(--sec);padding:.3rem .9rem;border-radius:var(--r-full);font-size:.78rem;font-weight:700;margin-bottom:1.2rem}
+        .article-title{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;line-height:1.3;margin-bottom:1.2rem;animation:fadeIn .6s ease}
+        .article-excerpt{color:var(--muted);font-size:clamp(1rem,2vw,1.15rem);line-height:1.8;margin-bottom:2rem;animation:fadeIn .8s ease}
+        
+        .article-meta{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;padding:1.2rem;background:var(--clay);border:1px solid var(--clay-b);border-radius:var(--r);backdrop-filter:blur(10px);animation:fadeIn 1s ease}
+        .meta-item{display:flex;align-items:center;gap:.4rem;font-size:.85rem;color:var(--muted)}
+        .meta-item svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
+        .meta-item strong{color:var(--w);font-weight:600}
+        .meta-divider{width:1px;height:20px;background:var(--clay-b)}
+        
+        /* Article Layout */
+        .article-layout{display:grid;grid-template-columns:1fr 280px;gap:3rem;margin:3rem 0 4rem;align-items:start}
+        
+        /* Article Content */
+        .article-content{background:var(--clay);border:1px solid var(--clay-b);border-radius:var(--r);box-shadow:var(--clay-sh);padding:clamp(1.5rem,4vw,3rem);backdrop-filter:blur(10px);animation:fadeIn .8s ease}
+        
+        /* Typography */
+        .article-body{font-size:1.02rem;line-height:2;color:var(--w)}
+        .article-body h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;margin:2.5rem 0 1rem;line-height:1.3}
+        .article-body h2{font-size:clamp(1.4rem,3.5vw,1.8rem);font-weight:800;margin:2.5rem 0 1rem;line-height:1.4;padding-bottom:.5rem;border-bottom:1px solid var(--clay-b);scroll-margin-top:calc(var(--header-h) + 1.5rem)}
+        .article-body h3{font-size:clamp(1.15rem,3vw,1.4rem);font-weight:700;margin:2rem 0 .8rem;line-height:1.4;scroll-margin-top:calc(var(--header-h) + 1.5rem)}
+        .article-body h4{font-size:1.1rem;font-weight:700;margin:1.5rem 0 .6rem}
+        .article-body p{margin-bottom:1.2rem}
+        .article-body a{color:var(--sec);text-decoration:underline;text-decoration-color:rgba(var(--sec-r),.3);text-underline-offset:3px;transition:all var(--fast)}
+        .article-body a:hover{color:var(--nova);text-decoration-color:var(--nova)}
+        .article-body strong{color:var(--w);font-weight:700}
+        .article-body em{font-style:italic;color:var(--sec)}
+        .article-body ul,.article-body ol{margin:1rem 1.5rem 1.2rem;padding-right:1rem}
+        .article-body li{margin-bottom:.5rem}
+        .article-body li::marker{color:var(--sec)}
+        .article-body blockquote{margin:1.5rem 0;padding:1rem 1.5rem;background:rgba(var(--nova-r),.06);border-right:4px solid var(--nova);border-radius:var(--r-sm);color:var(--muted);font-style:italic}
+        .article-body blockquote p{margin-bottom:.5rem}
+        .article-body blockquote p:last-child{margin-bottom:0}
+        .article-body code{background:rgba(var(--nova-r),.12);color:var(--sec);padding:.15rem .45rem;border-radius:6px;font-family:'Fira Code','Courier New',monospace;font-size:.88em;direction:ltr;unicode-bidi:embed}
+        .article-body pre{margin:1.5rem 0;padding:1.2rem 1.5rem;background:rgba(0,0,0,.4);border:1px solid var(--clay-b);border-radius:var(--r-sm);overflow-x:auto;direction:ltr;text-align:left}
+        [data-theme="light"] .article-body pre{background:rgba(0,0,0,.04)}
+        .article-body pre code{background:transparent;color:var(--w);padding:0;font-size:.85rem;line-height:1.7}
+        .article-body img{max-width:100%;height:auto;border-radius:var(--r-sm);margin:1.5rem 0;border:1px solid var(--clay-b)}
+        .article-body table{width:100%;margin:1.5rem 0;border-collapse:collapse;border:1px solid var(--clay-b);border-radius:var(--r-sm);overflow:hidden}
+        .article-body th,.article-body td{padding:.7rem 1rem;border:1px solid var(--clay-b);text-align:right}
+        .article-body th{background:rgba(var(--nova-r),.08);font-weight:700;color:var(--w)}
+        .article-body hr{margin:2rem 0;border:none;border-top:1px solid var(--clay-b)}
+        .article-body .info-box{margin:1.5rem 0;padding:1rem 1.2rem;background:rgba(var(--green-r),.08);border-right:3px solid var(--green);border-radius:var(--r-sm)}
+        .article-body .warning-box{margin:1.5rem 0;padding:1rem 1.2rem;background:rgba(var(--gold-r),.08);border-right:3px solid var(--gold);border-radius:var(--r-sm)}
+        
+        /* Share Bar */
+        .share-bar{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--clay-b)}
+        .share-bar-label{font-size:.85rem;font-weight:600;color:var(--muted)}
+        .share-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .9rem;border-radius:var(--r-full);background:rgba(255,255,255,.04);border:1px solid var(--clay-b);color:var(--muted);font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;font-family:inherit;transition:all var(--fast)}
+        .share-btn:hover{background:rgba(var(--nova-r),.12);border-color:var(--nova);color:var(--w)}
+        .share-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
+        
+        /* Tags */
+        .article-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem}
+        .article-tag{background:rgba(255,255,255,.04);border:1px solid var(--clay-b);border-radius:var(--r-full);padding:.2rem .7rem;font-size:.75rem;color:var(--muted);text-decoration:none;transition:all var(--fast)}
+        .article-tag:hover{background:rgba(var(--nova-r),.12);border-color:var(--nova);color:var(--w)}
+        
+        /* Author Box */
+        .author-box{margin-top:2.5rem;padding:1.5rem;background:var(--clay);border:1px solid var(--clay-b);border-radius:var(--r);display:flex;gap:1rem;align-items:center}
+        .author-avatar-lg{width:60px;height:60px;border-radius:50%;background:var(--shim);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+        .author-info h4{font-size:1rem;font-weight:700;margin-bottom:.2rem}
+        .author-info p{font-size:.85rem;color:var(--muted);line-height:1.6}
+        
+        /* Sidebar */
+        .article-sidebar{position:sticky;top:calc(var(--header-h) + 1.5rem);display:flex;flex-direction:column;gap:1.5rem}
+        .sidebar-widget{background:var(--clay);border:1px solid var(--clay-b);border-radius:var(--r);box-shadow:var(--clay-sh);padding:1.2rem;backdrop-filter:blur(10px)}
+        .widget-title{font-size:.9rem;font-weight:700;margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:1px solid var(--clay-b);display:flex;align-items:center;gap:.4rem}
+        
+        /* TOC */
+        .toc-list{list-style:none;display:flex;flex-direction:column;gap:.3rem;max-height:300px;overflow-y:auto;padding-left:.5rem}
+        .toc-list::-webkit-scrollbar{width:4px}
+        .toc-list::-webkit-scrollbar-thumb{background:var(--clay-b);border-radius:2px}
+        .toc-item{font-size:.78rem;color:var(--muted);text-decoration:none;padding:.3rem .5rem;border-radius:var(--r-xs);border-right:2px solid transparent;transition:all var(--fast);line-height:1.5}
+        .toc-item:hover,.toc-item.active{color:var(--w);background:rgba(var(--nova-r),.08);border-right-color:var(--nova)}
+        .toc-item.h3{padding-right:1.2rem;font-size:.74rem}
+        
+        /* Related Posts */
+        .related-list{display:flex;flex-direction:column;gap:.7rem}
+        .related-item{display:flex;gap:.6rem;padding:.5rem;border-radius:var(--r-sm);text-decoration:none;transition:background var(--fast)}
+        .related-item:hover{background:rgba(var(--nova-r),.06)}
+        .related-icon{width:36px;height:36px;border-radius:var(--r-xs);background:rgba(var(--nova-r),.1);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+        .related-info h5{font-size:.8rem;font-weight:600;color:var(--w);line-height:1.4;margin-bottom:.15rem}
+        .related-info span{font-size:.68rem;color:var(--muted)}
+        
+        /* Back to Blog */
+        .back-btn{display:inline-flex;align-items:center;gap:.4rem;color:var(--sec);text-decoration:none;font-weight:600;font-size:.88rem;margin-bottom:1rem;transition:color var(--fast)}
+        .back-btn:hover{color:var(--nova)}
+        .back-btn svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
+        
+        /* CTA */
+        .blog-cta{background:rgba(var(--nova-r),0.06);border:1.5px solid rgba(var(--nova-r),0.18);border-radius:var(--r);padding:clamp(2rem,5vw,3rem);text-align:center;margin:3rem 0;backdrop-filter:blur(10px)}
+        .blog-cta h2{font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:800;margin-bottom:.6rem}
+        .blog-cta p{color:var(--muted);font-size:.9rem;margin-bottom:1.5rem}
+        
+        /* Loading & Error States */
+        .loading-state{text-align:center;padding:4rem 1rem;color:var(--muted)}
+        .loading-spinner{width:40px;height:40px;border:3px solid var(--clay-b);border-top-color:var(--nova);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 1rem}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .error-state{text-align:center;padding:4rem 1rem;color:var(--muted)}
+        .error-state h2{color:var(--w);margin-bottom:1rem;font-size:1.5rem}
+        
+        /* Footer */
+        .footer{background:var(--bg);border-top:1px solid rgba(255,255,255,0.06);padding:2.5rem var(--pad) 1.5rem;margin-top:2rem}
+        .footer-container{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.05)}
+        .footer-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,var(--w) 30%,var(--sec));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .footer-description{color:var(--muted);font-size:.84rem;line-height:1.8;max-width:280px;margin-top:.7rem}
+        .footer-heading{font-size:.88rem;font-weight:700;color:var(--w);margin-bottom:.5rem}
+        .footer-links ul{list-style:none}
+        .footer-links ul li a{color:var(--muted);text-decoration:none;font-size:.84rem;display:block;padding:.2rem 0;transition:color var(--fast)}
+        .footer-links ul li a:hover{color:var(--w)}
+        .footer-bottom{max-width:var(--max);margin:0 auto;padding-top:1rem;text-align:center}
+        .footer-copy{font-size:.78rem;color:var(--muted)}
+        .footer-slogan{font-size:.85rem;color:var(--sec);margin-top:.5rem;font-weight:600}
+        
+        .stt{position:fixed;bottom:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:var(--r-full);background:rgba(var(--nova-r),0.2);border:1.5px solid rgba(var(--nova-r),0.3);color:var(--w);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:all var(--norm);z-index:500;backdrop-filter:blur(10px)}
+        .stt.vis{opacity:1;visibility:visible}
+        .stt:hover{background:rgba(var(--nova-r),0.4);transform:translateY(-3px)}
+        
+        .ldr{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10000;transition:opacity .5s}
+        .ldr.gone{opacity:0;visibility:hidden;pointer-events:none}
+        .ldr-mk{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
+        .ldr-mk span{font-size:2.1rem;font-weight:800;background:var(--shim);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .ldr-tr{width:130px;height:4px;background:var(--surf);border-radius:var(--r-full);overflow:hidden}
+        .ldr-fl{height:100%;background:var(--shim);border-radius:var(--r-full);animation:progress 1.2s ease forwards}
+        
+        @media (max-width:1024px){
+            .article-layout{grid-template-columns:1fr}
+            .article-sidebar{position:static;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+        }
+        @media (max-width:900px){
+            .nav-desktop,.header-actions-desktop{display:none}
+            .mob-toggle{display:flex}
+        }
+        @media (max-width:768px){
+            .article-meta{flex-direction:column;gap:.8rem}
+            .meta-divider{display:none}
+            .footer-container{grid-template-columns:1fr 1fr}
+            .author-box{flex-direction:column;text-align:center}
+        }
+        @media (max-width:480px){
+            .footer-container{grid-template-columns:1fr}
+            .share-bar{justify-content:center}
+        }
+    </style>
+</head>
+<body>
+    <svg style="position:absolute;width:0;height:0" aria-hidden="true"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="50%" stop-color="#EC4899"/><stop offset="100%" stop-color="#6366F1"/></linearGradient></defs></svg>
+    
+    <div class="ldr" id="loader">
+        <div class="ldr-mk">
+            <svg viewBox="0 0 48 48" width="34" height="34" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/></svg>
+            <span>NOVA</span>
+        </div>
+        <div class="ldr-tr"><div class="ldr-fl"></div></div>
+    </div>
+
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="scroll-bar" id="scrollBar"></div>
+
+    <header class="header" id="header">
+        <div class="hdr">
+            <a href="https://chatnova.ir" class="logo">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none"><path d="M24 4L28 18L42 14L32 24L42 34L28 30L24 44L20 30L6 34L16 24L6 14L20 18Z" fill="url(#lg)"/><circle cx="24" cy="24" r="5" fill="white" opacity=".85"/></svg>
+                <span class="logo-text">NOVA</span>
+            </a>
+            <nav class="nav-desktop">
+                <a href="https://chatnova.ir" class="nav-link">صفحه اصلی</a>
+                <a href="https://chatnova.ir/features" class="nav-link">امکانات</a>
+                <a href="https://chatnova.ir/blog" class="nav-link">وبلاگ</a>
+                <a href="https://chatnova.ir/about" class="nav-link">درباره ما</a>
+                <a href="https://chatnova.ir/contact" class="nav-link">تماس</a>
+            </nav>
+            <div class="header-actions-desktop">
+                <button class="action-btn" id="themeToggle" aria-label="تغییر تم">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <select class="lang-select" aria-label="تغییر زبان">
+                    <option value="fa">🇮🇷 FA</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="tr">🇹🇷 TR</option>
+                </select>
+                <a href="https://chatnova.ir/download" class="header-cta">دانلود نووا</a>
+            </div>
+            <button class="mob-toggle" id="mobToggle" aria-label="منو">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="article-hero">
+            <div class="article-hero-content main">
+                <nav class="breadcrumb">
+                    <a href="https://chatnova.ir">خانه</a>
+                    <span class="sep">›</span>
+                    <a href="https://chatnova.ir/blog">وبلاگ</a>
+                    <span class="sep">›</span>
+                    <span id="breadcrumbTitle">در حال بارگذاری...</span>
+                </nav>
+                <div class="stag"><span class="dot"></span> مقاله آموزشی</div>
+                <span class="article-category" id="articleCategory">—</span>
+                <h1 class="article-title" id="articleTitle">در حال بارگذاری مقاله...</h1>
+                <p class="article-excerpt" id="articleExcerpt"></p>
+                <div class="article-meta" id="articleMeta">
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <strong id="metaAuthor">تیم نووا</strong>
+                    </div>
+                    <div class="meta-divider"></div>
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        <span id="metaDate">—</span>
+                    </div>
+                    <div class="meta-divider"></div>
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span id="metaReadTime">— دقیقه مطالعه</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="main article-layout">
+            <article class="article-content">
+                <a href="https://chatnova.ir/blog" class="back-btn">
+                    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                    بازگشت به وبلاگ
+                </a>
+                
+                <div id="articleLoading" class="loading-state">
+                    <div class="loading-spinner"></div>
+                    <p>در حال بارگذاری مقاله...</p>
+                </div>
+                
+                <div id="articleError" class="error-state" style="display:none">
+                    <h2>⚠️ مقاله یافت نشد</h2>
+                    <p>متأسفانه نتوانستیم این مقاله را بارگذاری کنیم.</p>
+                    <a href="https://chatnova.ir/blog" class="header-cta" style="margin-top:1rem;display:inline-flex">بازگشت به وبلاگ</a>
+                </div>
+                
+                <div class="article-body" id="articleBody" style="display:none"></div>
+                
+                <div class="article-tags" id="articleTags" style="display:none"></div>
+                
+                <div class="share-bar" id="shareBar" style="display:none">
+                    <span class="share-bar-label">اشتراک‌گذاری:</span>
+                    <button class="share-btn" id="shareTelegram">
+                        <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                        تلگرام
+                    </button>
+                    <button class="share-btn" id="shareTwitter">
+                        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                        توییتر
+                    </button>
+                    <button class="share-btn" id="shareCopy">
+                        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        کپی لینک
+                    </button>
+                </div>
+                
+                <div class="author-box" id="authorBox" style="display:none">
+                    <div class="author-avatar-lg">👤</div>
+                    <div class="author-info">
+                        <h4 id="authorName">تیم نووا</h4>
+                        <p>نویسنده و توسعه‌دهنده در نووا. علاقه‌مند به امنیت دیجیتال، هوش مصنوعی و فناوری‌های نوین.</p>
+                    </div>
+                </div>
+            </article>
+            
+            <aside class="article-sidebar">
+                <div class="sidebar-widget" id="tocWidget" style="display:none">
+                    <h3 class="widget-title">📑 فهرست مطالب</h3>
+                    <ul class="toc-list" id="tocList"></ul>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">📚 مقالات مرتبط</h3>
+                    <div class="related-list" id="relatedList">
+                        <p style="color:var(--muted);font-size:.8rem">در حال بارگذاری...</p>
+                    </div>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">🚀 دانلود نووا</h3>
+                    <p style="color:var(--muted);font-size:.82rem;line-height:1.7;margin-bottom:1rem">پیام‌رسان امن ایرانی با کیف پول دیجیتال و هوش مصنوعی.</p>
+                    <a href="https://chatnova.ir/download" class="header-cta" style="width:100%;justify-content:center">دانلود رایگان</a>
+                </div>
+            </aside>
+        </div>
+
+        <div class="main">
+            <section class="blog-cta">
+                <h2>هیچ مقاله‌ای را از دست ندهید! 🚀</h2>
+                <p>برای دریافت جدیدترین آموزش‌های امنیت و هوش مصنوعی، نووا را دانلود کنید.</p>
+                <a href="https://chatnova.ir/download" class="header-cta" style="font-size:1rem;padding:.7rem 1.5rem">دانلود رایگان نووا</a>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <a href="https://chatnova.ir" class="footer-logo">NOVA</a>
+                <p class="footer-description">نووا، پیام‌رسان امن ایرانی با کیف پول دیجیتال و هوش مصنوعی. ارتباطی امن، هوشمند و بدون مرز.</p>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-heading">محصول</h4>
+                <ul>
+                    <li><a href="/features">امکانات</a></li>
+                    <li><a href="/download">دانلود</a></li>
+                    <li><a href="/blog">وبلاگ</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-heading">شرکت</h4>
+                <ul>
+                    <li><a href="/about">درباره ما</a></li>
+                    <li><a href="/contact">تماس</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-heading">قوانین</h4>
+                <ul>
+                    <li><a href="/terms">شرایط استفاده</a></li>
+                    <li><a href="/privacy">حریم خصوصی</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">© ۲۰۲۶ <strong>NOVA</strong> — کلیه حقوق محفوظ است.</p>
+            <p class="footer-slogan">«نووا؛ جایی که پیام‌ها به نور تبدیل می‌شوند.»</p>
+            <img src="https://trustseal.enamad.ir/logo.aspx?id=727987&Code=dySGauJhA3zWVIMpAdM23qViPszOTcgq" alt="نماد اعتماد الکترونیکی" style="margin-top:1rem;height:60px;opacity:.8">
+        </div>
+    </footer>
+
+    <button class="stt" id="stt" aria-label="بازگشت به بالا">↑</button>
+
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <script>
+        // --- Theme & UI Logic ---
+        const savedTheme = localStorage.getItem('nova-theme');
+        if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        document.getElementById('themeToggle')?.addEventListener('click', () => {
+            const n = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', n);
+            localStorage.setItem('nova-theme', n);
+        });
+
+        const header = document.getElementById('header'), stt = document.getElementById('stt'), scrollBar = document.getElementById('scrollBar');
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            header?.classList.toggle('stuck', y > 40);
+            stt?.classList.toggle('vis', y > 400);
+            const h = document.documentElement.scrollHeight - window.innerHeight;
+            if (scrollBar && h > 0) scrollBar.style.width = (y / h * 100) + '%';
+            updateActiveTocItem();
+        }, { passive: true });
+
+        stt?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        window.addEventListener('load', () => setTimeout(() => document.getElementById('loader')?.classList.add('gone'), 700));
+
+        document.getElementById('mobToggle')?.addEventListener('click', () => {
+            alert('منوی موبایل در نسخه نهایی با انیمیشن اسلاید باز می‌شود.');
+        });
+
+        // --- Helpers ---
+        function parseFrontmatter(c) {
+            const m = {};
+            const x = c.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+            if (x) {
+                x[1].split('\n').forEach(l => {
+                    const i = l.indexOf(':');
+                    if (i > -1) {
+                        let k = l.slice(0, i).trim(), v = l.slice(i + 1).trim();
+                        if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1, -1);
+                        if (v === 'true') v = true;
+                        if (v === 'false') v = false;
+                        m[k] = v;
+                    }
+                });
+            }
+            return m;
+        }
+
+        function formatDate(s) {
+            if (!s) return 'تاریخ نامشخص';
+            const d = new Date(s);
+            return isNaN(d) ? s : d.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        function estimateReadTime(text) {
+            const words = text.trim().split(/\s+/).length;
+            const minutes = Math.max(1, Math.ceil(words / 200)); // ~200 words per minute for Persian
+            return minutes;
+        }
+
+        function getIcon(c) {
+            return { 'امنیت': '🔐', 'کیف پول': '💰', 'هوش مصنوعی': '🤖', 'آموزش': '📚', 'اخبار': '📰' }[c] || '📄';
+        }
+
+        function getSlugFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('slug') || '';
+        }
+
+        // --- Fallback Mock Post ---
+        const mockPost = {
+            title: "چرا رمزنگاری سرتاسری (E2EE) در پیام‌رسان‌ها حیاتی است؟",
+            date: "2026-07-20",
+            category: "امنیت",
+            author: "تیم نووا",
+            excerpt: "در این مقاله به زبان ساده بررسی می‌کنیم که رمزنگاری سرتاسری چطور از پیام‌های شما در برابر دسترسی اشخاص ثالث محافظت می‌کند و چرا نووا این استاندارد را رعایت می‌کند.",
+            tags: ["امنیت", "E2EE", "حریم خصوصی", "رمزنگاری"],
+            content: `
+# چرا رمزنگاری سرتاسری (E2EE) در پیام‌رسان‌ها حیاتی است؟
+
+در دنیای امروز که داده‌ها ارزشمندترین دارایی محسوب می‌شوند، حفاظت از حریم خصوصی دیگر یک انتخاب نیست، بلکه یک ضرورت است. رمزنگاری سرتاسری (End-to-End Encryption) یا به اختصار **E2EE**، یکی از مهم‌ترین فناوری‌هایی است که این حفاظت را ممکن می‌سازد.
+
+## رمزنگاری سرتاسری چیست؟
+
+رمزنگاری سرتاسری یک سیستم ارتباطی است که در آن پیام‌ها فقط توسط فرستنده و گیرنده قابل خواندن هستند. حتی شرکت ارائه‌دهنده سرویس (مثل نووا) نیز نمی‌تواند محتوای پیام‌ها را بخواند.
+
+> «حریم خصوصی حق شماست، نه امتیاز.» — تیم نووا
+
+## چگونه کار می‌کند؟
+
+وقتی شما پیامی را در نووا ارسال می‌کنید:
+
+1. پیام در دستگاه شما **رمزنگاری** می‌شود
+2. فقط کلید خصوصی گیرنده قادر به رمزگشایی آن است
+3. پیام رمزنگاری‌شده از سرورهای ما عبور می‌کند
+4. در دستگاه گیرنده **رمزگشایی** می‌شود
+
+### مزایای E2EE
+
+- **امنیت کامل**: هیچ شخص ثالثی قادر به خواندن پیام‌ها نیست
+- **محافظت در برابر هک**: حتی اگر سرور هک شود، پیام‌ها امن هستند
+- **حریم خصوصی**: حتی ما هم نمی‌توانیم پیام‌های شما را ببینیم
+
+## نووا چگونه از E2EE استفاده می‌کند؟
+
+در پیام‌رسان نووا، تمام چت‌های خصوصی به‌صورت پیش‌فرض با رمزنگاری سرتاسری محافظت می‌شوند. ما از پروتکل‌های استاندارد و به‌روز استفاده می‌کنیم تا بالاترین سطح امنیت را تضمین کنیم.
+
+\`\`\`
+// نمونه ساده از فرآیند رمزنگاری
+const encryptedMessage = encrypt(message, recipientPublicKey);
+sendToServer(encryptedMessage);
+\`\`\`
+
+## نتیجه‌گیری
+
+رمزنگاری سرتاسری آینده ارتباطات دیجیتال است. با انتخاب نووا، شما پیام‌هایتان را واقعاً خصوصی نگه می‌دارید.
+
+**همین الان نووا را دانلود کنید و تفاوت را احساس کنید.**
+`
+        };
+
+        let allPosts = [];
+        let currentPost = null;
+
+        // --- Main Load Function ---
+        async function loadArticle() {
+            const slug = getSlugFromUrl();
+            const loadingEl = document.getElementById('articleLoading');
+            const errorEl = document.getElementById('articleError');
+            const bodyEl = document.getElementById('articleBody');
+            
+            if (!slug) {
+                showError('آدرس مقاله نامعتبر است.');
+                return;
+            }
+
+            try {
+                // Try to fetch from GitHub
+                const res = await fetch(`https://api.github.com/repos/amoraklm/nova/contents/blog/${slug}.md`);
+                
+                if (!res.ok) {
+                    if (res.status === 404) {
+                        // Use fallback mock post for demo
+                        renderPost(mockPost, slug);
+                        return;
+                    }
+                    throw new Error('GitHub API Error: ' + res.status);
+                }
+                
+                const file = await res.json();
+                const text = await (await fetch(file.download_url)).text();
+                const meta = parseFrontmatter(text);
+                const content = text.replace(/^---[\s\S]*?---\s*/, '');
+                
+                const post = {
+                    title: meta.title || slug,
+                    date: meta.date || '',
+                    category: meta.category || 'آموزش',
+                    author: meta.author || 'تیم نووا',
+                    excerpt: meta.excerpt || '',
+                    tags: meta.tags ? String(meta.tags).split(',').map(x => x.trim()).filter(Boolean) : [],
+                    content: content
+                };
+                
+                renderPost(post, slug);
+                
+            } catch (err) {
+                console.warn('GitHub fetch failed, using fallback:', err);
+                renderPost(mockPost, slug);
+            }
+        }
+
+        function renderPost(post, slug) {
+            currentPost = post;
+            
+            // Update SEO meta tags
+            const fullUrl = `https://chatnova.ir/post.html?slug=${slug}`;
+            document.getElementById('pageTitle').textContent = `${post.title} | وبلاگ نووا`;
+            document.getElementById('pageDesc').content = post.excerpt || 'مقاله‌ای از وبلاگ نووا';
+            document.getElementById('pageCanonical').href = fullUrl;
+            document.getElementById('ogTitle').content = post.title;
+            document.getElementById('ogDesc').content = post.excerpt || '';
+            document.getElementById('ogUrl').content = fullUrl;
+            document.getElementById('twTitle').content = post.title;
+            document.getElementById('twDesc').content = post.excerpt || '';
+            if (post.date) document.getElementById('articleTime').content = new Date(post.date).toISOString();
+            
+            // Update hero
+            document.getElementById('breadcrumbTitle').textContent = post.title;
+            document.getElementById('articleCategory').textContent = post.category;
+            document.getElementById('articleTitle').textContent = post.title;
+            document.getElementById('articleExcerpt').textContent = post.excerpt || '';
+            document.getElementById('metaAuthor').textContent = post.author;
+            document.getElementById('metaDate').textContent = formatDate(post.date);
+            document.getElementById('metaReadTime').textContent = `${estimateReadTime(post.content)} دقیقه مطالعه`;
+            
+            // Render content
+            const bodyEl = document.getElementById('articleBody');
+            bodyEl.innerHTML = marked.parse(post.content);
+            
+            // Hide loading, show content
+            document.getElementById('articleLoading').style.display = 'none';
+            bodyEl.style.display = 'block';
+            
+            // Render tags
+            if (post.tags && post.tags.length) {
+                const tagsEl = document.getElementById('articleTags');
+                tagsEl.innerHTML = post.tags.map(t => `<a href="#" class="article-tag">#${t}</a>`).join('');
+                tagsEl.style.display = 'flex';
+            }
+            
+            // Show share bar & author box
+            document.getElementById('shareBar').style.display = 'flex';
+            document.getElementById('authorName').textContent = post.author;
+            document.getElementById('authorBox').style.display = 'flex';
+            
+            // Build TOC
+            buildTOC();
+            
+            // Load related posts
+            loadRelatedPosts(post.category, slug);
+            
+            // Setup share buttons
+            setupShareButtons(fullUrl, post.title);
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showError(msg) {
+            document.getElementById('articleLoading').style.display = 'none';
+            const err = document.getElementById('articleError');
+            err.querySelector('p').textContent = msg;
+            err.style.display = 'block';
+        }
+
+        function buildTOC() {
+            const body = document.getElementById('articleBody');
+            const headings = body.querySelectorAll('h2, h3');
+            if (headings.length < 2) return;
+            
+            const tocList = document.getElementById('tocList');
+            const tocItems = [];
+            
+            headings.forEach((h, i) => {
+                const id = `heading-${i}`;
+                h.id = id;
+                const level = h.tagName.toLowerCase();
+                const text = h.textContent;
+                tocItems.push(`<li><a href="#${id}" class="toc-item ${level}" data-target="${id}">${text}</a></li>`);
+            });
+            
+            tocList.innerHTML = tocItems.join('');
+            document.getElementById('tocWidget').style.display = 'block';
+            
+            // Smooth scroll for TOC links
+            tocList.querySelectorAll('.toc-item').forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    const target = document.getElementById(link.dataset.target);
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        }
+
+        function updateActiveTocItem() {
+            const headings = document.querySelectorAll('#articleBody h2, #articleBody h3');
+            const tocLinks = document.querySelectorAll('.toc-item');
+            if (!headings.length || !tocLinks.length) return;
+            
+            let current = '';
+            headings.forEach(h => {
+                const rect = h.getBoundingClientRect();
+                if (rect.top <= 100) current = h.id;
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.toggle('active', link.dataset.target === current);
+            });
+        }
+
+        async function loadRelatedPosts(category, currentSlug) {
+            const list = document.getElementById('relatedList');
+            
+            try {
+                const res = await fetch(`https://api.github.com/repos/amoraklm/nova/contents/blog`);
+                if (!res.ok) throw new Error('API error');
+                const files = await res.json();
+                
+                const posts = [];
+                for (const f of files) {
+                    if (f.type !== 'file' || !f.name.endsWith('.md')) continue;
+                    const slug = f.name.replace(/\.md$/, '');
+                    if (slug === currentSlug) continue;
+                    
+                    try {
+                        const text = await (await fetch(f.download_url)).text();
+                        const meta = parseFrontmatter(text);
+                        if (meta.published === false) continue;
+                        posts.push({
+                            title: meta.title || slug,
+                            category: meta.category || 'آموزش',
+                            slug: slug
+                        });
+                    } catch (e) {}
+                }
+                
+                // Prioritize same category
+                const related = posts
+                    .sort((a, b) => (b.category === category ? 1 : 0) - (a.category === category ? 1 : 0))
+                    .slice(0, 4);
+                
+                if (related.length === 0) {
+                    list.innerHTML = '<p style="color:var(--muted);font-size:.8rem">مقاله مرتبطی یافت نشد</p>';
+                    return;
+                }
+                
+                list.innerHTML = related.map(p => `
+                    <a href="?slug=${p.slug}" class="related-item">
+                        <div class="related-icon">${getIcon(p.category)}</div>
+                        <div class="related-info">
+                            <h5>${p.title}</h5>
+                            <span>${p.category}</span>
+                        </div>
+                    </a>
+                `).join('');
+                
+            } catch (err) {
+                console.warn('Related posts failed:', err);
+                list.innerHTML = '<p style="color:var(--muted);font-size:.8rem">در حال حاضر در دسترس نیست</p>';
+            }
+        }
+
+        function setupShareButtons(url, title) {
+            const encodedUrl = encodeURIComponent(url);
+            const encodedTitle = encodeURIComponent(title);
+            
+            document.getElementById('shareTelegram').addEventListener('click', () => {
+                window.open(`https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`, '_blank');
+            });
+            
+            document.getElementById('shareTwitter').addEventListener('click', () => {
+                window.open(`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`, '_blank');
+            });
+            
+            document.getElementById('shareCopy').addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(url);
+                    const btn = document.getElementById('shareCopy');
+                    const original = btn.innerHTML;
+                    btn.innerHTML = '✓ کپی شد!';
+                    setTimeout(() => btn.innerHTML = original, 2000);
+                } catch (err) {
+                    alert('لینک: ' + url);
+                }
+            });
+        }
+
+        // --- Initialize ---
+        document.addEventListener('DOMContentLoaded', loadArticle);
+    </script>
+</body>
+</html>
