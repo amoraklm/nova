@@ -7,7 +7,7 @@ backend:
   repo: amoraklm/chatnova.ir
   branch: main
   auth_scope: repo
-  app_id: Ov231iuszmKuws6gS4Ny
+  app_id: Ov23liq60DQHqiw4f5qJ
 
 media_folder: "assets/blog-images"
 public_folder: "/assets/blog-images"
